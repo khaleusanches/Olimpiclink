@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/activity_main_background"
-    tools:context=".ui.activity.register_userUserActivity">
+    tools:context=".ui.activity.register_UserActivity">
 
     <View
         android:id="@+id/activity_view_register_user"
@@ -116,6 +116,7 @@
         android:layout_height="32dp"
         android:background="@drawable/activity_login_shape"
         android:ems="10"
+        android:textSize="10dp"
         android:inputType="textPassword"
         android:paddingStart="15dp"
         android:textColor="@color/white"
@@ -131,8 +132,9 @@
         android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:background="@drawable/activity_login_shape"
-        android:text="    Criar Conta    "
+        android:text="Criar Conta"
         android:textColor="@color/white"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

@@ -30,6 +30,7 @@
     <Button
         android:id="@+id/activity_main_btn_cadastrar"
         android:layout_width="match_parent"
+        android:onClick = "register"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:layout_marginStart="80dp"

@@ -1,27 +1,45 @@
 package com.example.olimpiclink.ui.activity
 
-import android.content.Intent
+import DAO
 import android.os.Bundle
-import android.view.View
-import android.widget.EditText
-import android.widget.Button
+import android.widget.Toast
 import androidx.activity.ComponentActivity
-import com.example.olimpiclink.R
+import com.example.olimpiclink.databinding.ActivityRegisterUserBinding
 import com.example.olimpiclink.models.User
 
 class RegisterUserActivity : ComponentActivity() {
-    var campoUser : EditText? = null;
-    var campoEmail : EditText? = null;
-    var campoPassword : EditText? = null;
-    var btnCadastrar : Button? = null;
+    private lateinit var binding: ActivityRegisterUserBinding
+    private var dao = DAO();
+    var username = ""
+    var email = ""
+    var password = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register_user)
-        campoUser = findViewById<EditText>(R.id.activity_register_user_campo_user)
-        campoEmail = findViewById<EditText>(R.id.activity_register_user_campo_Email)
-        campoPassword = findViewById<EditText>(R.id.activity_register_user_campo_password)
-        btnCadastrar = findViewById<Button>(R.id.activity_register_user_register)
+        binding = ActivityRegisterUserBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.activityRegisterUserRegister.setOnClickListener{
+            pegandoDados()
+            logar()
+        }
+
     }
 
+    private fun pegandoDados() {
+        username = binding.activityRegisterUserCampoUser.text.toString()
+        email = binding.activityRegisterUserCampoEmail.text.toString()
+        password = binding.activityRegisterUserCampoPassword.text.toString()
+    }
 
+    private fun logar() {
+
+        if(username == ""){
+            Toast.makeText(this, "Username não inserido", Toast.LENGTH_SHORT).show()
+        }
+        else{
+            var user = User(username, password, email)
+            dao.registerUserDatabase(user)
+            finish()
+        }
+    }
 }

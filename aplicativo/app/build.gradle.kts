@@ -47,6 +47,9 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    viewBinding{
+        enable = true;
+    }
 }
 
 dependencies {
@@ -70,4 +73,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    val appcompat_version = "1.7.0"
+    implementation("androidx.appcompat:appcompat:$appcompat_version")
+    implementation("androidx.appcompat:appcompat-resources:$appcompat_version")
 }
