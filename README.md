@@ -1,5 +1,14 @@
 # Olimpiclink
 
 
-- adicionar o resto do pessoal
-- enviar os arquivos do tcc e do programa
+Onde salvar:
+
+  /Programa/Codigo
+    - código do programa
+ 
+  /Programa/Design_e_Modelagem
+    - Modelagens, design, qualquer planejamento/representação VISUAL do projeto
+
+  /Documentação
+    - TCC escrito
+    - planejamentos ou descrições escrita do projeto
