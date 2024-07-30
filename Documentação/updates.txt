@@ -1,0 +1,4 @@
+29/08 - 21:50 -->
+    Inserido o diagrama do banco de dados, assim como seu arquivo .sql de criação.
+    Também adicionado a base do projeto em kotlin, conforme o tempo for passando e eu for estudando
+    irei arrumando essa parte até semana que vem (05/08) - Khaléu Sanches Mancini
