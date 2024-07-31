@@ -1,6 +1,6 @@
 
 html{	background-color:black;
-    	font-family: Arial, Helvetica, sans-serif;	}	}
+    	font-family: Arial, Helvetica, sans-serif;	}
 
 body{	padding:100px;	}
 
@@ -72,10 +72,30 @@ img{
 }
 
 .calendario{
-	border-style:solid; border-width:1px;border-radius:6px; border-color:rgb(200,8,0);
-	margin-left:20px; margin-right:20px; margin-top:6px;
+	border-bottom-style:solid; border-width:1px;border-color:rgb(200,8,0);
+	margin-left:0px; margin-right:0px; margin-top:6px; padding-left:20px; padding-right: 20px;
 }
 
-.calendario p{
-	margin:4px
+.calendario p, .calendario b{
+	margin:8px;
+    font-size: small;
+}
+
+#atual{
+    border-style:solid; border-width:1px;border-radius:6px;
+}
+
+
+.thismonth{
+     height: 20px; display: inline-block;    font-weight: 700;
+}
+
+.pastmonth{
+    font-weight: 100;
+}
+
+.interesse{
+    border-style:solid; border-width:2px;
+    border-radius:8px; border-color:rgba(250,250,220,0.4);
+    margin: 4%; height: 100px;
 }
