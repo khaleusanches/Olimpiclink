@@ -1,0 +1,28 @@
+[
+  {
+    "ContainingType": "olimpiclink.database.Controllers.CategoryController",
+    "Method": "Add",
+    "RelativePath": "api/v1/category",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "category",
+        "Type": "olimpiclink.database.Models.CategoryModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.CategoryController",
+    "Method": "Get",
+    "RelativePath": "api/v1/category",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
