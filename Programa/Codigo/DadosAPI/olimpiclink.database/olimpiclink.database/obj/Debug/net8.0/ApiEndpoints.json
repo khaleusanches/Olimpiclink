@@ -8,8 +8,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "category",
-        "Type": "olimpiclink.database.Models.CategoryModel",
+        "Name": "request",
+        "Type": "olimpiclink.database.Models.AddCategoryModel",
         "IsRequired": true
       }
     ],
