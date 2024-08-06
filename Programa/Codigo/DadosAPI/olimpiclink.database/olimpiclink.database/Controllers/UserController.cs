@@ -27,7 +27,32 @@ namespace olimpiclink.database.Controllers
                 return Ok("Esse login já esta sendo usado");
             }
 
-            await context.Users.AddAsync(new_user);
+            await context.Users.AddAsync(new_user); 
+            await context.SaveChangesAsync(ct);
+            return Ok();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Get(CancellationToken ct)
+        {
+            ConnectionContext context = new ConnectionContext();
+            var get_users = await context.Users.ToListAsync(ct);
+            return Ok(get_users);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Put(int id, AddUserModel request, CancellationToken ct)
+        {
+            ConnectionContext context = new ConnectionContext();
+            var user = await context.Users.SingleOrDefaultAsync(user => user.id_user == id, ct);
+            if(user == null)
+            {
+                return Ok("Esse usuário não existe");
+            }
+            user.name_user = request.name_user;
+            user.email_user = request.email_user;
+            user.password_user = request.password_user;
+            user.login_user = request.login_user;
             await context.SaveChangesAsync(ct);
             return Ok();
         }
