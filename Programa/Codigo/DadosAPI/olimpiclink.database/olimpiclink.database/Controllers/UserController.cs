@@ -6,7 +6,7 @@ using olimpiclink.database.Models.Users;
 namespace olimpiclink.database.Controllers
 {
     [ApiController]
-    [Route("api/v1/user")]  //define a rota da url
+    [Route("api/v1/users")]  //define a rota da url
     public class UserController : Controller
     {
         [HttpPost]
@@ -15,8 +15,8 @@ namespace olimpiclink.database.Controllers
             ConnectionContext context = new ConnectionContext();
             var new_user = new UserModel(request.name_user, request.email_user, request.password_user, request.login_user);
 
-            var check_email = await context.Users.AnyAsync(user => user.email_user == request.email_user);
-            var check_login = await context.Users.AnyAsync(user => user.login_user == request.login_user);
+            var check_email = await context.Users.AnyAsync(user => user.email_user == request.email_user && user.activated_user == true);
+            var check_login = await context.Users.AnyAsync(user => user.login_user == request.login_user && user.activated_user == true);
 
             if (check_email)
             {
@@ -53,6 +53,20 @@ namespace olimpiclink.database.Controllers
             user.email_user = request.email_user;
             user.password_user = request.password_user;
             user.login_user = request.login_user;
+            await context.SaveChangesAsync(ct);
+            return Ok();
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Teste(int id, CancellationToken ct)
+        {
+            ConnectionContext context = new ConnectionContext();
+            var user = await context.Users.FindAsync(id, ct);
+            if(user == null)
+            {
+                return Ok("Esse usuário não existe");
+            }
+            user.activated_user = false;
             await context.SaveChangesAsync(ct);
             return Ok();
         }
