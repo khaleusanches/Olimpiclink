@@ -8,6 +8,7 @@ namespace olimpiclink.database.Models.Users
         [Key]
         public int id_user { get; set; }
         public string name_user { get; set; }
+        public bool activated_user { get; set; }
         public string email_user { get; set; }
         public string password_user { get; set; }
         public string login_user { get; set; }
@@ -27,6 +28,5 @@ namespace olimpiclink.database.Models.Users
             created_at_user = test2;
             updated_at_user = test2;
         }
-
     }
 }
