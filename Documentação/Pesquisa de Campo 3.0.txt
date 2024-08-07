@@ -1,0 +1,22 @@
+Pesquisa de Campo 2.0
+
+Identificação
+
+Qual é a sua idade?
+Nível de escolaridade;
+Em que estado você mora?
+Em que cidade você mora?
+
+Variados
+
+Você já praticou algum esporte? Se sim, quais?
+Você faz parte de algum clube ou equipe?
+Algum desses fatores já te impediram de praticar? EX: Localidade, tempo, organização;
+Você participa de algum grupo de amigos do mesmo esporte?
+Se você pratica ou já praticou algum esporte, como você entrou em contato?
+Tem dificuldade para achar pessoas que praticam o mesmo esporte na sua região?
+Tem dificuldade para achar lugares para praticar o seu esporte?
+Você acompanha alguma atividade esportiva da sua região? Ex: eventos ou torneios
+Tem vontade de começar praticar alguma modalidade?
+
+
