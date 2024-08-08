@@ -6,6 +6,7 @@ CREATE TABLE `categories` (
 
 CREATE TABLE `users` (
   `id_user` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `activated_user` bool default true,
   `name_user` varchar(255) DEFAULT NULL,
   `login_user` varchar(255) DEFAULT NULL,
   `password_user` varchar(255) DEFAULT NULL,
@@ -15,6 +16,7 @@ CREATE TABLE `users` (
   `updated_at_user` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id_user`)
 );
+
 CREATE TABLE `cities` (
   `id_city` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name_city` varchar(255) DEFAULT NULL,
@@ -171,12 +173,12 @@ CREATE TABLE `comunity_has_leader` (
   CONSTRAINT `comunity_has_leader_ibfk_2` FOREIGN KEY (`leader_id`) REFERENCES `leaders` (`id_leader`)
 );
 
-INSERT INTO `users` VALUES 
-(1,'Khaleu Sanches Mancini','uelahk','123','khaleusanches@gmail.com',NULL,'2024-07-28 11:26:13','2024-07-28 08:26:13'),
-(2,'Felipy Souza','Felipy','123','felipysouza@gmail.com',NULL,'2024-07-28 11:27:07','2024-07-28 08:27:07'),
-(3,'Gabriel','Gabriel','123','felipysouza@gmail.com',NULL,'2024-07-28 12:23:09','2024-07-28 09:23:09'),
-(4,'Raony','Gabriel','123','felipysouza@gmail.com',NULL,'2024-07-28 12:23:09','2024-07-28 09:23:09'),
-(5,'Clara','Gabriel','123','felipysouza@gmail.com',NULL,'2024-07-28 12:23:09','2024-07-28 09:23:09');
+INSERT INTO `users`(name_user, login_user, password_user, email_user, profile_picture_user, created_at_user, updated_at_user) VALUES 
+('Khaleu Sanches Mancini','uelahk','123','khaleusanches@gmail.com',NULL,'2024-07-28 11:26:13','2024-07-28 08:26:13'),
+('Felipy Souza','Felipy','123','felipysouza@gmail.com',NULL,'2024-07-28 11:27:07','2024-07-28 08:27:07'),
+('Gabriel','Gabriel','123','felipysouza@gmail.com',NULL,'2024-07-28 12:23:09','2024-07-28 09:23:09'),
+('Raony','Gabriel','123','felipysouza@gmail.com',NULL,'2024-07-28 12:23:09','2024-07-28 09:23:09'),
+('Clara','Gabriel','123','felipysouza@gmail.com',NULL,'2024-07-28 12:23:09','2024-07-28 09:23:09');
 
 INSERT INTO `categories` VALUES (1,'Futebol');
 INSERT INTO `cities` VALUES (1,'Diadema','SP');

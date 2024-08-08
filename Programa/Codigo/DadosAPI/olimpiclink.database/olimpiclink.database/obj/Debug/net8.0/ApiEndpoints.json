@@ -1,15 +1,31 @@
 [
   {
     "ContainingType": "olimpiclink.database.Controllers.CategoryController",
-    "Method": "Add",
+    "Method": "GetAll",
     "RelativePath": "api/v1/category",
-    "HttpMethod": "POST",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "request",
-        "Type": "olimpiclink.database.Models.Categories.AddCategoryModel",
+        "Name": "id_category",
+        "Type": "System.Nullable\u00601[[System.Int64, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.CategoryController",
+    "Method": "GetID",
+    "RelativePath": "api/v1/category/{id_category}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_category",
+        "Type": "System.Nullable\u00601[[System.Int64, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": true
       }
     ],
@@ -17,30 +33,36 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.CategoryController",
-    "Method": "Get",
-    "RelativePath": "api/v1/category",
+    "Method": "Add",
+    "RelativePath": "api/v1/category/add/{name_category}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "name_category",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.CategoryController",
     "Method": "Put",
-    "RelativePath": "api/v1/category",
-    "HttpMethod": "PUT",
+    "RelativePath": "api/v1/category/alter/{id_category}/{name_category}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "id_category",
         "Type": "System.Nullable\u00601[[System.Int64, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
-        "Name": "request",
-        "Type": "olimpiclink.database.Models.Categories.AddCategoryModel",
+        "Name": "name_category",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -49,15 +71,15 @@
   {
     "ContainingType": "olimpiclink.database.Controllers.CategoryController",
     "Method": "Delete",
-    "RelativePath": "api/v1/category",
-    "HttpMethod": "DELETE",
+    "RelativePath": "api/v1/category/delete/{id_category}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "id_category",
         "Type": "System.Nullable\u00601[[System.Int64, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
