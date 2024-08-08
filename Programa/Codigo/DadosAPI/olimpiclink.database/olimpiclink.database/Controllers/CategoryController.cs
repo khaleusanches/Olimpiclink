@@ -11,14 +11,16 @@ namespace olimpiclink.database.Controllers
     [Route("api/v1/category")]  //define a rota da url
     public class CategoryController : Controller
     {
-        [HttpPost] //Define que o metodo a seguir é POST, ou seja, ele envia dados, não recebe.
-        public async Task<IActionResult> Add(AddCategoryModel request, CancellationToken ct)
+        ConnectionContext context = new ConnectionContext();
+        [HttpGet("add/{name_category}")] //Define que o metodo a seguir é GET, ou seja, ele envia dados, não recebe.
+        public async Task<IActionResult> Add(string name_category, CancellationToken ct)
         {
-            ConnectionContext context = new ConnectionContext(); //Chama o "contexto", a conexão com o banco de dados.
 
-            var new_category = new CategoryModel(request.name_category); //objeto category, porém feito apenas com o nome, sem ID, pois não inserimos ID.
+             //Chama o "contexto", a conexão com o banco de dados.
 
-            if(await context.Categories.AnyAsync(category => category.name_category == request.name_category, ct))
+            var new_category = new CategoryModel(name_category); //objeto category, porém feito apenas com o nome, sem ID, pois não inserimos ID.
+
+            if(await context.Categories.AnyAsync(category => category.name_category == name_category, ct))
             {
                 return Ok("vacilo");
             }
@@ -28,36 +30,35 @@ namespace olimpiclink.database.Controllers
             return Ok();
         }
 
-        [HttpGet] // Define que o metodo a seguir é GET, ou seja, ele recebe dados, não envia.
-        public async Task<IActionResult> Get(CancellationToken ct)
+        [HttpGet("{id_category}")] // Define que o metodo a seguir é GET, ou seja, ele recebe dados, não envia.
+        public async Task<IActionResult> GetID(long? id_category, CancellationToken ct)
         {
-            ConnectionContext context = new ConnectionContext();
-            // Get com filtro
-            //var get_category = await context.Categories.Where(category => category.name_category == "teste").ToListAsync(); 
-            // Get all
+             return Ok(await context.Categories.Where(category => category.id_category == id_category).ToListAsync());
+        }
+        [HttpGet] // Define que o metodo a seguir é GET, ou seja, ele recebe dados, não envia.
+        public async Task<IActionResult> GetAll(long? id_category, CancellationToken ct)
+        {
             var get_categories = await context.Categories.ToListAsync(ct);
             return Ok(get_categories);
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Put(long? id, AddCategoryModel request, CancellationToken ct)
+        [HttpGet("alter/{id_category}/{name_category}")]
+        public async Task<IActionResult> Put(long? id_category, string name_category, CancellationToken ct)
         {
-            ConnectionContext context = new ConnectionContext();
-            var category = await context.Categories.SingleOrDefaultAsync(category => category.id_category == id, ct);
+            var category = await context.Categories.SingleOrDefaultAsync(category => category.id_category == id_category, ct);
             if (category == null)
             {
                 return Ok("Categoria não encontrada");
             }
-            category.name_category = request.name_category;
+            category.name_category = name_category;
             await context.SaveChangesAsync(ct);
             return Ok();
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> Delete(long? id, CancellationToken ct)
+        [HttpGet("delete/{id_category}")]
+        public async Task<IActionResult> Delete(long? id_category, CancellationToken ct)
         {
-            ConnectionContext context = new ConnectionContext();
-            var category = await context.Categories.SingleOrDefaultAsync(category => category.id_category == id, ct);
+            var category = await context.Categories.SingleOrDefaultAsync(category => category.id_category == id_category, ct);
             if (category == null)
             {
                 return Ok("Categoria não encontrada");
