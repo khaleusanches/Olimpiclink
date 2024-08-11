@@ -8,17 +8,20 @@ namespace olimpiclink.database.Controllers
     [Route("api/v1/cities")]  //define a rota da url
     public class CityController : Controller
     {
+        ConnectionContext context = new ConnectionContext();
 
         [HttpGet]
-        public async Task<IActionResult> Get(int? id, CancellationToken ct)
+        public async Task<IActionResult> Get(CancellationToken ct)
         {
-            ConnectionContext context = new ConnectionContext();
-            if (id == null)
-            {
-                var city = await context.cities.ToListAsync(ct);
-                return Ok(city);
-            }
-            var city_specific = await context.cities.Where(city => city.id_city == id).FirstOrDefaultAsync(ct);
+            
+            var city = await context.cities.ToListAsync(ct);
+            return Ok(city);
+        }
+        [HttpGet("{id_city}")]
+
+        public async Task<IActionResult> GetId(long? id_city, CancellationToken ct)
+        {
+            var city_specific = await context.cities.Where(city => city.id_city == id_city).FirstOrDefaultAsync(ct);
             if (city_specific == null)
             {
                 return Ok("Essa cidade não existe");
