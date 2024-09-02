@@ -1,10 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.RegisterActivity">
+    android:background="@drawable/backbround_initial"
+    tools:context=".ui.LoginActivity"
+    android:orientation="vertical"
+    >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+  <ImageView
+      android:id="@+id/img_logo"
+      android:layout_width="102dp"
+      android:layout_height="96dp"
+      android:contentDescription="Logo do aplicativo"
+      app:srcCompat="@drawable/logo"
+
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="40dp"
+      />
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      android:background="@drawable/buttons_initial"
+      android:layout_marginLeft="65dp"
+      android:layout_marginBottom="70dp"
+      android:layout_marginRight="65dp"
+      android:layout_marginTop="25dp"
+      >
+
+    <TextView
+        android:id="@+id/tv_enter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CADASTRAR-SE"
+
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="40dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nome de usuário"
+
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="8dp"
+        />
+
+    <EditText
+        android:id="@+id/et_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+
+        android:background="@drawable/buttons_initial"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email"
+
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="8dp"
+        />
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+
+        android:background="@drawable/buttons_initial"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Senha"
+
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="8dp"
+        />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+
+        android:background="@drawable/buttons_initial"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="35dp"
+
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_continue"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_gravity="center"
+
+        android:background="@drawable/buttons_initial"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:text="Continuar"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        />
+  </LinearLayout>
+</LinearLayout>

@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "olimpiclink.database.Controllers.CategoryController",
-    "Method": "GetAll",
+    "Method": "categoryGet",
     "RelativePath": "api/v1/category",
     "HttpMethod": "GET",
     "IsController": true,
@@ -17,7 +17,7 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.CategoryController",
-    "Method": "GetID",
+    "Method": "categoryGetID",
     "RelativePath": "api/v1/category/{id_category}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -33,7 +33,7 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.CategoryController",
-    "Method": "Add",
+    "Method": "categoryCreate",
     "RelativePath": "api/v1/category/add/{name_category}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -49,7 +49,7 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.CategoryController",
-    "Method": "Put",
+    "Method": "categoryChange",
     "RelativePath": "api/v1/category/alter/{id_category}/{name_category}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -70,7 +70,7 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.CategoryController",
-    "Method": "Delete",
+    "Method": "categoryDelete",
     "RelativePath": "api/v1/category/delete/{id_category}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -86,7 +86,7 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.CityController",
-    "Method": "Get",
+    "Method": "cityGet",
     "RelativePath": "api/v1/cities",
     "HttpMethod": "GET",
     "IsController": true,
@@ -96,7 +96,7 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.CityController",
-    "Method": "GetId",
+    "Method": "cityGetID",
     "RelativePath": "api/v1/cities/{id_city}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -154,7 +154,7 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.UserController",
-    "Method": "Get",
+    "Method": "userGet",
     "RelativePath": "api/v1/users",
     "HttpMethod": "GET",
     "IsController": true,
@@ -164,7 +164,7 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.UserController",
-    "Method": "GetID",
+    "Method": "userGetID",
     "RelativePath": "api/v1/users/{id_user}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -180,7 +180,7 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.UserController",
-    "Method": "Add",
+    "Method": "userCreate",
     "RelativePath": "api/v1/users/add/name={name_user}login={login_user}email={email_user}pass={password_user}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -211,7 +211,7 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.UserController",
-    "Method": "Put",
+    "Method": "userChanged",
     "RelativePath": "api/v1/users/alter/{id_user}/name={name_user}login={login_user}email={email_user}pass={password_user}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -247,7 +247,7 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.UserController",
-    "Method": "Teste",
+    "Method": "userDelete",
     "RelativePath": "api/v1/users/delete/{id_user}",
     "HttpMethod": "GET",
     "IsController": true,

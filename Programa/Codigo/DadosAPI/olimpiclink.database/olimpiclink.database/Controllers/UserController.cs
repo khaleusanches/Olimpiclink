@@ -10,13 +10,12 @@ namespace olimpiclink.database.Controllers
     public class UserController : Controller
     {
         [HttpGet("add/name={name_user}login={login_user}email={email_user}pass={password_user}")]
-        public async Task<IActionResult> Add(string name_user, string email_user, string password_user, string login_user, CancellationToken ct)
+        public async Task<IActionResult> userCreate(string name_user, string email_user, string password_user, string login_user, CancellationToken ct)
         {
             ConnectionContext context = new ConnectionContext();
             var new_user = new UserModel(name_user, email_user, password_user, login_user);
-
-            var check_email = await context.Users.AnyAsync(user => user.email_user == email_user && user.activated_user == true);
-            var check_login = await context.Users.AnyAsync(user => user.login_user == login_user && user.activated_user == true);
+            var check_email = await context.users.AnyAsync(user => user.email_user == email_user && user.activated_user == true);
+            var check_login = await context.users.AnyAsync(user => user.login_user == login_user && user.activated_user == true);
 
             if (check_email)
             {
@@ -27,32 +26,32 @@ namespace olimpiclink.database.Controllers
                 return Ok("Esse login já esta sendo usado");
             }
 
-            await context.Users.AddAsync(new_user); 
+            await context.users.AddAsync(new_user); 
             await context.SaveChangesAsync(ct);
             return Ok();
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get(CancellationToken ct)
+        public async Task<IActionResult> userGet(CancellationToken ct)
         {
             ConnectionContext context = new ConnectionContext();
-            var get_users = await context.Users.ToListAsync(ct);
+            var get_users = await context.users.ToListAsync(ct);
             return Ok(get_users);
         }
 
         [HttpGet("{id_user}")]
-        public async Task<IActionResult> GetID(long? id_user, CancellationToken ct)
+        public async Task<IActionResult> userGetID(long? id_user, CancellationToken ct)
         {
             ConnectionContext context = new ConnectionContext();
-            var get_users = await context.Users.Where(user => user.id_user == id_user).ToListAsync(ct);
+            var get_users = await context.users.Where(user => user.id_user == id_user).ToListAsync(ct);
             return Ok(get_users);
         }
 
         [HttpGet("alter/{id_user}/name={name_user}login={login_user}email={email_user}pass={password_user}")]
-        public async Task<IActionResult> Put(int id_user, string name_user, string email_user, string password_user, string login_user, CancellationToken ct)
+        public async Task<IActionResult> userChanged(int id_user, string name_user, string email_user, string password_user, string login_user, CancellationToken ct)
         {
             ConnectionContext context = new ConnectionContext();
-            var user = await context.Users.SingleOrDefaultAsync(user => user.id_user == id_user, ct);
+            var user = await context.users.SingleOrDefaultAsync(user => user.id_user == id_user, ct);
             if(user == null)
             {
                 return Ok("Esse usuário não existe");
@@ -66,10 +65,10 @@ namespace olimpiclink.database.Controllers
         }
 
         [HttpGet("delete/{id_user}")]
-        public async Task<IActionResult> Teste(int id_user, CancellationToken ct)
+        public async Task<IActionResult> userDelete(int id_user, CancellationToken ct)
         {
             ConnectionContext context = new ConnectionContext();
-            var user = await context.Users.FindAsync(id_user, ct);
+            var user = await context.users.FindAsync(id_user, ct);
             if(user == null)
             {
                 return Ok("Esse usuário não existe");

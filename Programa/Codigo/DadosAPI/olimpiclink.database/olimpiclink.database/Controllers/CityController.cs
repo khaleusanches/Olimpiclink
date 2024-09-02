@@ -11,7 +11,7 @@ namespace olimpiclink.database.Controllers
         ConnectionContext context = new ConnectionContext();
 
         [HttpGet]
-        public async Task<IActionResult> Get(CancellationToken ct)
+        public async Task<IActionResult> cityGet(CancellationToken ct)
         {
             
             var city = await context.cities.ToListAsync(ct);
@@ -19,7 +19,7 @@ namespace olimpiclink.database.Controllers
         }
         [HttpGet("{id_city}")]
 
-        public async Task<IActionResult> GetId(long? id_city, CancellationToken ct)
+        public async Task<IActionResult> cityGetID(long? id_city, CancellationToken ct)
         {
             var city_specific = await context.cities.Where(city => city.id_city == id_city).FirstOrDefaultAsync(ct);
             if (city_specific == null)

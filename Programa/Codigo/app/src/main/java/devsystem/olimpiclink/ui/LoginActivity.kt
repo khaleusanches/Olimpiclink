@@ -1,18 +1,24 @@
-package devsystem.olimpiclink
+package devsystem.olimpiclink.ui
 
+import devsystem.olimpiclink.model.CommonButtonEvents
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.MotionEvent.ACTION_CANCEL
-import android.view.MotionEvent.ACTION_DOWN
-import android.view.MotionEvent.ACTION_UP
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
+import android.widget.EditText
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import devsystem.olimpiclink.R
 import devsystem.olimpiclink.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding : ActivityLoginBinding
+    private lateinit var buttonEvents: CommonButtonEvents
+    private lateinit var btn_login : AppCompatButton
+    private lateinit var et_username : EditText
+    private lateinit var et_password : EditText
+
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,35 +30,14 @@ class LoginActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        buttonEvents = CommonButtonEvents()
+        btn_login = binding.btnLogin
+        et_username = binding.etUsername
+        et_password = binding.etPassword
+
         window.navigationBarColor = resources.getColor(R.color.end_initial)
-        binding.etUsername.setOnFocusChangeListener{ v, hasFocus->
-            if(hasFocus){
-                binding.etUsername.setBackgroundResource(R.drawable.edit_text_selected)
-            }
-            else{
-                binding.etUsername.setBackgroundResource(R.drawable.buttons_initial)
-            }
-        }
-        binding.etPassword.setOnFocusChangeListener{v, hasFocus->
-            if(hasFocus){
-                binding.etPassword.setBackgroundResource(R.drawable.edit_text_selected)
-            }
-            else{
-                binding.etPassword.setBackgroundResource(R.drawable.buttons_initial)
-            }
-        }
-        binding.btnLogin.setOnTouchListener{view, motionEvent ->
-            when (motionEvent.action) {
-                ACTION_DOWN -> {
-                    binding.btnLogin.setBackgroundResource(R.drawable.edit_text_selected)
-                    binding.btnLogin.setTextColor(getColor(R.color.laranja_splash))
-                }
-                ACTION_UP, ACTION_CANCEL -> {
-                    binding.btnLogin.setBackgroundResource(R.drawable.buttons_initial)
-                    binding.btnLogin.setTextColor(getColor(R.color.white))
-                }
-            }
-            false
-        }
+        et_username.setOnFocusChangeListener(buttonEvents.focusChangedListenerGet(et_username))
+        et_password.setOnFocusChangeListener(buttonEvents.focusChangedListenerGet(et_password))
+        btn_login.setOnTouchListener(buttonEvents.touchListenerGet(btn_login))
     }
 }

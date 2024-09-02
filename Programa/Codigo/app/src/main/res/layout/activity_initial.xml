@@ -5,6 +5,66 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.InitialActivity">
+    tools:context=".ui.InitialActivity"
+    android:background="@drawable/backbround_initial"
+    >
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="102dp"
+        android:layout_height="96dp"
+        android:contentDescription="@string/logo_do_aplicativo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.344"
+        app:srcCompat="@drawable/logo" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_logo"
+
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp"
+
+        android:textColor="@color/white"
+        android:background="@drawable/buttons_initial"
+        android:text="@string/login"
+        android:textSize="12sp"
+
+        android:onClick="userGoLogin"
+        />\
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login"
+        app:layout_constraintVertical_bias="0.0"
+
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="28dp"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp"
+
+        android:textColor="@color/white"
+        android:background="@drawable/buttons_initial"
+        android:text="@string/register"
+        android:textSize="12sp"
+
+        android:onClick="userGoRegister"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

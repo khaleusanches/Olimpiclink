@@ -1,4 +1,4 @@
-package model
+package devsystem.olimpiclink.model
 
 import android.annotation.SuppressLint
 import android.view.MotionEvent.ACTION_CANCEL
