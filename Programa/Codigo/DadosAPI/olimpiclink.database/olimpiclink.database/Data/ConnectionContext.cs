@@ -10,10 +10,9 @@ namespace olimpiclink.database.Data
 {
     public class ConnectionContext : DbContext
     {
-        public DbSet<CategoryModel> Categories { get; set; }
-        public DbSet<UserModel> Users { get; set; }
+        public DbSet<CategoryModel> categories { get; set; }
+        public DbSet<UserModel> users { get; set; }
         public DbSet<City> cities { get; set; }
-        
         public DbSet<Comunity> comunities { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
