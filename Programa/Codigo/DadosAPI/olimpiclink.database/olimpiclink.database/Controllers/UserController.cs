@@ -6,13 +6,14 @@ using olimpiclink.database.Models.Users;
 namespace olimpiclink.database.Controllers
 {
     [ApiController]
-    [Route("api/v1/users")]  //define a rota da url
+    [Route("api/users")]  //define a rota da url
     public class UserController : Controller
     {
+        ConnectionContext context = new ConnectionContext();
         [HttpGet("add/name={name_user}login={login_user}email={email_user}pass={password_user}")]
         public async Task<IActionResult> userCreate(string name_user, string email_user, string password_user, string login_user, CancellationToken ct)
         {
-            ConnectionContext context = new ConnectionContext();
+            
             var new_user = new UserModel(name_user, email_user, password_user, login_user);
             var check_email = await context.users.AnyAsync(user => user.email_user == email_user && user.activated_user == true);
             var check_login = await context.users.AnyAsync(user => user.login_user == login_user && user.activated_user == true);
@@ -34,23 +35,20 @@ namespace olimpiclink.database.Controllers
         [HttpGet]
         public async Task<IActionResult> userGet(CancellationToken ct)
         {
-            ConnectionContext context = new ConnectionContext();
             var get_users = await context.users.ToListAsync(ct);
             return Ok(get_users);
         }
 
-        [HttpGet("{id_user}")]
-        public async Task<IActionResult> userGetID(long? id_user, CancellationToken ct)
+        [HttpGet("{login_user}")]
+        public async Task<IActionResult> userGetID(String login_user, CancellationToken ct)
         {
-            ConnectionContext context = new ConnectionContext();
-            var get_users = await context.users.Where(user => user.id_user == id_user).ToListAsync(ct);
+            var get_users = await context.users.Where(user => user.login_user == login_user).ToListAsync(ct);
             return Ok(get_users);
         }
 
         [HttpGet("alter/{id_user}/name={name_user}login={login_user}email={email_user}pass={password_user}")]
         public async Task<IActionResult> userChanged(int id_user, string name_user, string email_user, string password_user, string login_user, CancellationToken ct)
         {
-            ConnectionContext context = new ConnectionContext();
             var user = await context.users.SingleOrDefaultAsync(user => user.id_user == id_user, ct);
             if(user == null)
             {
@@ -67,7 +65,6 @@ namespace olimpiclink.database.Controllers
         [HttpGet("delete/{id_user}")]
         public async Task<IActionResult> userDelete(int id_user, CancellationToken ct)
         {
-            ConnectionContext context = new ConnectionContext();
             var user = await context.users.FindAsync(id_user, ct);
             if(user == null)
             {
@@ -76,6 +73,17 @@ namespace olimpiclink.database.Controllers
             user.activated_user = false;
             await context.SaveChangesAsync(ct);
             return Ok();
+        }
+
+        [HttpGet("login/{login_user}&{password_user}")]
+        public async Task<IActionResult> userLogin(string login_user, string password_user, CancellationToken ct)
+        {
+            var user = await context.users.SingleOrDefaultAsync(user => user.login_user == login_user && user.password_user == password_user, ct);
+            if(user == null)
+            {
+                return Ok("Usuário ou senha incorretos");
+            }
+            return Ok(user);
         }
     }
 }

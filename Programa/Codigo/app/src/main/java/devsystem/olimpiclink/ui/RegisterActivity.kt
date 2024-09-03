@@ -20,6 +20,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var et_password : EditText
     private lateinit var btn_continue : AppCompatButton
 
+    @Suppress("DEPRECATION")
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
