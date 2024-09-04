@@ -26,13 +26,17 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityRegisterBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_register)
+        setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
         window.navigationBarColor = resources.getColor(R.color.end_initial)
+        componentsInitialize()
+    }
+
+    private fun componentsInitialize() {
         commonEvents = CommonButtonEvents()
         et_username = binding.etUsername
         et_email = binding.etEmail
