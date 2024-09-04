@@ -1,4 +1,4 @@
-package devsystem.olimpiclink.model
+package devsystem.olimpiclink.util
 
 import android.annotation.SuppressLint
 import android.view.MotionEvent.ACTION_CANCEL
@@ -9,7 +9,7 @@ import androidx.appcompat.widget.AppCompatButton
 import android.widget.EditText
 import devsystem.olimpiclink.R
 
-class CommonButtonEvents {
+class CommonEvents {
     @SuppressLint("ClickableViewAccessibility")
     fun touchListenerGet(button : AppCompatButton) : View.OnTouchListener{
         return View.OnTouchListener{_, motionEvent ->

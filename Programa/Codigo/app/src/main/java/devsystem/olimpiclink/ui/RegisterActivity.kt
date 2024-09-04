@@ -8,13 +8,13 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import devsystem.olimpiclink.R
 import devsystem.olimpiclink.databinding.ActivityRegisterBinding
-import devsystem.olimpiclink.model.CommonButtonEvents
+import devsystem.olimpiclink.util.CommonEvents
 import android.widget.EditText
 import androidx.appcompat.widget.AppCompatButton
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding : ActivityRegisterBinding
-    private lateinit var commonEvents : CommonButtonEvents
+    private lateinit var commonEvents : CommonEvents
     private lateinit var et_username : EditText
     private lateinit var et_email : EditText
     private lateinit var et_password : EditText
@@ -37,7 +37,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun componentsInitialize() {
-        commonEvents = CommonButtonEvents()
+        commonEvents = CommonEvents()
         et_username = binding.etUsername
         et_email = binding.etEmail
         et_password = binding.etPassword

@@ -10,7 +10,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import devsystem.olimpiclink.R
-import devsystem.olimpiclink.model.CommonButtonEvents
+import devsystem.olimpiclink.util.CommonEvents
 
 class InitialActivity : AppCompatActivity() {
     @SuppressLint("ClickableViewAccessibility")
@@ -24,7 +24,7 @@ class InitialActivity : AppCompatActivity() {
             insets
         }
         window.navigationBarColor = resources.getColor(R.color.end_initial)
-        var buttonEvents = CommonButtonEvents()
+        var buttonEvents = CommonEvents()
         var btn_login = findViewById<AppCompatButton>(R.id.btn_login)
         var btn_register = findViewById<AppCompatButton>(R.id.btn_register)
         btn_login.setOnTouchListener(buttonEvents.touchListenerGet(btn_login))
@@ -32,8 +32,8 @@ class InitialActivity : AppCompatActivity() {
     }
 
     fun userGoLogin(view: View) {
-        val login_screen = Intent(this, LoginActivity::class.java)
-        startActivity(login_screen)
+        val login_screen = Intent(this, LoginActivity::class.java) // cria um objeto da proxima activity
+        startActivity(login_screen) // inicia o objeto
     }
     fun userGoRegister(view: View) {
         val register_screen = Intent(this, RegisterActivity::class.java)
