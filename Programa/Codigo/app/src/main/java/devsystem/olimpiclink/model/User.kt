@@ -1,13 +1,47 @@
 package devsystem.olimpiclink.model
 
+import android.os.Parcel
+import android.os.Parcelable
+
 data class User(
-    val id_user : Int,
-    val name_user : String,
-    val activate_user : Boolean,
-    val email_user : String,
-    val password_user : String,
-    val login_user : String,
-    val profile_picture_user : String?,
-    val created_at_user : String,
-    val updated_at_user : String
-)
+    var id_user : Int,
+    var name_user : String,
+    var email_user : String,
+    var login_user : String,
+    var profile_picture_user : String?,
+    var created_at_user : String,
+) : Parcelable{
+    constructor(parcel: Parcel) : this(
+        parcel.readInt(),
+        parcel.readString().toString(),
+        parcel.readString().toString(),
+        parcel.readString().toString(),
+        parcel.readString().toString(),
+        parcel.readString().toString()
+    ) {
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeInt(id_user)
+        parcel.writeString(name_user)
+        parcel.writeString(email_user)
+        parcel.writeString(login_user)
+        parcel.writeString(profile_picture_user)
+        parcel.writeString(created_at_user)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<User> {
+        override fun createFromParcel(parcel: Parcel): User {
+            return User(parcel)
+        }
+
+        override fun newArray(size: Int): Array<User?> {
+            return arrayOfNulls(size)
+        }
+    }
+
+}

@@ -15,7 +15,7 @@ import devsystem.olimpiclink.R
 import devsystem.olimpiclink.databinding.ActivityLoginBinding
 import devsystem.olimpiclink.model.User
 import devsystem.olimpiclink.model.util.ApiCliente
-import devsystem.olimpiclink.model.util.Endpoint
+import devsystem.olimpiclink.model.util.EndpointUser
 import retrofit2.Call
 
 
@@ -25,7 +25,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var btn_login : AppCompatButton
     private lateinit var et_username : EditText
     private lateinit var et_password : EditText
-    private lateinit var api_user : Endpoint
+    private lateinit var api_user : EndpointUser
+    private var user : User? = null
 
     @Suppress("DEPRECATION")
     @SuppressLint("ClickableViewAccessibility")
@@ -43,12 +44,14 @@ class LoginActivity : AppCompatActivity() {
         componentsInitialize()
     }
 
-    private fun userLogar(login_user : String, password_user : String) {
+    private fun userLogar(login_user : String, password_user : String) : Boolean{
         api_user.userLogin(login_user, password_user).enqueue(object : retrofit2.Callback<User> {
             override fun onResponse(call: Call<User>, response: retrofit2.Response<User>){
                 if (response.isSuccessful){
-                    response.body()?.let { user ->
-                        Log.d("LoginActivity", "User: ${user.name_user}")
+                    response.body()?.let { user_bd ->
+                        Log.d("LoginActivity", "User: ${user_bd.name_user}")
+                        user = User(user_bd.id_user, user_bd.name_user, user_bd.email_user,
+                            user_bd.login_user, user_bd.profile_picture_user, user_bd.created_at_user)
                     }
                 }else{
                     Log.e("LoginActivity", "Erro: ${response.code()}")
@@ -58,6 +61,7 @@ class LoginActivity : AppCompatActivity() {
                 Log.e("LoginActivity", "falha", t)
             }
         })
+        return user != null;
     }
 
     private fun componentsInitialize() {
@@ -66,7 +70,7 @@ class LoginActivity : AppCompatActivity() {
         et_username = binding.etUsername
         et_password = binding.etPassword
 
-        api_user = ApiCliente.retrofit.create(Endpoint::class.java)
+        api_user = ApiCliente.retrofit.create(EndpointUser::class.java)
 
         et_username.onFocusChangeListener = commonEvents.focusChangedListenerGet(et_username)
         et_password.onFocusChangeListener = commonEvents.focusChangedListenerGet(et_password)
@@ -75,7 +79,9 @@ class LoginActivity : AppCompatActivity() {
 
     fun enterClick(view: View) {
         if(et_username.text.isNotEmpty() && et_password.text.isNotEmpty()){
-            userLogar(et_username.text.toString(), et_password.text.toString())
+            if(userLogar(et_username.text.toString(), et_password.text.toString())){
+                Log.e("LoginActivity","penis")
+            }
         }
     }
 }

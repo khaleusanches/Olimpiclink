@@ -94,6 +94,27 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.UserController",
+    "Method": "userCheckExists",
+    "RelativePath": "api/users/check/{login_user}\u0026{email_user}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "login_user",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "email_user",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.UserController",
     "Method": "userDelete",
     "RelativePath": "api/users/delete/{id_user}",
     "HttpMethod": "GET",

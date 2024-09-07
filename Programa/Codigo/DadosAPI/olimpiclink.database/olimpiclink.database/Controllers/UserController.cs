@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using olimpiclink.database.Data;
+using olimpiclink.database.Models;
 using olimpiclink.database.Models.Users;
 
 namespace olimpiclink.database.Controllers
@@ -84,6 +85,32 @@ namespace olimpiclink.database.Controllers
                 return Ok("Usuário ou senha incorretos");
             }
             return Ok(user);
+        }
+        [HttpGet("check/{login_user}&{email_user}")]
+        public async Task<IActionResult> userCheckExists(string login_user, string email_user)
+        {
+            var check_email = await context.users.AnyAsync(user => user.email_user == email_user && user.activated_user == true);
+            var check_user = await context.users.AnyAsync(user => user.login_user == login_user && user.activated_user == true);
+            var respostaErro = new { message = "Pode continuar" };
+            if (check_email)
+            {
+                if(check_user)
+                {
+                    respostaErro = new { message = "username e email já cadastrados" };
+                    return Ok(respostaErro);
+                }
+                else
+                {
+                    respostaErro = new { message = "email já cadastrados" };
+                    return Ok(respostaErro);
+                }
+            }
+            else if (check_user)
+            {
+                respostaErro = new { message = "login_user já cadastrado" };
+                return Ok(respostaErro);
+            }
+            return Ok(respostaErro);
         }
     }
 }
