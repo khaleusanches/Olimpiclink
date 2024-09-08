@@ -24,7 +24,8 @@ namespace olimpiclink.database.Controllers
         public async Task<IActionResult> Get(int id)
         {
             var teste = await context.comunities.Where(comunity => comunity.id_comunity == id).ToListAsync();
-            return File(teste[0].icon_comunity, "image/jpeg"); //exibe o arquivo do banco no formato jpeg
+
+            return Ok(teste[0].icon_comunity); //exibe o arquivo do banco no formato jpeg
         }
     }
 }

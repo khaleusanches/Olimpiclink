@@ -25,7 +25,6 @@ import retrofit2.Response
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding : ActivityRegisterBinding
-    private lateinit var commonEvents : CommonEvents
     private lateinit var et_name_user : EditText
     private lateinit var et_login_user : EditText
     private lateinit var et_email : EditText
@@ -33,6 +32,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var btn_continue : AppCompatButton
     private lateinit var api_user : EndpointUser
     private var user : User? = null
+    private var commonEvents = CommonEvents()
 
     @Suppress("DEPRECATION")
     @SuppressLint("ClickableViewAccessibility")
@@ -51,7 +51,6 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun componentsInitialize() {
-        commonEvents = CommonEvents()
         et_name_user = binding.etNameUser
         et_login_user = binding.etLoginUser
         et_email = binding.etEmail
@@ -124,6 +123,10 @@ class RegisterActivity : AppCompatActivity() {
                     register_city.putExtra("user", user)
                     startActivity(register_city)
                 }
+        }
+        else{
+            var register_city = Intent(this, RegisterCityActivity::class.java)
+            startActivity(register_city)
         }
     }
 }

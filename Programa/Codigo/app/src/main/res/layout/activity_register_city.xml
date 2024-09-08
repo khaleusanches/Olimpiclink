@@ -74,7 +74,7 @@
                 android:inputType="text"
                 android:paddingLeft="12dp"
                 android:paddingTop="6dp"
-
+                android:textAlignment="center"
                 android:paddingRight="12dp"
                 android:paddingBottom="6dp"
                 android:textColor="@color/white"
@@ -89,28 +89,27 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="25dp"
                 android:layout_marginBottom="8dp"
-                android:text="Nome de usuário"
+                android:text="Cidade"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/et_city"
+
+            <AutoCompleteTextView
+                android:id="@+id/spn_cities"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
+
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
-                android:layout_marginBottom="25dp"
-                android:autofillHints="name"
                 android:background="@drawable/buttons_initial"
-                android:ems="10"
-                android:inputType="text"
-                android:paddingLeft="12dp"
-
-                android:paddingTop="6dp"
-                android:paddingRight="12dp"
-                android:paddingBottom="6dp"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_marginBottom="25dp"
+                android:paddingLeft="12dp"
+                android:paddingTop="6dp"
+                android:textAlignment="center"
+                android:paddingRight="12dp"
+                android:paddingBottom="6dp"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_continue"

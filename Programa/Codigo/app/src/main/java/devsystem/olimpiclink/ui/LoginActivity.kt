@@ -2,6 +2,7 @@ package devsystem.olimpiclink.ui
 
 import devsystem.olimpiclink.util.CommonEvents
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.appcompat.widget.AppCompatButton
 import android.widget.EditText
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import devsystem.olimpiclink.MainActivity
 import devsystem.olimpiclink.R
 import devsystem.olimpiclink.databinding.ActivityLoginBinding
 import devsystem.olimpiclink.model.User
@@ -78,10 +80,21 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun enterClick(view: View) {
+        var logando = false
         if(et_username.text.isNotEmpty() && et_password.text.isNotEmpty()){
-            if(userLogar(et_username.text.toString(), et_password.text.toString())){
-                Log.e("LoginActivity","penis")
+            logando = userLogar(et_username.text.toString(), et_password.text.toString())
+            if(logando){
+                var main_activity = Intent(this, MainActivity::class.java)
+                main_activity.putExtra("user", user)
+                startActivity(main_activity)
+                finish()
             }
         }
+        else{
+            var main_activity = Intent(this, MainActivity::class.java)
+            startActivity(main_activity)
+            finish()
+        }
+
     }
 }
