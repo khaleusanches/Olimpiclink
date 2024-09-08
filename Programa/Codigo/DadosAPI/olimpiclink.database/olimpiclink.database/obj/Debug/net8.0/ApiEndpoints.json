@@ -1,5 +1,51 @@
 [
   {
+    "ContainingType": "olimpiclink.database.Controllers.PublicationController",
+    "Method": "getPublication",
+    "RelativePath": "api/publication",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.UserController",
+    "Method": "userCreate",
+    "RelativePath": "api/users",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name_user",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "email_user",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "password_user",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "login_user",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "icon_comunity",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "olimpiclink.database.Controllers.UserController",
     "Method": "userGet",
     "RelativePath": "api/users",
@@ -17,37 +63,6 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [
-      {
-        "Name": "login_user",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "olimpiclink.database.Controllers.UserController",
-    "Method": "userCreate",
-    "RelativePath": "api/users/add/name={name_user}login={login_user}email={email_user}pass={password_user}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "name_user",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "email_user",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "password_user",
-        "Type": "System.String",
-        "IsRequired": true
-      },
       {
         "Name": "login_user",
         "Type": "System.String",

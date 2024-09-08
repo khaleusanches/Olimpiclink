@@ -11,11 +11,12 @@ namespace olimpiclink.database.Controllers
     public class UserController : Controller
     {
         ConnectionContext context = new ConnectionContext();
-        [HttpGet("add/name={name_user}login={login_user}email={email_user}pass={password_user}")]
-        public async Task<IActionResult> userCreate(string name_user, string email_user, string password_user, string login_user, CancellationToken ct)
+        [HttpPost]
+        public async Task<IActionResult> userCreate([FromForm] string name_user, [FromForm] string email_user, [FromForm] string password_user, [FromForm] string login_user, IFormFile icon_comunity, CancellationToken ct)
         {
-            
-            var new_user = new UserModel(name_user, email_user, password_user, login_user);
+            var memoryStream = new MemoryStream();
+            icon_comunity.CopyTo(memoryStream); //coloca a imagem em um armazem temporario da api
+            var new_user = new UserModel(name_user, email_user, password_user, login_user, memoryStream.ToArray());
             var check_email = await context.users.AnyAsync(user => user.email_user == email_user && user.activated_user == true);
             var check_login = await context.users.AnyAsync(user => user.login_user == login_user && user.activated_user == true);
 
