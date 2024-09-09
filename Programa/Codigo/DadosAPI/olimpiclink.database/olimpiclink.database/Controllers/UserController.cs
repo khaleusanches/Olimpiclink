@@ -12,11 +12,9 @@ namespace olimpiclink.database.Controllers
     {
         ConnectionContext context = new ConnectionContext();
         [HttpPost]
-        public async Task<IActionResult> userCreate([FromForm] string name_user, [FromForm] string email_user, [FromForm] string password_user, [FromForm] string login_user, IFormFile icon_comunity, CancellationToken ct)
+        public async Task<IActionResult> userCreate(string name_user, string email_user, string password_user, string login_user, CancellationToken ct)
         {
-            var memoryStream = new MemoryStream();
-            icon_comunity.CopyTo(memoryStream); //coloca a imagem em um armazem temporario da api
-            var new_user = new UserModel(name_user, email_user, password_user, login_user, memoryStream.ToArray());
+            var new_user = new UserModel(name_user, email_user, password_user, login_user);
             var check_email = await context.users.AnyAsync(user => user.email_user == email_user && user.activated_user == true);
             var check_login = await context.users.AnyAsync(user => user.login_user == login_user && user.activated_user == true);
 
@@ -40,9 +38,15 @@ namespace olimpiclink.database.Controllers
             var get_users = await context.users.ToListAsync(ct);
             return Ok(get_users);
         }
+        [HttpGet("imagem")]
+        public async Task<IActionResult> userGetImage(int id, CancellationToken ct)
+        {
+            var get_users = await context.users.Where(user => user.id_user == id).ToListAsync(ct);
+            return File(get_users[0].profile_picture_user, "image/jpeg");
+        }
 
         [HttpGet("{login_user}")]
-        public async Task<IActionResult> userGetID(String login_user, CancellationToken ct)
+        public async Task<IActionResult> userGetID(string login_user, CancellationToken ct)
         {
             var get_users = await context.users.Where(user => user.login_user == login_user).ToListAsync(ct);
             return Ok(get_users);

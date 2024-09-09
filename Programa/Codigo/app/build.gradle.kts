@@ -58,4 +58,5 @@ dependencies {
     implementation(libs.retrofit.coroutines.adapter)
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)
+    implementation(libs.glide)
 }

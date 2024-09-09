@@ -9,6 +9,10 @@ namespace olimpiclink.database.Models
         public int id_publication { get; set; }
         public int user_id { get; set; }
         public string text_publication { get; set; }
+        public string? url_image_one_publication { get; set; }
+        public string? url_image_two_publication { get; set; }
+        public string? url_image_three_publication { get; set; }
+        public string? url_image_four_publication { get; set; }
         public byte[]? image_one_publication { get; set; }
         public byte[]? image_two_publication { get; set; }
         public byte[]? image_three_publication { get; set; }

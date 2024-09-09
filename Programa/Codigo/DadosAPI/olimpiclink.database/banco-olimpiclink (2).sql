@@ -174,6 +174,10 @@ CREATE TABLE `comunity_has_leader` (
 create table `publications`(
 	id_publication integer primary key auto_increment,
     text_publication text not null,
+    url_image_one_publication varchar(60),
+    url_image_two_publication varchar(60),
+    url_image_three_publication varchar(60),
+    url_image_four_publication varchar(60),
     image_one_publication mediumblob,
     image_two_publication mediumblob,
     image_three_publication mediumblob,
@@ -187,6 +191,8 @@ create table `publications`(
     foreign key (`place_id`) references `places`(`id_place`),
     foreign key (`event_id`) references `events`(`idEvent`)
 );
+update publications set url_image_one_publication = "https://cdn-icons-png.flaticon.com/512/7022/7022927.png";
+alter table publications add column url_image_four_publication varchar(60);
 
 create table `categories_has_publications`(
   `publication_id` int(10) NOT NULL,

@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        window.navigationBarColor = resources.getColor(R.color.laranja_splash)
         var user = intent.extras?.getParcelable<User>("user")
         api_publication = ApiCliente.retrofit.create(EndpointPublication::class.java)
         publicationGet()
@@ -43,7 +44,20 @@ class MainActivity : AppCompatActivity() {
             try {
                 Log.d("MainActivity", "launch1")
                 list_publication = api_publication.publicationsGet()
-                binding.pp.setTeste(list_publication[1].login_user, list_publication[1].text_publication, list_publication[1].date_publication)
+                var imagens = list_publication[0].listarImagens()
+                var imagens2 = list_publication[1].listarImagens()
+                Log.d("MainActivity", "aa ${list_publication[0].url_image_one_publication}")
+                if(imagens != null){
+                    binding.pp.setTeste(
+                        list_publication[0].login_user,
+                        list_publication[0].text_publication,
+                        list_publication[0].date_publication,
+                        list_publication[0].url_profile_picture_user,
+                        imagens
+                    )
+                    Log.d("MainActivity", imagens[0])
+                }
+                Log.d("MainActivity", imagens[0])
                 // Manipule as publicações
             } catch (e: Exception) {
                 // Lide com o erro
