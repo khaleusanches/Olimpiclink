@@ -1,4 +1,4 @@
-package devsystem.olimpiclink
+package devsystem.olimpiclink.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -8,15 +8,13 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import devsystem.olimpiclink.R
 import devsystem.olimpiclink.databinding.ActivityMainBinding
 import devsystem.olimpiclink.model.Publication
 import devsystem.olimpiclink.model.User
 import devsystem.olimpiclink.model.util.ApiCliente
 import devsystem.olimpiclink.util.EndpointPublication
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding

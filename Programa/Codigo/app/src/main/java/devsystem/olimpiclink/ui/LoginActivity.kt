@@ -12,7 +12,6 @@ import androidx.appcompat.widget.AppCompatButton
 import android.widget.EditText
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import devsystem.olimpiclink.MainActivity
 import devsystem.olimpiclink.R
 import devsystem.olimpiclink.databinding.ActivityLoginBinding
 import devsystem.olimpiclink.model.User
@@ -91,7 +90,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
         else{
-            var main_activity = Intent(this, MainActivity::class.java)
+            var main_activity = Intent(this, UnpublishedPublicationActivity::class.java)
             startActivity(main_activity)
             finish()
         }
