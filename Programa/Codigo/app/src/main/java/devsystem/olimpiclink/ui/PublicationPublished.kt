@@ -34,7 +34,6 @@ class PublicationPublished @JvmOverloads constructor (
             text_publication = attributes.getString(R.styleable.PublicationPublished_tv_text_publication)
             binding.tvUsername.text = login_user
             binding.tvTextPublication.text = text_publication
-
             attributes.recycle()
         }
     }

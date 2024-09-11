@@ -5,28 +5,20 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".ui.MainActivity"
     android:orientation="vertical"
     android:background="@drawable/background_main"
+
     >
 
     <devsystem.olimpiclink.ui.PublicationPublished
         android:id="@+id/pp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:tv_login_user="Uelahk"
+        android:layout_marginTop="15dp"
+        app:tv_text_publication="Minha primeira publicação nesta rede social"
+        />
 
-        android:layout_marginTop="0dp"
-        android:layout_gravity="center"
-        app:tv_login_user="Uelahk"
-        app:tv_text_publication="Minha primeira publicação nesta rede social"
-        />
-    <devsystem.olimpiclink.ui.PublicationPublished
-        android:id="@+id/pp2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_gravity="center"
-        app:tv_login_user="Uelahk"
-        app:tv_text_publication="Minha primeira publicação nesta rede social"
-        />
 </LinearLayout>

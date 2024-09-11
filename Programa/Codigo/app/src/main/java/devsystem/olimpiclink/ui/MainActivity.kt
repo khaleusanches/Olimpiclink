@@ -1,21 +1,20 @@
-package devsystem.olimpiclink
+package devsystem.olimpiclink.ui
 
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import devsystem.olimpiclink.R
 import devsystem.olimpiclink.databinding.ActivityMainBinding
 import devsystem.olimpiclink.model.Publication
 import devsystem.olimpiclink.model.User
 import devsystem.olimpiclink.model.util.ApiCliente
 import devsystem.olimpiclink.util.EndpointPublication
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
@@ -32,6 +31,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         window.navigationBarColor = resources.getColor(R.color.laranja_splash)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.laranja_splash)
         var user = intent.extras?.getParcelable<User>("user")
         api_publication = ApiCliente.retrofit.create(EndpointPublication::class.java)
         publicationGet()
@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity() {
                 Log.d("MainActivity", "launch1")
                 list_publication = api_publication.publicationsGet()
                 var imagens = list_publication[0].listarImagens()
-                var imagens2 = list_publication[1].listarImagens()
                 Log.d("MainActivity", "aa ${list_publication[0].url_image_one_publication}")
                 if(imagens != null){
                     binding.pp.setTeste(
