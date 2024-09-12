@@ -1,0 +1,13 @@
+Objetivo geral
+
+Essa pesquisa tem como objetivo identificar problemas de reconhecimento relacionado a locais que possuém estrutura
+suficiente para práticas esportivas e resolve-las com a estruturação do sistema, com o objetivo de traçar soluções para essetipo de demanda na região de Diadema.
+
+
+Objetivo específico 
+
+- Classificar problemas sobre locais esportivos desconhecidos;
+- Argumentar sobre a influência que o aplicativo pode ter no quesito esportivo;
+- Descobrir formas efetivas de divulgação de locais e clubes no aplicativo;
+
+
