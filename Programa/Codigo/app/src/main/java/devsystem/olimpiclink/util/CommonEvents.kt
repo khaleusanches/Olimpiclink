@@ -1,13 +1,21 @@
 package devsystem.olimpiclink.util
 
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
 import android.view.MotionEvent.ACTION_CANCEL
 import android.view.MotionEvent.ACTION_DOWN
 import android.view.MotionEvent.ACTION_UP
 import android.view.View
+import android.view.View.OnClickListener
 import androidx.appcompat.widget.AppCompatButton
 import android.widget.EditText
+import androidx.core.content.ContextCompat.startActivity
 import devsystem.olimpiclink.R
+import devsystem.olimpiclink.model.User
+import devsystem.olimpiclink.ui.MainActivity
+import devsystem.olimpiclink.ui.UnpublishedPublicationActivity
 
 class CommonEvents {
     @SuppressLint("ClickableViewAccessibility")
@@ -36,6 +44,22 @@ class CommonEvents {
                 edit_text.setBackgroundResource(R.drawable.buttons_initial)
             }
             false
+        }
+    }
+    fun goPageCreationPublication (user: User, context : Activity, view : View){
+        view.setOnClickListener{
+            var main_activity = Intent(context, UnpublishedPublicationActivity::class.java)
+            main_activity.putExtra("user", user)
+            context.startActivity(main_activity)
+            context.finish()
+        }
+    }
+    fun goPageMain(user : User, context: Activity, view : View){
+        view.setOnClickListener{
+            var main_activity = Intent(context, MainActivity::class.java)
+            main_activity.putExtra("user", user)
+            context.startActivity(main_activity)
+            context.finish()
         }
     }
 }

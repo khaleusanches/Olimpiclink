@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("olimpiclink.database")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c2ed9e16524c3edb5f25873638d08ba04b52e621")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3fa7f92288ad7f83f901494703faedbca67c46a4")]
 [assembly: System.Reflection.AssemblyProductAttribute("olimpiclink.database")]
 [assembly: System.Reflection.AssemblyTitleAttribute("olimpiclink.database")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

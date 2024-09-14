@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,18 +8,41 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity"
     android:orientation="vertical"
-    android:background="@drawable/background_main"
+    android:background="@drawable/background_main">
 
-    >
+    <devsystem.olimpiclink.ui.ToolbarCustom
+        android:id="@+id/toolbar_custom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <devsystem.olimpiclink.ui.PublicationPublished
         android:id="@+id/pp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        app:tv_login_user="Uelahk"
         android:layout_marginTop="15dp"
+        app:tv_login_user="Uelahk"
         app:tv_text_publication="Minha primeira publicação nesta rede social"
-        />
+        app:layout_constraintTop_toBottomOf="@id/toolbar_custom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-</LinearLayout>
+    <devsystem.olimpiclink.ui.PublicationPublished
+        android:id="@+id/pp2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pp"
+        app:tv_login_user="Uelahk"
+        app:tv_text_publication="Minha primeira publicação nesta rede social" />
+
+    <devsystem.olimpiclink.ui.BottomAppbarCustom
+        android:id="@+id/bottom_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

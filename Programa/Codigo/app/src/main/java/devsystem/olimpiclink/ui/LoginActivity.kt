@@ -10,6 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import android.widget.EditText
+import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import devsystem.olimpiclink.R
@@ -52,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
                     response.body()?.let { user_bd ->
                         Log.d("LoginActivity", "User: ${user_bd.name_user}")
                         user = User(user_bd.id_user, user_bd.name_user, user_bd.email_user,
-                            user_bd.login_user, user_bd.profile_picture_user, user_bd.created_at_user)
+                            user_bd.login_user, user_bd.url_profile_picture_user, user_bd.created_at_user)
                     }
                 }else{
                     Log.e("LoginActivity", "Erro: ${response.code()}")
@@ -83,16 +84,18 @@ class LoginActivity : AppCompatActivity() {
         if(et_username.text.isNotEmpty() && et_password.text.isNotEmpty()){
             logando = userLogar(et_username.text.toString(), et_password.text.toString())
             if(logando){
+                //var main_activity = Intent(this, MainActivity::class.java)
                 var main_activity = Intent(this, MainActivity::class.java)
                 main_activity.putExtra("user", user)
                 startActivity(main_activity)
                 finish()
             }
+            else{
+                Toast.makeText(this, "Login ou senha invalidos", Toast.LENGTH_SHORT).show()
+            }
         }
         else{
-            var main_activity = Intent(this, UnpublishedPublicationActivity::class.java)
-            startActivity(main_activity)
-            finish()
+            Toast.makeText(this, "Insira o login e a senha", Toast.LENGTH_SHORT).show()
         }
 
     }

@@ -8,7 +8,7 @@ data class User(
     var name_user : String,
     var email_user : String,
     var login_user : String,
-    var profile_picture_user : String?,
+    var url_profile_picture_user : String?,
     var created_at_user : String,
 ) : Parcelable{
     constructor(parcel: Parcel) : this(
@@ -26,7 +26,7 @@ data class User(
         parcel.writeString(name_user)
         parcel.writeString(email_user)
         parcel.writeString(login_user)
-        parcel.writeString(profile_picture_user)
+        parcel.writeString(url_profile_picture_user)
         parcel.writeString(created_at_user)
     }
 

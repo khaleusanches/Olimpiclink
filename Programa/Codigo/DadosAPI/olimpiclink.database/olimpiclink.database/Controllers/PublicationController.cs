@@ -107,5 +107,44 @@ namespace olimpiclink.database.Controllers
             await context.SaveChangesAsync();
             return Ok();
         }
+
+        [HttpPost("pointo")]
+        public async Task<IActionResult> pint(AddPublicationModel new_add_publication)
+        {
+            PublicationModel new_publication = new 
+                PublicationModel(
+                new_add_publication.user_id,
+                new_add_publication.text_publication,
+                new_add_publication.image_one_publication,
+                new_add_publication.image_two_publication,
+                new_add_publication.image_three_publication,
+                new_add_publication.image_four_publication,
+                new_add_publication.comunity_id,
+                new_add_publication.place_id,
+                new_add_publication.event_id
+                );
+            if (new_publication.image_one_publication != null)
+            {
+                new_publication.url_image_one_publication = "http://192.168.0.158:5000/api/publication/imagens/" + new_publication.id_publication + "/1";
+            }
+            if (new_publication.image_two_publication != null)
+            {
+                new_publication.url_image_one_publication = "http://192.168.0.158:5000/api/publication/imagens/" + new_publication.id_publication + "/2";
+            }
+            if (new_publication.image_three_publication != null)
+            {
+                new_publication.url_image_one_publication = "http://192.168.0.158:5000/api/publication/imagens/" + new_publication.id_publication + "/3";
+            }
+            if (new_publication.image_four_publication != null)
+            {
+                new_publication.url_image_one_publication = "http://192.168.0.158:5000/api/publication/imagens/" + new_publication.id_publication + "/4";
+            }
+            var teste = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            var test2 = DateTime.ParseExact(teste, "yyyy-MM-dd HH:mm:ss", null);
+            new_publication.date_publication = test2;
+            await context.publications.AddAsync(new_publication);
+            await context.SaveChangesAsync();
+            return Ok();
+        }
     }
 }
