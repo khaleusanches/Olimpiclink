@@ -67,6 +67,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "olimpiclink.database.Controllers.PublicationController",
+    "Method": "pint",
+    "RelativePath": "api/publication/pointo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "new_add_publication",
+        "Type": "olimpiclink.database.Models.AddPublicationModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "olimpiclink.database.Controllers.UserController",
     "Method": "userCreate",
     "RelativePath": "api/users",

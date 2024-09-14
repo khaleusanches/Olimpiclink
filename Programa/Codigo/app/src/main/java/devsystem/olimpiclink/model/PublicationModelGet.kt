@@ -1,6 +1,6 @@
 package devsystem.olimpiclink.model
 
-class Publication(
+class PublicationModelGet(
     val id_publication : Int,
     val user_id : Int,
     val login_user : String,
@@ -15,8 +15,7 @@ class Publication(
     val date_publication : String,
     val comunity_id : Int?,
     val place_id : Int?,
-    val event_id : Int?,
-
+    val event_id : Int?
 ) {
     fun listarImagens(): MutableList<String> {
         var lista_imagens : MutableList<String>
