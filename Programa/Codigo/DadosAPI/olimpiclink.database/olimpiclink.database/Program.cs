@@ -4,15 +4,29 @@ using olimpiclink.database.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.UseUrls("http://0.0.0.0:5000");
-// Add services to the container.
 
+// Add services to the container.
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<ConnectionContext>(); 
+builder.Services.AddScoped<ConnectionContext>();
 
 var app = builder.Build();
+
+// Middleware para logar requisições HTTP
+app.Use(async (context, next) =>
+{
+    // Logar a requisição
+    Console.WriteLine($"Método HTTP: {context.Request.Method}");
+    Console.WriteLine($"Caminho: {context.Request.Path}");
+    Console.WriteLine($"Query String: {context.Request.QueryString}");
+
+    // Chama o próximo middleware no pipeline
+    await next.Invoke();
+
+    // Logar a resposta
+    Console.WriteLine($"Status da Resposta: {context.Response.StatusCode}");
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -22,9 +36,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

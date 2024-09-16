@@ -49,6 +49,7 @@ class CommonEvents {
     fun goPageCreationPublication (user: User, context : Activity, view : View){
         view.setOnClickListener{
             var main_activity = Intent(context, UnpublishedPublicationActivity::class.java)
+            view.setBackgroundResource(R.drawable.edit_text_selected)
             main_activity.putExtra("user", user)
             context.startActivity(main_activity)
             context.finish()
@@ -57,6 +58,7 @@ class CommonEvents {
     fun goPageMain(user : User, context: Activity, view : View){
         view.setOnClickListener{
             var main_activity = Intent(context, MainActivity::class.java)
+            view.setBackgroundResource(R.drawable.edit_text_selected)
             main_activity.putExtra("user", user)
             context.startActivity(main_activity)
             context.finish()

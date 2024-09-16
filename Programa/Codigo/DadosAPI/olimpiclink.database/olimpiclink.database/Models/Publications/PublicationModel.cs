@@ -1,7 +1,7 @@
 ﻿using Org.BouncyCastle.Utilities;
 using System.ComponentModel.DataAnnotations;
 
-namespace olimpiclink.database.Models
+namespace olimpiclink.database.Models.Publications
 {
     public class PublicationModel
     {

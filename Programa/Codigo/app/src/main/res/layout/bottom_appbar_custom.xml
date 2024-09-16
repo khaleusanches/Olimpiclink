@@ -5,63 +5,66 @@
     android:orientation="horizontal"
     >
 
-    <com.google.android.material.bottomappbar.BottomAppBar
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:backgroundTint="@color/laranja_splash"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:background="@color/laranja_splash"
         >
         <LinearLayout
             android:layout_width="wrap_content"
+            android:padding="8dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             >
             <ImageView
                 android:id="@+id/btn_pg_initial"
-                android:layout_width="64dp"
-                android:layout_height="62dp"
+                android:layout_width="60dp"
+                android:layout_height="58dp"
                 android:src="@drawable/logo"
                 android:background="@drawable/logo_shape"
                 android:padding="4dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginEnd="18dp"
                 />
             <ImageView
                 android:id="@+id/btn_pg_notifications"
-                android:layout_width="62dp"
-                android:layout_height="62dp"
+                android:layout_width="60dp"
+                android:layout_height="58dp"
                 android:src="@drawable/logo"
                 android:background="@drawable/logo_shape"
                 android:padding="4dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginEnd="18dp"
                 />
             <ImageView
                 android:id="@+id/btn_pg_create_publication"
-                android:layout_width="62dp"
-                android:layout_height="62dp"
+                android:layout_width="60dp"
+                android:layout_height="58dp"
                 android:src="@drawable/logo"
                 android:background="@drawable/logo_shape"
                 android:padding="4dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginEnd="18dp"
                 />
             <ImageView
                 android:id="@+id/btn_pg_comunities"
-                android:layout_width="62dp"
-                android:layout_height="62dp"
+                android:layout_width="60dp"
+                android:layout_height="58dp"
                 android:src="@drawable/logo"
                 android:background="@drawable/logo_shape"
                 android:padding="4dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginEnd="18dp"
                 />
             <ImageView
                 android:id="@+id/btn_pg_profile"
-                android:layout_width="62dp"
-                android:layout_height="62dp"
+                android:layout_width="60dp"
+                android:layout_height="58dp"
                 android:src="@drawable/logo"
                 android:background="@drawable/logo_shape"
                 android:padding="4dp"
                 />
         </LinearLayout>
 
-    </com.google.android.material.bottomappbar.BottomAppBar>
+    </LinearLayout>
 
 
 

@@ -85,9 +85,9 @@ namespace olimpiclink.database.Controllers
         public async Task<IActionResult> userLogin(string login_user, string password_user, CancellationToken ct)
         {
             var user = await context.users.SingleOrDefaultAsync(user => user.login_user == login_user && user.password_user == password_user, ct);
-            if(user == null)
+            if (user == null)
             {
-                return Ok("Usuário ou senha incorretos");
+                return BadRequest("Usuário ou senha incorretos");
             }
             return Ok(user);
         }
