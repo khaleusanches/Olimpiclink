@@ -128,7 +128,7 @@ namespace olimpiclink.database.Controllers
                 new_add_publication.place_id,
                 new_add_publication.event_id
                 );
-            var id = context.publications.ToListAsync().Result.Count() + 2;
+            var id = context.publications.ToListAsync().Result.Count() + 1;
             if (new_publication.image_one_publication != null)
             {
                 new_publication.url_image_one_publication = "http://192.168.0.158:5000/api/publication/imagens/" + id + "/1";
