@@ -4,7 +4,9 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import android.os.Bundle
+import android.util.Base64
 import android.util.Log
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -41,7 +43,7 @@ class UnpublishedPublicationActivity : AppCompatActivity() {
     private lateinit var image_two_publication : ImageView
     private lateinit var image_three_publication : ImageView
     private lateinit var image_four_publication : ImageView
-
+    private var selectImage : Uri? = null;
     private lateinit var api_publication : EndpointPublication
     private lateinit var btn_publicar : AppCompatButton
     var commonEvents = CommonEvents()
@@ -79,6 +81,7 @@ class UnpublishedPublicationActivity : AppCompatActivity() {
         image_three_publication = binding.imgThree
         image_four_publication = binding.imgFour
 
+        image_one_publication.setImageBitmap(null);
         api_publication = ApiCliente.retrofit.create(EndpointPublication::class.java)
         btn_publicar = binding.btnPublicar
         Glide.with(this).load(user.url_profile_picture_user).circleCrop().into(img_profile_picture_user)
@@ -89,11 +92,13 @@ class UnpublishedPublicationActivity : AppCompatActivity() {
 
     fun publishPublication(view: View) {
         Log.d("UnpublishedPublicationActivity", "pintinho")
+        var img_one = byteArrayToBase64(imageToByte(image_one_publication))
+        Log.d("UnpublishedPublicationActivity", "$img_one")
         if(tv_text_publication.text.isNotEmpty()){
             var new_publication = PublicationModelPost(
                 user.id_user,
                 tv_text_publication.text.toString(),
-                null,null,null,null,
+                img_one,null,null,null,
                 null,null,null
             )
             Log.d("UnpublishedPublicationActivity", "pintao")
@@ -102,7 +107,7 @@ class UnpublishedPublicationActivity : AppCompatActivity() {
                     api_publication.publicationsPost(
                         new_publication
                         )
-                    Log.d("UnpublishedPublicationActivity", "launch21")
+                    Log.d("UnpublishedPublicationActivity", "launch2321")
                 }
                 catch (e: Exception) {
                     // Lide com o erro
@@ -117,14 +122,35 @@ class UnpublishedPublicationActivity : AppCompatActivity() {
         }
     }
 
+    fun byteArrayToBase64(byteArray: ByteArray?): String? {
+        return if (byteArray != null) {
+            Base64.encodeToString(byteArray, 1)
+        } else {
+            null
+        }
+    }
     fun imageToByte(image : ImageView?) : ByteArray?{
-        if(image == null){
+        if(image?.drawable == null){
             return null
         }
         var bitmap = (image.drawable as BitmapDrawable).bitmap
         var stream = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.PNG, 90, stream)
+        bitmap.compress(Bitmap.CompressFormat.PNG, 50, stream)
         return stream.toByteArray()
+    }
+
+    fun selectPhoto(view: View) {
+        var intent = Intent(Intent.ACTION_PICK);
+        intent.setType("image/*")
+        startActivityForResult(intent, requestCode = 0)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == 0){
+            selectImage = data?.data
+            Glide.with(this).load(selectImage).into(image_one_publication)
+        }
     }
 
 }

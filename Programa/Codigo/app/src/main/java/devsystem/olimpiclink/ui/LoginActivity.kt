@@ -46,7 +46,7 @@ class LoginActivity : AppCompatActivity() {
         componentsInitialize()
     }
 
-    private fun userLogar(login_user : String, password_user : String) : Boolean{
+    private fun userLogar(login_user : String, password_user : String){
         api_user.userLogin(login_user, password_user).enqueue(object : retrofit2.Callback<User> {
             override fun onResponse(call: Call<User>, response: retrofit2.Response<User>){
                 if (response.isSuccessful){
@@ -54,16 +54,24 @@ class LoginActivity : AppCompatActivity() {
                         Log.d("LoginActivity", "User: ${user_bd.name_user}")
                         user = User(user_bd.id_user, user_bd.name_user, user_bd.email_user,
                             user_bd.login_user, user_bd.url_profile_picture_user, user_bd.created_at_user)
+                        var main_activity = Intent(this@LoginActivity, MainActivity::class.java)
+                        main_activity.putExtra("user", user)
+                        startActivity(main_activity)
+                        finish()
                     }
                 }else{
                     Log.e("LoginActivity", "Erro: ${response.code()}")
+                    Toast.makeText(this@LoginActivity, "Login ou senha invalidos", Toast.LENGTH_SHORT).show()
+                    et_username.setText("");
+                    et_username.requestFocus()
+                    et_password.setText("");
                 }
             }
             override fun onFailure(call:Call<User>, t: Throwable){
                 Log.e("LoginActivity", "falha", t)
+
             }
         })
-        return user != null;
     }
 
     private fun componentsInitialize() {
@@ -80,23 +88,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun enterClick(view: View) {
-        var logando = false
-        if(et_username.text.isNotEmpty() && et_password.text.isNotEmpty()){
-            logando = userLogar(et_username.text.toString(), et_password.text.toString())
-            if(logando){
-                //var main_activity = Intent(this, MainActivity::class.java)
-                var main_activity = Intent(this, MainActivity::class.java)
-                main_activity.putExtra("user", user)
-                startActivity(main_activity)
-                finish()
-            }
-            else{
-                Toast.makeText(this, "Login ou senha invalidos", Toast.LENGTH_SHORT).show()
-            }
-        }
-        else{
-            Toast.makeText(this, "Insira o login e a senha", Toast.LENGTH_SHORT).show()
-        }
-
+        userLogar(et_username.text.toString(), et_password.text.toString())
     }
 }

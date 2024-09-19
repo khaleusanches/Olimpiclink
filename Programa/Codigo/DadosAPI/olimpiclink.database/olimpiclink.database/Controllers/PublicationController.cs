@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using olimpiclink.database.Data;
 using olimpiclink.database.Models;
+using olimpiclink.database.Models.Publications;
 using olimpiclink.database.Models.Users;
 
 namespace olimpiclink.database.Controllers
@@ -14,25 +15,26 @@ namespace olimpiclink.database.Controllers
         [HttpGet]
         public async Task<IActionResult> getPublication()
         {
-            var publications = await context.publications.ToListAsync();
-            var lista = new List<object>();
-            for (int i = 0; i < publications.Count(); i++)
+            var teste = new PlaceController();
+            var publications = await context.publications.OrderByDescending(user => user.date_publication).ToListAsync();
+            var lista = new List<GetPublicationModel>();
+            foreach (var publication in publications)
             {
-                lista.Add(new {
-                    id_publication = publications[i].id_publication,
-                    user_id = publications[i].user_id,
-                    login_user = (await context.users.SingleOrDefaultAsync(user => user.id_user == publications[i].user_id)).login_user,
-                    url_profile_picture_user = (await context.users.SingleOrDefaultAsync(user => user.id_user == publications[i].user_id)).url_profile_picture_user,
-                    text_publication = publications[i].text_publication,
-                    url_image_one_publication = publications[i].url_image_one_publication,
-                    url_image_two_publication = publications[i].url_image_two_publication,
-                    url_image_three_publication = publications[i].url_image_three_publication,
-                    url_image_four_publication = publications[i].url_image_four_publication,
-                    date_publication = publications[i].date_publication,
-                    comunity_id = publications[i].comunity_id,
-                    place_id = publications[i].place_id,
-                    event_id = publications[i].event_id
-                });
+                var getPublication = new GetPublicationModel
+                    (
+                        publication.id_publication,
+                        publication.user_id,
+                        publication.text_publication,
+                        publication.url_image_one_publication,
+                        publication.url_image_two_publication,
+                        publication.url_image_three_publication,
+                        publication.url_image_four_publication,
+                        publication.date_publication,
+                        publication.comunity_id,
+                        publication.place_id,
+                        publication.event_id
+                    );
+                lista.Add( getPublication );
             }
             return Ok(lista);
         }
@@ -111,21 +113,25 @@ namespace olimpiclink.database.Controllers
         [HttpPost("pointo")]
         public async Task<IActionResult> pint(AddPublicationModel new_add_publication)
         {
+            byte[] testee = null;
+            if(new_add_publication.image_one_publication != null)
+            {
+                testee = Convert.FromBase64String(new_add_publication.image_one_publication);
+            }
             PublicationModel new_publication = new 
                 PublicationModel(
                 new_add_publication.user_id,
                 new_add_publication.text_publication,
-                new_add_publication.image_one_publication,
-                new_add_publication.image_two_publication,
-                new_add_publication.image_three_publication,
-                new_add_publication.image_four_publication,
+                testee,
+                null,null,null,
                 new_add_publication.comunity_id,
                 new_add_publication.place_id,
                 new_add_publication.event_id
                 );
+            var id = context.publications.ToListAsync().Result.Count() + 1;
             if (new_publication.image_one_publication != null)
             {
-                new_publication.url_image_one_publication = "http://192.168.0.158:5000/api/publication/imagens/" + new_publication.id_publication + "/1";
+                new_publication.url_image_one_publication = "http://192.168.0.158:5000/api/publication/imagens/" + id + "/1";
             }
             if (new_publication.image_two_publication != null)
             {

@@ -54,7 +54,6 @@ class PublicationPublished @JvmOverloads constructor (
                 two_line_images.add(images[i])
                 Log.d("PublicationPublished", "two_line ${images[i]}")
             }
-
         }
         var adapter_one = AdapterPublicationImages(one_line_images, context)
         val rc = binding.rcImages

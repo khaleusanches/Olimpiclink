@@ -15,6 +15,7 @@ class PublicationModelGet(
     val date_publication : String,
     val comunity_id : Int?,
     val place_id : Int?,
+    val name_place : String?,
     val event_id : Int?
 ) {
     fun listarImagens(): MutableList<String> {

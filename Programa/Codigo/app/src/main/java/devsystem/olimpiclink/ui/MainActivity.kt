@@ -11,11 +11,13 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import devsystem.olimpiclink.R
 import devsystem.olimpiclink.databinding.ActivityMainBinding
 import devsystem.olimpiclink.model.PublicationModelGet
 import devsystem.olimpiclink.model.User
 import devsystem.olimpiclink.model.util.ApiCliente
+import devsystem.olimpiclink.util.AdapterPublication
 import devsystem.olimpiclink.util.CommonEvents
 import devsystem.olimpiclink.util.EndpointPublication
 import kotlinx.coroutines.launch
@@ -52,22 +54,12 @@ class MainActivity : AppCompatActivity() {
             try {
                 Log.d("MainActivity", "launch1")
                 list_publication = api_publication.publicationsGet()
-                var imagens = list_publication[0].listarImagens()
-                binding.pp2.setTeste(
-                        list_publication[0].login_user,
-                        list_publication[0].text_publication,
-                        list_publication[0].date_publication,
-                        list_publication[0].url_profile_picture_user,
-                        imagens
-                )
-                binding.pp.setTeste(
-                    list_publication[1].login_user,
-                    list_publication[1].text_publication,
-                    list_publication[1].date_publication,
-                    list_publication[1].url_profile_picture_user,
-                    list_publication[1].listarImagens()
-                )
-                // Manipule as publicações
+                var adapter = AdapterPublication(list_publication, this@MainActivity)
+                var rc = binding.rcFeed
+                rc.layoutManager = LinearLayoutManager(this@MainActivity)
+                rc.setHasFixedSize(true)
+                rc.adapter = adapter
+
             } catch (e: Exception) {
                 // Lide com o erro
                 Log.d("MainActivity", "launch2")

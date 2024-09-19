@@ -1,5 +1,47 @@
 [
   {
+    "ContainingType": "olimpiclink.database.Controllers.PlaceController",
+    "Method": "getPlaces",
+    "RelativePath": "api/places",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.PlaceController",
+    "Method": "postPlace",
+    "RelativePath": "api/places",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "new_place",
+        "Type": "olimpiclink.database.Models.Places.AddPlaceModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.PlaceController",
+    "Method": "getPlace",
+    "RelativePath": "api/places/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "olimpiclink.database.Controllers.PublicationController",
     "Method": "getPublication",
     "RelativePath": "api/publication",
