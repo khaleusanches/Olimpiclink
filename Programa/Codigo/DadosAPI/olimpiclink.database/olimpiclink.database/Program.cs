@@ -10,6 +10,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ConnectionContext>();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost", policy =>
+    {
+        policy.WithOrigins("http://localhost:8080") // Defina a origem permitida
+              .AllowAnyMethod() // Permite qualquer método (GET, POST, etc.)
+              .AllowAnyHeader()  // Permite qualquer cabeçalho
+              .AllowCredentials(); // Permite envio de cookies ou credenciais
+    });
+});
 
 var app = builder.Build();
 
@@ -34,7 +44,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors("AllowLocalhost");
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
