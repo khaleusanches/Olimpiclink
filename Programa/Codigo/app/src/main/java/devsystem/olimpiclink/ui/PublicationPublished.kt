@@ -57,13 +57,13 @@ class PublicationPublished @JvmOverloads constructor (
         }
         var adapter_one = AdapterPublicationImages(one_line_images, context)
         val rc = binding.rcImages
-        rc.layoutManager = LinearLayoutManager(context)
+        rc.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         rc.setHasFixedSize(true)
         rc.adapter = adapter_one
 
         var adapter_two = AdapterPublicationImages(two_line_images, context)
         val rc_images2 = binding.rcImages2
-        rc_images2.layoutManager = LinearLayoutManager(context)
+        rc_images2.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         rc_images2.setHasFixedSize(true)
         rc_images2.adapter = adapter_two
     }

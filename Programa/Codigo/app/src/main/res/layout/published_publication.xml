@@ -21,8 +21,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@drawable/publication_shape"
-            android:paddingRight="32dp"
-            android:paddingLeft="12dp"
+            android:paddingRight="22dp"
+            android:paddingLeft="22dp"
             >
             <LinearLayout
                 android:layout_width="match_parent"
@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginBottom="4dp"
-                android:layout_marginLeft="22dp"
+                android:layout_gravity="center"
                 >
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rc_images"
@@ -91,13 +91,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="0dp"
                     android:scrollbars="none"
-
                     />
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rc_images2"
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginHorizontal="4dp"
                     android:scrollbars="none"
                     />
             </LinearLayout>
@@ -119,7 +118,7 @@
 
                 android:text="marcados @uelahk @felipy @clara @raony @tavora"
                 android:justificationMode="inter_word"
-                android:paddingHorizontal="16dp"
+                android:paddingHorizontal="6dp"
                 android:paddingBottom="10dp"
                 android:textSize="10dp"
                 />

@@ -113,17 +113,32 @@ namespace olimpiclink.database.Controllers
         [HttpPost("pointo")]
         public async Task<IActionResult> pint(AddPublicationModel new_add_publication)
         {
-            byte[] testee = null;
-            if(new_add_publication.image_one_publication != null)
+            byte[]? img_one = null;
+            byte[]? img_two = null;
+            byte[]? img_three = null;
+            byte[]? img_four = null;
+            if (new_add_publication.image_one_publication != null)
             {
-                testee = Convert.FromBase64String(new_add_publication.image_one_publication);
+                img_one = Convert.FromBase64String(new_add_publication.image_one_publication.Trim().Replace(" ", "").Replace("\n", ""));
+            }
+            if (new_add_publication.image_two_publication != null)
+            {
+                img_two = Convert.FromBase64String(new_add_publication.image_two_publication.Trim().Replace(" ", "").Replace("\n", ""));
+            }
+            if (new_add_publication.image_three_publication != null)
+            {
+                img_three = Convert.FromBase64String(new_add_publication.image_three_publication.Trim().Replace(" ", "").Replace("\n", ""));
+            }
+            if (new_add_publication.image_four_publication != null)
+            {
+                img_four = Convert.FromBase64String(new_add_publication.image_four_publication.Trim().Replace(" ", "").Replace("\n", ""));
             }
             PublicationModel new_publication = new 
                 PublicationModel(
                 new_add_publication.user_id,
                 new_add_publication.text_publication,
-                testee,
-                null,null,null,
+                img_one,
+                img_two, img_three, img_four,
                 new_add_publication.comunity_id,
                 new_add_publication.place_id,
                 new_add_publication.event_id
@@ -135,15 +150,15 @@ namespace olimpiclink.database.Controllers
             }
             if (new_publication.image_two_publication != null)
             {
-                new_publication.url_image_one_publication = "http://192.168.0.158:5000/api/publication/imagens/" + new_publication.id_publication + "/2";
+                new_publication.url_image_two_publication = "http://192.168.0.158:5000/api/publication/imagens/" + id + "/2";
             }
             if (new_publication.image_three_publication != null)
             {
-                new_publication.url_image_one_publication = "http://192.168.0.158:5000/api/publication/imagens/" + new_publication.id_publication + "/3";
+                new_publication.url_image_three_publication = "http://192.168.0.158:5000/api/publication/imagens/" + id + "/3";
             }
             if (new_publication.image_four_publication != null)
             {
-                new_publication.url_image_one_publication = "http://192.168.0.158:5000/api/publication/imagens/" + new_publication.id_publication + "/4";
+                new_publication.url_image_four_publication = "http://192.168.0.158:5000/api/publication/imagens/" + id + "/4";
             }
             var teste = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             var test2 = DateTime.ParseExact(teste, "yyyy-MM-dd HH:mm:ss", null);

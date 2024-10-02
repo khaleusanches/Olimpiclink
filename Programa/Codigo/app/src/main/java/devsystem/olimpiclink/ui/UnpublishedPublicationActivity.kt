@@ -47,6 +47,9 @@ class UnpublishedPublicationActivity : AppCompatActivity() {
     private lateinit var api_publication : EndpointPublication
     private lateinit var btn_publicar : AppCompatButton
     var commonEvents = CommonEvents()
+
+    private var lista_imagens = mutableListOf<Uri?>()
+    private var lista_image_view = mutableListOf<ImageView>()
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -81,6 +84,11 @@ class UnpublishedPublicationActivity : AppCompatActivity() {
         image_three_publication = binding.imgThree
         image_four_publication = binding.imgFour
 
+        lista_image_view.add(image_one_publication)
+        lista_image_view.add(image_two_publication)
+        lista_image_view.add(image_three_publication)
+        lista_image_view.add(image_four_publication)
+
         image_one_publication.setImageBitmap(null);
         api_publication = ApiCliente.retrofit.create(EndpointPublication::class.java)
         btn_publicar = binding.btnPublicar
@@ -92,13 +100,16 @@ class UnpublishedPublicationActivity : AppCompatActivity() {
 
     fun publishPublication(view: View) {
         Log.d("UnpublishedPublicationActivity", "pintinho")
-        var img_one = byteArrayToBase64(imageToByte(image_one_publication))
+        var img_one = byteArrayToBase64(imageToByte(lista_image_view[0]))
+        var img_two = byteArrayToBase64(imageToByte(lista_image_view[1]))
+        var img_three = byteArrayToBase64(imageToByte(lista_image_view[2]))
+        var img_four = byteArrayToBase64(imageToByte(lista_image_view[3]))
         Log.d("UnpublishedPublicationActivity", "$img_one")
         if(tv_text_publication.text.isNotEmpty()){
             var new_publication = PublicationModelPost(
                 user.id_user,
                 tv_text_publication.text.toString(),
-                img_one,null,null,null,
+                img_one,img_two,img_three,img_four,
                 null,null,null
             )
             Log.d("UnpublishedPublicationActivity", "pintao")
@@ -108,6 +119,10 @@ class UnpublishedPublicationActivity : AppCompatActivity() {
                         new_publication
                         )
                     Log.d("UnpublishedPublicationActivity", "launch2321")
+                    var main_activity = Intent(this@UnpublishedPublicationActivity, MainActivity::class.java)
+                    main_activity.putExtra("user", user)
+                    startActivity(main_activity)
+                    finish()
                 }
                 catch (e: Exception) {
                     // Lide com o erro
@@ -115,10 +130,6 @@ class UnpublishedPublicationActivity : AppCompatActivity() {
                     e.printStackTrace()
                 }
             }
-            var main_activity = Intent(this, MainActivity::class.java)
-            main_activity.putExtra("user", user)
-            startActivity(main_activity)
-            finish()
         }
     }
 
@@ -135,22 +146,36 @@ class UnpublishedPublicationActivity : AppCompatActivity() {
         }
         var bitmap = (image.drawable as BitmapDrawable).bitmap
         var stream = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.PNG, 50, stream)
+        bitmap.compress(Bitmap.CompressFormat.PNG, 10, stream)
         return stream.toByteArray()
     }
 
     fun selectPhoto(view: View) {
-        var intent = Intent(Intent.ACTION_PICK);
-        intent.setType("image/*")
-        startActivityForResult(intent, requestCode = 0)
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == 0){
             selectImage = data?.data
-            Glide.with(this).load(selectImage).into(image_one_publication)
+            if(lista_imagens.size < 4){
+                binding.btnAdcImg.isEnabled = true;
+                lista_imagens.add(selectImage)
+                for (i in 0 until lista_imagens.size){
+                    lista_image_view[i].visibility = View.VISIBLE
+                    Glide.with(this).load(lista_imagens[i]).into(lista_image_view[i])
+                }
+            }
+            else{
+                binding.btnAdcImg.isEnabled = false;
+            }
         }
+    }
+
+    fun imageAdd(view: View) {
+        var intent = Intent(Intent.ACTION_PICK);
+        intent.setType("image/*")
+        startActivityForResult(intent, requestCode = 0)
     }
 
 }
