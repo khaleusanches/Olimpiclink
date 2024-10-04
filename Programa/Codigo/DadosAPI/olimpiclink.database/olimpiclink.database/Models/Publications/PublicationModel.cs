@@ -8,6 +8,7 @@ namespace olimpiclink.database.Models.Publications
         [Key]
         public int id_publication { get; set; }
         public int user_id { get; set; }
+        public bool activated_publication { get; set; }
         public string text_publication { get; set; }
         public string? url_image_one_publication { get; set; }
         public string? url_image_two_publication { get; set; }
@@ -26,6 +27,7 @@ namespace olimpiclink.database.Models.Publications
             (
             int user_id,
             string text_publication,
+            bool activated_publication,
             byte[]? image_one_publication = null,
             byte[]? image_two_publication = null,
             byte[]? image_three_publication = null,
@@ -37,6 +39,7 @@ namespace olimpiclink.database.Models.Publications
         {
             this.user_id = user_id;
             this.text_publication = text_publication;
+            this.activated_publication = activated_publication;
             this.image_one_publication = image_one_publication;
             this.image_two_publication = image_two_publication;
             this.image_three_publication = image_three_publication;

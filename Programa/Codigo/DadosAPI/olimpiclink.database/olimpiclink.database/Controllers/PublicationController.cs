@@ -38,6 +38,33 @@ namespace olimpiclink.database.Controllers
             }
             return Ok(lista);
         }
+        [HttpGet("user/{user_id}")]
+        public async Task<IActionResult> getUserPublications(int user_id)
+        {
+            var teste = new PlaceController();
+            var publications = await context.publications.Where(publication => publication.user_id == user_id && publication.activated_publication == true).OrderByDescending(user => user.date_publication).ToListAsync();
+            var lista = new List<GetPublicationModel>();
+            foreach (var publication in publications)
+            {
+                var getPublication = new GetPublicationModel
+                    (
+                        publication.id_publication,
+                        publication.user_id,
+                        publication.text_publication,
+                        publication.url_image_one_publication,
+                        publication.url_image_two_publication,
+                        publication.url_image_three_publication,
+                        publication.url_image_four_publication,
+                        publication.date_publication,
+                        publication.comunity_id,
+                        publication.place_id,
+                        publication.event_id
+                    );
+                lista.Add(getPublication);
+            }
+            return Ok(lista);
+        }
+    
         [HttpGet("imagens/{id}/{img}")]
         public async Task<IActionResult> getImagesPublication(int id, int img)
         {
@@ -137,6 +164,7 @@ namespace olimpiclink.database.Controllers
                 PublicationModel(
                 new_add_publication.user_id,
                 new_add_publication.text_publication,
+                true,
                 img_one,
                 img_two, img_three, img_four,
                 new_add_publication.comunity_id,
@@ -164,6 +192,15 @@ namespace olimpiclink.database.Controllers
             var test2 = DateTime.ParseExact(teste, "yyyy-MM-dd HH:mm:ss", null);
             new_publication.date_publication = test2;
             await context.publications.AddAsync(new_publication);
+            await context.SaveChangesAsync();
+            return Ok();
+        }
+
+        [HttpPut("arquivar")]
+        public async Task<IActionResult> arquivar(int id_publication)
+        {
+            var publication = await context.publications.SingleOrDefaultAsync(publication  => publication.id_publication == id_publication);
+            publication.activated_publication = false;
             await context.SaveChangesAsync();
             return Ok();
         }
