@@ -89,6 +89,22 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.PublicationController",
+    "Method": "arquivar",
+    "RelativePath": "api/publication/arquivar",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_publication",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.PublicationController",
     "Method": "getImagesPublication",
     "RelativePath": "api/publication/imagens/{id}/{img}",
     "HttpMethod": "GET",
@@ -119,6 +135,22 @@
       {
         "Name": "new_add_publication",
         "Type": "olimpiclink.database.Models.AddPublicationModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.PublicationController",
+    "Method": "getUserPublications",
+    "RelativePath": "api/publication/user/{user_id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user_id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
