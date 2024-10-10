@@ -3,7 +3,9 @@
         <LeftBar></LeftBar>
         <div class="conteudo">
             <HeaderPage></HeaderPage>
-            <UserTable></UserTable>
+            <div class="cont">
+                <UserTable></UserTable>
+            </div>
         </div>
     </div>
     
@@ -29,5 +31,14 @@ export default {
     }
     .conteudo{
         width: 85%;
+    }
+    .cont{
+        margin: auto;
+        margin-top: 32px;
+        padding-top: 32px;
+        padding-bottom: 32px;
+        width: 90%;
+        border-radius: 16px;
+        background-color: white;
     }
 </style>

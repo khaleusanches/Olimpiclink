@@ -142,8 +142,45 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.PublicationController",
+    "Method": "searchPublication",
+    "RelativePath": "api/publication/user/{id_user}/text/{text_publication}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_user",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "text_publication",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.PublicationController",
     "Method": "getUserPublications",
     "RelativePath": "api/publication/user/{user_id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user_id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.PublicationController",
+    "Method": "getUserPublicationsDesactived",
+    "RelativePath": "api/publication/user/{user_id}/desactived",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

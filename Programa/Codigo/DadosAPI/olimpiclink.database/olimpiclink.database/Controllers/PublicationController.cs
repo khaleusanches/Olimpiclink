@@ -64,6 +64,32 @@ namespace olimpiclink.database.Controllers
             }
             return Ok(lista);
         }
+        [HttpGet("user/{user_id}/desactived")]
+        public async Task<IActionResult> getUserPublicationsDesactived(int user_id)
+        {
+            var teste = new PlaceController();
+            var publications = await context.publications.Where(publication => publication.user_id == user_id && publication.activated_publication == false).OrderByDescending(user => user.date_publication).ToListAsync();
+            var lista = new List<GetPublicationModel>();
+            foreach (var publication in publications)
+            {
+                var getPublication = new GetPublicationModel
+                    (
+                        publication.id_publication,
+                        publication.user_id,
+                        publication.text_publication,
+                        publication.url_image_one_publication,
+                        publication.url_image_two_publication,
+                        publication.url_image_three_publication,
+                        publication.url_image_four_publication,
+                        publication.date_publication,
+                        publication.comunity_id,
+                        publication.place_id,
+                        publication.event_id
+                    );
+                lista.Add(getPublication);
+            }
+            return Ok(lista);
+        }
     
         [HttpGet("imagens/{id}/{img}")]
         public async Task<IActionResult> getImagesPublication(int id, int img)
@@ -203,6 +229,12 @@ namespace olimpiclink.database.Controllers
             publication.activated_publication = false;
             await context.SaveChangesAsync();
             return Ok();
+        }
+        [HttpGet("user/{id_user}/text/{text_publication}")]
+        public async Task<IActionResult> searchPublication(int id_user, string text_publication)
+        {
+            var teste1 = context.publications.Where(publication => publication.user_id == id_user && publication.text_publication.Contains(text_publication)).ToList();
+            return Ok(teste1);
         }
     }
 }
