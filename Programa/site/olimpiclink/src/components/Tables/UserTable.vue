@@ -52,13 +52,16 @@ import api from "@/services/api";
     width: 90%;
     margin: auto;
     margin-top: 15px;
+    background-color: white;
+    
   }
   .th{
     border: 1px solid black; /* Define a borda das células */
     padding: 8px; /* Espaço interno das células */
     text-align: left; /* Alinhamento do texto */
   }
-  #tr:hover{
+  tr:hover{
     color: rgb(224, 72, 2);
+    font-weight: 600;
   }
 </style>
