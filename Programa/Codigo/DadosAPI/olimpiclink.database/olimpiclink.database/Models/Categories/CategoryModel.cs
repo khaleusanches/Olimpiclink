@@ -12,7 +12,7 @@ namespace olimpiclink.database.Models.Categories
 
         public CategoryModel(string name_category)
         {
-            this.name_category = name_category ?? throw new ArgumentNullException(nameof(name_category));
+            this.name_category = name_category;
         }
     }
 }

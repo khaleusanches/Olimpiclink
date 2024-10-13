@@ -1,0 +1,141 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using olimpiclink.database.Data;
+using olimpiclink.database.Models.Comunities;
+using olimpiclink.database.Models.Events;
+using olimpiclink.database.Models.pictures_events;
+
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace olimpiclink.database.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EventController : ControllerBase
+    {
+        ConnectionContext context = new ConnectionContext();
+        // GET: api/<EventController>
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var list = await (
+                from events in context.events
+
+                join place in context.places
+                on events.place_id equals place.id_place
+
+                join comunity in context.comunities
+                on events.comunity_id equals comunity.id_comunity
+                select new 
+                {
+                    idEvent = events.idEvent,
+                    place_id = events.place_id,
+                    place_name = place.name_place,
+                    comunity_id = events.comunity_id,
+                    comunity_name = comunity.name_comunity,
+                    comunity_picture = "http://192.168.0.158:5000/api/comunities/images/"+ comunity.id_comunity,
+                    nameEvent = events.nameEvent,
+                    descriptionEvent = events.descriptionEvent,
+                    dateTimeEvent = events.dateTimeEvent,
+                    closingDateTimeEvent = events.closingDateTimeEvent,
+                    url_picture_event = (from picture in context.pictures_events
+                                         where picture.event_id == events.idEvent
+                                         select (picture == null ? null : "http://192.168.0.158:5000/api/PictureEvent/" + picture.id_picture_event)
+                                         ).ToList(),
+                    marked_presences = (from marked_presences in context.marked_presences
+                                        where marked_presences.event_id == events.idEvent
+                                        select marked_presences).Count()
+                }
+            ).ToListAsync();
+
+            if (list == null)
+            {
+                return BadRequest();
+            }
+            return Ok(list);
+        }
+
+        // GET api/<EventController>/5
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            var ev = await (
+                from events in context.events
+                join place in context.places
+                on events.place_id equals place.id_place
+
+                join comunity in context.comunities
+                on events.comunity_id equals comunity.id_comunity
+
+                where (events.idEvent == id)
+                select new
+                {
+                    idEvent = events.idEvent,
+                    place_id = events.place_id,
+                    place_name = place.name_place,
+                    comunity_id = events.comunity_id,
+                    comunity_name = comunity.name_comunity,
+                    comunity_picture = "http://192.168.0.158:5000/api/comunities/images/" + comunity.id_comunity,
+                    nameEvent = events.nameEvent,
+                    descriptionEvent = events.descriptionEvent,
+                    dateTimeEvent = events.dateTimeEvent,
+                    closingDateTimeEvent = events.closingDateTimeEvent,
+                    url_picture_event = (from picture in context.pictures_events
+                                         where picture.event_id == events.idEvent
+                                         select (picture == null ? null : "http://192.168.0.158:5000/api/PictureEvent/" + picture.id_picture_event)
+                                         ).ToList(),
+                    marked_presences = (from marked_presences in context.marked_presences
+                                        where marked_presences.event_id == events.idEvent
+                                        select marked_presences).Count()
+                }
+            ).FirstOrDefaultAsync();
+            if(ev == null)
+            {
+                return BadRequest();
+            }
+            return Ok(ev);
+        }
+
+        // POST api/<EventController>
+        [HttpPost]
+        public async Task<IActionResult> Post(PostEventModel post_new_event)
+        {
+            EventModel new_event = 
+                new EventModel(
+                    post_new_event.place_id, 
+                    post_new_event.comunity_id, 
+                    post_new_event.nameEvent, 
+                    post_new_event.descriptionEvent, 
+                    post_new_event.dateTimeEvent, 
+                    post_new_event.closingDateTimeEvent
+                    );
+            await context.events.AddAsync(new_event);
+            await context.SaveChangesAsync();
+            var id_event = (await context.events.ToListAsync()).Count();
+            if (post_new_event.pictures_event != null)
+            {
+                foreach (var picture_event in post_new_event.pictures_event)
+                {
+                    byte[] byte_picture = Convert.FromBase64String(picture_event.Trim().Replace(" ", "").Replace("\n", ""));
+                    PictureEvent new_picture_event = new PictureEvent(id_event, byte_picture);
+                    await context.pictures_events.AddAsync(new_picture_event);
+                    await context.SaveChangesAsync();
+                }
+            }
+            return Ok();
+        }
+
+        // PUT api/<EventController>/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody] string value)
+        {
+        }
+
+        // DELETE api/<EventController>/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+        }
+    }
+}

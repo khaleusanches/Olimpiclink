@@ -6,7 +6,7 @@ using olimpiclink.database.Models.Comunities;
 namespace olimpiclink.database.Controllers
 {
     [ApiController]
-    [Route("api/v1/comunities")]  //define a rota da url
+    [Route("api/comunities")]  //define a rota da url
     public class ComunityController : Controller
     {
         ConnectionContext context = new ConnectionContext(); //cria conexão
@@ -20,12 +20,12 @@ namespace olimpiclink.database.Controllers
             await context.SaveChangesAsync(); 
             return Ok();
         }
-        [HttpGet("Get/{id}")]
+        [HttpGet("images/{id}")]
         public async Task<IActionResult> Get(int id)
         {
             var teste = await context.comunities.Where(comunity => comunity.id_comunity == id).ToListAsync();
 
-            return Ok(teste[0].icon_comunity); //exibe o arquivo do banco no formato jpeg
+            return File(teste[0].icon_comunity, "image/jpeg"); //exibe o arquivo do banco no formato jpeg
         }
     }
 }
