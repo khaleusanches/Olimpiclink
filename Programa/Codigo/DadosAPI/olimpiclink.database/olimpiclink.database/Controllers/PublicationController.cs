@@ -12,6 +12,66 @@ namespace olimpiclink.database.Controllers
     public class PublicationController : Controller
     {
         ConnectionContext context = new ConnectionContext();
+
+        [HttpPost]
+        public async Task<IActionResult> post(AddPublicationModel new_add_publication)
+        {
+            byte[]? img_one = null;
+            byte[]? img_two = null;
+            byte[]? img_three = null;
+            byte[]? img_four = null;
+            if (new_add_publication.image_one_publication != null)
+            {
+                img_one = Convert.FromBase64String(new_add_publication.image_one_publication.Trim().Replace(" ", "").Replace("\n", ""));
+            }
+            if (new_add_publication.image_two_publication != null)
+            {
+                img_two = Convert.FromBase64String(new_add_publication.image_two_publication.Trim().Replace(" ", "").Replace("\n", ""));
+            }
+            if (new_add_publication.image_three_publication != null)
+            {
+                img_three = Convert.FromBase64String(new_add_publication.image_three_publication.Trim().Replace(" ", "").Replace("\n", ""));
+            }
+            if (new_add_publication.image_four_publication != null)
+            {
+                img_four = Convert.FromBase64String(new_add_publication.image_four_publication.Trim().Replace(" ", "").Replace("\n", ""));
+            }
+            PublicationModel new_publication = new
+                PublicationModel(
+                new_add_publication.user_id,
+                new_add_publication.text_publication,
+                true,
+                img_one,
+                img_two, img_three, img_four,
+                new_add_publication.comunity_id,
+                new_add_publication.place_id,
+                new_add_publication.event_id
+                );
+            var id = context.publications.ToListAsync().Result.Count() + 1;
+            if (new_publication.image_one_publication != null)
+            {
+                new_publication.url_image_one_publication = "http://192.168.0.158:5000/api/publication/imagens/" + id + "/1";
+            }
+            if (new_publication.image_two_publication != null)
+            {
+                new_publication.url_image_two_publication = "http://192.168.0.158:5000/api/publication/imagens/" + id + "/2";
+            }
+            if (new_publication.image_three_publication != null)
+            {
+                new_publication.url_image_three_publication = "http://192.168.0.158:5000/api/publication/imagens/" + id + "/3";
+            }
+            if (new_publication.image_four_publication != null)
+            {
+                new_publication.url_image_four_publication = "http://192.168.0.158:5000/api/publication/imagens/" + id + "/4";
+            }
+            var teste = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            var test2 = DateTime.ParseExact(teste, "yyyy-MM-dd HH:mm:ss", null);
+            new_publication.date_publication = test2;
+            await context.publications.AddAsync(new_publication);
+            await context.SaveChangesAsync();
+            return Ok();
+        }
+
         [HttpGet]
         public async Task<IActionResult> getPublication()
         {
@@ -64,6 +124,7 @@ namespace olimpiclink.database.Controllers
             }
             return Ok(lista);
         }
+
         [HttpGet("user/{user_id}/desactived")]
         public async Task<IActionResult> getUserPublicationsDesactived(int user_id)
         {
@@ -90,7 +151,22 @@ namespace olimpiclink.database.Controllers
             }
             return Ok(lista);
         }
-    
+
+        [HttpPut("arquivar")]
+        public async Task<IActionResult> arquivar(int id_publication)
+        {
+            var publication = await context.publications.SingleOrDefaultAsync(publication => publication.id_publication == id_publication);
+            publication.activated_publication = false;
+            await context.SaveChangesAsync();
+            return Ok();
+        }
+        [HttpGet("user/{id_user}/{text_publication}")]
+        public async Task<IActionResult> searchPublication(int id_user, string text_publication)
+        {
+            var teste1 = context.publications.Where(publication => publication.user_id == id_user && publication.text_publication.Contains(text_publication)).ToList();
+            return Ok(teste1);
+        }
+
         [HttpGet("imagens/{id}/{img}")]
         public async Task<IActionResult> getImagesPublication(int id, int img)
         {
@@ -116,7 +192,7 @@ namespace olimpiclink.database.Controllers
             return File(publicationImage, "image/jpeg");
         }
 
-        [HttpPost]
+        [HttpPost("testes")]
         public async Task<IActionResult> postImagePublication(
             [FromForm] int id, IFormFile image_one_publication = null, 
             IFormFile image_two_publication = null, 
@@ -124,7 +200,6 @@ namespace olimpiclink.database.Controllers
             IFormFile image_four_publication = null
         )
         {
-            
             var publication = await context.publications.FindAsync(id);
 
             if (image_one_publication != null)
@@ -161,80 +236,6 @@ namespace olimpiclink.database.Controllers
             }
             await context.SaveChangesAsync();
             return Ok();
-        }
-
-        [HttpPost("pointo")]
-        public async Task<IActionResult> pint(AddPublicationModel new_add_publication)
-        {
-            byte[]? img_one = null;
-            byte[]? img_two = null;
-            byte[]? img_three = null;
-            byte[]? img_four = null;
-            if (new_add_publication.image_one_publication != null)
-            {
-                img_one = Convert.FromBase64String(new_add_publication.image_one_publication.Trim().Replace(" ", "").Replace("\n", ""));
-            }
-            if (new_add_publication.image_two_publication != null)
-            {
-                img_two = Convert.FromBase64String(new_add_publication.image_two_publication.Trim().Replace(" ", "").Replace("\n", ""));
-            }
-            if (new_add_publication.image_three_publication != null)
-            {
-                img_three = Convert.FromBase64String(new_add_publication.image_three_publication.Trim().Replace(" ", "").Replace("\n", ""));
-            }
-            if (new_add_publication.image_four_publication != null)
-            {
-                img_four = Convert.FromBase64String(new_add_publication.image_four_publication.Trim().Replace(" ", "").Replace("\n", ""));
-            }
-            PublicationModel new_publication = new 
-                PublicationModel(
-                new_add_publication.user_id,
-                new_add_publication.text_publication,
-                true,
-                img_one,
-                img_two, img_three, img_four,
-                new_add_publication.comunity_id,
-                new_add_publication.place_id,
-                new_add_publication.event_id
-                );
-            var id = context.publications.ToListAsync().Result.Count() + 1;
-            if (new_publication.image_one_publication != null)
-            {
-                new_publication.url_image_one_publication = "http://192.168.0.158:5000/api/publication/imagens/" + id + "/1";
-            }
-            if (new_publication.image_two_publication != null)
-            {
-                new_publication.url_image_two_publication = "http://192.168.0.158:5000/api/publication/imagens/" + id + "/2";
-            }
-            if (new_publication.image_three_publication != null)
-            {
-                new_publication.url_image_three_publication = "http://192.168.0.158:5000/api/publication/imagens/" + id + "/3";
-            }
-            if (new_publication.image_four_publication != null)
-            {
-                new_publication.url_image_four_publication = "http://192.168.0.158:5000/api/publication/imagens/" + id + "/4";
-            }
-            var teste = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            var test2 = DateTime.ParseExact(teste, "yyyy-MM-dd HH:mm:ss", null);
-            new_publication.date_publication = test2;
-            await context.publications.AddAsync(new_publication);
-            await context.SaveChangesAsync();
-            return Ok();
-        }
-
-        [HttpPut("arquivar")]
-        public async Task<IActionResult> arquivar(int id_publication)
-        {
-            var publication = await context.publications.SingleOrDefaultAsync(publication  => publication.id_publication == id_publication);
-            publication.activated_publication = false;
-            await context.SaveChangesAsync();
-            return Ok();
-        }
-        [HttpGet("user/{id_user}/text/{text_publication}")]
-        public async Task<IActionResult> searchPublication(int id_user, string text_publication)
-        {
-            var teste1 = context.publications.Where(publication => publication.user_id == id_user && publication.text_publication.Contains(text_publication)).ToList();
-            return Ok(teste1);
         }
     }
 }
