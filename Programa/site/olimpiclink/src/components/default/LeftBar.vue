@@ -11,11 +11,11 @@
             </li>
             <li>
                 <img class="icon" src="../../assets/logo.png" alt="">
-                <router-link to="UsersList">Users</router-link>
+                <router-link to="/UsersList">Users</router-link>
             </li>
             <li>
                 <img class="icon" src="../../assets/logo.png" alt="">
-                <router-link to="/">Home</router-link>
+                <router-link to="/Reportations/Publications">Reports</router-link>
             </li>
         </ul>
     </div>

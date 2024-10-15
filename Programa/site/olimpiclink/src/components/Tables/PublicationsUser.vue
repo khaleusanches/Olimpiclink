@@ -21,12 +21,7 @@
     </div>
     <button v-if="activated == true" class="BtnArchive" v-show="show_button === index" @click="showBoxArquive(index)">Arquivar publicação</button>
   </div>
-  <div class="search">
-        <form @submit.prevent="searchPublication">
-            <input type="text" v-model="texto_search_publicacao" placeholder="Texto da publicação">
-            <input type="submit">
-        </form>
-    </div>
+  
 </template>
 <script>
 import api from "@/services/api";
@@ -40,52 +35,66 @@ import api from "@/services/api";
                 show_button: null,
                 show_confirmation_box: null,
                 teste: 1,
-                texto_search_publicacao: ''
+                archived: '',
             }
         },
         props:{
           user_id: Int16Array,
-          activated: Boolean
+          activated: Boolean,
+          texto_search_publicacao: String
         },
         created(){
-          this.iniciar();
+          api.get("/api/publication/user/"+this.user_id).then(response => {
+                    this.publications = response.data
+                  })
         },
-        beforeUpdate(){
-          this.iniciar();
+        watch:{
+          texto_search_publicacao(newValue){
+            console.log(newValue)
+            if(newValue != ''){
+              api.get("/api/publication/user/"+this.user_id+"/"+newValue).then(response => {
+                this.publications = response.data
+              })
+              console.log("/api/publication/user/"+this.user_id+"/"+newValue)
+              console.log(newValue)
+            }
+            else{
+              api.get("/api/publication/user/"+this.user_id).then(response => {
+                    this.publications = response.data
+                  })
+              this.$emit('activatedPublications')
+            }
+          },
+          activated(newValue){
+            if(newValue == true){
+              api.get("/api/publication/user/"+this.user_id).then(response => {
+                    this.publications = response.data
+                  })
+            }
+            else{
+              api.get("/api/publication/user/"+this.user_id+"/desactived").then(response => {
+                    this.publications = response.data
+                  })
+            }
+          },
+          show_confirmation_box(newValue){
+            if(newValue == null){
+              api.get("/api/publication/user/"+this.user_id).then(response => {
+                    this.publications = response.data
+                  })
+                  console.log(this.publications)
+            }
+            console.log(newValue)
+          }
         },
         methods: {
-          iniciar(){
-            switch(this.teste){
-              case 1:
-                if(this.activated == true){
-                  api.get("/api/publication/user/"+this.user_id).then(response => {
-                    this.publications = response.data
-                  })
-                } 
-                else if(this.activated == false){
-                  api.get("/api/publication/user/"+this.user_id+"/desactived").then(response => {
-                    this.publications = response.data
-                  })  
-                }
-                break;
-              case 2:
-                if(this.texto_search_publicacao != ''){
-                  api.get("/api/publication/user/"+this.user_id+"/text/"+this.texto_search_publicacao).then(response => {
-                    this.publications = response.data
-                  })
-                  console.log("/api/publication/user/"+this.user_id+"/text/"+this.texto_search_publicacao)
-                  console.log(this.texto_search_publicacao)
-                }
-                else{
-                  this.teste = 1;
-                }
-                break;
-              }
-          },
           archivePublication(publication_id){
             console.log(publication_id)
             api.put(`api/publication/arquivar?id_publication=${publication_id}`)
             this.show_confirmation_box = null;
+            api.get("/api/publication/user/"+this.user_id).then(response => {
+                    this.publications = response.data
+            })
           },
           showBoxArquive(index){
             if(this.show_confirmation_box != index){
@@ -95,9 +104,6 @@ import api from "@/services/api";
               this.show_confirmation_box = null
             }
           },
-          searchPublication(){
-            this.teste = 2;
-          }
         }
     } 
 </script>
@@ -154,4 +160,5 @@ import api from "@/services/api";
     width: 80%;
     margin: auto
   }
+
 </style>

@@ -163,7 +163,7 @@ namespace olimpiclink.database.Controllers
         [HttpGet("user/{id_user}/{text_publication}")]
         public async Task<IActionResult> searchPublication(int id_user, string text_publication)
         {
-            var teste1 = context.publications.Where(publication => publication.user_id == id_user && publication.text_publication.Contains(text_publication)).ToList();
+            var teste1 = await context.publications.Where(publication => publication.user_id == id_user && publication.text_publication.Contains(text_publication)).ToListAsync();
             return Ok(teste1);
         }
 

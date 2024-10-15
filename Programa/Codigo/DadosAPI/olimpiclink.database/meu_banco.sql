@@ -220,4 +220,13 @@ CREATE TABLE `user_places` (
   CONSTRAINT `user_places_ibfk_2` FOREIGN KEY (`place_id`) REFERENCES `places` (`id_place`)
 );
 
+create table `reported_publications`(
+	id_report_publication int primary key auto_increment,
+    publication_id int not null,
+    user_id int unsigned not null,
+    reason varchar(300) not null,
+    foreign key (publication_id) references `publications`(`id_publication`),
+    foreign key (user_id) references `users`(`id_user`)
+);
+
 

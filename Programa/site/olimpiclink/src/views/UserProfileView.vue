@@ -12,7 +12,7 @@
 <script>
 import HeaderPage from '@/components/default/HeaderPage.vue';
 import LeftBar from '../components/default/LeftBar.vue';
-import UserProfile from '@/components/views/UserProfile.vue';
+import UserProfile from '@/components/UserProfile.vue';
 export default {
     name: 'UsersView',
     components: {
