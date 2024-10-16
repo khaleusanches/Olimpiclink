@@ -461,6 +461,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "olimpiclink.database.Controllers.ReportedEventsController",
+    "Method": "post",
+    "RelativePath": "api/ReportedEvents",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "new_event",
+        "Type": "olimpiclink.database.Models.Reports.ReportedEventsModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.ReportedEventsController",
+    "Method": "get",
+    "RelativePath": "api/ReportedEvents",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "olimpiclink.database.Controllers.ReportedPublicationController",
     "Method": "post",
     "RelativePath": "api/ReportedPublication",
