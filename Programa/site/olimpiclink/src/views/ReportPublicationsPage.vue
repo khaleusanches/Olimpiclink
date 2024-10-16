@@ -5,10 +5,17 @@
             <div class="Menuses">
                 <HeaderPage></HeaderPage>
             </div>
-            <div class="ConteudoReported" v-for="reportes, index in reported_publications" :key="index">
-                <ReportPublication :publication="reportes.publication"></ReportPublication>
-                <ReportedPublicationInfos :publication="reportes.publication" :number_report_publi="reportes.denuncias_a_publicacao"></ReportedPublicationInfos>
-                <ReportInfos :report="reportes.reportes"></ReportInfos>
+            <div class="redondo">
+                <div class="ConteudoReported" v-for="reportes, index in reported_publications" :key="index">
+                    <ReportPublication :publication="reportes.publication"></ReportPublication>
+                    <ReportedPublicationInfos :publication="reportes.publication" :number_report_publi="reportes.denuncias_a_publicacao"></ReportedPublicationInfos>
+                    <ReportInfos :report="reportes.reportes"></ReportInfos>
+                    <div class="buttons_report">
+                        <ButtonAproved title="-Vistar-" @click="markRead(reportes.publication_id)"></ButtonAproved>
+                        <ButtonBanir title="publica" @click="archivePublication(reportes.publication_id)"></ButtonBanir>
+                        <ButtonBanir title="usuário"></ButtonBanir>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -22,27 +29,43 @@ import ReportedPublicationInfos from '@/components/default/ReportedPublicationIn
 import ReportInfos from '@/components/default/ReportInfos.vue';
 import HeaderPage from '@/components/default/HeaderPage.vue';
 import api from '@/services/api';
+import ButtonBanir from '@/components/default/ButtonBanir.vue';
+import ButtonAproved from '@/components/default/ButtonAproved.vue';
 export default {
     name: 'ReportPublicationsPage',
     components: {
-      LeftBar, ReportPublication, ReportedPublicationInfos, ReportInfos, HeaderPage
+      LeftBar, ReportPublication, ReportedPublicationInfos, ReportInfos, HeaderPage, ButtonBanir, ButtonAproved
     },
     data(){
         return{
             reported_publications: [],
-            reported_publication: [],
-            number_denun: [],
             activated: false
         }
     },
     created(){
         api.get("/api/ReportedPublication").then(response => {
             this.reported_publications = response.data
-            this.reported_publication = this.reported_publications[0].publication
-            console.log(this.reported_publication)
             console.log(response.data)
         })
-        
+    },
+    beforeUpdate(){
+        this.iniciar()
+    },
+    methods:{
+        markRead(publication_id){
+            api.put(`/api/ReportedPublication/read?id_publication=${publication_id}`)
+            console.log(publication_id)
+        },
+        archivePublication(publication_id){
+            api.put(`/api/ReportedPublication/archive?id_publication=${publication_id}`)
+            console.log(publication_id)
+        },
+        iniciar(){
+            api.get("/api/ReportedPublication").then(response => {
+                this.reported_publications = response.data
+                console.log(response.data)
+            })
+        }
     }
 }
 </script>
@@ -50,12 +73,31 @@ export default {
 <style>
     #Report{
         display: flex;
+        padding-bottom: 15px;
     }
     .MenuConteudo{
         width: 85%;
+    }
+    .Menuses{
+        margin-bottom: 15px;
     }
     .ConteudoReported{
         display: flex;
         justify-content: center;
     }
+    .redondo{
+        background-color: rgb(228, 228, 227);
+        margin-right: 3%;
+        margin-left: 3%;
+        padding-top: 2%;
+        padding-bottom: 15px;
+        border-radius: 5px; 
+        box-shadow: 0px 10px 10px rgba(69, 97, 163, 0.192);
+    }
+    .buttons_report{
+        margin: auto;
+        margin-left: 10px;
+        margin-right: 5px;
+    }
+
 </style>

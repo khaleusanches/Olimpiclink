@@ -40,5 +40,6 @@ export default {
         width: 90%;
         border-radius: 16px;
         background-color: white;
+        box-shadow: 0px 10px 10px rgba(73, 70, 92, 0.671);
     }
 </style>

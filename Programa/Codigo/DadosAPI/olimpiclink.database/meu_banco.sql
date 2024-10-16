@@ -60,17 +60,19 @@ CREATE TABLE `events` (
   `idEvent` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `place_id` int(10) unsigned NOT NULL,
   `comunity_id` int(10) unsigned NOT NULL,
+  `leader_id` int(10) NOT NULL,
   `nameEvent` varchar(255) DEFAULT NULL,
   `descriptionEvent` text DEFAULT NULL,
   `dateTimeEvent` datetime DEFAULT NULL,
   `closingDateTimeEvent` datetime DEFAULT NULL,
-  `created_at_event` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at_event` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at_event` datetime not null,
+  `updated_at_event` datetime not null,
   PRIMARY KEY (`idEvent`),
   KEY `comunity_id` (`comunity_id`),
   KEY `place_id` (`place_id`),
   CONSTRAINT `events_ibfk_1` FOREIGN KEY (`comunity_id`) REFERENCES `comunities` (`id_comunity`),
-  CONSTRAINT `events_ibfk_2` FOREIGN KEY (`place_id`) REFERENCES `places` (`id_place`)
+  CONSTRAINT `events_ibfk_2` FOREIGN KEY (`place_id`) REFERENCES `places` (`id_place`),
+  foreign key (`leader_id`) references `leaders`(`id_leader`)
 );
 
 CREATE TABLE `pictures_events` (
@@ -225,6 +227,8 @@ create table `reported_publications`(
     publication_id int not null,
     user_id int unsigned not null,
     reason varchar(300) not null,
+    created_at_report_publication datetime not null,
+    report_read bool not null,
     foreign key (publication_id) references `publications`(`id_publication`),
     foreign key (user_id) references `users`(`id_user`)
 );
