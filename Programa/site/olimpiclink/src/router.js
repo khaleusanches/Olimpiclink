@@ -3,13 +3,15 @@ import Home from './views/Home.vue'
 import UsersView from './views/UsersView.vue';
 import UserProfileView from './views/UserProfileView.vue';
 import ReportPublicationsPage from './views/ReportPublicationsPage.vue';
+import ReportedEventsPage from "./views/ReportedEventsPage.vue";
 
 
 const routes = [
     { path: '/', component: Home },
     { path: '/UsersList', component: UsersView},
     { path: '/UserProfile', component: UserProfileView},
-    { path: '/Reportations/Publications', component: ReportPublicationsPage}
+    { path: '/Reportations/Publications', component: ReportPublicationsPage},
+    { path: '/Reportations/Events', component: ReportedEventsPage}
 ]
 
 const router = createRouter({

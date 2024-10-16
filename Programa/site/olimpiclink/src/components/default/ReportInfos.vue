@@ -1,19 +1,28 @@
 <template>
-    <div class="Report" @click="passar()">
+    <div class="Report">
         <div class="infos">
             <h4>Report:</h4>
-            <p>22/12/2024</p>
+            <p>{{ report[i].created_at_report_publication }}</p>
         </div>
         <div class="TextPublication">
             <p>{{ report[i].reason }}</p>
         </div>
-        <h5>- Anonímo</h5>
+        <div class="flex">
+            <p id="cont">{{ i+1 }} de {{ report.length}}</p>
+            <h5>- Anonímo</h5>
+        </div>
+        <div class="div_btn_skip">
+            <ButtonSkip title="Próx" @click="passar()"></ButtonSkip>
+        </div>
     </div>
 </template>
   
 <script>
+import ButtonSkip from './ButtonSkip.vue';
+
 export default {
     name: 'ReportInfos',
+    components:{ButtonSkip},
     data(){
         return{
             text_report: '',
@@ -46,9 +55,9 @@ export default {
 .Report{
     width: 25%;
     margin-top: 30px;
-    border: 2px solid rgb(199, 199, 199);
+    border: 2px solid rgb(78, 102, 156);
     padding: 12px;
-    border-radius: 15px;
+    border-radius: 5px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     box-shadow: 3px 6px 10px 0 rgba(0, 0, 0 , .1);
@@ -74,12 +83,26 @@ export default {
     border: 2px solid rgb(199, 199, 199);
     padding: 10px;
     margin-top: 10px;
-    border-radius: 15px;
+    border-radius: 5px;
     
 }
 .Report h5{
     margin-top: 10px;
     margin-right: 25px;
-    text-align: end;
 }
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+#cont{
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 14px;
+}
+.div_btn_skip{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
 </style>

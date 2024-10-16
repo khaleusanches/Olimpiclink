@@ -487,6 +487,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "olimpiclink.database.Controllers.ReportedPublicationController",
+    "Method": "putArchive",
+    "RelativePath": "api/ReportedPublication/archive",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_publication",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.ReportedPublicationController",
+    "Method": "putRead",
+    "RelativePath": "api/ReportedPublication/read",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_publication",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "olimpiclink.database.Controllers.UserController",
     "Method": "userCreate",
     "RelativePath": "api/users",

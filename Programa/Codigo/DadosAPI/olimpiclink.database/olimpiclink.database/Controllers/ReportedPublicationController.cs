@@ -31,7 +31,9 @@ namespace olimpiclink.database.Controllers
         {
             var list_reports = (
                 from reports in context.reported_publications
+                where reports.report_read == false
                 group reports by reports.publication_id into group_reports
+                orderby group_reports.Count() descending
                 select new
                 {
                     publication_id = group_reports.Key,
@@ -45,6 +47,7 @@ namespace olimpiclink.database.Controllers
                     {
                         publications.text_publication,
                         publications.date_publication,
+                        publications.id_publication,
                         users.id_user,
                         users.login_user,
                         users.name_user,
@@ -76,12 +79,36 @@ namespace olimpiclink.database.Controllers
                         {
                             reportes.id_report_publication,
                             reportes.reason,
-                            reportes.user_id
+                            reportes.user_id,
+                            reportes.created_at_report_publication
                         }
                     ).ToList()
                 }
-                );
+                );;
             return Ok(list_reports);
+        }
+        [HttpPut("read")]
+        public async Task<IActionResult> putRead(int id_publication)
+        {
+            var list_reports = await context.reported_publications.Where(reports => reports.publication_id == id_publication).ToListAsync();
+            foreach(var report in list_reports)
+            {
+                report.report_read = true;
+            }
+            await context.SaveChangesAsync();
+            return Ok();
+        }
+        [HttpPut("archive")]
+        public async Task<IActionResult> putArchive(int id_publication)
+        {
+            var list_reports = await context.reported_publications.Where(reports => reports.publication_id == id_publication).ToListAsync();
+            foreach (var report in list_reports)
+            {
+                report.report_read = true;
+            }
+            await context.SaveChangesAsync();
+            await new PublicationController().arquivar(id_publication);
+            return Ok();
         }
     }
 }
