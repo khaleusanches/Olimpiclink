@@ -22,9 +22,12 @@ namespace olimpiclink.database.Data
         public DbSet<PublicationModel> publications { get; set; }
         public DbSet<PlaceModel> places { get; set; }
         public DbSet<EventModel> events { get; set; }
+        public DbSet<LeaderModel> leaders { get; set; }
+        public DbSet<ComunityHasLeader> comunity_has_leader { get; set; }
         public DbSet<PictureEvent> pictures_events { get; set; }
         public DbSet<MarkedPresenceModel> marked_presences { get; set; }
         public DbSet<ReportedPublicationModel> reported_publications { get; set; }
+        public DbSet<ReportedEventsModel> reported_events {  get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySql("Server=localhost;Port=3306;Database=olimpiclink;Uid=root;Pwd=123;", new MySqlServerVersion(new Version(8, 0, 21)));

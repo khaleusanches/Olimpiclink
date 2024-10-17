@@ -40,6 +40,33 @@
                     </div>
                 </div>
             </li>
+            <li class="dropdown" @mouseenter="verificacoes=true" v-on:mouseleave="verificacoes=false">
+                <div class="teste1">
+                    <img class="icon" src="../../assets/logo.png" alt="">
+                    <p>Verificações</p>
+                </div>
+                <div class="teste2" v-show="verificacoes==true">
+                    <div class="teste3">
+                        <div class="LinhaVertical"></div>
+                        <img class="icon" src="../../assets/logo.png" alt="">
+                        <router-link to="/Verifications/Localizations">Localizações</router-link>
+                    </div>
+                    <div class="teste3">
+                        <div class="LinhaVertical"></div>
+                        <img class="icon" src="../../assets/logo.png" alt="">
+                        <div class="link">
+                            <router-link to="/Reportations/Events">Comuni</router-link>
+                        </div>
+                    </div>
+                    <div class="teste3">
+                        <div class="LinhaVertical"></div>
+                        <img class="icon" src="../../assets/logo.png" alt="">
+                        <div class="link">
+                            <router-link to="/Reportations/Publications">Categorias</router-link>
+                        </div>
+                    </div>
+                </div>
+            </li>
         </ul>
     </div>
 </template>
@@ -49,7 +76,8 @@ export default {
     name: 'LeftPage',
     data(){
         return{
-            reports:false
+            reports:false,
+            verificacoes:false
         }
     }
 };
@@ -85,7 +113,7 @@ export default {
     border-bottom: 0px;
     width: 15%;
     color: white;
-    background-color: rgb(39, 39, 39);
+    background-color: rgb(71, 71, 71);
     z-index: 999;
 }
 .icon {
@@ -105,7 +133,7 @@ li {
     font-weight: bold;
 }
 li:hover{
-    background-color: rgb(17, 17, 17);
+    background-color: rgb(49, 49, 49);
     border-radius: 8px;
     margin-right: 16px;
     padding-left: 16px;
@@ -118,7 +146,7 @@ li:hover{
     margin-left: 14px;
 }
 .teste2{
-    background-color: rgb(17, 17, 17);
+    background-color: rgb(49, 49, 49);
     margin-left: 30px;
     margin-right: 16px;
     padding-left: 16px;
@@ -131,11 +159,12 @@ li:hover{
 }
 .dropdown{
     display: block;
+    margin-bottom: 12px;
 }
 .dropdown:hover{
     border-bottom-left-radius:8px; 
     border-top-left-radius:8px; 
-    padding-top: 8px;
+    padding-top: 22px;
     padding-bottom: 8px;
 }
 .LinhaVertical{

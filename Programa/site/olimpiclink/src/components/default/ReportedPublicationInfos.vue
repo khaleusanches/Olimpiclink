@@ -9,12 +9,13 @@
             <p>Denúncias á publicação: {{ this.number_report_publi }} </p>
         </div>
         <div class="informa" v-else-if="event.length>0">
-            <p>Nome: {{  this.publication[0].name_user }}</p>
-            <p>Email: {{  this.publication[0].email_user }} </p>
-            <p>Nome de usuário: {{  this.publication[0].login_user }}</p>
-            <p>Curtidas: </p>
-            <p>Denúncias ao usuário: {{  this.publication[0].denuncias_a_user }}</p>
-            <p>Denúncias á publicação: {{ this.number_report_publi }} </p>
+            <p>Nome da Comunidade: {{  this.event[0].name_comunity }}</p>
+            <p>Nome de usuário do Lider: {{  this.event[0].leader_name }} </p>
+            <p>Email: {{  this.event[0].leader_email }}</p>
+            <p>Presenças marcadas: </p>
+            <p>Denúncias ao lider: </p>
+            <p>Denúncias ao evento: {{ this.number_report_publi }} </p>
+            <p>Denúncias á comunidade: {{ this.event[0].comunity_denuns }} </p>
         </div>
     </div>
 </template>

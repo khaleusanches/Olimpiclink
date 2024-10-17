@@ -133,6 +133,28 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.EventController",
+    "Method": "archive",
+    "RelativePath": "api/Event",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.EventController",
     "Method": "Get",
     "RelativePath": "api/Event/{id}",
     "HttpMethod": "GET",
@@ -146,33 +168,6 @@
       }
     ],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "olimpiclink.database.Controllers.EventController",
-    "Method": "Put",
-    "RelativePath": "api/Event/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "value",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.EventController",
@@ -456,6 +451,64 @@
         "Name": "user_id",
         "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.ReportedEventsController",
+    "Method": "post",
+    "RelativePath": "api/ReportedEvents",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "new_event",
+        "Type": "olimpiclink.database.Models.Reports.ReportedEventsModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.ReportedEventsController",
+    "Method": "get",
+    "RelativePath": "api/ReportedEvents",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.ReportedEventsController",
+    "Method": "archive",
+    "RelativePath": "api/ReportedEvents/archive",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_event",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.ReportedEventsController",
+    "Method": "markRead",
+    "RelativePath": "api/ReportedEvents/read",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_event",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

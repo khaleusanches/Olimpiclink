@@ -8,7 +8,7 @@
             <div class="redondo">
                 <div class="ConteudoReported" v-for="reportes, index in reported_publications" :key="index">
                     <ReportPublication :publication="reportes.publication"></ReportPublication>
-                    <ReportedPublicationInfos :publication="reportes.publication" :number_report_publi="reportes.denuncias_a_publicacao"></ReportedPublicationInfos>
+                    <ReportedPublicationInfos :publication="reportes.publication" :event="[]" :number_report_publi="reportes.denuncias_a_publicacao"></ReportedPublicationInfos>
                     <ReportInfos :report="reportes.reportes"></ReportInfos>
                     <div class="buttons_report">
                         <ButtonAproved title="-Vistar-" @click="markRead(reportes.publication_id)"></ButtonAproved>
