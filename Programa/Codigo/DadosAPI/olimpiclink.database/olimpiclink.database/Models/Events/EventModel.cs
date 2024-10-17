@@ -14,6 +14,7 @@ namespace olimpiclink.database.Models.Events
         public DateTime closingDateTimeEvent { get; set; }
         public DateTime? created_at_event { get; set; }
         public DateTime? updated_at_event { get; set; }
+        public bool activated_event { get; set; }
 
         public EventModel(
             int place_id, 
@@ -33,6 +34,7 @@ namespace olimpiclink.database.Models.Events
             var teste = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             created_at_event = DateTime.ParseExact(teste, "yyyy-MM-dd HH:mm:ss", null);
             updated_at_event = DateTime.ParseExact(teste, "yyyy-MM-dd HH:mm:ss", null);
+            activated_event = true;
         }
     }
 }

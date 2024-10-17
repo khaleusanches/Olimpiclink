@@ -3,20 +3,20 @@
         <div class="Container EventInfosBox">
             <img src="https://cdn-icons-png.flaticon.com/512/7022/7022927.png" alt="">
             <div class="EventInfos">
-                <h4>@nomedecomunidade</h4>
-                <p>Data</p>
+                <h4>{{ event[0].name_comunity }}</h4>
+                <p>{{ event[0].created_at_event }}</p>
             </div>
         </div>
-        <h4 class="title">Title</h4>
+        <h4 class="title">{{event[0].nameEvent}}</h4>
         <div class="CarrosselImages">
 
         </div>
-        <p class="TextEvent">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, fugiat modi assumenda iure aliquid nemo eius amet reiciendis ratione reprehenderit excepturi minus cumque expedita. Perspiciatis laboriosam odit harum quos voluptate?</p>
+        <p class="TextEvent">{{ event[0].descriptionEvent }}</p>
         <div class="Container Datas">
-            <p>Início: </p>
-            <p>Fim: </p>
+            <p>Início: {{ event[0].dateTimeEvent }}</p>
+            <p>Fim: {{ event[0].closingDateTimeEvent }}</p>
         </div>
-        <p class="Localizacao">Localização: </p>
+        <p class="Localizacao">Localização: {{ event[0].name_place }}</p>
     </div>
 </template>
 
@@ -27,13 +27,16 @@ export default {
     components:{
         
     },
+    props:{
+        event: Array
+    }
 }
 </script>
 
 <style scoped>
 .ReportedEvent{
     width: 20%;
-    height: 20%;
+
     margin-left: 30px;
     margin-top: 30px;
     border: 2px solid rgb(78, 102, 156);

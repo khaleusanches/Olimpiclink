@@ -27,6 +27,7 @@ namespace olimpiclink.database.Controllers
 
                 join comunity in context.comunities
                 on events.comunity_id equals comunity.id_comunity
+                where events.activated_event == true
                 select new 
                 {
                     idEvent = events.idEvent,
@@ -127,9 +128,16 @@ namespace olimpiclink.database.Controllers
         }
 
         // PUT api/<EventController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public async void archive(int id)
         {
+            var events = await context.events.FindAsync(id);
+            if(events != null)
+            {
+                events.activated_event = false;
+                await context.SaveChangesAsync();
+            }
+
         }
 
         // DELETE api/<EventController>/5

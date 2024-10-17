@@ -133,6 +133,28 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.EventController",
+    "Method": "archive",
+    "RelativePath": "api/Event",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.EventController",
     "Method": "Get",
     "RelativePath": "api/Event/{id}",
     "HttpMethod": "GET",
@@ -146,33 +168,6 @@
       }
     ],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "olimpiclink.database.Controllers.EventController",
-    "Method": "Put",
-    "RelativePath": "api/Event/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "value",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.EventController",
@@ -484,6 +479,38 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.ReportedEventsController",
+    "Method": "archive",
+    "RelativePath": "api/ReportedEvents/archive",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_event",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.ReportedEventsController",
+    "Method": "markRead",
+    "RelativePath": "api/ReportedEvents/read",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_event",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {

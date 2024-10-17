@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using olimpiclink.database.Data;
 using olimpiclink.database.Models.Reports;
+using System.Text.RegularExpressions;
 
 namespace olimpiclink.database.Controllers
 {
@@ -28,9 +29,11 @@ namespace olimpiclink.database.Controllers
         [HttpGet]
         public async Task<IActionResult> get()
         {
-            var list_reported_events = (
+            var list_reported_events = await (
                 from reported_events in context.reported_events
+                where reported_events.report_read == false
                 group reported_events by reported_events.event_id into group_event
+                orderby group_event.Count() descending
                 select new
                 {
                     event_id = group_event.Key,
@@ -54,25 +57,62 @@ namespace olimpiclink.database.Controllers
                         on leaders.user_id equals users.id_user
                         where events.idEvent == group_event.Key
                         select new
-                            {
-                                comunities.id_comunity,
-                                comunities.name_comunity,
-                                events.nameEvent,
-                                events.created_at_event,
-                                events.descriptionEvent,
-                                events.dateTimeEvent,
-                                events.closingDateTimeEvent,
-                                places.name_place,
+                        {
+                            comunities.id_comunity,
+                            comunities.name_comunity,
+                            events.nameEvent,
+                            events.created_at_event,
+                            events.descriptionEvent,
+                            events.dateTimeEvent,
+                            events.closingDateTimeEvent,
+                            places.name_place,
 
-                                leader_name = users.name_user,
-                                leader_email = users.email_user,
-                                event_denuns = group_event.Count()
-
+                            leader_name = users.name_user,
+                            leader_email = users.email_user,
+                            comunity_denuns = (
+                                from reported_events in context.reported_events
+                                where events.comunity_id == comunities.id_comunity
+                                select reported_events.id_report_publication
+                                ).Count()
                         }
                         ).ToList(),
+                    reports = (
+                        from reported_events in context.reported_events
+                        where reported_events.event_id == group_event.Key
+                        select new
+                        {
+                            reported_events.id_report_publication,
+                            reported_events.event_id,
+                            reported_events.user_id,
+                            reported_events.reason
+                        }).ToList()
                 }
-                );
+                ).ToListAsync();
             return Ok(list_reported_events);
+        }
+        [HttpPut("read")]
+        public async Task<IActionResult> markRead(int id_event)
+        {
+            var list_reports = await context.reported_events.Where(report => report.event_id == id_event).ToListAsync();
+            foreach(var report in  list_reports) 
+            {
+                report.report_read = true;
+            }
+            await context.SaveChangesAsync();
+            return Ok();
+        }
+
+        [HttpPut("archive")]
+        public async Task<IActionResult> archive(int id_event)
+        {
+            var list_reports = await context.reported_events.Where(report => report.event_id == id_event).ToListAsync();
+            foreach (var report in list_reports)
+            {
+                report.report_read = true;
+            }
+            await context.SaveChangesAsync();
+            new EventController().archive(id_event);
+            return Ok();
         }
     }
 }

@@ -233,4 +233,14 @@ create table `reported_publications`(
     foreign key (user_id) references `users`(`id_user`)
 );
 
+create table `reported_events`(
+	id_report_events int primary key auto_increment,
+    events_id int unsigned not null,
+    user_id int unsigned not null,
+    reason varchar(300) not null,
+    created_at_report_events datetime not null,
+    report_read bool not null,
+    foreign key (events_id) references `events`(`idEvent`),
+    foreign key (user_id) references `users`(`id_user`)
+);
 
