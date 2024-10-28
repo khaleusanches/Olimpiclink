@@ -1,10 +1,10 @@
 <template>
     <div class="ReportedPublication">
-        <div class="UserInfo">
-            <img :src="publication[0].url_profile_picture_user" alt="">
-            <div class="infos">
-                <h4>@{{ publication[0].login_user }}</h4>
-                <p>{{ publication[0].date_publication }}</p>
+        <div class="UserInfo d-flex align-items-center">
+            <img class="d-block mb-4" :src="publication[0].url_profile_picture_user" alt="">
+            <div class="infos align-items-center">
+                <h4 class="h6"><strong>@{{ publication[0].login_user }}</strong></h4>
+                <p class="small">{{ publication[0].date_publication }}</p>
             </div>
         </div>
         <div class="TextPublication">
@@ -54,8 +54,6 @@ export default {
 }
 .UserInfo{
     margin: auto;
-    display: flex;
-    align-items: center;
 }
 .UserInfo img{
     width: 15%;

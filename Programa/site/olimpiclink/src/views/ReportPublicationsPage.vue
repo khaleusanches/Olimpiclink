@@ -5,7 +5,7 @@
             <div class="Menuses">
                 <HeaderPage></HeaderPage>
             </div>
-            <div class="redondo">
+            <div class="redondo m-5 pb-5 pt-3">
                 <div class="ConteudoReported" v-for="reportes, index in reported_publications" :key="index">
                     <ReportPublication :publication="reportes.publication"></ReportPublication>
                     <ReportedPublicationInfos :publication="reportes.publication" :event="[]" :number_report_publi="reportes.denuncias_a_publicacao"></ReportedPublicationInfos>
@@ -87,10 +87,7 @@ export default {
     }
     .redondo{
         background-color: rgb(228, 228, 227);
-        margin-right: 3%;
-        margin-left: 3%;
-        padding-top: 2%;
-        padding-bottom: 15px;
+
         border-radius: 5px; 
         box-shadow: 0px 10px 10px rgba(69, 97, 163, 0.192);
     }
