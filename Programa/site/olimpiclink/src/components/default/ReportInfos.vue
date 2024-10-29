@@ -1,7 +1,7 @@
 <template>
     <div class="Report">
         <div class="infos">
-            <h4>Report:</h4>
+            <h4 class="h6"><strong>Report:</strong></h4>
             <p>{{ report[i].created_at_report_publication }}</p>
         </div>
         <div class="TextPublication">
@@ -9,7 +9,7 @@
         </div>
         <div class="flex">
             <p id="cont">{{ i+1 }} de {{ report.length}}</p>
-            <h5>- Anonímo</h5>
+            <p class="mt-2 me-2">- Anonímo</p>
         </div>
         <div class="div_btn_skip">
             <ButtonSkip title="Próx" @click="passar()"></ButtonSkip>

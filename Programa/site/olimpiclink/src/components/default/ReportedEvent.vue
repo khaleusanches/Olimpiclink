@@ -1,22 +1,22 @@
 <template>
     <div class="ReportedEvent">
-        <div class="Container EventInfosBox">
-            <img src="https://cdn-icons-png.flaticon.com/512/7022/7022927.png" alt="">
-            <div class="EventInfos">
-                <h4>{{ event[0].name_comunity }}</h4>
-                <p>{{ event[0].created_at_event }}</p>
+        <div class="Container EventInfosBox d-flex align-items-center">
+            <img class="d-block mb-4" src="https://cdn-icons-png.flaticon.com/512/7022/7022927.png" alt="">
+            <div class="EventInfos align-items-center">
+                <h4 class="h6 mt-4"><b>{{ event[0].name_comunity }}</b></h4>
+                <p class="small">{{ event[0].created_at_event }}</p>
             </div>
         </div>
-        <h4 class="title">{{event[0].nameEvent}}</h4>
+        <h4 class="title h6">{{event[0].nameEvent}}</h4>
         <div class="CarrosselImages">
 
         </div>
-        <p class="TextEvent">{{ event[0].descriptionEvent }}</p>
+        <p class="TextEvent TextPublication">{{ event[0].descriptionEvent }}</p>
         <div class="Container Datas">
-            <p>Início: {{ event[0].dateTimeEvent }}</p>
-            <p>Fim: {{ event[0].closingDateTimeEvent }}</p>
+            <p class="small">Início: {{ event[0].dateTimeEvent }}</p>
+            <p class="small">Fim: {{ event[0].closingDateTimeEvent }}</p>
         </div>
-        <p class="Localizacao">Localização: {{ event[0].name_place }}</p>
+        <p class="Localizacao small">Localização: {{ event[0].name_place }}</p>
     </div>
 </template>
 

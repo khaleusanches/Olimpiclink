@@ -50,13 +50,13 @@ export default {
     box-shadow: 0px 6px 5px 0px rgba(0, 0, 0 , .1);
     display: flex;
     align-items: center;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     min-height: 20%;
 }
 
 .ReportedPublicationInfo .informa p{
     text-align: justify;
-    padding: 5px;
+    padding: 2px;
     font-size: 17px;
 }
 

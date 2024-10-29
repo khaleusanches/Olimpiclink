@@ -4,70 +4,76 @@
             <img class="logo" src="../../assets/logo.png" alt="">
             <h2>Olimpiclink</h2>
         </div>
-        <ul>
-            <li>
-                <img class="icon" src="../../assets/logo.png" alt="">
-                <router-link to="/">Home</router-link>
-            </li>
-            <li>
-                <img class="icon" src="../../assets/logo.png" alt="">
-                <router-link to="/UsersList">Users</router-link>
-            </li>
-            <li class="dropdown" @mouseenter="reports=true" v-on:mouseleave="reports=false">
-                <div class="teste1">
-                    <img class="icon" src="../../assets/logo.png" alt="">
-                    <p>Reports</p>
-                </div>
-                <div class="teste2" v-show="reports==true">
+        <div class="dropdown">
+            <li class="btn">
                     <div class="teste3">
-                        <div class="LinhaVertical"></div>
                         <img class="icon" src="../../assets/logo.png" alt="">
                         <router-link to="/Reportations/Publications">Publications</router-link>
                     </div>
-                    <div class="teste3">
-                        <div class="LinhaVertical"></div>
-                        <img class="icon" src="../../assets/logo.png" alt="">
-                        <div class="link">
-                            <router-link to="/Reportations/Events">Eventos</router-link>
-                        </div>
-                    </div>
-                    <div class="teste3">
-                        <div class="LinhaVertical"></div>
-                        <img class="icon" src="../../assets/logo.png" alt="">
-                        <div class="link">
-                            <router-link to="/Reportations/Publications">Comus</router-link>
-                        </div>
-                    </div>
-                </div>
+                </li>
+        </div>
+        <div class="dropdown">
+            <li class="btn">
+                <img class="icon" src="../../assets/logo.png" alt="">
+                <router-link to="/UsersList">Usuários</router-link>
             </li>
-            <li class="dropdown" @mouseenter="verificacoes=true" v-on:mouseleave="verificacoes=false">
-                <div class="teste1">
-                    <img class="icon" src="../../assets/logo.png" alt="">
-                    <p>Verificações</p>
-                </div>
-                <div class="teste2" v-show="verificacoes==true">
+        </div>
+        <div class="dropdown">
+            <div class=" dropdown-toggle p-3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img class="icon" src="../../assets/logo.png" alt="">
+                <a class="" href="#" >
+                    <b>Denuncías</b>
+                </a>
+            </div>
+            <ul class="dropdown-menu">
+                <li class="dropdown-item">
                     <div class="teste3">
-                        <div class="LinhaVertical"></div>
                         <img class="icon" src="../../assets/logo.png" alt="">
-                        <router-link to="/Verifications/Localizations">Localizações</router-link>
+                        <router-link to="/Reportations/Publications">Publications</router-link>
                     </div>
+                </li>
+                <li class="dropdown-item">
                     <div class="teste3">
-                        <div class="LinhaVertical"></div>
                         <img class="icon" src="../../assets/logo.png" alt="">
-                        <div class="link">
-                            <router-link to="/Reportations/Events">Comuni</router-link>
-                        </div>
+                        <router-link to="/Reportations/Events">Eventos</router-link>
                     </div>
+                </li>
+                <li class="dropdown-item">
                     <div class="teste3">
-                        <div class="LinhaVertical"></div>
                         <img class="icon" src="../../assets/logo.png" alt="">
-                        <div class="link">
-                            <router-link to="/Reportations/Publications">Categorias</router-link>
-                        </div>
+                        <router-link to="/Reportations/Publications">Comus</router-link>
                     </div>
-                </div>
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="dropdown align-items-start">
+            <div class="dropdown-toggle p-3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img class="icon" src="../../assets/logo.png" alt="">
+                <a class="" href="#" >
+                    <b>Verificações</b>
+                </a>
+            </div>
+            <ul class="dropdown-menu">
+                <li class="dropdown-item">
+                    <div class="teste3">
+                        <img class="icon" src="../../assets/logo.png" alt="">
+                        <router-link to="/Reportations/Publications">Publications</router-link>
+                    </div>
+                </li>
+                <li class="dropdown-item">
+                    <div class="teste3">
+                        <img class="icon" src="../../assets/logo.png" alt="">
+                        <router-link to="/Reportations/Events">Eventos</router-link>
+                    </div>
+                </li>
+                <li class="dropdown-item">
+                    <div class="teste3">
+                        <img class="icon" src="../../assets/logo.png" alt="">
+                        <router-link to="/Reportations/Publications">Comus</router-link>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -135,8 +141,6 @@ li {
 li:hover{
     background-color: rgb(49, 49, 49);
     border-radius: 8px;
-    margin-right: 16px;
-    padding-left: 16px;
 }
 .teste1{
     align-items: center;
@@ -160,21 +164,18 @@ li:hover{
 .dropdown{
     display: block;
     margin-bottom: 12px;
+    border-radius: 10px;
 }
 .dropdown:hover{
-    border-bottom-left-radius:8px; 
-    border-top-left-radius:8px; 
-    padding-top: 22px;
-    padding-bottom: 8px;
+    background-color: rgb(49, 49, 49);
+    width: 84%;
 }
-.LinhaVertical{
-    width: 1px;
-    height: 50px;
-    margin-right: 15px;
-    background-color: rgb(224, 72, 2);
-    
+.dropdown-menu{
+    background-color: rgb(49, 49, 49);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
-.link:hover{
+.teste3:hover{
     color: rgb(224, 72, 2);
 }
 
