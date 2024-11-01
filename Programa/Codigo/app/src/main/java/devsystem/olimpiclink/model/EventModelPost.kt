@@ -5,10 +5,7 @@ data class EventModelPost(
     val title_event: String,
     val description_event: String,
 
-    val image_one_event: String?,
-    val image_two_event: String?,
-    val image_three_event: String?,
-    val image_four_event: String?,
+    val images_event: List<String?>,
 
     val date_start_event: String,
     val date_end_event: String,

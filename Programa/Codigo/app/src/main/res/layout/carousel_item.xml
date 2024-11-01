@@ -10,7 +10,7 @@
     android:background="@color/white">
 
     <ImageView
-        android:id="@+id/img_event_publication"
+        android:id="@+id/imgEventPublication"
         android:layout_width="180dp"
         android:layout_height="100dp"
         android:layout_gravity="center"

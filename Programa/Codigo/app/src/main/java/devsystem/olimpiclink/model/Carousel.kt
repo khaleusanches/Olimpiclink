@@ -1,5 +1,3 @@
 package devsystem.olimpiclink.model
 
-data class Carousel (
-    val ImageUri: String? = null
-)
+data class Carousel(val imageUrl: String)
