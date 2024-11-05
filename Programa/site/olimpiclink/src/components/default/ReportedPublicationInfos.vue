@@ -57,7 +57,7 @@ export default {
 .ReportedPublicationInfo .informa p{
     text-align: justify;
     padding: 2px;
-    font-size: 17px;
+    font-size: 16px;
 }
 
 @media (1400px <= width <= 1750px) {

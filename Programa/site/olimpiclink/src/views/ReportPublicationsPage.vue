@@ -3,7 +3,7 @@
         <LeftBar></LeftBar>
         <div class="MenuConteudo">
             <div class="Menuses">
-                <HeaderPage></HeaderPage>
+
             </div>
             <div class="redondo m-5 pb-5 pt-3">
                 <div class="ConteudoReported" v-for="reportes, index in reported_publications" :key="index">
@@ -27,14 +27,14 @@ import ReportPublication from '@/components/default/ReportPublication.vue';
 import LeftBar from '../components/default/LeftBar.vue';
 import ReportedPublicationInfos from '@/components/default/ReportedPublicationInfos.vue';
 import ReportInfos from '@/components/default/ReportInfos.vue';
-import HeaderPage from '@/components/default/HeaderPage.vue';
+
 import api from '@/services/api';
 import ButtonBanir from '@/components/default/ButtonBanir.vue';
 import ButtonAproved from '@/components/default/ButtonAproved.vue';
 export default {
     name: 'ReportPublicationsPage',
     components: {
-      LeftBar, ReportPublication, ReportedPublicationInfos, ReportInfos, HeaderPage, ButtonBanir, ButtonAproved
+      LeftBar, ReportPublication, ReportedPublicationInfos, ReportInfos, ButtonBanir, ButtonAproved
     },
     data(){
         return{
