@@ -20,12 +20,16 @@
                 <img :src="img+publication[0].id_publication+'/'+'4'" alt="">
             </div>
         </div>
+        <ReportedPublicationModal :publication="publication"></ReportedPublicationModal>
     </div>
 </template>
   
 <script>
+import ReportedPublicationModal from './ReportedPublicationModal.vue';
+
 export default {
     name: 'ReportPublication',
+    components:{ReportedPublicationModal},
     data(){
         return{
             img: "http://192.168.0.158:5000/api/publication/imagens/"
