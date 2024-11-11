@@ -33,7 +33,7 @@ export default {
 
 <style>
 .ReportedPublicationInfo{
-    width: 25%;
+    width: 26%;
     margin-top: 30px;
     border: 2px solid rgb(69, 97, 163);
     border-left: 0;
