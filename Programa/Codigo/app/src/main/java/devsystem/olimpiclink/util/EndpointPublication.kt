@@ -14,7 +14,7 @@ interface EndpointPublication {
     @GET("/api/publication")
     suspend fun publicationsGet() : List<PublicationModelGet>
 
-    @POST("api/publication/pointo")
+    @POST("api/publication")
     suspend fun publicationsPost(
         @Body new_publication : PublicationModelPost
     ) : Response<Void>
