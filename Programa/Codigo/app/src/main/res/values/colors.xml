@@ -11,4 +11,5 @@
     <color name="transparent">#11FFFFFF</color>
     <color name="transparentMesm">#00FFFFFF</color>
     <color name="end_initial">#703828</color>
+    <color name="red">#CA0D00</color>
 </resources>

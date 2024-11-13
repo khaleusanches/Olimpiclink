@@ -139,11 +139,10 @@ namespace olimpiclink.database.Controllers
             }
 
         }
-
-        // DELETE api/<EventController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> getEventForComunity()
         {
+
+            return Ok();
         }
     }
 }
