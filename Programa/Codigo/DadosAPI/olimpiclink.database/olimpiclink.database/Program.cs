@@ -3,7 +3,7 @@ using olimpiclink.database.Data;
 using olimpiclink.database.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.WebHost.UseUrls("http://localhost:192");
+builder.WebHost.UseUrls("http://0.0.0.0:5000");
 
 // Add services to the container.
 builder.Services.AddControllers();

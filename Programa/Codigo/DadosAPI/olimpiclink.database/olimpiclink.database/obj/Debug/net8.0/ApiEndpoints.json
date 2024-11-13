@@ -155,6 +155,16 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.EventController",
+    "Method": "getEventForComunity",
+    "RelativePath": "api/Event",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.EventController",
     "Method": "Get",
     "RelativePath": "api/Event/{id}",
     "HttpMethod": "GET",
@@ -168,28 +178,6 @@
       }
     ],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "olimpiclink.database.Controllers.EventController",
-    "Method": "Delete",
-    "RelativePath": "api/Event/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.MarkedPresenceController",
