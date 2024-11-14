@@ -171,25 +171,13 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.EventController",
-    "Method": "Delete",
-    "RelativePath": "api/Event/{id}",
-    "HttpMethod": "DELETE",
+    "Method": "getEventMini",
+    "RelativePath": "api/Event/mini",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
+    "Parameters": [],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.MarkedPresenceController",

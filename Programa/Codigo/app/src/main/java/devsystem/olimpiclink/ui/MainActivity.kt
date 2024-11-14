@@ -14,9 +14,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import devsystem.olimpiclink.R
 import devsystem.olimpiclink.databinding.ActivityMainBinding
+import devsystem.olimpiclink.model.EventMiniModelGet
 import devsystem.olimpiclink.model.PublicationModelGet
 import devsystem.olimpiclink.model.User
 import devsystem.olimpiclink.model.util.ApiCliente
+import devsystem.olimpiclink.util.AdapterEventMini
 import devsystem.olimpiclink.util.AdapterPublication
 import devsystem.olimpiclink.util.CommonEvents
 import devsystem.olimpiclink.util.EndpointPublication
@@ -43,8 +45,23 @@ class MainActivity : AppCompatActivity() {
         user = intent.extras!!.getParcelable<User>("user")!!
         api_publication = ApiCliente.retrofit.create(EndpointPublication::class.java)
         publicationGet()
+        eventMiniGet()
         commonEvents.goPageCreationPublication(user, this, binding.bottomMenu.binding.btnPgCreatePublication)
         commonEvents.goPageMain(user, this, binding.bottomMenu.binding.btnPgInitial)
+    }
+
+    private fun eventMiniGet() {
+        val eventMini1 = EventMiniModelGet(1, 1, "Flamengo", "http://192.168.0.158:5000/api/comunities/images/1", "Jogo", "Jogo de futebololololol")
+        val eventMini2 = EventMiniModelGet(2, 1, "Flamengo", "http://192.168.0.158:5000/api/comunities/images/1", "Jogo", "Jogo de futebololololol")
+        val eventMini3 = EventMiniModelGet(3, 1, "Flamengo", "http://192.168.0.158:5000/api/comunities/images/1", "Jogo", "Jogo de futebololololol")
+        val eventMini4 = EventMiniModelGet(4, 1, "Flamengo", "http://192.168.0.158:5000/api/comunities/images/1", "Jogo", "Jogo de futebololololol")
+
+        val listaEvent = mutableListOf<EventMiniModelGet>(eventMini4, eventMini2, eventMini3)
+        val adapterEvent = AdapterEventMini(this, listaEvent)
+        var rcEvent = binding.rcEventsMini
+        rcEvent.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true)
+        rcEvent.setHasFixedSize(true)
+        rcEvent.adapter = adapterEvent
     }
 
     private fun publicationGet() {

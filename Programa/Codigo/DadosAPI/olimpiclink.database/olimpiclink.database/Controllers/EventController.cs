@@ -139,10 +139,38 @@ namespace olimpiclink.database.Controllers
             }
 
         }
-        public async Task<IActionResult> getEventForComunity()
+        [HttpGet("mini")]
+        public async Task<IActionResult> getEventMini()
         {
+            var list = await (
+                from events in context.events
 
-            return Ok();
+                join place in context.places
+                on events.place_id equals place.id_place
+
+                join comunity in context.comunities
+                on events.comunity_id equals comunity.id_comunity
+                where events.activated_event == true
+                select new
+                {
+                    idEvent = events.idEvent,
+                    comunity_id = events.comunity_id,
+                    comunity_name = comunity.name_comunity,
+                    comunity_picture = "http://192.168.0.158:5000/api/comunities/images/" + comunity.id_comunity,
+                    nameEvent = events.nameEvent,
+                    descriptionEvent = events.descriptionEvent,
+                    url_picture_event = (from picture in context.pictures_events
+                                         where picture.event_id == events.idEvent
+                                         select (picture == null ? null : "http://192.168.0.158:5000/api/PictureEvent/" + picture.id_picture_event)
+                                         ).ToList(),
+                }
+            ).ToListAsync();
+
+            if (list == null)
+            {
+                return BadRequest();
+            }
+            return Ok(list);
         }
     }
 }
