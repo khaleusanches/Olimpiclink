@@ -180,6 +180,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "olimpiclink.database.Controllers.EventController",
+    "Method": "getEventMiniSeguindo",
+    "RelativePath": "api/Event/mini/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "olimpiclink.database.Controllers.MarkedPresenceController",
     "Method": "Post",
     "RelativePath": "api/MarkedPresence",
@@ -348,6 +364,22 @@
       },
       {
         "Name": "img",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.PublicationController",
+    "Method": "getPublicationsSeguindo",
+    "RelativePath": "api/publication/seguindo/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }

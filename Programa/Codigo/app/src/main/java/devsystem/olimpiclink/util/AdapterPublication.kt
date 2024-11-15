@@ -64,7 +64,7 @@ class AdapterPublication(
 
     fun adapterImagens(rc : RecyclerView, position: Int, images: MutableList<String>){
         var adapter_one = AdapterPublicationImages(images, context)
-        rc.layoutManager = LinearLayoutManager(context)
+        rc.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
         rc.setHasFixedSize(true)
         rc.adapter = adapter_one
     }

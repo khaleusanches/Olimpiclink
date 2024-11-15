@@ -6,5 +6,6 @@ data class EventMiniModelGet(
     val comunity_name : String,
     val comunity_picture : String,
     val nameEvent : String,
-    val descriptionEvent : String
+    val descriptionEvent : String,
+    val url_picture_event : List<String>
 )

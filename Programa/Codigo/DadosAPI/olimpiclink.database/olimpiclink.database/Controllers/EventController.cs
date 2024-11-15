@@ -106,6 +106,7 @@ namespace olimpiclink.database.Controllers
                 new EventModel(
                     post_new_event.place_id, 
                     post_new_event.comunity_id, 
+                    post_new_event.leader_id,
                     post_new_event.nameEvent, 
                     post_new_event.descriptionEvent, 
                     post_new_event.dateTimeEvent, 
@@ -151,6 +152,7 @@ namespace olimpiclink.database.Controllers
                 join comunity in context.comunities
                 on events.comunity_id equals comunity.id_comunity
                 where events.activated_event == true
+                orderby events.created_at_event descending
                 select new
                 {
                     idEvent = events.idEvent,
@@ -159,10 +161,49 @@ namespace olimpiclink.database.Controllers
                     comunity_picture = "http://192.168.0.158:5000/api/comunities/images/" + comunity.id_comunity,
                     nameEvent = events.nameEvent,
                     descriptionEvent = events.descriptionEvent,
+                    data = events.created_at_event,
                     url_picture_event = (from picture in context.pictures_events
                                          where picture.event_id == events.idEvent
                                          select (picture == null ? null : "http://192.168.0.158:5000/api/PictureEvent/" + picture.id_picture_event)
-                                         ).ToList(),
+                                         ).Take(1).ToList(),
+                }
+            ).ToListAsync();
+
+            if (list == null)
+            {
+                return BadRequest();
+            }
+            return Ok(list);
+        }
+        [HttpGet("mini/{id}")]
+        public async Task<IActionResult> getEventMiniSeguindo(int id)
+        {
+            var list = await (
+                from events in context.events
+                join place in context.places
+                on events.place_id equals place.id_place
+
+                join comunity in context.comunities
+                on events.comunity_id equals comunity.id_comunity
+
+                join user_comunity in context.user_comunity
+                on comunity.id_comunity equals user_comunity.comunity_id
+
+                where events.activated_event == true && user_comunity.user_id == id
+                orderby events.created_at_event descending
+                select new
+                {
+                    idEvent = events.idEvent,
+                    comunity_id = events.comunity_id,
+                    comunity_name = comunity.name_comunity,
+                    comunity_picture = "http://192.168.0.158:5000/api/comunities/images/" + comunity.id_comunity,
+                    nameEvent = events.nameEvent,
+                    descriptionEvent = events.descriptionEvent,
+                    data = events.created_at_event,
+                    url_picture_event = (from picture in context.pictures_events
+                                         where picture.event_id == events.idEvent
+                                         select (picture == null ? null : "http://192.168.0.158:5000/api/PictureEvent/" + picture.id_picture_event)
+                                         ).Take(1).ToList(),
                 }
             ).ToListAsync();
 

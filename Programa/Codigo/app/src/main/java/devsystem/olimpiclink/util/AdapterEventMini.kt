@@ -10,7 +10,7 @@ import devsystem.olimpiclink.databinding.EventPublishedMiniBinding
 import devsystem.olimpiclink.model.EventMiniModelGet
 import devsystem.olimpiclink.ui.EventPublishedMini
 
-class AdapterEventMini(val context: Context, private val listEventsMini: MutableList<EventMiniModelGet>):
+class AdapterEventMini(val context: Context, private val listEventsMini: List<EventMiniModelGet>):
     RecyclerView.Adapter<AdapterEventMini.EventMiniViewHolder>() {
 
     //Cria
@@ -27,6 +27,9 @@ class AdapterEventMini(val context: Context, private val listEventsMini: Mutable
         holder.comunity_name.text = listEventsMini[position].comunity_name
         holder.description_event.text = listEventsMini[position].descriptionEvent
         Glide.with(context).load(listEventsMini[position].comunity_picture).circleCrop().into(holder.comunity_picture)
+        if(listEventsMini[position].url_picture_event.size > 0){
+            Glide.with(context).load(listEventsMini[position].url_picture_event[0]).into(holder.event_cape)
+        }
     }
 
     inner class EventMiniViewHolder(binding: EventPublishedMiniBinding): RecyclerView.ViewHolder(binding.root) {

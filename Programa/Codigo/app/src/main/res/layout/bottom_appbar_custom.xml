@@ -22,17 +22,15 @@
                 android:id="@+id/btn_pg_initial"
                 android:layout_width="60dp"
                 android:layout_height="58dp"
-                android:src="@drawable/logo"
-                android:background="@drawable/logo_shape"
+                android:src="@drawable/home"
                 android:padding="4dp"
                 android:layout_marginEnd="18dp"
                 />
             <ImageView
-                android:id="@+id/btn_pg_notifications"
+                android:id="@+id/btn_pg_search"
                 android:layout_width="60dp"
                 android:layout_height="58dp"
-                android:src="@drawable/logo"
-                android:background="@drawable/logo_shape"
+                android:src="@drawable/search"
                 android:padding="4dp"
                 android:layout_marginEnd="18dp"
                 />
@@ -40,17 +38,15 @@
                 android:id="@+id/btn_pg_create_publication"
                 android:layout_width="60dp"
                 android:layout_height="58dp"
-                android:src="@drawable/logo"
-                android:background="@drawable/logo_shape"
+                android:src="@drawable/publication"
                 android:padding="4dp"
                 android:layout_marginEnd="18dp"
                 />
             <ImageView
-                android:id="@+id/btn_pg_comunities"
+                android:id="@+id/btn_pg_communities"
                 android:layout_width="60dp"
                 android:layout_height="58dp"
-                android:src="@drawable/logo"
-                android:background="@drawable/logo_shape"
+                android:src="@drawable/communities"
                 android:padding="4dp"
                 android:layout_marginEnd="18dp"
                 />
@@ -58,8 +54,7 @@
                 android:id="@+id/btn_pg_profile"
                 android:layout_width="60dp"
                 android:layout_height="58dp"
-                android:src="@drawable/logo"
-                android:background="@drawable/logo_shape"
+                android:src="@drawable/profile"
                 android:padding="4dp"
                 />
         </LinearLayout>
