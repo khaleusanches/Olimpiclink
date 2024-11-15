@@ -6,4 +6,5 @@
     </declare-styleable>
     <declare-styleable name="ToolbarCustom"></declare-styleable>
     <declare-styleable name="BottomAppbar"></declare-styleable>
+    <declare-styleable name="EventPublishedMini"></declare-styleable>
 </resources>

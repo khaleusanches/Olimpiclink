@@ -14,20 +14,31 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import devsystem.olimpiclink.R
 import devsystem.olimpiclink.databinding.ActivityMainBinding
+import devsystem.olimpiclink.model.EventMiniModelGet
 import devsystem.olimpiclink.model.PublicationModelGet
 import devsystem.olimpiclink.model.User
 import devsystem.olimpiclink.model.util.ApiCliente
+import devsystem.olimpiclink.util.AdapterEventMini
 import devsystem.olimpiclink.util.AdapterPublication
 import devsystem.olimpiclink.util.CommonEvents
+import devsystem.olimpiclink.util.EndpointEvent
 import devsystem.olimpiclink.util.EndpointPublication
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
+
     private lateinit var api_publication : EndpointPublication
+    private lateinit var api_event : EndpointEvent
+
     private lateinit var list_publication : List<PublicationModelGet>
+    private lateinit var listEvent : List<EventMiniModelGet>
+    private lateinit var btn_seguindo : AppCompatButton
+    private lateinit var btn_initial : AppCompatButton
+
     var commonEvents = CommonEvents()
     private lateinit var user : User
+    var recomended = true;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -40,38 +51,90 @@ class MainActivity : AppCompatActivity() {
         }
         window.navigationBarColor = resources.getColor(R.color.laranja_splash)
         window.statusBarColor = ContextCompat.getColor(this, R.color.laranja_splash)
+
         user = intent.extras!!.getParcelable<User>("user")!!
-        api_publication = ApiCliente.retrofit.create(EndpointPublication::class.java)
+
+        componentsInitialize()
         publicationGet()
-        commonEvents.goPageCreationPublication(user, this, binding.bottomMenu.binding.btnPgCreatePublication)
-        commonEvents.goPageMain(user, this, binding.bottomMenu.binding.btnPgInitial)
+        eventMiniGet()
     }
 
+    private fun componentsInitialize() {
+        api_publication = ApiCliente.retrofit.create(EndpointPublication::class.java)
+        api_event = ApiCliente.retrofit.create(EndpointEvent::class.java)
+        commonEvents.goPageCreationPublication(user, this, binding.bottomMenu.binding.btnPgCreatePublication)
+        commonEvents.goPageMain(user, this, binding.bottomMenu.binding.btnPgInitial)
+
+        btn_seguindo = binding.btnSeguindo
+        btn_initial = binding.btnInicio
+        binding.bottomMenu.binding.btnPgInitial.setImageResource(R.drawable.home_on)
+    }
+
+    private fun eventMiniGet() {
+        lifecycleScope.launch {
+            try {
+                if(recomended){
+                    listEvent = api_event.eventMiniGet()
+                }
+                else{
+                    listEvent = api_event.eventMiniGetSeguindo(user.id_user)
+                }
+                val adapterEvent = AdapterEventMini(this@MainActivity, listEvent)
+                var rcEvent = binding.rcEventsMini
+                rcEvent.layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
+                rcEvent.setHasFixedSize(true)
+                rcEvent.adapter = adapterEvent
+            }
+            catch (e: Exception){
+                Log.d("MainActivity", "launch2")
+                e.printStackTrace()
+            }
+        }
+    }
     private fun publicationGet() {
         Log.d("MainActivity", "dentro")
         lifecycleScope.launch {
             Log.d("MainActivity", "launch")
             try {
                 Log.d("MainActivity", "launch1")
-                list_publication = api_publication.publicationsGet()
-                var adapter = AdapterPublication(list_publication, this@MainActivity)
-                var rc = binding.rcFeed
+                if(recomended){
+                    list_publication = api_publication.publicationsGet()
+                }
+                else{
+                    list_publication = api_publication.publicationsGetSeguindo(user.id_user)
+                }
+                val adapter = AdapterPublication(list_publication, this@MainActivity)
+                val rc = binding.rcFeed
                 rc.layoutManager = LinearLayoutManager(this@MainActivity)
                 rc.setHasFixedSize(true)
                 rc.adapter = adapter
 
-            } catch (e: Exception) {
-                // Lide com o erro
+            }
+            catch (e: Exception) {
                 Log.d("MainActivity", "launch2")
                 e.printStackTrace()
             }
         }
     }
 
-    fun publicar(view: View) {
-        var main_activity = Intent(this, UnpublishedPublicationActivity::class.java)
-        main_activity.putExtra("user", user)
-        startActivity(main_activity)
-        finish()
+    fun seguindoClick(view: View) {
+        recomended = false;
+        publicationGet()
+        eventMiniGet()
+        btn_seguindo.setBackgroundResource(R.drawable.button_border_red_selected)
+        btn_seguindo.setTextColor(getColor(R.color.white))
+        btn_initial.setBackgroundResource(R.drawable.button_border_red)
+        btn_initial.setTextColor(getColor(R.color.red))
+
+    }
+
+    fun inicioClick(view: View) {
+        recomended = true;
+        publicationGet()
+        eventMiniGet()
+        btn_initial.setBackgroundResource(R.drawable.button_border_red_selected)
+        btn_initial.setTextColor(getColor(R.color.white))
+        btn_seguindo.setBackgroundResource(R.drawable.button_border_red)
+        btn_seguindo.setTextColor(getColor(R.color.red))
     }
 }

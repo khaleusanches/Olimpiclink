@@ -96,6 +96,8 @@ class UnpublishedPublicationActivity : AppCompatActivity() {
         tv_login_user.text = "@${user.login_user}"
         btn_publicar.setOnTouchListener(commonEvents.touchListenerGet(btn_publicar))
         commonEvents.goPageMain(user,this, binding.bottomMenu.binding.btnPgInitial)
+
+        binding.bottomMenu.binding.btnPgCreatePublication.setImageResource(R.drawable.publication_on)
     }
 
     fun publishPublication(view: View) {

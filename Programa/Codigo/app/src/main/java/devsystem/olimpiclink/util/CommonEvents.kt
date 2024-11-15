@@ -11,7 +11,10 @@ import android.view.View
 import android.view.View.OnClickListener
 import androidx.appcompat.widget.AppCompatButton
 import android.widget.EditText
+import android.widget.ImageView
 import androidx.core.content.ContextCompat.startActivity
+import androidx.core.view.drawToBitmap
+import com.bumptech.glide.Glide
 import devsystem.olimpiclink.R
 import devsystem.olimpiclink.model.User
 import devsystem.olimpiclink.ui.MainActivity
@@ -46,7 +49,7 @@ class CommonEvents {
             false
         }
     }
-    fun goPageCreationPublication (user: User, context : Activity, view : View){
+    fun goPageCreationPublication (user: User, context : Activity, view : ImageView){
         view.setOnClickListener{
             var main_activity = Intent(context, UnpublishedPublicationActivity::class.java)
             view.setBackgroundResource(R.drawable.edit_text_selected)

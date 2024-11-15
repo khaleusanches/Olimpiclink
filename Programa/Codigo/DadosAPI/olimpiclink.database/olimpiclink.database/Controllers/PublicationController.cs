@@ -76,7 +76,7 @@ namespace olimpiclink.database.Controllers
         public async Task<IActionResult> getPublication()
         {
             var teste = new PlaceController();
-            var publications = await context.publications.OrderByDescending(user => user.date_publication).ToListAsync();
+            var publications = await context.publications.Where(publication => publication.activated_publication == true).OrderByDescending(publication => publication.date_publication).ToListAsync();
             var lista = new List<GetPublicationModel>();
             foreach (var publication in publications)
             {
@@ -190,6 +190,33 @@ namespace olimpiclink.database.Controllers
                 return BadRequest();
             }
             return File(publicationImage, "image/jpeg");
+        }
+
+        [HttpGet("seguindo/{id}")]
+        public async Task<IActionResult> getPublicationsSeguindo(int id)
+        {
+            var publis = await (
+            from publication in context.publications
+            join user_follow in context.user_follows
+            on publication.user_id equals user_follow.follow_id
+            where user_follow.user_id == id && publication.activated_publication == true
+            orderby publication.date_publication descending
+            select new 
+            {
+                publication.id_publication,
+                publication.user_id,
+                publication.text_publication,
+                publication.url_image_one_publication,
+                publication.url_image_two_publication,
+                publication.url_image_three_publication,
+                publication.url_image_four_publication,
+                publication.date_publication,
+                publication.comunity_id,
+                publication.place_id,
+                publication.event_id
+            }
+            ).ToListAsync();
+            return Ok(publis);
         }
 
         [HttpPost("testes")]

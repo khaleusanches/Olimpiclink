@@ -9,10 +9,16 @@ import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface EndpointPublication {
     @GET("/api/publication")
     suspend fun publicationsGet() : List<PublicationModelGet>
+
+    @GET("/api/publication/seguindo/{id}")
+    suspend fun publicationsGetSeguindo(
+        @Path("id") id : Int
+    ) : List<PublicationModelGet>
 
     @POST("api/publication")
     suspend fun publicationsPost(
