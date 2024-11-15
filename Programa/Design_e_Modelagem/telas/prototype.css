@@ -242,28 +242,47 @@ a:link, a:visited{color:inherit; text-decoration:none;	}
 
 /*-----------------------------------notify--------------*/
 .notify{
-	margin: 0px -8px 8px -8px; padding: 8px; 
+	margin: 0px -8px 0px -8px; padding: 8px; 
 	border-bottom:solid thin rgb(100, 100, 100);
 }
 
-	.notify .normal, .notify .impor{
+	.notify .normal,
+	.notify .impor{
 		border: solid thin rgba(104,104,104,0.6); border-radius: 8px;
 		padding:8px; margin: 6px 8px;
 		color:rgb(84,84,84);
 		display:grid;
 		grid-template-columns:40px auto
 	}
-		.normal .a{
+	.notify .impor{rgb(212 63 3 / 10%}
+		.normal .a, .impor .a{
 			background-color:rgb(200,8,0);
 			border-radius: 48%; height:40px; width:40px
 		}
-		.notify .normal .b{
+		.notify .normal .b,
+		.notify .impor .b{
 			text-align:left;
 			align-self:center;
 			margin-left:6px;
 		}
-			.notify .normal .b p{margin:2px; font-size:x-small}
-
+			.normal .comunidade,
+			.impor .comunidade
+				{margin:2px; font-size:12px;font-weight: 1000}
+				
+			.notify .normal .b .title,
+			.notify .impor .b .title
+				{margin:2px; font-size:11px;font-weight: 600}
+				
+				.notify .normal .b .title span,
+				.notify .impor .b .title span
+					{font-size:11px;font-weight:1000}
+					
+			.notify .normal .b .text,
+			.notify .impor .b .text
+				{margin:2px; font-size:10px}
+			.notify .normal .b .data,
+			.notify .impor .b .data
+				{margin-top:6px; font-size:9px; text-align:right; color:grey}
 
 
 /*-------------------------------------perfil--------------*/
