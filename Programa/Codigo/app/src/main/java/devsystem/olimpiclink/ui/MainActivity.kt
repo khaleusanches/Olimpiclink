@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
     var commonEvents = CommonEvents()
     private lateinit var user : User
     var recomended = true;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -136,5 +137,12 @@ class MainActivity : AppCompatActivity() {
         btn_initial.setTextColor(getColor(R.color.white))
         btn_seguindo.setBackgroundResource(R.drawable.button_border_red)
         btn_seguindo.setTextColor(getColor(R.color.red))
+    }
+
+    fun moreNow(view: View) {
+        var more_see = Intent(this, MoreSeeActivity::class.java)
+        more_see.putExtra("user", user)
+        more_see.putExtra("recomended", recomended)
+        startActivity(more_see)
     }
 }
