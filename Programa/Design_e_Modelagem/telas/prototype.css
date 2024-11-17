@@ -113,28 +113,6 @@ a:link, a:visited{color:inherit; text-decoration:none;	}
 	display:grid
 }
 
-.calendario{
-	border-bottom-style:solid; border-width:1px;border-color:rgb(200,8,0);
-	margin-left:0px; margin-right:0px; margin-top:6px; padding-left:20px; padding-right: 20px;
-}
-
-.calendario p, .calendario b{
-	margin:8px;
-    font-size: small;
-}
-
-#atual{
-    border-style:solid; border-width:1px;border-radius:6px;
-}
-
-
-.thismonth{
-     height: 20px; display: inline-block;    font-weight: 700;
-}
-
-.pastmonth{
-    font-weight: 100;
-}
 
 .interesse{
     border-style:solid; border-width:2px;
@@ -254,7 +232,8 @@ a:link, a:visited{color:inherit; text-decoration:none;	}
 		display:grid;
 		grid-template-columns:40px auto
 	}
-	.notify .impor{rgb(212 63 3 / 10%}
+	.notify .impor{background-color:rgb(212 63 3 / 10%)}
+	
 		.normal .a, .impor .a{
 			background-color:rgb(200,8,0);
 			border-radius: 48%; height:40px; width:40px
@@ -352,8 +331,8 @@ a:link, a:visited{color:inherit; text-decoration:none;	}
 
 /*colorful aprt on topn of profile*/
 #intropflcmd{
-	background-image:linear-gradient(rgba(200, 67, 0, 0.04), rgba(255, 8, 0, 0.06));
-	margin:auto -8px -8px ; padding: 8px; 
+	background-image:linear-gradient(rgba(200, 67, 0, 0.02), rgba(255, 8, 0, 0.04));
+	margin:auto -8px 12px -8px; padding: 8px; 
 	border-bottom:solid thin rgb(100, 100, 100);
 }
 	
@@ -385,3 +364,59 @@ a:link, a:visited{color:inherit; text-decoration:none;	}
 	#userbiopfl{font-size: x-small; color:black; text-align:left; margin: 8px}
 
 
+
+/*------------------------comunidades-----------------------------------*/
+.commm{	
+	margin:10px 8px; padding: 10px; 
+	border: solid thin rgb(164,164,164);
+	border-radius: 8px;
+	display:grid;
+	align-items:center;
+}
+
+	.commm .bluesquareout{height:120px}
+		.bluesquare{
+			height:120px;
+			background-color: rgb(48, 223, 242);
+			border-radius: 8px; border-style:solid;
+			border-width: thin; border-color: rgb(164,164,164)
+		}
+		
+	.commm .infocmd{
+	display:grid;
+		grid-template-columns: 52px auto 40px;
+		gap:8px;
+		margin: -4.8% 4px auto 10px;
+		height: 48px;
+	} 
+			
+		.commm .infocmd .userpiccmd{
+			background-color: rgb(200,8,0);
+			height: 52px;
+			border-radius: 48%;border-style:solid;
+			border-width: thin; border-color: rgb(164, 164, 164)
+		}
+			
+		.commm .useratnamecmd{text-align: left; margin-top:6px}
+	
+			.commm .useratnamecmd .useratcmd{
+				margin-bottom: 0px;
+				font-size:small;
+				font-weight: 600;
+				color:black
+			}
+			
+			.commm .useratnamecmd .userfriendstatus{
+				margin-bottom: 0px;
+				font-weight: 600;
+				font-size:x-small;
+				margin:4px 2px;
+			}
+
+		.commm .userbio{
+			margin:18px 2px 2px 2px;
+			font-size:x-small;
+			color:rgb(0 0 0 / 80%);
+			text-align: left;
+		}
+/*------------------------------------------------------------------------*/
