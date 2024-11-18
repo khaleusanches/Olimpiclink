@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide
 import devsystem.olimpiclink.R
 import devsystem.olimpiclink.model.User
 import devsystem.olimpiclink.ui.MainActivity
+import devsystem.olimpiclink.ui.MyProfileActivity
 import devsystem.olimpiclink.ui.UnpublishedPublicationActivity
 
 class CommonEvents {
@@ -61,6 +62,15 @@ class CommonEvents {
     fun goPageMain(user : User, context: Activity, view : View){
         view.setOnClickListener{
             var main_activity = Intent(context, MainActivity::class.java)
+            view.setBackgroundResource(R.drawable.edit_text_selected)
+            main_activity.putExtra("user", user)
+            context.startActivity(main_activity)
+            context.finish()
+        }
+    }
+    fun goPageMyProfile(user : User, context: Activity, view : View){
+        view.setOnClickListener{
+            var main_activity = Intent(context, MyProfileActivity::class.java)
             view.setBackgroundResource(R.drawable.edit_text_selected)
             main_activity.putExtra("user", user)
             context.startActivity(main_activity)

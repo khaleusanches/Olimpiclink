@@ -5,103 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MyProfileActivity">
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_filter2"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/button_border_red"
-        android:onClick="enterClick"
-        android:text="x"
-        android:textColor="@color/red"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/appCompatButton"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_filter4"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/button_border_red"
-        android:onClick="enterClick"
-        android:text=""
-        android:textColor="@color/red"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatButton" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_filter7"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="110dp"
-        android:background="@drawable/button_border_red"
-        android:onClick="enterClick"
-        android:text=""
-        android:textColor="@color/red"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/btn_filter6"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatButton" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_filter5"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/button_border_red"
-        android:onClick="enterClick"
-        android:text=""
-        android:textColor="@color/red"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/btn_filter4"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatButton" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_filter6"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/button_border_red"
-        android:onClick="enterClick"
-        android:text=""
-        android:textColor="@color/red"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/btn_filter5"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatButton" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_filter3"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/button_border_red"
-        android:onClick="enterClick"
-        android:text="x"
-        android:textColor="@color/red"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.407"
-        app:layout_constraintStart_toEndOf="@+id/btn_filter2"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+    tools:context=".ui.MyProfileActivity"
+    android:background="@drawable/background_main">
 
     <devsystem.olimpiclink.ui.ToolbarCustom
         android:id="@+id/toolbarCustom"
@@ -112,123 +17,386 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-
     <devsystem.olimpiclink.ui.BottomAppbarCustom
+        android:id="@+id/bottomAppbarCustom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
+    <ScrollView
+        android:layout_width="409dp"
+        android:layout_height="552dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="22dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomAppbarCustom"
         app:layout_constraintTop_toBottomOf="@+id/toolbarCustom"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:layout_editor_absoluteX="0dp">
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="124dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarCustom"
-        tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/tv_login_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:text="#nomedeusuario"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
-
-    <TextView
-        android:id="@+id/tv_name_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="4dp"
-        android:text="Nome completo"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/tv_login_user" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="101dp"
-        android:layout_height="74dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="12dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5">
-
-        <TextView
-            android:id="@+id/textView4"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="2dp"
-            android:text="23 amigos" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="2dp"
-            android:text="23 seguindo" />
+            <ImageView
+                android:id="@+id/img_banner"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="12dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="2dp"
-            android:text="23 seguidores" />
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/img_profile_picture"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="150dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="75dp"
-        android:text="bio bio bio bio bio bio biooooooooooooooooooooooooooooooooooooooooooooooo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+            <TextView
+                android:id="@+id/tv_login_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:text="#nomedeusuario"
+                android:textColor="@color/laranja_splash"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.006"
+                app:layout_constraintStart_toEndOf="@+id/img_profile_picture"
+                app:layout_constraintTop_toBottomOf="@+id/img_banner" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton"
-        android:layout_width="254dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/button_border_red_selected"
-        android:text="Amigos"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            <TextView
+                android:id="@+id/tv_name_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="2dp"
+                android:text="Nome completo"
+                android:textSize="12dp"
+                app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/img_profile_picture"
+                app:layout_constraintTop_toBottomOf="@+id/tv_login_user" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="163dp"
-        tools:layout_editor_absoluteY="480dp" />
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="101dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="12dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_banner">
+
+                <TextView
+                    android:id="@+id/tv_friends"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:text="23 amigos"
+                    android:textColor="@color/laranja_splash"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_follows"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:text="23 seguindo"
+                    android:textColor="@color/laranja_splash"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_followers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:text="23 seguidores"
+                    android:textColor="@color/laranja_splash"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_bio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="75dp"
+                android:text="bio bio bio bio bio bio biooooooooooooooooooooooooooooooooooooooooooooooo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_profile_picture" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="68dp"
+                android:text="Categorias que você salvou"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_bio" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_filter2"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/button_border_red"
+                android:onClick="enterClick"
+                android:text="x"
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_filter3" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_filter4"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_border_red"
+                android:onClick="enterClick"
+                android:text=""
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_bio" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_filter8"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="57dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/button_border_red"
+                android:onClick="enterClick"
+                android:text=""
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_filter9"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/button_border_red"
+                android:onClick="enterClick"
+                android:text=""
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/btn_filter8"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_filter10"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/button_border_red"
+                android:onClick="enterClick"
+                android:text=""
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/btn_filter9"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_filter11"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="57dp"
+                android:background="@drawable/button_border_red"
+                android:onClick="enterClick"
+                android:text=""
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/btn_filter10"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_filter7"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="110dp"
+                android:background="@drawable/button_border_red"
+                android:onClick="enterClick"
+                android:text=""
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/btn_filter6"
+                app:layout_constraintTop_toBottomOf="@+id/tv_bio" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_filter12"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="80dp"
+                android:background="@drawable/button_border_red"
+                android:onClick="enterClick"
+                android:text=""
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/btn_filter7"
+                app:layout_constraintTop_toBottomOf="@+id/tv_bio" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_filter5"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_border_red"
+                android:onClick="enterClick"
+                android:text=""
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/btn_filter4"
+                app:layout_constraintTop_toBottomOf="@+id/tv_bio" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_filter6"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_border_red"
+                android:onClick="enterClick"
+                android:text=""
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/btn_filter5"
+                app:layout_constraintTop_toBottomOf="@+id/tv_bio" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_filter3"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/button_border_red"
+                android:onClick="enterClick"
+                android:text="x"
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="84dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView8"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:background="@drawable/buttons_initial"
+                    >
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:gravity="center"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rc_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="4dp"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:gravity="center"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rc_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rc_feed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="15dp"/>
+
+
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

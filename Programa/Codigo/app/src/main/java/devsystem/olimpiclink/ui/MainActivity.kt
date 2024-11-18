@@ -65,6 +65,7 @@ class MainActivity : AppCompatActivity() {
         api_event = ApiCliente.retrofit.create(EndpointEvent::class.java)
         commonEvents.goPageCreationPublication(user, this, binding.bottomMenu.binding.btnPgCreatePublication)
         commonEvents.goPageMain(user, this, binding.bottomMenu.binding.btnPgInitial)
+        commonEvents.goPageMyProfile(user, this, binding.bottomMenu.binding.btnPgProfile)
 
         btn_seguindo = binding.btnSeguindo
         btn_initial = binding.btnInicio

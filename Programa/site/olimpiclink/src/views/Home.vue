@@ -1,6 +1,7 @@
 <template>
     <div id="Home">
         <LeftBar></LeftBar>
+        <h1>Ana júlia</h1>
     </div>
 
 </template>
@@ -16,7 +17,7 @@ export default {
 </script>
 
 <style>
-    #home{
+    #Home{
         display: flex;
     }
 </style>
