@@ -1,4 +1,4 @@
-package devsystem.olimpiclink.ui
+package devsystem.olimpiclink.ui.pages
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -21,12 +21,10 @@ import devsystem.olimpiclink.model.User
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.ImageView
-import android.widget.Button
 import androidx.appcompat.widget.AppCompatButton
 import androidx.lifecycle.lifecycleScope
 import devsystem.olimpiclink.model.PublicationModelPost
 import devsystem.olimpiclink.model.util.ApiCliente
-import devsystem.olimpiclink.model.util.EndpointUser
 import devsystem.olimpiclink.util.CommonEvents
 import devsystem.olimpiclink.util.EndpointPublication
 import kotlinx.coroutines.launch

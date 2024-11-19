@@ -7,4 +7,8 @@
     <declare-styleable name="ToolbarCustom"></declare-styleable>
     <declare-styleable name="BottomAppbar"></declare-styleable>
     <declare-styleable name="EventPublishedMini"></declare-styleable>
+    <declare-styleable name="EventPublished"></declare-styleable>
+    <declare-styleable name="CommunityCard"></declare-styleable>
+    <declare-styleable name="MyProfileMainBinding"></declare-styleable>
+    <declare-styleable name="FriendsFollowsFollowersBinding"></declare-styleable>
 </resources>

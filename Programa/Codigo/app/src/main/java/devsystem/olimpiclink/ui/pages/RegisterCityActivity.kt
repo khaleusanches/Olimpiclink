@@ -1,6 +1,5 @@
-package devsystem.olimpiclink.ui
+package devsystem.olimpiclink.ui.pages
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -10,15 +9,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import devsystem.olimpiclink.R
 import devsystem.olimpiclink.databinding.ActivityRegisterCityBinding
-import devsystem.olimpiclink.model.User
 import android.widget.EditText
-import android.widget.Spinner
 import android.widget.ArrayAdapter
-import android.widget.AdapterView
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
-import androidx.recyclerview.widget.RecyclerView
 import devsystem.olimpiclink.model.City
 import devsystem.olimpiclink.model.util.ApiCliente
 import devsystem.olimpiclink.util.CommonEvents
@@ -26,7 +21,6 @@ import devsystem.olimpiclink.util.EndpointCity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.create
 
 class RegisterCityActivity: AppCompatActivity() {
     private lateinit var binding : ActivityRegisterCityBinding;

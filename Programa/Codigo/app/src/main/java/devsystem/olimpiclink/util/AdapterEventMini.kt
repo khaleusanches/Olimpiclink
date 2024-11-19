@@ -30,6 +30,9 @@ class AdapterEventMini(val context: Context, private val listEventsMini: List<Ev
         if(listEventsMini[position].url_picture_event.size > 0){
             Glide.with(context).load(listEventsMini[position].url_picture_event[0]).into(holder.event_cape)
         }
+        else{
+            holder.event_cape.visibility = View.GONE
+        }
     }
 
     inner class EventMiniViewHolder(binding: EventPublishedMiniBinding): RecyclerView.ViewHolder(binding.root) {

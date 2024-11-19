@@ -46,9 +46,10 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="#nomedacomunidade"
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         android:paddingLeft="8dp"
                         android:paddingTop="10dp"
+                        android:textStyle="bold"
                         />
 
                     <TextView
@@ -76,7 +77,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Titulo do Evento"
-                android:textSize="14sp"
+                android:textSize="13sp"
                 android:textStyle="bold"/>
 
             <ImageView
@@ -93,7 +94,6 @@
                 android:layout_weight="1"
                 android:text="bskda blksdhas blkdfhkashf"
                 android:justificationMode="inter_word"
-                android:paddingHorizontal="16dp"
                 android:paddingTop="8dp"
                 android:paddingBottom="6dp"
                 android:textSize="12dp"

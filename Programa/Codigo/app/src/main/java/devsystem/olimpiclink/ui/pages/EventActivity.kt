@@ -1,10 +1,9 @@
-package devsystem.olimpiclink
+package devsystem.olimpiclink.ui.pages
 
 import android.net.Uri
 import android.os.Bundle
 import android.widget.*
 import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import devsystem.olimpiclink.databinding.ActivityEventBinding

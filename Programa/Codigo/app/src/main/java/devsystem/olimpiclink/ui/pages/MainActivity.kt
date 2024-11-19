@@ -1,4 +1,4 @@
-package devsystem.olimpiclink.ui
+package devsystem.olimpiclink.ui.pages
 
 import android.content.Intent
 import android.os.Bundle
@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
     var commonEvents = CommonEvents()
     private lateinit var user : User
     var recomended = true;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -64,6 +65,7 @@ class MainActivity : AppCompatActivity() {
         api_event = ApiCliente.retrofit.create(EndpointEvent::class.java)
         commonEvents.goPageCreationPublication(user, this, binding.bottomMenu.binding.btnPgCreatePublication)
         commonEvents.goPageMain(user, this, binding.bottomMenu.binding.btnPgInitial)
+        commonEvents.goPageMyProfile(user, this, binding.bottomMenu.binding.btnPgProfile)
 
         btn_seguindo = binding.btnSeguindo
         btn_initial = binding.btnInicio
@@ -136,5 +138,12 @@ class MainActivity : AppCompatActivity() {
         btn_initial.setTextColor(getColor(R.color.white))
         btn_seguindo.setBackgroundResource(R.drawable.button_border_red)
         btn_seguindo.setTextColor(getColor(R.color.red))
+    }
+
+    fun moreNow(view: View) {
+        var more_see = Intent(this, MoreSeeActivity::class.java)
+        more_see.putExtra("user", user)
+        more_see.putExtra("recomended", recomended)
+        startActivity(more_see)
     }
 }

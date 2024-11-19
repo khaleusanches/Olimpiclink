@@ -155,16 +155,6 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.EventController",
-    "Method": "getEventForComunity",
-    "RelativePath": "api/Event",
-    "HttpMethod": "",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "olimpiclink.database.Controllers.EventController",
     "Method": "Get",
     "RelativePath": "api/Event/{id}",
     "HttpMethod": "GET",
@@ -180,7 +170,6 @@
     "ReturnTypes": []
   },
   {
-<<<<<<< HEAD
     "ContainingType": "olimpiclink.database.Controllers.EventController",
     "Method": "getEventMini",
     "RelativePath": "api/Event/mini",
@@ -207,8 +196,65 @@
     "ReturnTypes": []
   },
   {
-=======
->>>>>>> 02479694ec2fafcc929267a0f1040b62e0b2f905
+    "ContainingType": "olimpiclink.database.Controllers.UserFollowController",
+    "Method": "getFriendsFollowsFollowers",
+    "RelativePath": "api/FFF/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.UserFollowController",
+    "Method": "removeFollower",
+    "RelativePath": "api/followers/{id_user}\u0026\u0026{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_user",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.UserFollowController",
+    "Method": "getFollowers",
+    "RelativePath": "api/followers/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "olimpiclink.database.Controllers.MarkedPresenceController",
     "Method": "Post",
     "RelativePath": "api/MarkedPresence",

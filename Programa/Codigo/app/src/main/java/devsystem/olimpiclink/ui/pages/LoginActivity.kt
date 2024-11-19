@@ -1,4 +1,4 @@
-package devsystem.olimpiclink.ui
+package devsystem.olimpiclink.ui.pages
 
 import devsystem.olimpiclink.util.CommonEvents
 import android.annotation.SuppressLint
