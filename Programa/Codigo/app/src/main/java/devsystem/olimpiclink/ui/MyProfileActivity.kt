@@ -14,6 +14,7 @@ import devsystem.olimpiclink.R
 import devsystem.olimpiclink.databinding.ActivityMyProfileBinding
 import devsystem.olimpiclink.model.CommunityCardModel
 import devsystem.olimpiclink.model.FriendsFollowsFollowersModel
+import devsystem.olimpiclink.model.PublicationModelGet
 import devsystem.olimpiclink.model.User
 import devsystem.olimpiclink.model.util.ApiCliente
 import devsystem.olimpiclink.model.util.EndpointUser
@@ -26,7 +27,9 @@ class MyProfileActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMyProfileBinding
     private lateinit var user : User
     private lateinit var api_user : EndpointUser
+    private lateinit var api_publication : EndpointPublication
     private lateinit var fffm : FriendsFollowsFollowersModel
+    private lateinit var list_publication : List<PublicationModelGet>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -41,6 +44,7 @@ class MyProfileActivity : AppCompatActivity() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.laranja_splash)
         user = intent.extras!!.getParcelable<User>("user")!!
         api_user = ApiCliente.retrofit.create(EndpointUser::class.java)
+        api_publication = ApiCliente.retrofit.create(EndpointPublication::class.java)
         componentsInitialize()
     }
 
@@ -85,11 +89,10 @@ class MyProfileActivity : AppCompatActivity() {
             Log.d("MainActivity", "launch")
             try {
                 Log.d("MainActivity", "launch1")
-                val api_publication = ApiCliente.retrofit.create(EndpointPublication::class.java)
-                val list_publication = api_publication.publicationsGet()
+                list_publication = api_publication.publicationsGet()
                 val adapter = AdapterPublication(list_publication, this@MyProfileActivity)
                 val rc = binding.rcFeed
-                rc.layoutManager = LinearLayoutManager(this@MyProfileActivity)
+                rc.layoutManager = LinearLayoutManager(this@MyProfileActivity, LinearLayoutManager.VERTICAL, false)
                 rc.setHasFixedSize(true)
                 rc.adapter = adapter
 
