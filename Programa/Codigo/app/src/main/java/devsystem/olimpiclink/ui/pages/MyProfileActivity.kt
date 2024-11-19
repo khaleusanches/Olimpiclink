@@ -1,7 +1,9 @@
-package devsystem.olimpiclink.ui
+package devsystem.olimpiclink.ui.pages
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -20,6 +22,7 @@ import devsystem.olimpiclink.model.util.ApiCliente
 import devsystem.olimpiclink.model.util.EndpointUser
 import devsystem.olimpiclink.util.AdapterCommunityCard
 import devsystem.olimpiclink.util.AdapterPublication
+import devsystem.olimpiclink.util.CommonEvents
 import devsystem.olimpiclink.util.EndpointPublication
 import kotlinx.coroutines.launch
 
@@ -30,6 +33,7 @@ class MyProfileActivity : AppCompatActivity() {
     private lateinit var api_publication : EndpointPublication
     private lateinit var fffm : FriendsFollowsFollowersModel
     private lateinit var list_publication : List<PublicationModelGet>
+    private var commonEvents = CommonEvents()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -59,14 +63,18 @@ class MyProfileActivity : AppCompatActivity() {
         val card2 = CommunityCardModel("nao")
         val list = listOf(card1, card2)
         val adapter = AdapterCommunityCard(this, list)
-        binding.rc1.layoutManager = LinearLayoutManager(this)
-        binding.rc1.setHasFixedSize(true)
-        binding.rc1.adapter = adapter
+        binding.profileMain.binding.rc1.layoutManager = LinearLayoutManager(this)
+        binding.profileMain.binding.rc1.setHasFixedSize(true)
+        binding.profileMain.binding.rc1.adapter = adapter
 
-        binding.rc2.layoutManager = LinearLayoutManager(this)
-        binding.rc2.setHasFixedSize(true)
-        binding.rc2.adapter = adapter
+        binding.profileMain.binding.rc2.layoutManager = LinearLayoutManager(this)
+        binding.profileMain.binding.rc2.setHasFixedSize(true)
+        binding.profileMain.binding.rc2.adapter = adapter
         publicationGet()
+
+        commonEvents.goPageMain(user, this, binding.bottomAppbarCustom.binding.btnPgInitial)
+        commonEvents.goPageCreationPublication(user, this, binding.bottomAppbarCustom.binding.btnPgCreatePublication)
+        binding.bottomAppbarCustom.binding.btnPgProfile.setImageResource(R.drawable.profile_on)
     }
 
     private fun getFriendsFollowsFollowers() {
@@ -89,7 +97,7 @@ class MyProfileActivity : AppCompatActivity() {
             Log.d("MainActivity", "launch")
             try {
                 Log.d("MainActivity", "launch1")
-                list_publication = api_publication.publicationsGet()
+                list_publication = api_publication.publicationsGetID(user.id_user)
                 val adapter = AdapterPublication(list_publication, this@MyProfileActivity)
                 val rc = binding.rcFeed
                 rc.layoutManager = LinearLayoutManager(this@MyProfileActivity, LinearLayoutManager.VERTICAL, false)
@@ -102,5 +110,19 @@ class MyProfileActivity : AppCompatActivity() {
                 e.printStackTrace()
             }
         }
+    }
+
+    fun seePublications(view: View) {
+        binding.profileMain.visibility = View.GONE
+    }
+
+    fun seeMainProfile(view: View) {
+        binding.profileMain.visibility = View.VISIBLE
+    }
+
+    fun goToFollowers(view: View) {
+        var main_activity = Intent(this, FollowersActivity::class.java)
+        main_activity.putExtra("user", user)
+        startActivity(main_activity)
     }
 }

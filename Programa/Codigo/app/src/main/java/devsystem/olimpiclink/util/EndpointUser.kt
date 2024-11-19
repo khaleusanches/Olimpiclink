@@ -1,9 +1,11 @@
 package devsystem.olimpiclink.model.util
 
 import devsystem.olimpiclink.model.FriendsFollowsFollowersModel
+import devsystem.olimpiclink.model.FriendsFollowsFollowersScreenModel
 import devsystem.olimpiclink.model.RequestMessages
 import devsystem.olimpiclink.model.User
 import retrofit2.Call
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -19,7 +21,17 @@ interface EndpointUser {
         @Path("login_user") login_user: String,
         @Path("email_user") email_user: String,
     ) : Call<RequestMessages>
-    @GET("api/follows/{id}")
+
+    @GET("api/FFF/{id}")
     suspend fun getFriendsFollowsFollowers
                 (@Path("id") id : Int) : FriendsFollowsFollowersModel
+
+    @GET("api/followers/{id}")
+    suspend fun getFollowers
+                (@Path("id") id : Int) : MutableList<FriendsFollowsFollowersScreenModel>
+
+    @DELETE("api/followers/{id_user}&&{id}")
+    suspend fun deleteFollower
+                (@Path("id_user") id_user : Int,
+                 @Path("id") id : Int)
 }

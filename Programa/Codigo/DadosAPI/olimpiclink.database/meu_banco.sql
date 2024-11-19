@@ -72,7 +72,7 @@ CREATE TABLE `events` (
   KEY `place_id` (`place_id`),
   CONSTRAINT `events_ibfk_1` FOREIGN KEY (`comunity_id`) REFERENCES `comunities` (`id_comunity`),
   CONSTRAINT `events_ibfk_2` FOREIGN KEY (`place_id`) REFERENCES `places` (`id_place`),
-  foreign key (`leader_id`) references `leaders`(`id_leader`)
+  CONSTRAINT `events_ibfk_3` foreign key (`leader_id`) references `leaders`(`id_leader`)
 );
 
 CREATE TABLE `pictures_events` (

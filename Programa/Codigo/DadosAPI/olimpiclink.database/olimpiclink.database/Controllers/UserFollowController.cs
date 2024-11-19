@@ -9,7 +9,7 @@ namespace olimpiclink.database.Controllers
     public class UserFollowController : Controller
     {
         ConnectionContext context = new ConnectionContext();
-        [HttpGet("{id}")]
+        [HttpGet("/api/FFF/{id}")]
         public async Task<IActionResult> getFriendsFollowsFollowers(int id)
         {
             var qtd_friends = await (
@@ -45,6 +45,30 @@ namespace olimpiclink.database.Controllers
                 follows = qtd_follows.Count(),
                 followers = qtd_followers.Count()
             });
+        }
+        [HttpGet("/api/followers/{id}")]
+        public async Task<IActionResult> getFollowers(int id)
+        {
+            var followers = await (
+                from f in context.user_followers
+                join u in context.users
+                on f.follower_id equals u.id_user
+                where f.user_id == id
+                select new
+                {
+                    img_profile = u.url_profile_picture_user,
+                    login_user = u.login_user,
+                    user_id = u.id_user
+                }).ToListAsync();
+            return Ok(followers);
+        }
+            
+        [HttpDelete("/api/followers/{id_user}&&{id}")]
+        public async void removeFollower(int id_user, int id)
+        {
+            var follower = await context.user_followers.SingleOrDefaultAsync(user => user.user_id == id_user && user.follower_id == id);
+            context.user_followers.Remove(follower);
+            await context.SaveChangesAsync();
         }
     }
 }

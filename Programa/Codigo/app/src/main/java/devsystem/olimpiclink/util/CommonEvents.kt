@@ -2,24 +2,19 @@ package devsystem.olimpiclink.util
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.view.MotionEvent.ACTION_CANCEL
 import android.view.MotionEvent.ACTION_DOWN
 import android.view.MotionEvent.ACTION_UP
 import android.view.View
-import android.view.View.OnClickListener
 import androidx.appcompat.widget.AppCompatButton
 import android.widget.EditText
 import android.widget.ImageView
-import androidx.core.content.ContextCompat.startActivity
-import androidx.core.view.drawToBitmap
-import com.bumptech.glide.Glide
 import devsystem.olimpiclink.R
 import devsystem.olimpiclink.model.User
-import devsystem.olimpiclink.ui.MainActivity
-import devsystem.olimpiclink.ui.MyProfileActivity
-import devsystem.olimpiclink.ui.UnpublishedPublicationActivity
+import devsystem.olimpiclink.ui.pages.MainActivity
+import devsystem.olimpiclink.ui.pages.MyProfileActivity
+import devsystem.olimpiclink.ui.pages.UnpublishedPublicationActivity
 
 class CommonEvents {
     @SuppressLint("ClickableViewAccessibility")
@@ -77,4 +72,6 @@ class CommonEvents {
             context.finish()
         }
     }
+
+
 }

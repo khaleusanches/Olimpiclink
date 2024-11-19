@@ -1,4 +1,4 @@
-package devsystem.olimpiclink.ui
+package devsystem.olimpiclink.ui.pages
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -13,7 +13,6 @@ import devsystem.olimpiclink.R
 import devsystem.olimpiclink.databinding.ActivityRegisterBinding
 import devsystem.olimpiclink.util.CommonEvents
 import android.widget.EditText
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatButton
 import devsystem.olimpiclink.model.RequestMessages
 import devsystem.olimpiclink.model.User
@@ -21,7 +20,6 @@ import devsystem.olimpiclink.model.util.ApiCliente
 import devsystem.olimpiclink.model.util.EndpointUser
 import retrofit2.Call
 import android.widget.Toast
-import retrofit2.Response
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding : ActivityRegisterBinding
