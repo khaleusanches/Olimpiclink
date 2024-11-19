@@ -12,7 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import devsystem.olimpiclink.R
-import devsystem.olimpiclink.databinding.ActivityFollowersBinding
+import devsystem.olimpiclink.databinding.ActivityFollowsBinding
 import devsystem.olimpiclink.model.FriendsFollowsFollowersScreenModel
 import devsystem.olimpiclink.model.User
 import devsystem.olimpiclink.model.util.ApiCliente
@@ -21,17 +21,17 @@ import devsystem.olimpiclink.util.AdapterFriendsFollowsFollowers
 import devsystem.olimpiclink.util.CommonEvents
 import kotlinx.coroutines.launch
 
-class FollowersActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityFollowersBinding
+class FollowsActivity : AppCompatActivity() {
+    private lateinit var binding : ActivityFollowsBinding
     private lateinit var api_users : EndpointUser
     private lateinit var user : User
-    private lateinit var list_followers : MutableList<FriendsFollowsFollowersScreenModel>
+    private lateinit var list_follows : MutableList<FriendsFollowsFollowersScreenModel>
     var commonEvents = CommonEvents()
     private var search = false;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityFollowersBinding.inflate(layoutInflater)
+        binding = ActivityFollowsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -42,7 +42,7 @@ class FollowersActivity : AppCompatActivity() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.laranja_splash)
         api_users = ApiCliente.retrofit.create(EndpointUser::class.java)
         user = intent.extras!!.getParcelable<User>("user")!!
-        getFollowers()
+        getFollows()
         binding.etSearchUser.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 TODO("Not yet implemented")
@@ -67,19 +67,19 @@ class FollowersActivity : AppCompatActivity() {
         commonEvents.goPageMyProfile(user, this, binding.bottomAppbarCustom.binding.btnPgProfile)
     }
 
-    fun getFollowers(){
+    fun getFollows(){
         lifecycleScope.launch {
             try {
                 if(search == false){
-                    list_followers = api_users.getFollowers(user.id_user)
+                    list_follows = api_users.getFollowers(user.id_user)
                 }
                 else {
-                    list_followers = api_users.getFollowers(user.id_user)
+                    list_follows = api_users.getFollowers(user.id_user)
                 }
-                val adapter = AdapterFriendsFollowsFollowers(this@FollowersActivity, list_followers, this, user.id_user, api_users)
-                binding.rcFollowers.layoutManager = LinearLayoutManager(this@FollowersActivity)
-                binding.rcFollowers.setHasFixedSize(true)
-                binding.rcFollowers.adapter = adapter
+                val adapter = AdapterFriendsFollowsFollowers(this@FollowsActivity, list_follows, this, user.id_user, api_users)
+                binding.rcFollows.layoutManager = LinearLayoutManager(this@FollowsActivity)
+                binding.rcFollows.setHasFixedSize(true)
+                binding.rcFollows.adapter = adapter
             }
             catch (e : Exception){
                 Log.d("FollowersActivity", "Erro")

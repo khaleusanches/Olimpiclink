@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="22 Seguidores de @nomedeusuario"
+                android:text="@nomedeusuario segue 22 pessoas"
                 android:textSize="14sp" />
 
             <View
@@ -70,7 +70,7 @@
                 android:textSize="14sp" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rc_followers"
+                android:id="@+id/rc_follows"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="24dp"

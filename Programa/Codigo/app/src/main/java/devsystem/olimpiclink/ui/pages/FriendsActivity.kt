@@ -12,7 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import devsystem.olimpiclink.R
-import devsystem.olimpiclink.databinding.ActivityFollowersBinding
+import devsystem.olimpiclink.databinding.ActivityFriendsBinding
 import devsystem.olimpiclink.model.FriendsFollowsFollowersScreenModel
 import devsystem.olimpiclink.model.User
 import devsystem.olimpiclink.model.util.ApiCliente
@@ -21,17 +21,17 @@ import devsystem.olimpiclink.util.AdapterFriendsFollowsFollowers
 import devsystem.olimpiclink.util.CommonEvents
 import kotlinx.coroutines.launch
 
-class FollowersActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityFollowersBinding
+class FriendsActivity : AppCompatActivity() {
+    private lateinit var binding : ActivityFriendsBinding
     private lateinit var api_users : EndpointUser
     private lateinit var user : User
-    private lateinit var list_followers : MutableList<FriendsFollowsFollowersScreenModel>
+    private lateinit var list_friends : MutableList<FriendsFollowsFollowersScreenModel>
     var commonEvents = CommonEvents()
     private var search = false;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityFollowersBinding.inflate(layoutInflater)
+        binding = ActivityFriendsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -71,15 +71,15 @@ class FollowersActivity : AppCompatActivity() {
         lifecycleScope.launch {
             try {
                 if(search == false){
-                    list_followers = api_users.getFollowers(user.id_user)
+                    list_friends = api_users.getFollowers(user.id_user)
                 }
                 else {
-                    list_followers = api_users.getFollowers(user.id_user)
+                    list_friends = api_users.getFollowers(user.id_user)
                 }
-                val adapter = AdapterFriendsFollowsFollowers(this@FollowersActivity, list_followers, this, user.id_user, api_users)
-                binding.rcFollowers.layoutManager = LinearLayoutManager(this@FollowersActivity)
-                binding.rcFollowers.setHasFixedSize(true)
-                binding.rcFollowers.adapter = adapter
+                val adapter = AdapterFriendsFollowsFollowers(this@FriendsActivity, list_friends, this, user.id_user, api_users)
+                binding.rcFriends.layoutManager = LinearLayoutManager(this@FriendsActivity)
+                binding.rcFriends.setHasFixedSize(true)
+                binding.rcFriends.adapter = adapter
             }
             catch (e : Exception){
                 Log.d("FollowersActivity", "Erro")
