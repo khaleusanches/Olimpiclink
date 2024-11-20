@@ -5,7 +5,22 @@
 	<meta name "viewport" content="width-device-width,initial-scale=1.0">
 	<link rel="stylesheet" href="prototype.css">
 
+<style>
 
+#edit{
+}
+
+.edittext{
+    border-bottom: solid thin rgba(104, 104, 104, 0.6);
+    padding:6px 0px;
+}
+
+.edittextbox{
+    border: solid thin rgba(104, 104, 104, 0.6);
+    border-radius: 6px;
+}
+
+</style>
 	
 </head>
 
@@ -31,137 +46,43 @@
 
 	<div  id="intropfl">
 <!-- ------------------------------------------------------------------------------------------------------- -->
-		<div id="greensquareout"><div id="greensquare"></div></div>
-		<div  class="grid" id="userinfopfl">
+		<div id="greensquareout"><div id="greensquare"><span id="edit">?</span></div></div>
+		<div  class="grid" id="userinfopfl" style="grid-template-columns: 64px auto;">
 			<div id="userpicpfl"><div></div></div>
-			<div id="useratnamepfl"> <p id="useratpfl">@meuperfil</p><p id="usernamepfl">Nome dasedasa</p> </div>
-			<div id="userfndflgflwpfl">
-				<a href="amigos.html"><p> 23 amigos</p></a>
-				<a href="seguindo.html"><p> 23 seguindo	</p></a>
-				<a href="seguidores.html"><p> 23 seguidores</p></a>
-			</div>	
+			<div id="useratnamepfl" style="margin-top:8px"> <p id="useratpfl" class="edittext">@meuperfil</p><p id="usernamepfl" class="edittext">Nome dasedasa</p> </div>
 		</div>
 <!-- ------------------------------------------------------------------------------------------------------- -->
-		<div class="grid" style="grid-template-columns:auto 26px; margin:2px">
+		<div style="text-align:left; color: rgb(74 74 74/ 88%);">
+ 			<p style=" margin:18px 4px 4px 4px; font-weight:600;"> Sobre voc�</p>
+		</div>
+		<div class="edittextbox" style="margin:4px">
 			<p  id="userbiopfl"> Bio bio bio dkjdawddaldfd fjkhluys lufuwe shidausgbdoiu doiuwou ysdy hfuyti yruyuttgiu ygfyg wqieou hdso ljkfsdj sklsdaerft fwew�</p>
-			<div style="margin:4px 8px 4px -8px;">
-				<p title="compartilhar link" style="margin:4px; border-radius: 6.4px;border: solid 1px rgb(200, 8, 0); height:20px; width:20px"></p>
-				<a href="editar_perfil.html"><p title="editar perfil"  style="margin:4px; border-radius: 6.4px;border: solid 1px rgb(200, 8, 0); height:20px; width:20px"></p></a>
-			</div>
-		</div>
-		
-<!-- ------------------------------------------------------------------------------------------------------- -->
-		<div id="profiledomain" style="margin-top:-8px"><div><span></span>
-			<a href="meu_perfil_inicio.html" style="background-color:rgb(200,8,0)"></a>
-			<a href="perfil_publicacoes.html"></a>
-			<a href="perfil_galeria.html"></a>
-			<a href="perfil_eventos.html"></a>
-			<a href="perfil_marcacoes.html"></a>
-		<span></span></div></div>
-<!-- ------------------------------------------------------------------------------------------------------- -->
+			<p  id="userbiopfl" style=" margin-left:250px;color: rgb(74 74 74/ 78%)">280/280</p>
 
+		</div>
 <!-- ------------------------------------------------------------------------------------------------------- -->
 		<div style=" margin: 0% 0% auto 0%; padding: 2%;">
-			<p style="margin: 1.2%;  font-size: 12px;" >Categorias que você salvou</p>
-			<div class="grid" style="margin: 0% 4% 2% 4%; grid-template-columns:25% 25% 25% 25%">
-				<a href="categoria.html" style="border-style:solid; border-radius: 8px; border-width: thin; padding:4px; margin: 4px;color:inherit;">
-					<img src="logodark.png" style="width:44%;padding-top:8px" ><p style="font-weight: 600;margin:2px;text-align:center; font-size:x-small">Nome</p></a>
-				<a href="categoria.html" style="border-style:solid; border-radius: 8px; border-width: thin; padding:4px; margin: 4px;color:inherit;">
-					<img src="logodark.png" style="width:44%;padding-top:8px" ><p style="font-weight: 600;margin:2px;text-align:center; font-size:x-small">Nome</p></a>
-				<a href="categoria.html" style="border-style:solid; border-radius: 8px; border-width: thin; padding:4px; margin: 4px;color:inherit;">
-					<img src="logodark.png" style="width:44%;padding-top:8px" ><p style="font-weight: 600;margin:2px;text-align:center; font-size:x-small">Nome</p></a>
-				<a href="categoria.html" style="border-style:solid; border-radius: 8px; border-width: thin; padding:4px; margin: 4px;color:inherit;">
-					<img src="logodark.png" style="width:44%;padding-top:8px" ><p style="font-weight: 600;margin:2px;text-align:center; font-size:x-small">Nome</p></a>
-		</div></div>
+			<p style="margin: 1.2%;  font-size: 12px;font-weight:600; color: rgb(74 74 74/ 88%)" >Gerenciar categorias salvas</p>
+			<div class="edittextbox" style="padding:6px 0px">			
+			<div class="grid" style="margin: 0% 2% 2% 2%; grid-template-columns:66px 66px 66px 66px; height:64px; gap:4.8px">
+				<a href="categoria.html" style="margin:4px; border:solid thin; border-radius: 8px;">
+					<img src="futebolred.png" style="width:52px; margin:-2px auto -12px -1px" >
+					<p style="font-weight: 600;margin:4px; font-size:10px">Futebol</p>
+				</a>
+				<a href="categoria.html" style="margin:4px; border:solid thin; border-radius: 8px;">
+					<img src="boxred.png" style="width:52px; margin:-2px auto -12px -1px" >
+					<p style="font-weight: 600;margin:4px; font-size:10px">Boxing</p>
+				</a>
+				<a href="categoria.html" style="margin:4px; border:solid thin; border-radius: 8px;">
+					<img src="basquetered.png" style="width:52px; margin:-2px auto -12px -1px" >
+					<p style="font-weight: 600;margin:4px; font-size:10px">Basquete</p>
+				</a>
+				<a href="categoria.html" style="margin:4px; border:solid thin; border-radius: 8px;">
+					<img src="ropered.png" style="width:52px; margin:-2px auto -12px -1px" >
+					<p style="font-weight: 600;margin:4px; font-size:10px">Volley</p>
+				</a>
+		</div></div></div>
 <!-- ------------------------------------------------------------------------------------------------------- -->
-
-
-
-<!-- ------------------------------------------------------------------------------------------------------- -->
-		<div style=" margin:2% 2% 3.2% 2%; padding: 2%; border-radius:8px; background-color:rgba(218, 218, 212, 0.8, rgba(255, 51, 0, 0.02));border-style:solid;border-width:thin;">
-			<p style="margin: 2px; font-size: 12px;"> Comunidades em que você participa</p>
-			<div class="" style="margin-top:4.4x; overflow:scroll; overflow-y: auto; overflow-x:hidden; height: 100px; scrollbar-width:none;">
-
-				<div style="margin-top:4px;"><a  class="grid" href="comunidade.html" style="border-style: solid; border-radius: 8px; border-width: thin; padding:6px; 						text-align:center; margin: 4px;border-color:rgba(104,104,104,0.6); color:rgb(60,60,60); grid-template-columns:44px auto" title="ficar laranja quando clicar">
-					<div style="background-color: rgb(200,8,0); border-radius: 12%; height:44px"></div>
-					<div style="text-align:left; margin-left:4px;">
-						<p style="font-weight: 600;margin:2px; font-size:x-small">Nome da Comunidade</p>
-						<p style="margin:2px; font-size:x-small">descricao Bio da comunidade fhsidsokdspo dsiadhals sdfdao gujfsw louide</p>
-					</div>
-				</a></div><!-- ---------------------------------- -->
-				<div style="margin-top:4px;"><a  class="grid" href="comunidade.html" style="border-style: solid; border-radius: 8px; border-width: thin; padding:6px; 						text-align:center; margin: 4px;border-color:rgba(104,104,104,0.6); color:rgb(60,60,60); grid-template-columns:44px auto" title="ficar laranja quando clicar">
-					<div style="background-color: rgb(200,8,0); border-radius: 12%; height:44px"></div>
-					<div style="text-align:left; margin-left:4px;">
-						<p style="font-weight: 600;margin:2px; font-size:x-small">Nome da Comunidade</p>
-						<p style="margin:2px; font-size:x-small">descricao Bio da comunidade fhsidsokdspo dsiadhals sdfdao gujfsw louide</p>
-					</div>
-				</a></div><!-- ---------------------------------- -->
-				<div style="margin-top:4px;"><a  class="grid" href="comunidade.html" style="border-style: solid; border-radius: 8px; border-width: thin; padding:6px; 						text-align:center; margin: 4px;border-color:rgba(104,104,104,0.6); color:rgb(60,60,60); grid-template-columns:44px auto" title="ficar laranja quando clicar">
-					<div style="background-color: rgb(200,8,0); border-radius: 12%; height:44px"></div>
-					<div style="text-align:left; margin-left:4px;">
-						<p style="font-weight: 600;margin:2px; font-size:x-small">Nome da Comunidade</p>
-						<p style="margin:2px; font-size:x-small">descricao Bio da comunidade fhsidsokdspo dsiadhals sdfdao gujfsw louide</p>
-					</div>
-				</a></div><!-- ---------------------------------- -->
-				<div style="margin-top:4px;"><a  class="grid" href="comunidade.html" style="border-style: solid; border-radius: 8px; border-width: thin; padding:6px; 						text-align:center; margin: 4px;border-color:rgba(104,104,104,0.6); color:rgb(60,60,60); grid-template-columns:44px auto" title="ficar laranja quando clicar">
-					<div style="background-color: rgb(200,8,0); border-radius: 12%; height:44px"></div>
-					<div style="text-align:left; margin-left:4px;">
-						<p style="font-weight: 600;margin:2px; font-size:x-small">Nome da Comunidade</p>
-						<p style="margin:2px; font-size:x-small">descricao Bio da comunidade fhsidsokdspo dsiadhals sdfdao gujfsw louide</p>
-					</div>
-				</a></div><!-- ---------------------------------- -->
-
-			<!-- ------------------------------------------------------------------------------------------------------- -->
-			<div class="grid" style="margin: 4px;"><a href="comunidades_participando.html" style="border-radius: 8px;padding:8px; margin: 4px;background-image:linear-gradient(rgb(200,8,0),rgb(224,72,2)); color:white" title="ficar laranja quando clicar">Ver mais</a></div>
-				<!-- ------------------------------------------------------------------------------------------------------- -->
-
-		</div></div>
-<!-- ------------------------------------------------------------------------------------------------------- -->
-		
-
-
-
-<!-- ------------------------------------------------------------------------------------------------------- -->
-		<div style=" margin:2% 2% 3.2% 2%; padding: 2%; border-radius:8px; background-color:rgba(218, 218, 212, 0.8, rgba(255, 51, 0, 0.02));border-style:solid;border-width:thin;">
-			<p style="margin: 2px 0px 2px 0px; font-size: 12px;"> Comunidades que você está seguindo</p>
-			<div class="" style="margin-top:4.4x; overflow:scroll; overflow-y: auto; overflow-x:hidden; height: 100px; scrollbar-width:none;">
-
-				<div style="margin-top:4px;"><a  class="grid" href="comunidade.html" style="border-style: solid; border-radius: 8px; border-width: thin; padding:6px; 						text-align:center; margin: 4px;border-color:rgba(104,104,104,0.6); color:rgb(60,60,60); grid-template-columns:44px auto" title="ficar laranja quando clicar">
-					<div style="background-color: rgb(200,8,0); border-radius: 12%; height:44px"></div>
-					<div style="text-align:left; margin-left:4px;">
-						<p style="font-weight: 600;margin:2px; font-size:x-small">Nome da Comunidade</p>
-						<p style="margin:2px; font-size:x-small">descricao Bio da comunidade fhsidsokdspo dsiadhals sdfdao gujfsw louide</p>
-					</div>
-				</a></div><!-- ---------------------------------- -->
-				<div style="margin-top:4px;"><a  class="grid" href="comunidade.html" style="border-style: solid; border-radius: 8px; border-width: thin; padding:6px; 						text-align:center; margin: 4px;border-color:rgba(104,104,104,0.6); color:rgb(60,60,60); grid-template-columns:44px auto" title="ficar laranja quando clicar">
-					<div style="background-color: rgb(200,8,0); border-radius: 12%; height:44px"></div>
-					<div style="text-align:left; margin-left:4px;">
-						<p style="font-weight: 600;margin:2px; font-size:x-small">Nome da Comunidade</p>
-						<p style="margin:2px; font-size:x-small">descricao Bio da comunidade fhsidsokdspo dsiadhals sdfdao gujfsw louide</p>
-					</div>
-				</a></div><!-- ---------------------------------- -->
-				<div style="margin-top:4px;"><a  class="grid" href="comunidade.html" style="border-style: solid; border-radius: 8px; border-width: thin; padding:6px; 						text-align:center; margin: 4px;border-color:rgba(104,104,104,0.6); color:rgb(60,60,60); grid-template-columns:44px auto" title="ficar laranja quando clicar">
-					<div style="background-color: rgb(200,8,0); border-radius: 12%; height:44px"></div>
-					<div style="text-align:left; margin-left:4px;">
-						<p style="font-weight: 600;margin:2px; font-size:x-small">Nome da Comunidade</p>
-						<p style="margin:2px; font-size:x-small">descricao Bio da comunidade fhsidsokdspo dsiadhals sdfdao gujfsw louide</p>
-					</div>
-				</a></div><!-- ---------------------------------- -->
-				<div style="margin-top:4px;"><a  class="grid" href="comunidade.html" style="border-style: solid; border-radius: 8px; border-width: thin; padding:6px; 						text-align:center; margin: 4px;border-color:rgba(104,104,104,0.6); color:rgb(60,60,60); grid-template-columns:44px auto" title="ficar laranja quando clicar">
-					<div style="background-color: rgb(200,8,0); border-radius: 12%; height:44px"></div>
-					<div style="text-align:left; margin-left:4px;">
-						<p style="font-weight: 600;margin:2px; font-size:x-small">Nome da Comunidade</p>
-						<p style="margin:2px; font-size:x-small">descricao Bio da comunidade fhsidsokdspo dsiadhals sdfdao gujfsw louide</p>
-					</div>
-				</a></div><!-- ---------------------------------- -->
-
-			<!-- ------------------------------------------------------------------------------------------------------- -->
-			<div class="grid" style="margin: 4px;"><a href="perfil_publicacoes.html" style="border-radius: 8px;padding:8px; margin: 4px;background-image:linear-gradient(rgb(200,8,0),rgb(224,72,2)); color:white" title="ficar laranja quando clicar">Ver mais</a></div>
-				<!-- ------------------------------------------------------------------------------------------------------- -->
-
-		</div></div>
-<!-- ------------------------------------------------------------------------------------------------------- -->
-
 
 	</div name="intropfl">
 <!-- ------------------------------------------------------------------------------------------------------- -->
@@ -171,68 +92,28 @@
 
 
 
-
-
-
-
-<a href="publicacao.html" style="color: inherit">
-<div style="text-align: left; padding:8px; margin-top:12px ; color: rgb(20,20,20); border-style: solid; border-radius: 8px; border-width: thin; border-color: rgb(164,164,164)">
-	<div class="grid" style="grid-template-columns: 40px 80%; height: 40px; gap:8px;">
-		<div style="background-color: rgb(200,8,0); border-radius: 48%;"></div>
-		<div>
-			<p style=" margin-bottom: 0px;font-weight: 600;"> @nomedeusuario</p>
-			<p style="font-size: xx-small; margin: 2px; color: rgb(74, 74, 74);">	xx de xxxxx de 202x</p>
-		</div>
-	</div>
-	<p>		bskda blksdhas blkdfhkashf bkhsldjh bkslkdjas nolhsdkj bgkjsdhkjhjsd bkfchsfsladj bl🏍️🥞🥚🥐🥖	</p>		
-	<p  style="font-size: x-small; margin: 2px;color:rgb(54, 54, 54); ">com 
-		<a href="" style="font-size: x-small; margin: 2px; color:rgb(54, 54, 54); font-weight: 600;">
-			@ujsjsjksk </a>		e 
-		<a href="" style="font-size: x-small; margin: 2px; color: rgb(54, 54, 54) ; font-weight: 600;">
-			@fgghjgh </a>
-	</p>
-<div>
-	<span class="left" title="denunciar">⚠</span>	<span>        </span>	<span class="right">22❤</span>	<span class="right">5🗨</span>
-</div>
-</div></a>	
-
-<a href="publicacao.html" style="color: inherit">
-<div style="text-align: left; padding:8px; margin-top:12px ; color: rgb(20,20,20); border-style: solid; border-radius: 8px; border-width: thin; border-color: rgb(164,164,164)">
-	<div class="grid" style="grid-template-columns: 40px 80%; height: 40px; gap:8px;">
-		<div style="background-color: rgb(200,8,0); border-radius: 48%;"></div>
-		<div>
-			<p style=" margin-bottom: 0px;font-weight: 600;"> @nomedeusuario</p>
-			<p style="font-size: xx-small; margin: 2px; color: rgb(74, 74, 74);">	xx de xxxxx de 202x</p>
-		</div>
-	</div>
-	<p>		bskda blksdhas blkdfhkashf bkhsldjh bkslkdjas nolhsdkj bgkjsdhkjhjsd bkfchsfsladj bl🏍️🥞🥚🥐🥖	</p>		
-	<div style="height: 120px;margin: 4px;background-color: rgb(221, 190, 190); border-radius: 4px;">
-	</div>
-	<p  style="font-size: x-small; margin: 2px;color:rgb(54, 54, 54); ">com 
-		<a href="" style="font-size: x-small; margin: 2px; color:rgb(54, 54, 54); font-weight: 600;">
-			@ujsjsjksk </a>	</p>
-	<div><span class="left" title="denunciar">⚠</span>	<span>        </span>	<span class="right">22❤</span>	<span class="right">5🗨</span></div>
-</div></a>	
-
-<a href="publicacao.html" style="color: inherit">
-<div style="text-align: left; padding:8px; margin-top:12px ; color: rgb(20,20,20); border-style: solid; border-radius: 8px; border-width: thin; border-color: rgb(164,164,164)">
-	<div class="grid" style="grid-template-columns: 40px 80%; height: 40px; gap:8px;">
-		<div style="background-color: rgb(200,8,0); border-radius: 48%;"></div>
-		<div>
-			<p style=" margin-bottom: 0px;font-weight: 600;"> @nomedeusuario</p>
-			<p style="font-size: xx-small; margin: 2px; color: rgb(74, 74, 74);">	xx de xxxxx de 202x</p>
-		</div>
-	</div>
-	<p>		bskda blksdhas blkdfhkashf bkhsldjh bkslkdjas nolhsdkj bgkjsdhkjhjsd bkfchsfsladj bl🏍️🥞🥚🥐🥖	</p>		
-	<div><span class="left" title="denunciar">⚠</span>	<span>        </span>	<span class="right">22❤</span>	<span class="right">5🗨</span></div>
-
-</div></a>	
-
-
-
-
 <!-- ------------------------------------------------------------------------------------------------------- -->
-	<div class="grid" style="margin-top: 8px;"><a href="perfil_publicacoes.html" style="border-style: solid; border-radius: 8px; border-width: thin; padding:8px; color: rgb(40,40/0); text-align:center; margin: 4px;background-image:linear-gradient(rgb(200,8,0),rgb(224,72,2)); color:white" title="ficar laranja quando clicar">Ver mais</a></div>
+	<div  style="text-align:left; background-image: linear-gradient(rgba(200, 67, 0, 0.04), rgba(255, 8, 0, 0.06)); margin: -4px -8px; padding:8px">
+		<div style="color: rgb(76 74 74/ 88%);">
+ 			<p style=" margin:12px 4px 4px 4px; font-weight:600;"> Configura��es do seu perfil</p>
+		</div>
+
+		<div style="color: rgb(76 74 74/ 98%); font-weight:600">
+ 			<p style=" margin:8px 4px 4px 48px; font-size:11px"> Exibir comunidades em que voc� participa </p>
+ 			<p style=" margin:8px 4px 4px 48px; font-size:11px"> Exibir comunidades que voc� segue </p>
+ 			<p style=" margin:8px 4px 4px 48px; font-size:11px"> Exibir quantidade de amigos </p>
+ 			<p style=" margin:8px 4px 4px 48px; font-size:11px"> Exibir quantidade de usu�rios que voc� segue</p>
+ 			<p style=" margin:8px 4px 4px 48px; font-size:11px"> Exibir quantidade de seguidores </p>
+		</div>
+
+	</div name="intropfl">
+<!-- ------------------------------------------------------------------------------------------------------- -->
+
+
+
+
+
+
 <!-- ------------------------------------------------------------------------------------------------------- -->
 
 
