@@ -196,21 +196,22 @@ CREATE TABLE `user_comunity` (
 );
 
 CREATE TABLE `user_followers` (
+  `id_user_follower` int unsigned auto_increment primary key,
   `user_id` int(10) unsigned NOT NULL,
   `follower_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`user_id`,`follower_id`),
+  key `user_id` (`user_id`),
   KEY `follower_id` (`follower_id`),
   CONSTRAINT `user_followers_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id_user`),
   CONSTRAINT `user_followers_ibfk_2` FOREIGN KEY (`follower_id`) REFERENCES `users` (`id_user`)
 );
 
 CREATE TABLE `user_follows` (
-  `user_id` int(10) unsigned NOT NULL,
-  `follow_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`user_id`,`follow_id`),
-  KEY `follow_id` (`follow_id`),
-  CONSTRAINT `user_follows_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id_user`),
-  CONSTRAINT `user_follows_ibfk_2` FOREIGN KEY (`follow_id`) REFERENCES `users` (`id_user`)
+    `id_user_follow` INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    `user_id` INT(10) UNSIGNED NOT NULL,
+    `follow_id` INT(10) UNSIGNED NOT NULL, 
+    CONSTRAINT `FK_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id_user`), 
+    CONSTRAINT `FK_follow` FOREIGN KEY (`follow_id`) REFERENCES `users` (`id_user`),
+    KEY `follow_id` (`follow_id`) 
 );
 
 CREATE TABLE `user_places` (

@@ -7,16 +7,40 @@
       "RelativeMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|solutionrelative:olimpiclink.database\\controllers\\userfollowcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\models\\users\\userfollowersmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|solutionrelative:olimpiclink.database\\models\\users\\userfollowersmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|c:\\users\\khaleu\\androidstudioprojects\\tcc\\programa\\codigo\\dadosapi\\olimpiclink.database\\olimpiclink.database\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|solutionrelative:olimpiclink.database\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|c:\\users\\khaleu\\androidstudioprojects\\tcc\\programa\\codigo\\dadosapi\\olimpiclink.database\\olimpiclink.database\\models\\users\\userfollowsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|solutionrelative:olimpiclink.database\\models\\users\\userfollowsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|solutionrelative:olimpiclink.database\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|solutionrelative:olimpiclink.database\\controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|c:\\users\\khaleu\\androidstudioprojects\\tcc\\programa\\codigo\\dadosapi\\olimpiclink.database\\olimpiclink.database\\controllers\\reportedpublicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|solutionrelative:olimpiclink.database\\controllers\\reportedpublicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\models\\users\\userfollowersmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|solutionrelative:olimpiclink.database\\models\\users\\userfollowersmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|c:\\users\\khaleu\\androidstudioprojects\\tcc\\programa\\codigo\\dadosapi\\olimpiclink.database\\olimpiclink.database\\controllers\\placecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|solutionrelative:olimpiclink.database\\controllers\\placecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\controllers\\reportedeventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|solutionrelative:olimpiclink.database\\controllers\\reportedeventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\controllers\\publicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|solutionrelative:olimpiclink.database\\controllers\\publicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|solutionrelative:olimpiclink.database\\controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\data\\connectioncontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,16 +51,8 @@
       "RelativeMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|solutionrelative:olimpiclink.database\\data\\nomes_distritos.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\models\\users\\userfollowsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|solutionrelative:olimpiclink.database\\models\\users\\userfollowsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\models\\users\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|solutionrelative:olimpiclink.database\\models\\users\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\controllers\\publicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|solutionrelative:olimpiclink.database\\controllers\\publicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\controllers\\comunitycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -47,20 +63,12 @@
       "RelativeMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|solutionrelative:olimpiclink.database\\models\\comunities\\comunityhasleader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\controllers\\reportedeventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|solutionrelative:olimpiclink.database\\controllers\\reportedeventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\models\\publications\\publicationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|solutionrelative:olimpiclink.database\\models\\publications\\publicationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\models\\publications\\addpublicationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|solutionrelative:olimpiclink.database\\models\\publications\\addpublicationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\models\\reports\\reportedpublicationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AAB07D33-6790-4C12-83EF-67918F75201C}|olimpiclink.database\\olimpiclink.database.csproj|solutionrelative:olimpiclink.database\\models\\reports\\reportedpublicationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -84,51 +92,27 @@
               "RelativeDocumentMoniker": "olimpiclink.database\\Controllers\\UserFollowController.cs",
               "ToolTip": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Controllers\\UserFollowController.cs",
               "RelativeToolTip": "olimpiclink.database\\Controllers\\UserFollowController.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAiwEAAAAAMAAAA",
+              "ViewState": "AQIAAKAAAAAAAAAAAAAQwLgAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-17T16:45:10.925Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "nomes_distritos.txt",
-              "DocumentMoniker": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Data\\nomes_distritos.txt",
-              "RelativeDocumentMoniker": "olimpiclink.database\\Data\\nomes_distritos.txt",
-              "ToolTip": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Data\\nomes_distritos.txt",
-              "RelativeToolTip": "olimpiclink.database\\Data\\nomes_distritos.txt",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-11-17T16:44:03.906Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserFollowersModel.cs",
-              "DocumentMoniker": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Models\\Users\\UserFollowersModel.cs",
-              "RelativeDocumentMoniker": "olimpiclink.database\\Models\\Users\\UserFollowersModel.cs",
-              "ToolTip": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Models\\Users\\UserFollowersModel.cs",
-              "RelativeToolTip": "olimpiclink.database\\Models\\Users\\UserFollowersModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T16:43:25.698Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "olimpiclink.database\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Controllers\\UserController.cs",
               "RelativeToolTip": "olimpiclink.database\\Controllers\\UserController.cs",
-              "ViewState": "AQIAAEIAAAAAAAAAAAAAAAgAAAAEAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAH0AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-17T14:15:56.204Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "EventController.cs",
               "DocumentMoniker": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Controllers\\EventController.cs",
               "RelativeDocumentMoniker": "olimpiclink.database\\Controllers\\EventController.cs",
@@ -140,7 +124,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "ComunityController.cs",
               "DocumentMoniker": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Controllers\\ComunityController.cs",
               "RelativeDocumentMoniker": "olimpiclink.database\\Controllers\\ComunityController.cs",
@@ -152,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": "ConnectionContext.cs",
               "DocumentMoniker": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Data\\ConnectionContext.cs",
               "RelativeDocumentMoniker": "olimpiclink.database\\Data\\ConnectionContext.cs",
@@ -164,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "ComunityHasLeader.cs",
               "DocumentMoniker": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Models\\Comunities\\ComunityHasLeader.cs",
               "RelativeDocumentMoniker": "olimpiclink.database\\Models\\Comunities\\ComunityHasLeader.cs",
@@ -176,19 +160,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UserFollowsModel.cs",
-              "DocumentMoniker": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Models\\Users\\UserFollowsModel.cs",
-              "RelativeDocumentMoniker": "olimpiclink.database\\Models\\Users\\UserFollowsModel.cs",
-              "ToolTip": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Models\\Users\\UserFollowsModel.cs",
-              "RelativeToolTip": "olimpiclink.database\\Models\\Users\\UserFollowsModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T23:45:25.895Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "UserModel.cs",
               "DocumentMoniker": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Models\\Users\\UserModel.cs",
               "RelativeDocumentMoniker": "olimpiclink.database\\Models\\Users\\UserModel.cs",
@@ -200,31 +172,110 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserFollowersModel.cs",
+              "DocumentMoniker": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Models\\Users\\UserFollowersModel.cs",
+              "RelativeDocumentMoniker": "olimpiclink.database\\Models\\Users\\UserFollowersModel.cs",
+              "ToolTip": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Models\\Users\\UserFollowersModel.cs",
+              "RelativeToolTip": "olimpiclink.database\\Models\\Users\\UserFollowersModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T16:43:25.698Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ReportedPublicationController.cs",
+              "DocumentMoniker": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Controllers\\ReportedPublicationController.cs",
+              "RelativeDocumentMoniker": "olimpiclink.database\\Controllers\\ReportedPublicationController.cs",
+              "ToolTip": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Controllers\\ReportedPublicationController.cs",
+              "RelativeToolTip": "olimpiclink.database\\Controllers\\ReportedPublicationController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T16:50:31.769Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PlaceController.cs",
+              "DocumentMoniker": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Controllers\\PlaceController.cs",
+              "RelativeDocumentMoniker": "olimpiclink.database\\Controllers\\PlaceController.cs",
+              "ToolTip": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Controllers\\PlaceController.cs",
+              "RelativeToolTip": "olimpiclink.database\\Controllers\\PlaceController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T16:51:02.109Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Program.cs",
+              "RelativeDocumentMoniker": "olimpiclink.database\\Program.cs",
+              "ToolTip": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Program.cs",
+              "RelativeToolTip": "olimpiclink.database\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T18:16:54.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserFollowsModel.cs",
+              "DocumentMoniker": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Models\\Users\\UserFollowsModel.cs",
+              "RelativeDocumentMoniker": "olimpiclink.database\\Models\\Users\\UserFollowsModel.cs",
+              "ToolTip": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Models\\Users\\UserFollowsModel.cs",
+              "RelativeToolTip": "olimpiclink.database\\Models\\Users\\UserFollowsModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T18:29:37.796Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 8,
               "Title": "PublicationController.cs",
               "DocumentMoniker": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Controllers\\PublicationController.cs",
               "RelativeDocumentMoniker": "olimpiclink.database\\Controllers\\PublicationController.cs",
               "ToolTip": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Controllers\\PublicationController.cs",
               "RelativeToolTip": "olimpiclink.database\\Controllers\\PublicationController.cs",
-              "ViewState": "AQIAAIMAAAAAAAAAAAAAANoAAAAcAAAA",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAAANoAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-11T19:48:32.212Z"
+              "WhenOpened": "2024-11-11T19:48:32.212Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 7,
               "Title": "ReportedEventsController.cs",
               "DocumentMoniker": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Controllers\\ReportedEventsController.cs",
               "RelativeDocumentMoniker": "olimpiclink.database\\Controllers\\ReportedEventsController.cs",
               "ToolTip": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Controllers\\ReportedEventsController.cs",
               "RelativeToolTip": "olimpiclink.database\\Controllers\\ReportedEventsController.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAAADsAAAAZAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADsAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T13:18:32.991Z"
+              "WhenOpened": "2024-10-16T13:18:32.991Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 11,
+              "Title": "nomes_distritos.txt",
+              "DocumentMoniker": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Data\\nomes_distritos.txt",
+              "RelativeDocumentMoniker": "olimpiclink.database\\Data\\nomes_distritos.txt",
+              "ToolTip": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Data\\nomes_distritos.txt",
+              "RelativeToolTip": "olimpiclink.database\\Data\\nomes_distritos.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-11-17T16:44:03.906Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "AddPublicationModel.cs",
               "DocumentMoniker": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Models\\Publications\\AddPublicationModel.cs",
               "RelativeDocumentMoniker": "olimpiclink.database\\Models\\Publications\\AddPublicationModel.cs",
@@ -236,7 +287,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "PublicationModel.cs",
               "DocumentMoniker": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Models\\Publications\\PublicationModel.cs",
               "RelativeDocumentMoniker": "olimpiclink.database\\Models\\Publications\\PublicationModel.cs",
@@ -245,18 +296,6 @@
               "ViewState": "AQIAAAYAAAAAAAAAAAAAACkAAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-11T19:49:02.771Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ReportedPublicationModel.cs",
-              "DocumentMoniker": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Models\\Reports\\ReportedPublicationModel.cs",
-              "RelativeDocumentMoniker": "olimpiclink.database\\Models\\Reports\\ReportedPublicationModel.cs",
-              "ToolTip": "C:\\Users\\khaleu\\AndroidStudioProjects\\TCC\\Programa\\Codigo\\DadosAPI\\olimpiclink.database\\olimpiclink.database\\Models\\Reports\\ReportedPublicationModel.cs",
-              "RelativeToolTip": "olimpiclink.database\\Models\\Reports\\ReportedPublicationModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T13:17:30.694Z"
             }
           ]
         },

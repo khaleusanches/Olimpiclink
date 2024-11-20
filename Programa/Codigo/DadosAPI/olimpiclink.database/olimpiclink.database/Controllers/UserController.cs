@@ -46,9 +46,16 @@ namespace olimpiclink.database.Controllers
         }
 
         [HttpGet("{login_user}")]
-        public async Task<IActionResult> userGetID(string login_user, CancellationToken ct)
+        public async Task<IActionResult> userGetLogin(string login_user, CancellationToken ct)
         {
             var get_users = await context.users.Where(user => user.login_user == login_user).ToListAsync(ct);
+            return Ok(get_users);
+        }
+
+        [HttpGet("ide/{id}")]
+        public async Task<IActionResult> userGetID(int id, CancellationToken ct)
+        {
+            var get_users = await context.users.SingleOrDefaultAsync(user => user.id_user == id);
             return Ok(get_users);
         }
 

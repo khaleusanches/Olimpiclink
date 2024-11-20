@@ -25,6 +25,8 @@ class FollowsActivity : AppCompatActivity() {
     private lateinit var binding : ActivityFollowsBinding
     private lateinit var api_users : EndpointUser
     private lateinit var user : User
+    private var user_visited : User? = null
+    private lateinit var user_FFF : User
     private lateinit var list_follows : MutableList<FriendsFollowsFollowersScreenModel>
     var commonEvents = CommonEvents()
     private var search = false;
@@ -42,23 +44,28 @@ class FollowsActivity : AppCompatActivity() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.laranja_splash)
         api_users = ApiCliente.retrofit.create(EndpointUser::class.java)
         user = intent.extras!!.getParcelable<User>("user")!!
+        user_visited = intent.extras?.getParcelable<User>("user_visited")
+        if(user_visited != null){
+            user_FFF = user_visited as User
+        }
+        else{
+            user_FFF = user
+        }
         getFollows()
         binding.etSearchUser.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                TODO("Not yet implemented")
             }
-
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 if(p0.isNullOrEmpty()){
                     search = false;
+                    getFollows()
                 }
                 else{
                     search = true;
+                    getFollows()
                 }
             }
-
             override fun afterTextChanged(p0: Editable?) {
-                TODO("Not yet implemented")
             }
         })
 
@@ -71,12 +78,12 @@ class FollowsActivity : AppCompatActivity() {
         lifecycleScope.launch {
             try {
                 if(search == false){
-                    list_follows = api_users.getFollowers(user.id_user)
+                    list_follows = api_users.getFollows(user_FFF.id_user)
                 }
                 else {
-                    list_follows = api_users.getFollowers(user.id_user)
+                    list_follows = api_users.getFollowsName(user_FFF.id_user, binding.etSearchUser.text.toString())
                 }
-                val adapter = AdapterFriendsFollowsFollowers(this@FollowsActivity, list_follows, this, user.id_user, api_users)
+                val adapter = AdapterFriendsFollowsFollowers(this@FollowsActivity, list_follows, this, user_FFF.id_user, api_users, "FF", user)
                 binding.rcFollows.layoutManager = LinearLayoutManager(this@FollowsActivity)
                 binding.rcFollows.setHasFixedSize(true)
                 binding.rcFollows.adapter = adapter
