@@ -197,6 +197,27 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.UserFollowController",
+    "Method": "getFollowInterrogation",
+    "RelativePath": "api/FFF/{id_user}\u0026\u0026{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_user",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.UserFollowController",
     "Method": "getFriendsFollowsFollowers",
     "RelativePath": "api/FFF/{id}",
     "HttpMethod": "GET",
@@ -249,6 +270,177 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.UserFollowController",
+    "Method": "getFollowersName",
+    "RelativePath": "api/followers/{id}\u0026\u0026{login}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "login",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.UserFollowController",
+    "Method": "removeFollow",
+    "RelativePath": "api/follows/{id_user}\u0026\u0026{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_user",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.UserFollowController",
+    "Method": "getFollows",
+    "RelativePath": "api/follows/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.UserFollowController",
+    "Method": "getFollowsName",
+    "RelativePath": "api/follows/{id}\u0026\u0026{login}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "login",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.UserFollowController",
+    "Method": "seguirUser",
+    "RelativePath": "api/follows/seguir",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "new_user_follow",
+        "Type": "olimpiclink.database.Models.Users.UserFollowsModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.UserFollowController",
+    "Method": "removeFriends",
+    "RelativePath": "api/friends/{id_user}\u0026\u0026{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_user",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.UserFollowController",
+    "Method": "getFriends",
+    "RelativePath": "api/friends/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.UserFollowController",
+    "Method": "getFriendsName",
+    "RelativePath": "api/friends/{id}\u0026\u0026{login}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "login",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -693,7 +885,7 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.UserController",
-    "Method": "userGetID",
+    "Method": "userGetLogin",
     "RelativePath": "api/users/{login_user}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -774,6 +966,22 @@
     "Parameters": [
       {
         "Name": "id_user",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.UserController",
+    "Method": "userGetID",
+    "RelativePath": "api/users/ide/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }

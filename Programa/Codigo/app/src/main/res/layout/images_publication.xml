@@ -10,5 +10,6 @@
         android:layout_width="match_parent"
         android:layout_marginTop="8dp"
         android:layout_height="100dp"
+        android:scaleType="centerCrop"
         tools:srcCompat="@tools:sample/avatars" />
 </LinearLayout>

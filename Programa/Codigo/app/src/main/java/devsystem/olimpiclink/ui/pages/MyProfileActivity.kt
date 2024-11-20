@@ -125,4 +125,16 @@ class MyProfileActivity : AppCompatActivity() {
         main_activity.putExtra("user", user)
         startActivity(main_activity)
     }
+
+    fun goToFollows(view: View) {
+        var main_activity = Intent(this, FollowsActivity::class.java)
+        main_activity.putExtra("user", user)
+        startActivity(main_activity)
+    }
+
+    fun goToFriends(view: View) {
+        var main_activity = Intent(this, FriendsActivity::class.java)
+        main_activity.putExtra("user", user)
+        startActivity(main_activity)
+    }
 }

@@ -5,8 +5,39 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.pages.MyProfileActivity"
+    tools:context=".ui.pages.OuterProfileActivity"
     android:background="@drawable/background_main">
+
+    <devsystem.olimpiclink.ui.ToolbarCustom
+        android:id="@+id/toolbarCustom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <devsystem.olimpiclink.ui.BottomAppbarCustom
+        android:id="@+id/bottomAppbarCustom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomAppbarCustom"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarCustom"
+        tools:layout_editor_absoluteX="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_filter2"
@@ -20,7 +51,7 @@
         android:text="x"
         android:textColor="@color/red"
         android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/appCompatButton"
+        app:layout_constraintStart_toEndOf="@+id/FFF"
         app:layout_constraintTop_toBottomOf="@+id/tv_bio" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -36,70 +67,7 @@
         android:textColor="@color/red"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatButton" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_filter8"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="57dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/button_border_red"
-        android:onClick="enterClick"
-        android:text=""
-        android:textColor="@color/red"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_filter9"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/button_border_red"
-        android:onClick="enterClick"
-        android:text=""
-        android:textColor="@color/red"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/btn_filter8"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_filter10"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/button_border_red"
-        android:onClick="enterClick"
-        android:text=""
-        android:textColor="@color/red"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/btn_filter9"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_filter11"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="57dp"
-        android:background="@drawable/button_border_red"
-        android:onClick="enterClick"
-        android:text=""
-        android:textColor="@color/red"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/btn_filter10"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/FFF" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_filter7"
@@ -117,7 +85,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/btn_filter6"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatButton" />
+        app:layout_constraintTop_toBottomOf="@+id/FFF" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_filter12"
@@ -135,7 +103,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/btn_filter7"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatButton" />
+        app:layout_constraintTop_toBottomOf="@+id/FFF" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_filter5"
@@ -150,7 +118,7 @@
         android:textColor="@color/red"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/btn_filter4"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatButton" />
+        app:layout_constraintTop_toBottomOf="@+id/FFF" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_filter6"
@@ -165,7 +133,7 @@
         android:textColor="@color/red"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/btn_filter5"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatButton" />
+        app:layout_constraintTop_toBottomOf="@+id/FFF" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_filter3"
@@ -185,22 +153,6 @@
         app:layout_constraintStart_toEndOf="@+id/btn_filter2"
         app:layout_constraintTop_toBottomOf="@+id/tv_bio" />
 
-    <devsystem.olimpiclink.ui.ToolbarCustom
-        android:id="@+id/toolbarCustom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-
-    <devsystem.olimpiclink.ui.BottomAppbarCustom
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/img_banner"
@@ -213,22 +165,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarCustom"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <ImageView
-        android:id="@+id/img_profile_picture"
-        android:layout_width="84dp"
-        android:layout_height="84dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="144dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarCustom"
-        tools:srcCompat="@tools:sample/avatars" />
+            <ImageView
+                android:id="@+id/img_profile_picture"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="144dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
+            <TextView
         android:id="@+id/tv_login_user"
         android:layout_width="wrap_content"
+                android:textStyle="bold"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
@@ -269,6 +222,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
             android:text="23 amigos"
+            android:textStyle="bold"
+            android:onClick="goToFriends"
             android:textColor="@color/laranja_splash"
             android:textSize="12sp" />
 
@@ -278,6 +233,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
             android:text="23 seguindo"
+            android:textStyle="bold"
+            android:onClick="goToFollows"
             android:textColor="@color/laranja_splash"
             android:textSize="12sp" />
 
@@ -287,6 +244,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
             android:text="23 seguidores"
+            android:onClick="goToFollowers"
+            android:textStyle="bold"
             android:textColor="@color/laranja_splash"
             android:textSize="12sp" />
     </LinearLayout>
@@ -305,25 +264,54 @@
         app:layout_constraintTop_toBottomOf="@+id/img_profile_picture" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton"
+        android:id="@+id/FFF"
         android:layout_width="254dp"
         android:layout_height="32dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/button_border_red_selected"
-        android:text="Amigos"
+        android:text="Seguir"
+        android:onClick="seguirDeixarAmigos"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_bio" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:textSize="16sp"
-        android:text="Categorias que você salvou"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatButton" />
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/btn_filter6"
+        tools:layout_editor_absoluteX="166dp">
+
+        <devsystem.olimpiclink.ui.MyProfileMain
+            android:id="@+id/profile_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="1dp">
+        </devsystem.olimpiclink.ui.MyProfileMain>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/black"
+            tools:layout_editor_absoluteX="1dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rc_feed"
+            android:layout_width="wrap_content"
+            android:background="@drawable/background_main"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center"
+            android:paddingBottom="200dp"
+            android:layout_marginBottom="15dp"
+            android:nestedScrollingEnabled="false"/>
+    </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

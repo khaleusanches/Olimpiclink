@@ -107,6 +107,7 @@
                     android:layout_margin="2dp"
                     android:text="23 amigos"
                     android:textColor="@color/laranja_splash"
+                    android:onClick="goToFriends"
                     android:textSize="12sp"
                     android:textStyle="bold" />
 
@@ -116,6 +117,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="2dp"
                     android:text="23 seguindo"
+                    android:onClick="goToFollows"
                     android:textColor="@color/laranja_splash"
                     android:textSize="12sp"
                     android:textStyle="bold" />
