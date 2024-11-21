@@ -93,7 +93,10 @@ class UnpublishedPublicationActivity : AppCompatActivity() {
         Glide.with(this).load(user.url_profile_picture_user).circleCrop().into(img_profile_picture_user)
         tv_login_user.text = "@${user.login_user}"
         btn_publicar.setOnTouchListener(commonEvents.touchListenerGet(btn_publicar))
-        commonEvents.goPageMain(user,this, binding.bottomMenu.binding.btnPgInitial)
+        commonEvents.goPageCreationPublication(user, this, binding.bottomMenu.binding.btnPgCreatePublication)
+        commonEvents.goPageMain(user, this, binding.bottomMenu.binding.btnPgInitial)
+        commonEvents.goPageMyProfile(user, this, binding.bottomMenu.binding.btnPgProfile)
+        commonEvents.goPageComunity(user, this, binding.bottomMenu.binding.btnPgCommunities)
 
         binding.bottomMenu.binding.btnPgCreatePublication.setImageResource(R.drawable.publication_on)
     }

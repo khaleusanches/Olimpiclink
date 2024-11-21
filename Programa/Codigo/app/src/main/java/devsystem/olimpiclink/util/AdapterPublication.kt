@@ -1,8 +1,10 @@
 package devsystem.olimpiclink.util
 
 import android.content.Context
+import android.content.Intent
 import android.util.TypedValue
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams
 import android.view.WindowManager
@@ -14,10 +16,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import devsystem.olimpiclink.databinding.PublishedPublicationBinding
 import devsystem.olimpiclink.model.PublicationModelGet
+import devsystem.olimpiclink.model.User
+import devsystem.olimpiclink.ui.pages.MainActivity
+import devsystem.olimpiclink.ui.pages.MyProfileActivity
+import devsystem.olimpiclink.ui.pages.OuterProfileActivity
+import devsystem.olimpiclink.ui.pages.PublishedEventActivity
 
 class AdapterPublication(
     var lista_publications : List<PublicationModelGet>,
-    var context : Context
+    var context : Context,
+    var user : User
 ) : RecyclerView.Adapter<AdapterPublication.PublicationsViewHolder>() {
 
     override fun onCreateViewHolder(
@@ -46,6 +54,15 @@ class AdapterPublication(
             holder.tv_localization.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10.toFloat())
             holder.tv_localization.text = "Localização: "+lista_publications[position].name_place.toString()
         }
+        holder.tv_username.setOnClickListener(View.OnClickListener {
+            var main_activity = Intent(context, OuterProfileActivity::class.java)
+            if(user.id_user == lista_publications[position].user_id){
+                main_activity = Intent(context, MyProfileActivity::class.java)
+            }
+            main_activity.putExtra("id_user", lista_publications[position].user_id)
+            main_activity.putExtra("user", user)
+            context.startActivity(main_activity)
+        })
     }
     fun imagens(holder: PublicationsViewHolder, position: Int, images: MutableList<String>){
         var one_line_images = mutableListOf<String>()

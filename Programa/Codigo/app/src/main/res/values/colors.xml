@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="laranja_splash">#e04702</color>
+    <color name="laranja_splash_claro">#48E04702</color>
     <color name="transparent">#11FFFFFF</color>
     <color name="transparentMesm">#00FFFFFF</color>
     <color name="end_initial">#703828</color>

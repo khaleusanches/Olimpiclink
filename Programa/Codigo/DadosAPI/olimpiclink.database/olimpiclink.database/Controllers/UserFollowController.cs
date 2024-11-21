@@ -127,16 +127,17 @@ namespace olimpiclink.database.Controllers
         [HttpDelete("/api/follows/{id_user}&&{id}")]
         public async void removeFollow(int id_user, int id)
         {
-            var follow = await context.user_follows.SingleOrDefaultAsync(user => user.user_id == id_user & user.follow_id == id);
-            var follower = await context.user_followers.SingleOrDefaultAsync(user => user.user_id == id && user.follower_id == id_user);
-            context.user_followers.Remove(follower);
-            context.user_follows.Remove(follow);
-            await context.SaveChangesAsync();
+            try
+            {
+                var follow = await context.user_follows.SingleOrDefaultAsync(user => user.user_id == id_user & user.follow_id == id);
+                var follower = await context.user_followers.SingleOrDefaultAsync(user => user.user_id == id && user.follower_id == id_user);
+                context.user_followers.Remove(follower);
+                context.user_follows.Remove(follow);
+                await context.SaveChangesAsync();
+            }
+            catch { }
 
         }
-
-
-
 
         [HttpGet("/api/friends/{id}")]
         public async Task<IActionResult> getFriends(int id)
@@ -177,13 +178,17 @@ namespace olimpiclink.database.Controllers
         }
 
         [HttpDelete("/api/friends/{id_user}&&{id}")]
-        public async void removeFriends(int id_user, int id)
+        public void removeFriends(int id_user, int id)
         {
-            var follow = await context.user_follows.SingleOrDefaultAsync(user => user.user_id == id_user && user.follow_id == id);
-            var followers = await context.user_followers.SingleOrDefaultAsync(user => user.user_id == id_user && user.follower_id == id);
-            context.user_follows.Remove(follow);
-            context.user_followers.Remove(followers);
-            await context.SaveChangesAsync();
+            try
+            {
+                var follow = context.user_follows.SingleOrDefault(user => user.user_id == id_user && user.follow_id == id);
+                var followers = context.user_followers.SingleOrDefault(user => user.user_id == id_user && user.follower_id == id);
+                context.user_follows.Remove(follow);
+                context.user_followers.Remove(followers);
+                context.SaveChanges();
+            }
+            catch { }
         }
 
         [HttpGet("/api/FFF/{id_user}&&{id}")]
@@ -226,10 +231,14 @@ namespace olimpiclink.database.Controllers
         [HttpPost("/api/follows/seguir")]
         public async void seguirUser(UserFollowsModel new_user_follow)
         {
-            var new_user_follower = new UserFollowersModel(new_user_follow.follow_id, new_user_follow.user_id);
-            await context.user_follows.AddAsync(new_user_follow);
-            await context.user_followers.AddAsync(new_user_follower);
-            await context.SaveChangesAsync();
+            try
+            {
+                var new_user_follower = new UserFollowersModel(new_user_follow.follow_id, new_user_follow.user_id);
+                await context.user_follows.AddAsync(new_user_follow);
+                await context.user_followers.AddAsync(new_user_follower);
+                await context.SaveChangesAsync();
+            }
+            catch { }
         }
     }
 }

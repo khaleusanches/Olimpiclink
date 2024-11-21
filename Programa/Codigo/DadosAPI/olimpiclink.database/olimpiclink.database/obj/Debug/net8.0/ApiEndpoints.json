@@ -22,13 +22,7 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id_category",
-        "Type": "System.Nullable\u00601[[System.Int64, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -64,9 +58,66 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "olimpiclink.database.Controllers.CategoryController",
+    "Method": "categoryGetName",
+    "RelativePath": "api/category/name/{name_category}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name_category",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Int32",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.CategoryController",
+    "Method": "postUserCategory",
+    "RelativePath": "api/category/userCategory",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "login_user",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "id_category",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "olimpiclink.database.Controllers.ComunityController",
-    "Method": "Get",
-    "RelativePath": "api/comunities/images/{id}",
+    "Method": "getAllComunity",
+    "RelativePath": "api/comunities",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.ComunityController",
+    "Method": "getComunityID",
+    "RelativePath": "api/comunities/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -81,26 +132,113 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.ComunityController",
-    "Method": "Add",
-    "RelativePath": "api/comunities/upload",
+    "Method": "desFollowComunity",
+    "RelativePath": "api/comunities/desFollow/{id_user}\u0026\u0026{id_comunity}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_user",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "id_comunity",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.ComunityController",
+    "Method": "getFollow",
+    "RelativePath": "api/comunities/FF/{id_user}\u0026\u0026{id_comunity}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_user",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "id_comunity",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.ComunityController",
+    "Method": "followComunity",
+    "RelativePath": "api/comunities/follow",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "name_comunity",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "new_follow",
+        "Type": "olimpiclink.database.Models.Comunities.FollowComunity",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.ComunityController",
+    "Method": "postRequestComunity",
+    "RelativePath": "api/comunities/requestParticipation",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "new_request",
+        "Type": "olimpiclink.database.Models.Comunities.RequestParticipationComunity",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.ComunityController",
+    "Method": "getRequestParticipation",
+    "RelativePath": "api/comunities/RP/{id_user}\u0026\u0026{id_comunity}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_user",
+        "Type": "System.Int32",
+        "IsRequired": true
       },
       {
-        "Name": "description_comunity",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "icon_comunity",
-        "Type": "Microsoft.AspNetCore.Http.IFormFile",
-        "IsRequired": false
+        "Name": "id_comunity",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -602,6 +740,22 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.PublicationController",
+    "Method": "getPublicationComunity",
+    "RelativePath": "api/publication/comunities/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.PublicationController",
     "Method": "getImagesPublication",
     "RelativePath": "api/publication/imagens/{id}/{img}",
     "HttpMethod": "GET",
@@ -714,6 +868,22 @@
     "ContainingType": "olimpiclink.database.Controllers.PublicationController",
     "Method": "getUserPublicationsDesactived",
     "RelativePath": "api/publication/user/{user_id}/desactived",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user_id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.PublicationController",
+    "Method": "getUserPublicationsGalery",
+    "RelativePath": "api/publication/user/{user_id}/galery",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -851,24 +1021,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "name_user",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "email_user",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "password_user",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "login_user",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "user",
+        "Type": "olimpiclink.database.Models.Users.AddUserModel",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -1026,6 +1181,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "olimpiclink.database.Controllers.UserController",
+    "Method": "getUserCategories",
+    "RelativePath": "api/users/userCategories/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "olimpiclink.database.Controllers.CityController",
     "Method": "cityGet",
     "RelativePath": "api/v1/cities",
@@ -1038,7 +1209,7 @@
   {
     "ContainingType": "olimpiclink.database.Controllers.CityController",
     "Method": "cityGetID",
-    "RelativePath": "api/v1/cities/{id_city}",
+    "RelativePath": "api/v1/cities/id/{id_city}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1047,6 +1218,43 @@
         "Name": "id_city",
         "Type": "System.Nullable\u00601[[System.Int64, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.CityController",
+    "Method": "cityGetName",
+    "RelativePath": "api/v1/cities/name/{name_city}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name_city",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.CityController",
+    "Method": "postUserCity",
+    "RelativePath": "api/v1/cities/usercity",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "login_user",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "id_city",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

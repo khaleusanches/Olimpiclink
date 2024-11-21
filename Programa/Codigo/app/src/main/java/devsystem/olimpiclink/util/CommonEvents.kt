@@ -12,6 +12,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import devsystem.olimpiclink.R
 import devsystem.olimpiclink.model.User
+import devsystem.olimpiclink.ui.pages.ComunityActivity
 import devsystem.olimpiclink.ui.pages.MainActivity
 import devsystem.olimpiclink.ui.pages.MyProfileActivity
 import devsystem.olimpiclink.ui.pages.UnpublishedPublicationActivity
@@ -68,6 +69,17 @@ class CommonEvents {
             var main_activity = Intent(context, MyProfileActivity::class.java)
             view.setBackgroundResource(R.drawable.edit_text_selected)
             main_activity.putExtra("user", user)
+            context.startActivity(main_activity)
+            context.finish()
+        }
+    }
+
+    fun goPageComunity(user : User, context: Activity, view : View){
+        view.setOnClickListener{
+            var main_activity = Intent(context, ComunityActivity::class.java)
+            view.setBackgroundResource(R.drawable.edit_text_selected)
+            main_activity.putExtra("user", user)
+            main_activity.putExtra("comunity_id", 2)
             context.startActivity(main_activity)
             context.finish()
         }

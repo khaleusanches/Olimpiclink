@@ -125,6 +125,60 @@ namespace olimpiclink.database.Controllers
             return Ok(lista);
         }
 
+        [HttpGet("user/{user_id}/galery")]
+        public async Task<IActionResult> getUserPublicationsGalery(int user_id)
+        {
+            var teste = new PlaceController();
+            var publications = await context.publications.Where(publication => publication.user_id == user_id && publication.activated_publication == true && publication.image_one_publication != null).OrderByDescending(user => user.date_publication).ToListAsync();
+            var lista = new List<GetPublicationModel>();
+            foreach (var publication in publications)
+            {
+                var getPublication = new GetPublicationModel
+                    (
+                        publication.id_publication,
+                        publication.user_id,
+                        publication.text_publication,
+                        publication.url_image_one_publication,
+                        publication.url_image_two_publication,
+                        publication.url_image_three_publication,
+                        publication.url_image_four_publication,
+                        publication.date_publication,
+                        publication.comunity_id,
+                        publication.place_id,
+                        publication.event_id
+                    );
+                lista.Add(getPublication);
+            }
+            return Ok(lista);
+        }
+
+        [HttpGet("comunities/{id}")]
+        public async Task<IActionResult> getPublicationComunity(int id)
+        {
+            var teste = new PlaceController();
+            var publications = await context.publications.Where(publication => publication.activated_publication == true && publication.comunity_id == id).OrderByDescending(publication => publication.date_publication).ToListAsync();
+            var lista = new List<GetPublicationModel>();
+            foreach (var publication in publications)
+            {
+                var getPublication = new GetPublicationModel
+                    (
+                        publication.id_publication,
+                        publication.user_id,
+                        publication.text_publication,
+                        publication.url_image_one_publication,
+                        publication.url_image_two_publication,
+                        publication.url_image_three_publication,
+                        publication.url_image_four_publication,
+                        publication.date_publication,
+                        publication.comunity_id,
+                        publication.place_id,
+                        publication.event_id
+                    );
+                lista.Add(getPublication);
+            }
+            return Ok(lista);
+        }
+
         [HttpGet("user/{user_id}/desactived")]
         public async Task<IActionResult> getUserPublicationsDesactived(int user_id)
         {

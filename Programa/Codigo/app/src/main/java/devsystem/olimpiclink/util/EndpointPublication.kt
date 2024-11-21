@@ -19,11 +19,18 @@ interface EndpointPublication {
     suspend fun publicationsGetID(
         @Path("id") id : Int
     ) : List<PublicationModelGet>
+    @GET("/api/publication/user/{id}/galery")
+    suspend fun publicationsGetIDGalery(
+        @Path("id") id : Int
+    ) : List<PublicationModelGet>
 
     @GET("/api/publication/seguindo/{id}")
     suspend fun publicationsGetSeguindo(
         @Path("id") id : Int
     ) : List<PublicationModelGet>
+
+    @GET("/api/publication/comunities/{id}")
+    suspend fun publicationsGetComunity(@Path("id") id : Int) : List<PublicationModelGet>
 
     @POST("api/publication")
     suspend fun publicationsPost(

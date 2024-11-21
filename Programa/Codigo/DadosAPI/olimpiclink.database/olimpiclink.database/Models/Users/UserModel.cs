@@ -26,6 +26,7 @@ namespace olimpiclink.database.Models.Users
             this.login_user = login_user;
             var teste = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             var test2 = DateTime.ParseExact(teste, "yyyy-MM-dd HH:mm:ss", null);
+            url_profile_picture_user = "https://cdn-icons-png.flaticon.com/512/7022/7022927.png";
             created_at_user = test2;
             updated_at_user = test2;
         }

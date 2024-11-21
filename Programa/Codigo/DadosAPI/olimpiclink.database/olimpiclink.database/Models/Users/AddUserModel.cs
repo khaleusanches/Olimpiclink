@@ -1,6 +1,12 @@
 ﻿namespace olimpiclink.database.Models.Users
 {
-    public record AddUserModel(string name_user, string email_user, string password_user, string login_user)
+    public class AddUserModel
     {
+        public string name_user { get; set; }
+        public string email_user { get; set; }
+        public string password_user { get; set; }
+        public string login_user { get; set; }
+        public string city_name { get; set; }
+        public string[] categories { get; set; }
     }
 }

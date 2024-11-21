@@ -66,6 +66,7 @@ class MainActivity : AppCompatActivity() {
         commonEvents.goPageCreationPublication(user, this, binding.bottomMenu.binding.btnPgCreatePublication)
         commonEvents.goPageMain(user, this, binding.bottomMenu.binding.btnPgInitial)
         commonEvents.goPageMyProfile(user, this, binding.bottomMenu.binding.btnPgProfile)
+        commonEvents.goPageComunity(user, this, binding.bottomMenu.binding.btnPgCommunities)
 
         btn_seguindo = binding.btnSeguindo
         btn_initial = binding.btnInicio
@@ -81,7 +82,7 @@ class MainActivity : AppCompatActivity() {
                 else{
                     listEvent = api_event.eventMiniGetSeguindo(user.id_user)
                 }
-                val adapterEvent = AdapterEventMini(this@MainActivity, listEvent)
+                val adapterEvent = AdapterEventMini(this@MainActivity, user, listEvent)
                 var rcEvent = binding.rcEventsMini
                 rcEvent.layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
                 rcEvent.setHasFixedSize(true)
@@ -105,7 +106,7 @@ class MainActivity : AppCompatActivity() {
                 else{
                     list_publication = api_publication.publicationsGetSeguindo(user.id_user)
                 }
-                val adapter = AdapterPublication(list_publication, this@MainActivity)
+                val adapter = AdapterPublication(list_publication, this@MainActivity, user)
                 val rc = binding.rcFeed
                 rc.layoutManager = LinearLayoutManager(this@MainActivity)
                 rc.setHasFixedSize(true)
