@@ -6,7 +6,7 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 
 class ApiCliente {
     companion object {
-        val URL = "https://19ab-189-29-146-118.ngrok-free.app/"
+        val URL = "https://4107-189-29-146-118.ngrok-free.app/"
 
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(URL)
