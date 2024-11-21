@@ -1,6 +1,7 @@
 package devsystem.olimpiclink.util
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import devsystem.olimpiclink.databinding.EventPublishedMiniBinding
 import devsystem.olimpiclink.model.EventMiniModelGet
+import devsystem.olimpiclink.model.User
 import devsystem.olimpiclink.ui.EventPublishedMini
+import devsystem.olimpiclink.ui.pages.MyProfileActivity
+import devsystem.olimpiclink.ui.pages.OuterProfileActivity
+import devsystem.olimpiclink.ui.pages.PublishedEventActivity
 
-class AdapterEventMini(val context: Context, private val listEventsMini: List<EventMiniModelGet>):
+class AdapterEventMini(val context: Context, private val user: User, private val listEventsMini: List<EventMiniModelGet>):
     RecyclerView.Adapter<AdapterEventMini.EventMiniViewHolder>() {
 
     //Cria
@@ -33,6 +38,12 @@ class AdapterEventMini(val context: Context, private val listEventsMini: List<Ev
         else{
             holder.event_cape.visibility = View.GONE
         }
+        holder.event.setOnClickListener(View.OnClickListener {
+            var main_activity = Intent(context, PublishedEventActivity::class.java)
+            main_activity.putExtra("event_id",listEventsMini[position].idEvent)
+            main_activity.putExtra("user", user)
+            context.startActivity(main_activity)
+        })
     }
 
     inner class EventMiniViewHolder(binding: EventPublishedMiniBinding): RecyclerView.ViewHolder(binding.root) {
@@ -42,5 +53,6 @@ class AdapterEventMini(val context: Context, private val listEventsMini: List<Ev
         val description_event = binding.tvDescriptionEvent
         val event_cape = binding.imgEventCape
         val date_publication = binding.tvDatePublication
+        val event = binding.event
     }
 }

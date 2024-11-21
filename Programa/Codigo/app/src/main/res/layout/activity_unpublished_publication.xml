@@ -97,6 +97,7 @@
                             android:id="@+id/img_one"
                             android:layout_width="165dp"
                             android:layout_height="103dp"
+                            android:scaleType="centerCrop"
                             android:visibility="gone" />
 
                         <ImageView
@@ -104,6 +105,7 @@
                             android:layout_width="165dp"
                             android:layout_height="103dp"
                             android:layout_marginLeft="8dp"
+                            android:scaleType="centerCrop"
                             android:visibility="gone" />
                     </LinearLayout>
 
@@ -118,6 +120,7 @@
                         <ImageView
                             android:id="@+id/img_three"
                             android:layout_width="165dp"
+                            android:scaleType="centerCrop"
                             android:layout_height="103dp"
                             android:visibility="gone" />
 
@@ -125,6 +128,7 @@
                             android:id="@+id/img_four"
                             android:layout_width="165dp"
                             android:layout_height="103dp"
+                            android:scaleType="centerCrop"
                             android:layout_marginLeft="8dp"
                             android:visibility="gone" />
                     </LinearLayout>

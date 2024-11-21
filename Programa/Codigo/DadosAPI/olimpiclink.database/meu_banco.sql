@@ -44,6 +44,11 @@ CREATE TABLE `comunities` (
   `name_comunity` varchar(255) DEFAULT NULL,
   `description_comunity` text DEFAULT NULL,
   `icon_comunity` mediumblob DEFAULT NULL,
+
+  `url_icon_comunity` varchar(255) default null,
+  `category_id` int unsigned default null,
+  `regras_comunity` varchar(500) default null,
+  
   `created_at_comunities` timestamp NULL DEFAULT current_timestamp(),
   `updated_at_comunities` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id_comunity`)
@@ -188,13 +193,39 @@ CREATE TABLE `user_city` (
   CONSTRAINT `user_city_ibfk_2` FOREIGN KEY (`city_id`) REFERENCES `cities` (`id_city`)
 );
 
-CREATE TABLE `user_comunity` (
+CREATE TABLE `follow_comunity` (
+  `id_follow_comunity` int(10) unsigned primary key auto_increment,
   `user_id` int(10) unsigned NOT NULL,
   `comunity_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`user_id`,`comunity_id`),
+  KEY `user_id` (`user_id`),
   KEY `comunity_id` (`comunity_id`),
-  CONSTRAINT `user_comunity_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id_user`),
-  CONSTRAINT `user_comunity_ibfk_2` FOREIGN KEY (`comunity_id`) REFERENCES `comunities` (`id_comunity`)
+  CONSTRAINT `follow_comunity_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id_user`),
+  CONSTRAINT `follow_comunity_ibfk_2` FOREIGN KEY (`comunity_id`) REFERENCES `comunities` (`id_comunity`),
+  UNIQUE KEY `unique_follow_comunity` (`user_id`, `comunity_id`)
+);
+
+CREATE TABLE `participation_comunity` (
+  `id_participation_comunity` int(10) unsigned primary key auto_increment,
+  `user_id` int(10) unsigned NOT NULL,
+  `comunity_id` int(10) unsigned NOT NULL,
+  KEY `user_id` (`user_id`),
+  KEY `comunity_id` (`comunity_id`),
+  CONSTRAINT `participation_comunity_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id_user`),
+  CONSTRAINT `participation_comunity_ibfk_2` FOREIGN KEY (`comunity_id`) REFERENCES `comunities` (`id_comunity`),
+  UNIQUE KEY `unique_participation_comunity` (`user_id`, `comunity_id`)
+);
+
+CREATE TABLE `request_participation_comunity` (
+  `request_participation_comunity` int(10) unsigned primary key auto_increment,
+  `user_id` int(10) unsigned NOT NULL,
+  `comunity_id` int(10) unsigned NOT NULL,
+  `analisado` bool default false,
+  `acepted` bool default null,
+  KEY `user_id` (`user_id`),
+  KEY `comunity_id` (`comunity_id`),
+  CONSTRAINT `request_participation_comunity_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id_user`),
+  CONSTRAINT `request_participation_comunity_ibfk_2` FOREIGN KEY (`comunity_id`) REFERENCES `comunities` (`id_comunity`),
+  UNIQUE KEY `unique_request_participation_comunity` (`user_id`, `comunity_id`)
 );
 
 CREATE TABLE `user_followers` (

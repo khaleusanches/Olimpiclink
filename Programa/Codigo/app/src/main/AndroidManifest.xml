@@ -17,6 +17,12 @@
         android:theme="@style/Theme.Olimpiclink"
         tools:targetApi="31">
         <activity
+            android:name=".ui.pages.PublishedEventActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.pages.ComunityActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.pages.SelectCategoryActivity"
             android:exported="false" />
         <activity

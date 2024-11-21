@@ -10,22 +10,158 @@ namespace olimpiclink.database.Controllers
     public class ComunityController : Controller
     {
         ConnectionContext context = new ConnectionContext(); //cria conexão
-        [HttpPost("upload")] //define a rota
-        public async Task<IActionResult> Add([FromForm] string name_comunity, [FromForm] string description_comunity, IFormFile icon_comunity)
+        [HttpGet]
+        public async Task<IActionResult> getAllComunity()
         {
-            var memoryStream = new MemoryStream();
-            icon_comunity.CopyTo(memoryStream); //coloca a imagem em um armazem temporario da api
-            var new_comunity = new Comunity(name_comunity, description_comunity, memoryStream.ToArray()); //coloca a imagem no objeto
-            await context.comunities.AddAsync(new_comunity); //adiciona o objeto no banco de dados
-            await context.SaveChangesAsync(); 
-            return Ok();
-        }
-        [HttpGet("images/{id}")]
-        public async Task<IActionResult> Get(int id)
-        {
-            var teste = await context.comunities.Where(comunity => comunity.id_comunity == id).ToListAsync();
+            var comunity = await 
+                (
+                from comunities in context.comunities
+                select new
+                {
+                    comunities.id_comunity,
+                    comunities.name_comunity,
+                    comunities.description_comunity,
+                    comunities.url_icon_comunity,
+                    comunities.regras_comunity,
+                    n_seguidores = (from follows_comunities in context.follow_comunity
+                                    where follows_comunities.comunity_id == comunities.id_comunity
+                                    select new {comunities.id_comunity}).Count(),
+                    n_participantes = (from participations_comunities in context.participation_comunity
+                                       where participations_comunities.comunity_id == comunities.id_comunity
+                                       select new { comunities.id_comunity }).Count(),
+                    category_icon = (from category in context.categories
+                                     where category.id_category == comunities.category_id
+                                     select category.url_icon_category).SingleOrDefault(),
 
-            return File(teste[0].icon_comunity, "image/jpeg"); //exibe o arquivo do banco no formato jpeg
+                }).ToListAsync();
+            return Ok(comunity);
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> getComunityID(int id)
+        {
+            var comunity = await
+                (
+                from comunities in context.comunities
+                where comunities.id_comunity == id
+                select new
+                {
+                    comunities.id_comunity,
+                    comunities.name_comunity,
+                    comunities.description_comunity,
+                    comunities.url_icon_comunity,
+                    comunities.regras_comunity,
+                    n_seguidores = (from follows_comunities in context.follow_comunity
+                                    where follows_comunities.comunity_id == comunities.id_comunity
+                                    select new { comunities.id_comunity }).Count(),
+                    n_participantes = (from participations_comunities in context.participation_comunity
+                                       where participations_comunities.comunity_id == comunities.id_comunity
+                                       select new { comunities.id_comunity }).Count(),
+                    category_icon = (from category in context.categories
+                                     where category.id_category == comunities.category_id
+                                     select category.url_icon_category).SingleOrDefault(),
+
+                }).SingleOrDefaultAsync();
+            return Ok(comunity);
+        }
+
+        [HttpGet("FF/{id_user}&&{id_comunity}")]
+        public async Task<IActionResult> getFollow(int id_user, int id_comunity)
+        {
+            var msg = new { message = "" };
+            var follow = await
+                (from comunities in context.comunities
+                join follows_comunities in context.follow_comunity
+                on comunities.id_comunity equals follows_comunities.comunity_id
+                where comunities.id_comunity == id_comunity && follows_comunities.user_id == id_user
+                 select new
+                 {
+                     comunities.id_comunity
+                 }).ToListAsync();
+            var participation = await
+                (from comunities in context.comunities
+                 join participations_comunities in context.participation_comunity
+                 on comunities.id_comunity equals participations_comunities.comunity_id
+                 where comunities.id_comunity == id_comunity && participations_comunities.user_id == id_user
+                 select new
+                 {
+                     comunities.id_comunity
+                 }).ToListAsync();
+            if (follow.Count() > 0 && participation.Count() == 0)
+            {
+                msg = new { message = "Segue" };
+            }
+            else if (participation.Count() > 0)
+            {
+                msg = new { message = "Participa" };
+            }
+            else
+            {
+                msg = new { message = "Seguir" };
+            }
+            return Ok(msg);
+        }
+
+        [HttpGet("RP/{id_user}&&{id_comunity}")]
+        public async Task<IActionResult> getRequestParticipation(int id_user, int id_comunity)
+        {
+            var msg = new { message = "" };
+            var participation = await
+                        (from comunities in context.comunities
+                        join request_participations_comunities in context.request_participation_comunity
+                        on comunities.id_comunity equals request_participations_comunities.comunity_id
+                        where comunities.id_comunity == id_comunity && request_participations_comunities.user_id == id_user && request_participations_comunities.analisado == false
+                        select new
+                        {
+                            comunities.id_comunity
+                        }).ToListAsync();
+
+            if (participation.Count() == 0)
+            {
+                msg = new { message = "Pedir" };
+            }
+            else if (participation.Count() > 0)
+            {
+                msg = new { message = "Aguarde" };
+            }
+            return Ok(msg);
+        }
+
+        [HttpPost("follow")]
+        public async void followComunity(FollowComunity new_follow)
+        {
+            try
+            {
+                await context.follow_comunity.AddAsync(new_follow);
+                await context.SaveChangesAsync();
+            }
+            catch
+            {
+
+            }
+        }
+        [HttpDelete("desFollow/{id_user}&&{id_comunity}")]
+        public void desFollowComunity(int id_user, int id_comunity)
+        {
+            try
+            {
+                var follow = context.follow_comunity.Where(fc => fc.user_id == id_user && fc.comunity_id == id_comunity).SingleOrDefault();
+                context.follow_comunity.Remove(follow);
+                context.SaveChanges();
+            }
+            catch { }
+        }
+
+        [HttpPost("requestParticipation")]
+        public async void postRequestComunity(RequestParticipationComunity new_request)
+        {
+            try
+            {
+                await context.request_participation_comunity.AddAsync(new_request);
+                await context.SaveChangesAsync();
+            }
+            catch { }
+        }
+
     }
 }

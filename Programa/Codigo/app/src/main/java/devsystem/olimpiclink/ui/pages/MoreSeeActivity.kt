@@ -51,6 +51,8 @@ class MoreSeeActivity : AppCompatActivity() {
         api_event = ApiCliente.retrofit.create(EndpointEvent::class.java)
         commonEvents.goPageCreationPublication(user, this, binding.bottomMenu.binding.btnPgCreatePublication)
         commonEvents.goPageMain(user, this, binding.bottomMenu.binding.btnPgInitial)
+        commonEvents.goPageMyProfile(user, this, binding.bottomMenu.binding.btnPgProfile)
+        commonEvents.goPageComunity(user, this, binding.bottomMenu.binding.btnPgCommunities)
         binding.bottomMenu.binding.btnPgInitial.setImageResource(R.drawable.home_on)
         lifecycleScope.launch {
             try{
@@ -60,7 +62,7 @@ class MoreSeeActivity : AppCompatActivity() {
                 else{
                     listEvents = api_event.eventMiniGetSeguindo(user.id_user)
                 }
-                val adapter = AdapterEvent(this@MoreSeeActivity, listEvents)
+                val adapter = AdapterEvent(this@MoreSeeActivity, user, listEvents)
                 rc_events.layoutManager = LinearLayoutManager(this@MoreSeeActivity, LinearLayoutManager.VERTICAL, false)
                 rc_events.setHasFixedSize(true)
                 rc_events.adapter = adapter

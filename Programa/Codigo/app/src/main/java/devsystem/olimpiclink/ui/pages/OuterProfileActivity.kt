@@ -30,6 +30,7 @@ import devsystem.olimpiclink.util.EndpointPublication
 import kotlinx.coroutines.launch
 
 class OuterProfileActivity : AppCompatActivity() {
+    private var galery = false
     private lateinit var binding : ActivityOuterProfileBinding
     private var id_user : Int = 1
     private lateinit var user_visited : User
@@ -61,8 +62,8 @@ class OuterProfileActivity : AppCompatActivity() {
         componentsInitialize()
 
         binding.profileMain.binding.textView8.text = "Categorias que o usuário salvou"
-        binding.profileMain.binding.textView3.text = "Comunidades que o usuário está seguindo"
-        binding.profileMain.binding.textView2.text = "Comunidades em que o usuário está"
+//        binding.profileMain.binding.textView3.text = "Comunidades que o usuário está seguindo"
+//        binding.profileMain.binding.textView2.text = "Comunidades em que o usuário está"
     }
 
     private fun componentsInitialize() {
@@ -72,9 +73,10 @@ class OuterProfileActivity : AppCompatActivity() {
             binding.tvNameUser.text = user_visited.name_user
             binding.tvLoginUser.text = "@" + user_visited.login_user
             Glide.with(this@OuterProfileActivity).load(user_visited.url_profile_picture_user).circleCrop().into(binding.imgProfilePicture)
-            commonEvents.goPageMain(user, this@OuterProfileActivity, binding.bottomAppbarCustom.binding.btnPgInitial)
-            commonEvents.goPageCreationPublication(user, this@OuterProfileActivity, binding.bottomAppbarCustom.binding.btnPgCreatePublication)
-            commonEvents.goPageMyProfile(user, this@OuterProfileActivity, binding.bottomAppbarCustom.binding.btnPgProfile)
+            commonEvents.goPageCreationPublication(user, this, binding.bottomAppbarCustom.binding.btnPgCreatePublication)
+            commonEvents.goPageMain(user, this, binding.bottomAppbarCustom.binding.btnPgInitial)
+            commonEvents.goPageMyProfile(user, this, binding.bottomAppbarCustom.binding.btnPgProfile)
+            commonEvents.goPageComunity(user, this, binding.bottomAppbarCustom.binding.btnPgCommunities)
             binding.bottomAppbarCustom.binding.btnPgProfile.setImageResource(R.drawable.profile_on)
 
             getFriendsFollowsFollowers()
@@ -83,17 +85,17 @@ class OuterProfileActivity : AppCompatActivity() {
             categoriesGet()
         }
         Glide.with(this).load("https://img.freepik.com/fotos-gratis/linda-nuvem-abstrata-e-ceu-azul-claro-paisagem-natureza-fundo-branco-e-papel-de-parede-azul-tex_1258-108688.jpg").into(binding.imgBanner)
-        val card1 = CommunityCardModel("sim")
-        val card2 = CommunityCardModel("nao")
-        val list = listOf(card1, card2)
-        val adapter = AdapterCommunityCard(this, list)
-        binding.profileMain.binding.rc1.layoutManager = LinearLayoutManager(this)
-        binding.profileMain.binding.rc1.setHasFixedSize(true)
-        binding.profileMain.binding.rc1.adapter = adapter
-
-        binding.profileMain.binding.rc2.layoutManager = LinearLayoutManager(this)
-        binding.profileMain.binding.rc2.setHasFixedSize(true)
-        binding.profileMain.binding.rc2.adapter = adapter
+//        val card1 = CommunityCardModel("sim")
+//        val card2 = CommunityCardModel("nao")
+////        val list = listOf(card1, card2)
+////        val adapter = AdapterCommunityCard(this, list)
+////        binding.profileMain.binding.rc1.layoutManager = LinearLayoutManager(this)
+////        binding.profileMain.binding.rc1.setHasFixedSize(true)
+////        binding.profileMain.binding.rc1.adapter = adapter
+////
+////        binding.profileMain.binding.rc2.layoutManager = LinearLayoutManager(this)
+////        binding.profileMain.binding.rc2.setHasFixedSize(true)
+////        binding.profileMain.binding.rc2.adapter = adapter
     }
 
     private fun categoriesGet() {
@@ -167,8 +169,13 @@ class OuterProfileActivity : AppCompatActivity() {
             Log.d("MainActivity", "launch")
             try {
                 Log.d("MainActivity", "launch1")
-                list_publication = api_publication.publicationsGetID(user_visited.id_user)
-                val adapter = AdapterPublication(list_publication, this@OuterProfileActivity)
+                if(!galery){
+                    list_publication = api_publication.publicationsGetID(user_visited.id_user)
+                }
+                else{
+                    list_publication = api_publication.publicationsGetIDGalery(user_visited.id_user)
+                }
+                val adapter = AdapterPublication(list_publication, this@OuterProfileActivity, user)
                 val rc = binding.rcFeed
                 rc.layoutManager = LinearLayoutManager(this@OuterProfileActivity, LinearLayoutManager.VERTICAL, false)
                 rc.setHasFixedSize(true)
@@ -184,10 +191,40 @@ class OuterProfileActivity : AppCompatActivity() {
 
     fun seePublications(view: View) {
         binding.profileMain.visibility = View.GONE
+        binding.btnFilter5.setImageResource(R.drawable.poston)
+        binding.btnFilter5.setBackgroundResource(R.drawable.button_border_red_selected)
+
+        binding.btnFilter4.setImageResource(R.drawable.userred)
+        binding.btnFilter4.setBackgroundResource(R.color.transparentMesm)
+        binding.btnFilter6.setImageResource(R.drawable.galeriared)
+        binding.btnFilter6.setBackgroundResource(R.color.transparentMesm)
+        galery = false;
+        publicationGet()
     }
 
     fun seeMainProfile(view: View) {
         binding.profileMain.visibility = View.VISIBLE
+        binding.btnFilter5.setImageResource(R.drawable.postred)
+        binding.btnFilter5.setBackgroundResource(R.color.transparentMesm)
+        binding.btnFilter6.setImageResource(R.drawable.galeriared)
+        binding.btnFilter6.setBackgroundResource(R.color.transparentMesm)
+
+        binding.btnFilter4.setImageResource(R.drawable.profile_on)
+        binding.btnFilter4.setBackgroundResource(R.drawable.button_border_red_selected)
+        galery = false;
+        publicationGet()
+    }
+    fun seeGaleryProfile(view: View) {
+        binding.profileMain.visibility = View.GONE
+        binding.btnFilter5.setImageResource(R.drawable.postred)
+        binding.btnFilter5.setBackgroundResource(R.color.transparentMesm)
+        binding.btnFilter4.setImageResource(R.drawable.userred)
+        binding.btnFilter4.setBackgroundResource(R.color.transparentMesm)
+
+        binding.btnFilter6.setImageResource(R.drawable.galeriaon)
+        binding.btnFilter6.setBackgroundResource(R.drawable.button_border_red_selected)
+        galery = true;
+        publicationGet()
     }
 
     fun goToFollowers(view: View) {
