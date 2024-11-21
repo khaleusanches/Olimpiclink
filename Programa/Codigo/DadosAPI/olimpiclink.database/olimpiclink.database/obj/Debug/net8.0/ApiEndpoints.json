@@ -106,6 +106,28 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.ComunityController",
+    "Method": "postComunity",
+    "RelativePath": "api/comunities",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "new_comunity",
+        "Type": "olimpiclink.database.Models.Comunities.ComunityModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.ComunityController",
     "Method": "getAllComunity",
     "RelativePath": "api/comunities",
     "HttpMethod": "GET",

@@ -10,6 +10,13 @@ namespace olimpiclink.database.Controllers
     public class ComunityController : Controller
     {
         ConnectionContext context = new ConnectionContext(); //cria conexão
+        [HttpPost]
+        public async void postComunity(ComunityModel new_comunity)
+        {
+            await context.comunities.AddAsync(new_comunity);
+            await context.SaveChangesAsync();
+        }
+
         [HttpGet]
         public async Task<IActionResult> getAllComunity()
         {
