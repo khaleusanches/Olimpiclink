@@ -1,6 +1,7 @@
 CREATE TABLE `categories` (
   `id_category` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name_category` varchar(255) DEFAULT NULL,
+  `url_icon_category` VARCHAR(255),
   PRIMARY KEY (`id_category`)
 );
 
@@ -169,9 +170,10 @@ CREATE TABLE `places_has_category` (
 );
 
 CREATE TABLE `user_category` (
+   `id_user_category` int(10) unsigned auto_increment primary key,
   `user_id` int(10) unsigned NOT NULL,
   `category_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`user_id`,`category_id`),
+  KEY `user_id` (`user_id`),
   KEY `category_id` (`category_id`),
   CONSTRAINT `user_category_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id_user`),
   CONSTRAINT `user_category_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id_category`)

@@ -75,7 +75,7 @@ class RegisterActivity : AppCompatActivity() {
                         }
                         else{
                             user = User(0, et_name_user.text.toString(), et_name_user.text.toString(),
-                                et_login_user.text.toString(), "", "")
+                                et_login_user.text.toString(), "https://cdn-icons-png.flaticon.com/512/7022/7022927.png", "")
                         }
                     }
                 }
@@ -119,6 +119,7 @@ class RegisterActivity : AppCompatActivity() {
                 if(user != null){
                     var register_city = Intent(this, RegisterCityActivity::class.java)
                     register_city.putExtra("user", user)
+                    register_city.putExtra("password_user", et_password.text.toString())
                     startActivity(register_city)
                 }
         }

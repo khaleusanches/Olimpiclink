@@ -5,6 +5,7 @@ import devsystem.olimpiclink.model.FriendsFollowsFollowersScreenModel
 import devsystem.olimpiclink.model.RequestMessages
 import devsystem.olimpiclink.model.User
 import devsystem.olimpiclink.model.UserFollowModel
+import devsystem.olimpiclink.model.UserModelPost
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
@@ -14,6 +15,10 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface EndpointUser {
+    @POST("api/users")
+    suspend fun postUser
+                (@Body new_ser : UserModelPost) : Response<Void>
+
     @GET("api/users/login/{login_user}&{password_user}")
     fun userLogin(
         @Path("login_user") login_user : String,
@@ -84,4 +89,7 @@ interface EndpointUser {
     @POST("api/follows/seguir")
     suspend fun seguirUser
                 (@Body new_user_follow : UserFollowModel) : Response<Void>
+
+    @GET("/api/users/userCategories/{id}")
+    suspend fun getCategoriesUser(@Path("id") id : Int) : List<String>
 }

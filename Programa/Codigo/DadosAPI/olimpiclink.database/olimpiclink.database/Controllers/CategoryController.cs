@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using olimpiclink.database.Data;
 using olimpiclink.database.Models;
 using olimpiclink.database.Models.Categories;
+using olimpiclink.database.Models.Users;
 using System.Linq;
 
 namespace olimpiclink.database.Controllers
@@ -31,10 +32,27 @@ namespace olimpiclink.database.Controllers
         }
 
         [HttpGet] // Define que o metodo a seguir é GET, usando para pegar todos os dados da tabela.
-        public async Task<IActionResult> categoryGet(long? id_category)
+        public async Task<IActionResult> categoryGet()
         {
             var get_categories = await context.categories.ToListAsync();
             return Ok(get_categories);
+        }
+
+        [HttpGet("name/{name_category}")]
+        public int categoryGetName(string name_category)
+        {
+            var id_category = context.categories.SingleOrDefault(category => category.name_category == name_category).id_category;
+            return id_category;
+        }
+
+        [HttpPost("userCategory")]
+        public async Task<IActionResult> postUserCategory(string login_user, int id_category)
+        {
+            var user = context.users.FirstOrDefaultAsync(user => user.login_user == login_user);
+            var new_user_category = new UserCategory(user.Result.id_user, id_category);
+            await context.user_category.AddAsync(new_user_category);
+            await context.SaveChangesAsync();
+            return Ok();
         }
 
         [HttpGet("delete/{id_category}")]

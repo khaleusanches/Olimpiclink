@@ -71,10 +71,23 @@ class MyProfileActivity : AppCompatActivity() {
         binding.profileMain.binding.rc2.setHasFixedSize(true)
         binding.profileMain.binding.rc2.adapter = adapter
         publicationGet()
-
+        categoriesGet()
         commonEvents.goPageMain(user, this, binding.bottomAppbarCustom.binding.btnPgInitial)
         commonEvents.goPageCreationPublication(user, this, binding.bottomAppbarCustom.binding.btnPgCreatePublication)
         binding.bottomAppbarCustom.binding.btnPgProfile.setImageResource(R.drawable.profile_on)
+    }
+
+    private fun categoriesGet() {
+        lifecycleScope.launch {
+            try {
+                var list_categories = api_user.getCategoriesUser(user.id_user)
+                Glide.with(this@MyProfileActivity).load(list_categories[0]).into(binding.profileMain.binding.btnFilter8)
+                Glide.with(this@MyProfileActivity).load(list_categories[1]).into(binding.profileMain.binding.btnFilter9)
+                Glide.with(this@MyProfileActivity).load(list_categories[2]).into(binding.profileMain.binding.btnFilter10)
+                Glide.with(this@MyProfileActivity).load(list_categories[3]).into(binding.profileMain.binding.btnFilter11)
+            }
+            catch (e : Exception){}
+        }
     }
 
     private fun getFriendsFollowsFollowers() {
@@ -114,10 +127,18 @@ class MyProfileActivity : AppCompatActivity() {
 
     fun seePublications(view: View) {
         binding.profileMain.visibility = View.GONE
+        binding.btnFilter5.setImageResource(R.drawable.poston)
+        binding.btnFilter5.setBackgroundResource(R.drawable.button_border_red_selected)
+        binding.btnFilter4.setImageResource(R.drawable.userred)
+        binding.btnFilter4.setBackgroundResource(R.color.transparentMesm)
     }
 
     fun seeMainProfile(view: View) {
         binding.profileMain.visibility = View.VISIBLE
+        binding.btnFilter5.setImageResource(R.drawable.postred)
+        binding.btnFilter5.setBackgroundResource(R.color.transparentMesm)
+        binding.btnFilter4.setImageResource(R.drawable.profile_on)
+        binding.btnFilter4.setBackgroundResource(R.drawable.button_border_red_selected)
     }
 
     fun goToFollowers(view: View) {

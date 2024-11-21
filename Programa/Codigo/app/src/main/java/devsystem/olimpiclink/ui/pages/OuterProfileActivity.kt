@@ -80,6 +80,7 @@ class OuterProfileActivity : AppCompatActivity() {
             getFriendsFollowsFollowers()
             publicationGet()
             getFollowInterrogation{}
+            categoriesGet()
         }
         Glide.with(this).load("https://img.freepik.com/fotos-gratis/linda-nuvem-abstrata-e-ceu-azul-claro-paisagem-natureza-fundo-branco-e-papel-de-parede-azul-tex_1258-108688.jpg").into(binding.imgBanner)
         val card1 = CommunityCardModel("sim")
@@ -93,6 +94,19 @@ class OuterProfileActivity : AppCompatActivity() {
         binding.profileMain.binding.rc2.layoutManager = LinearLayoutManager(this)
         binding.profileMain.binding.rc2.setHasFixedSize(true)
         binding.profileMain.binding.rc2.adapter = adapter
+    }
+
+    private fun categoriesGet() {
+        lifecycleScope.launch {
+            try {
+                var list_categories = api_user.getCategoriesUser(user_visited.id_user)
+                Glide.with(this@OuterProfileActivity).load(list_categories[0]).into(binding.profileMain.binding.btnFilter8)
+                Glide.with(this@OuterProfileActivity).load(list_categories[1]).into(binding.profileMain.binding.btnFilter9)
+                Glide.with(this@OuterProfileActivity).load(list_categories[2]).into(binding.profileMain.binding.btnFilter10)
+                Glide.with(this@OuterProfileActivity).load(list_categories[3]).into(binding.profileMain.binding.btnFilter11)
+            }
+            catch (e : Exception){}
+        }
     }
 
     private fun getFollowInterrogation(onMessageLoaded: () -> Unit) {

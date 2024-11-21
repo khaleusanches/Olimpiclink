@@ -1,5 +1,6 @@
 package devsystem.olimpiclink.ui.pages
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -15,6 +16,7 @@ import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import devsystem.olimpiclink.model.City
+import devsystem.olimpiclink.model.User
 import devsystem.olimpiclink.model.util.ApiCliente
 import devsystem.olimpiclink.util.CommonEvents
 import devsystem.olimpiclink.util.EndpointCity
@@ -28,6 +30,8 @@ class RegisterCityActivity: AppCompatActivity() {
     private lateinit var spn_cities : AutoCompleteTextView
     private lateinit var btn_continue : AppCompatButton
     private lateinit var api_city : EndpointCity
+    private lateinit var user: User
+    private lateinit var password_user : String
     private var cities_list : ArrayList<String> = arrayListOf()
 
     private var commonEvents = CommonEvents()
@@ -43,6 +47,8 @@ class RegisterCityActivity: AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        user = intent.extras!!.getParcelable("user")!!
+        password_user = intent.extras!!.getString("password_user")!!
         componentsInitialize()
     }
 
@@ -86,9 +92,14 @@ class RegisterCityActivity: AppCompatActivity() {
     }
 
     fun registrationContinue(view: View) {
-        if(spn_cities.text.isEmpty()){
+        if(spn_cities.text.isNotEmpty()){
             if(spn_cities.text.toString() in cities_list){
                 city = City(0, spn_cities.text.toString(), "SP")
+                var main_activity = Intent(this, SelectCategoryActivity::class.java)
+                main_activity.putExtra("user", user)
+                main_activity.putExtra("password_user", password_user)
+                main_activity.putExtra("city", spn_cities.text.toString())
+                startActivity(main_activity)
             }
             else{
                 Toast.makeText(this, "Essa cidade não existe", Toast.LENGTH_SHORT).show()

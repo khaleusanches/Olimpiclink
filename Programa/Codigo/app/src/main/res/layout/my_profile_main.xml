@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <ImageView
         android:id="@+id/btn_filter8"
         android:layout_width="64dp"
         android:layout_height="64dp"
@@ -34,7 +34,7 @@
         app:layout_constraintStart_toEndOf="@+id/btn_filter10"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <ImageView
         android:id="@+id/btn_filter9"
         android:layout_width="64dp"
         android:layout_height="64dp"
@@ -51,7 +51,7 @@
         app:layout_constraintStart_toEndOf="@+id/btn_filter8"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <ImageView
         android:id="@+id/btn_filter10"
         android:layout_width="64dp"
         android:layout_height="64dp"
@@ -67,7 +67,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8" />"
         />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <ImageView
         android:id="@+id/btn_filter11"
         android:layout_width="64dp"
         android:layout_height="64dp"

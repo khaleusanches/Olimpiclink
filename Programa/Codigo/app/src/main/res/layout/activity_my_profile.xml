@@ -164,14 +164,15 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btn_filter3" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <ImageView
                 android:id="@+id/btn_filter4"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="80dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/button_border_red"
+                android:background="@drawable/button_border_red_selected"
+                android:src="@drawable/profile_on"
                 android:onClick="seeMainProfile"
                 android:text=""
                 android:textColor="@color/red"
@@ -188,7 +189,7 @@
                 android:layout_marginStart="22dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="110dp"
-                android:background="@drawable/button_border_red"
+                android:background="@drawable/eventored"
                 android:onClick="enterClick"
                 android:text=""
                 android:textColor="@color/red"
@@ -206,7 +207,7 @@
                 android:layout_marginStart="22dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="80dp"
-                android:background="@drawable/button_border_red"
+                android:background="@drawable/markred"
                 android:onClick="enterClick"
                 android:text=""
                 android:textColor="@color/red"
@@ -216,15 +217,16 @@
                 app:layout_constraintStart_toEndOf="@+id/btn_filter7"
                 app:layout_constraintTop_toBottomOf="@+id/tv_bio" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <ImageView
                 android:id="@+id/btn_filter5"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="22dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/button_border_red"
+                android:src="@drawable/postred"
                 android:onClick="seePublications"
+                android:scaleType="centerCrop"
                 android:text=""
                 android:textColor="@color/red"
                 android:textSize="14sp"
@@ -238,7 +240,7 @@
                 android:layout_gravity="center"
                 android:layout_marginStart="22dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/button_border_red"
+                android:background="@drawable/galeriared"
                 android:onClick="enterClick"
                 android:text=""
                 android:textColor="@color/red"
