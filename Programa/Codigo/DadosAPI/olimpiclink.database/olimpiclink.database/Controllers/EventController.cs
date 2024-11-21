@@ -28,6 +28,7 @@ namespace olimpiclink.database.Controllers
                 join comunity in context.comunities
                 on events.comunity_id equals comunity.id_comunity
                 where events.activated_event == true
+                orderby events.idEvent descending
                 select new 
                 {
                     idEvent = events.idEvent,
