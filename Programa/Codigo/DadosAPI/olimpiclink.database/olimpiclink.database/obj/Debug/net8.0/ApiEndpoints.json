@@ -154,6 +154,16 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.ComunityController",
+    "Method": "getComunityCardID",
+    "RelativePath": "api/comunities/card",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.ComunityController",
     "Method": "desFollowComunity",
     "RelativePath": "api/comunities/desFollow/{id_user}\u0026\u0026{id_comunity}",
     "HttpMethod": "DELETE",

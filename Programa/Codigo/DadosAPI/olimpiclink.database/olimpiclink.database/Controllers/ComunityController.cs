@@ -72,6 +72,34 @@ namespace olimpiclink.database.Controllers
             return Ok(comunity);
         }
 
+        [HttpGet("card")]
+        public async Task<IActionResult> getComunityCardID()
+        {
+            var comunity = await
+                (
+                from comunities in context.comunities
+                select new
+                {
+                    comunities.id_comunity,
+                    comunities.name_comunity,
+                    comunities.description_comunity,
+                    comunities.url_icon_comunity,
+                    comunities.regras_comunity,
+                    n_seguidores = (from follows_comunities in context.follow_comunity
+                                    where follows_comunities.comunity_id == comunities.id_comunity
+                                    select new { comunities.id_comunity }).Count(),
+                    n_participantes = (from participations_comunities in context.participation_comunity
+                                       where participations_comunities.comunity_id == comunities.id_comunity
+                                       select new { comunities.id_comunity }).Count(),
+                    category_icon = (from category in context.categories
+                                     where category.id_category == comunities.category_id
+                                     select category.url_icon_category).SingleOrDefault(),
+
+                }).SingleOrDefaultAsync();
+            return Ok(comunity);
+        }
+
+
         [HttpGet("FF/{id_user}&&{id_comunity}")]
         public async Task<IActionResult> getFollow(int id_user, int id_comunity)
         {

@@ -37,14 +37,14 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dp">
 
-                <androidx.appcompat.widget.AppCompatButton
+                <ImageView
+                    android:src="@drawable/back"
                     android:id="@+id/btn_back"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_gravity="center"
                     android:layout_marginStart="16dp"
                     android:background="@drawable/button_border_red"
-                    android:onClick="enterClick"
                     android:text="x"
                     android:textColor="@color/red"
                     android:textSize="14sp"
@@ -52,14 +52,14 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.appcompat.widget.AppCompatButton
+                <ImageView
+                    android:src="@drawable/filter"
                     android:id="@+id/btn_filter"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_gravity="center"
                     android:layout_marginStart="8dp"
                     android:background="@drawable/button_border_red"
-                    android:onClick="enterClick"
                     android:text="x"
                     android:textColor="@color/red"
                     android:textSize="14sp"

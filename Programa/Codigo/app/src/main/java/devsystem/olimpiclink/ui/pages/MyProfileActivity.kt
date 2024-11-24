@@ -60,8 +60,6 @@ class MyProfileActivity : AppCompatActivity() {
         Glide.with(this).load("https://img.freepik.com/fotos-gratis/linda-nuvem-abstrata-e-ceu-azul-claro-paisagem-natureza-fundo-branco-e-papel-de-parede-azul-tex_1258-108688.jpg").into(binding.imgBanner)
 
         getFriendsFollowsFollowers()
-        val card1 = CommunityCardModel("sim")
-        val card2 = CommunityCardModel("nao")
 //        val list = listOf(card1, card2)
 //        val adapter = AdapterCommunityCard(this, list)
 //        binding.profileMain.binding.rc1.layoutManager = LinearLayoutManager(this)

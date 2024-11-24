@@ -15,6 +15,8 @@ import retrofit2.http.Path
 interface EndpointComunity {
     @GET("/api/comunities/{id}")
     suspend fun getComunityId(@Path("id") id : Int) : ComunityModel
+    @GET("/api/comunities")
+    suspend fun getComunityCardId() : List<ComunityModel>
 
     @GET("/api/comunities/FF/{id_user}&&{id_comunity}")
     suspend fun comunityFF(@Path("id_user") id : Int, @Path("id_comunity") id_comunity : Int) : RequestMessages

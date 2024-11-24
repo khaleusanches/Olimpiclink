@@ -4,10 +4,10 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2024-11-19T01:51:17.538347300Z">
+        <DropdownSelection timestamp="2024-11-23T23:55:37.568371800Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="PhysicalDevice" identifier="serial=EIO75LUKTSLBQWMF" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\khaleu\.android\avd\Small_Phone_API_28.avd" />
             </handle>
           </Target>
         </DropdownSelection>

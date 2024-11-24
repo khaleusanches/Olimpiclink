@@ -7,6 +7,7 @@ import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
@@ -41,6 +42,10 @@ class PublishedEventActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        window.navigationBarColor = resources.getColor(R.color.laranja_splash)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.laranja_splash)
+
         api_event = ApiCliente.retrofit.create(EndpointEvent::class.java)
         user = intent.extras!!.getParcelable("user")!!
         event_id = intent.extras!!.getInt("event_id")
@@ -59,7 +64,7 @@ class PublishedEventActivity : AppCompatActivity() {
             binding.tvEventTitle.text = event.nameEvent
             binding.tvDescriptionEvent.text = event.descriptionEvent
             binding.tvComunityName.text = event.comunity_name
-            Glide.with(this@PublishedEventActivity).load(event.comunity_picture).into(binding.imgPictureProfileUser)
+            Glide.with(this@PublishedEventActivity).load(event.comunity_picture).circleCrop().into(binding.imgPictureProfileUser)
             if(event.url_picture_event.isNotEmpty()){
                 Glide.with(this@PublishedEventActivity).load(event.url_picture_event[0]).into(binding.imgEventCape)
             }else{
