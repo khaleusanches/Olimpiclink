@@ -20,9 +20,11 @@ import devsystem.olimpiclink.model.RequestMessages
 import devsystem.olimpiclink.model.RequestParticipationComunityModel
 import devsystem.olimpiclink.model.User
 import devsystem.olimpiclink.model.util.ApiCliente
+import devsystem.olimpiclink.util.AdapterEvent
 import devsystem.olimpiclink.util.AdapterPublication
 import devsystem.olimpiclink.util.CommonEvents
 import devsystem.olimpiclink.util.EndpointComunity
+import devsystem.olimpiclink.util.EndpointEvent
 import devsystem.olimpiclink.util.EndpointPublication
 import kotlinx.coroutines.launch
 
@@ -39,6 +41,7 @@ class ComunityActivity : AppCompatActivity() {
 
     private lateinit var api_publication : EndpointPublication
     private lateinit var list_publication : List<PublicationModelGet>
+    private lateinit var api_events : EndpointEvent
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,7 +60,10 @@ class ComunityActivity : AppCompatActivity() {
         comunity_id = intent.extras!!.getInt("comunity_id")
 
         api_comunity = ApiCliente.retrofit.create(EndpointComunity::class.java)
+
+
         api_publication = ApiCliente.retrofit.create(EndpointPublication::class.java)
+        api_events = ApiCliente.retrofit.create(EndpointEvent::class.java)
         componentsInitialize()
     }
 
@@ -65,7 +71,7 @@ class ComunityActivity : AppCompatActivity() {
         comunityLoad{
             Glide.with(this).load(comunity.url_icon_comunity).circleCrop().into(binding.imgComunityIcon)
             Glide.with(this).load(comunity.category_icon).into(binding.btnCategory)
-            Glide.with(this).load("https://png.pngtree.com/thumb_back/fh260/background/20190223/ourmid/pngtree-color-tennis-sport-advertising-background-backgroundmotionwork-outtennistreeshand-paintedfreshhouses-image_75815.jpg").into(binding.imgBanner)
+            Glide.with(this).load(comunity.url_banner_comunity).into(binding.imgBanner)
             binding.tvComunityName.text = comunity.name_comunity
             binding.tvFollows.text = comunity.n_seguidores.toString() + " seguidores"
             binding.tvParticipantes.text = comunity.n_participantes.toString() + " participantes"
@@ -144,24 +150,6 @@ class ComunityActivity : AppCompatActivity() {
         }
     }
 
-    fun seePublication(view: View) {
-        binding.boxRegras.visibility = View.GONE
-        binding.btnPublications.setImageResource(R.drawable.poston)
-        binding.btnPublications.setBackgroundResource(R.drawable.button_border_red_selected)
-
-        binding.btnAll.setImageResource(R.drawable.com)
-        binding.btnAll.setBackgroundResource(R.drawable.com)
-    }
-
-    fun seeAll(view: View) {
-        binding.boxRegras.visibility = View.VISIBLE
-        binding.btnPublications.setImageResource(R.drawable.postred)
-        binding.btnPublications.setBackgroundResource(R.color.transparentMesm)
-
-        binding.btnAll.setImageResource(R.drawable.comon)
-        binding.btnAll.setBackgroundResource(R.drawable.button_border_red_selected)
-    }
-
     fun seguirComunity(view: View) {
         lifecycleScope.launch {
             try {
@@ -189,4 +177,72 @@ class ComunityActivity : AppCompatActivity() {
             }
         }
     }
+
+
+    fun seePublication(view: View) {
+        closeAll()
+        binding.btnPublications.setImageResource(R.drawable.poston)
+        binding.rcFeed.visibility = View.VISIBLE
+        binding.btnPublications.setBackgroundResource(R.drawable.button_border_red_selected)
+    }
+
+    fun seeAll(view: View) {
+        closeAll()
+        binding.boxRegras.visibility = View.VISIBLE
+        binding.rcFeed.visibility = View.VISIBLE
+        binding.btnAll.setImageResource(R.drawable.comon)
+        binding.btnAll.setBackgroundResource(R.drawable.button_border_red_selected)
+    }
+
+    fun showEvents(view: View) {
+        closeAll()
+        binding.rcEvents.visibility = View.VISIBLE
+        binding.btnEvents.setImageResource(R.drawable.eventoon)
+        binding.btnEvents.setBackgroundResource(R.drawable.button_border_red_selected)
+        lifecycleScope.launch {
+            try {
+                var list_events = api_events.eventMiniGet()
+                val adapter = AdapterEvent(this@ComunityActivity, user, list_events)
+                val rc = binding.rcEvents
+                rc.layoutManager = LinearLayoutManager(this@ComunityActivity)
+                rc.setHasFixedSize(true)
+                rc.adapter = adapter
+
+            }
+            catch (e: Exception) { }
+        }
+    }
+    fun seeGalery(view: View)
+    {
+        closeAll()
+        binding.rcFeed.visibility = View.VISIBLE
+        binding.btnGalery.setImageResource(R.drawable.galeriaon)
+        binding.btnGalery.setBackgroundResource(R.drawable.button_border_red_selected)
+        lifecycleScope.launch {
+            try {
+                list_publication = api_publication.publicationsGetComunity(comunity.id_comunity)
+                val adapter = AdapterPublication(list_publication, this@ComunityActivity, user)
+                val rc = binding.rcFeed
+                rc.layoutManager = LinearLayoutManager(this@ComunityActivity)
+                rc.setHasFixedSize(true)
+                rc.adapter = adapter
+            }
+            catch (e: Exception) { }
+        }
+    }
+    fun closeAll(){
+        binding.btnPublications.setImageResource(R.drawable.postred)
+        binding.btnAll.setImageResource(R.drawable.comred)
+        binding.btnEvents.setImageResource(R.drawable.eventored)
+        binding.btnAll.setBackgroundResource(R.drawable.com)
+        binding.btnGalery.setImageResource(R.drawable.galeriared)
+        binding.btnPublications.setBackgroundResource(R.color.transparentMesm)
+        binding.btnEvents.setBackgroundResource(R.color.transparentMesm)
+        binding.btnGalery.setBackgroundResource(R.color.transparentMesm)
+        binding.boxRegras.visibility = View.GONE
+        binding.rcFeed.visibility = View.GONE
+        binding.rcEvents.visibility = View.GONE
+    }
+
+
 }

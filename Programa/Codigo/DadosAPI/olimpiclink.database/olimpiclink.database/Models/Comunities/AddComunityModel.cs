@@ -6,7 +6,9 @@
             string description_comunity,
             int category_id,
             string regras_comunity,
-            string icon_comunity
+            string icon_comunity,
+            string banner_comunity,
+            int id_user
         )
     { }
 }

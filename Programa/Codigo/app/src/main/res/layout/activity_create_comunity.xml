@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.pages.CreateComunityActivity">
+
+    <devsystem.olimpiclink.ui.ToolbarCustom
+        android:id="@+id/toolbarCustom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="62dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomAppbarCustom"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarCustom"
+        tools:layout_editor_absoluteX="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/img_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/logo_shape"
+                    android:layout_marginEnd="12dp"
+                    android:onClick="adicionarBanner"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <ImageView
+                    android:id="@+id/img_comunity_icon"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="130dp"
+                    android:onClick="adicionarIcone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <EditText
+                    android:id="@+id/et_comunity_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="105dp"
+                    android:layout_marginEnd="12dp"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:hint="#"
+                    android:textColor="@color/laranja_splash"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.006"
+                    app:layout_constraintStart_toEndOf="@+id/img_comunity_icon"
+                    app:layout_constraintTop_toBottomOf="@+id/img_banner" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+                <TextView
+                    android:id="@+id/tv_sobre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:text="Sobre essa comunidade"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_sobre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="12dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/logo_shape"
+                    android:ems="10"
+                    android:hint="0/280"
+                    android:inputType="text"
+                    android:padding="8dp"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="12dp"
+                    android:text="Selecione uma categoria"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/logo_shape"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/LL_foot"
+                            android:layout_width="64dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/button_border_red"
+                            android:gravity="center"
+                            android:onClick="selectFoot"
+                            android:orientation="vertical"
+                            android:paddingBottom="2dp">
+
+                            <ImageView
+                                android:id="@+id/img_foot"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_weight="1"
+                                android:src="@drawable/futebolred" />
+
+                            <TextView
+                                android:id="@+id/tv_futebol"
+                                android:layout_width="48dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Futebol"
+                                android:textColor="@color/red"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/LL_box"
+                            android:layout_width="64dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="6dp"
+                            android:background="@drawable/button_border_red"
+                            android:gravity="center"
+                            android:onClick="selectBox"
+                            android:orientation="vertical"
+                            android:paddingBottom="2dp">
+
+                            <ImageView
+                                android:id="@+id/img_boxing"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_weight="1"
+                                android:src="@drawable/boxred" />
+
+                            <TextView
+                                android:id="@+id/tv_boxing"
+                                android:layout_width="48dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Box"
+                                android:textColor="@color/red"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/LL_basquete"
+                            android:layout_width="64dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/button_border_red"
+                            android:gravity="center"
+                            android:onClick="selectBasquete"
+                            android:orientation="vertical"
+                            android:paddingBottom="2dp">
+
+                            <ImageView
+                                android:id="@+id/img_basquete"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_weight="1"
+                                android:src="@drawable/basquetered" />
+
+                            <TextView
+                                android:id="@+id/tv_basquete"
+                                android:layout_width="48dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Basquete"
+                                android:textColor="@color/red"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="4dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/LL_corda"
+                            android:layout_width="64dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/button_border_red"
+                            android:gravity="center"
+                            android:onClick="selectCorda"
+                            android:orientation="vertical"
+                            android:paddingBottom="2dp">
+
+                            <ImageView
+                                android:id="@+id/img_corda"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_weight="1"
+                                android:src="@drawable/ropered" />
+
+                            <TextView
+                                android:id="@+id/tv_corda"
+                                android:layout_width="48dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Corda"
+                                android:textColor="@color/red"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/LL_xadrez"
+                            android:layout_width="64dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="6dp"
+                            android:background="@drawable/button_border_red"
+                            android:gravity="center"
+                            android:onClick="selectXadrez"
+                            android:orientation="vertical"
+                            android:paddingBottom="2dp">
+
+                            <ImageView
+                                android:id="@+id/img_xadrez"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_weight="1"
+                                android:src="@drawable/chessred" />
+
+                            <TextView
+                                android:id="@+id/tv_xadrez"
+                                android:layout_width="48dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Xadrez"
+                                android:textColor="@color/red"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/LL_volei"
+                            android:layout_width="64dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/button_border_red"
+                            android:gravity="center"
+                            android:onClick="selectVolei"
+                            android:orientation="vertical"
+                            android:paddingBottom="2dp">
+
+                            <ImageView
+                                android:id="@+id/img_volei"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_weight="1"
+                                android:src="@drawable/volleyred" />
+
+                            <TextView
+                                android:id="@+id/tv_volei"
+                                android:layout_width="48dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Volei"
+                                android:textColor="@color/red"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/LL_baseball"
+                            android:layout_width="64dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/button_border_red"
+                            android:gravity="center"
+                            android:onClick="selectBaseball"
+                            android:orientation="vertical"
+                            android:paddingBottom="2dp">
+
+                            <ImageView
+                                android:id="@+id/img_baseball"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_weight="1"
+                                android:src="@drawable/baseballred" />
+
+                            <TextView
+                                android:id="@+id/tv_baseball"
+                                android:layout_width="48dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Baseball"
+                                android:textColor="@color/red"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/LL_usfoot"
+                            android:layout_width="64dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="6dp"
+                            android:background="@drawable/button_border_red"
+                            android:gravity="center"
+                            android:onClick="selectUsFoot"
+                            android:orientation="vertical"
+                            android:paddingBottom="2dp">
+
+                            <ImageView
+                                android:id="@+id/img_usfoot"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_weight="1"
+                                android:src="@drawable/usfutebolred" />
+
+                            <TextView
+                                android:id="@+id/tv_usfoot"
+                                android:layout_width="48dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Football"
+                                android:textColor="@color/red"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/LL_natacao"
+                            android:layout_width="64dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/button_border_red"
+                            android:gravity="center"
+                            android:onClick="selectNatacao"
+                            android:orientation="vertical"
+                            android:paddingBottom="2dp">
+
+                            <ImageView
+                                android:id="@+id/img_bnatacao"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_weight="1"
+                                android:src="@drawable/natacaored" />
+
+                            <TextView
+                                android:id="@+id/tv_natacao"
+                                android:layout_width="48dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Natacao"
+                                android:textColor="@color/red"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_regras"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="12dp"
+                    android:text="Regras"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_regras"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="12dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/logo_shape"
+                    android:ems="10"
+                    android:hint="Coloque aqui as regras da comunidade"
+                    android:inputType="text"
+                    android:padding="8dp"
+                    android:textSize="12sp" />
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_config"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="6dp"
+                    android:text="Sobre essa comunidade"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_config1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="48dp"
+                    android:layout_marginTop="6dp"
+                    android:text="Administradores podem aceitar novos participantes"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_config2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="48dp"
+                    android:layout_marginTop="6dp"
+                    android:text="Membros podem publicar no feed da comunidade"
+                    android:textSize="12sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/button_publication"
+                    android:onClick="createComunity"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:text="Criar comunidade"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"></androidx.appcompat.widget.AppCompatButton>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <devsystem.olimpiclink.ui.BottomAppbarCustom
+        android:id="@+id/bottomAppbarCustom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

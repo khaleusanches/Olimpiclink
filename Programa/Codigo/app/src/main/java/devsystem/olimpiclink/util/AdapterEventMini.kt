@@ -32,7 +32,7 @@ class AdapterEventMini(val context: Context, private val user: User, private val
         holder.comunity_name.text = listEventsMini[position].comunity_name
         holder.description_event.text = listEventsMini[position].descriptionEvent
         Glide.with(context).load(listEventsMini[position].comunity_picture).circleCrop().into(holder.comunity_picture)
-        if(listEventsMini[position].url_picture_event.size > 0){
+        if(listEventsMini[position].url_picture_event.isNotEmpty()){
             Glide.with(context).load(listEventsMini[position].url_picture_event[0]).into(holder.event_cape)
         }
         else{

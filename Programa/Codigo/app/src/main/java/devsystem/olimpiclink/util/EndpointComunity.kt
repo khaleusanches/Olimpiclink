@@ -1,6 +1,7 @@
 package devsystem.olimpiclink.util
 
 import devsystem.olimpiclink.model.ComunityModel
+import devsystem.olimpiclink.model.ComunityModelPost
 import devsystem.olimpiclink.model.FollowComunityModel
 import devsystem.olimpiclink.model.PublicationModelGet
 import devsystem.olimpiclink.model.RequestMessages
@@ -15,6 +16,14 @@ import retrofit2.http.Path
 interface EndpointComunity {
     @GET("/api/comunities/{id}")
     suspend fun getComunityId(@Path("id") id : Int) : ComunityModel
+    @GET("/api/comunities")
+    suspend fun getComunity() : List<ComunityModel>
+
+    @GET("/api/comunities/user/{id}")
+    suspend fun getComunityCardId(@Path("id") id : Int) : List<ComunityModel>
+
+    @POST("/api/comunities")
+    suspend fun postComunity(@Body new_comunity : ComunityModelPost) : Response<Void>
 
     @GET("/api/comunities/FF/{id_user}&&{id_comunity}")
     suspend fun comunityFF(@Path("id_user") id : Int, @Path("id_comunity") id_comunity : Int) : RequestMessages

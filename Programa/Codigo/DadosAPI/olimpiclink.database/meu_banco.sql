@@ -44,8 +44,10 @@ CREATE TABLE `comunities` (
   `name_comunity` varchar(255) DEFAULT NULL,
   `description_comunity` text DEFAULT NULL,
   `icon_comunity` mediumblob DEFAULT NULL,
+  `banner_comunity` mediumblob DEFAULT NULL,
 
   `url_icon_comunity` varchar(255) default null,
+  `url_banner_comunity` varchar(255) default null,
   `category_id` int unsigned default null,
   `regras_comunity` varchar(500) default null,
   

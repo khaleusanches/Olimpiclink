@@ -1,6 +1,7 @@
 package devsystem.olimpiclink.ui.pages
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -44,6 +45,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
+        val screenSize = resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK
+
+        when (screenSize) {
+            Configuration.SCREENLAYOUT_SIZE_SMALL -> Log.d("ScreenSize", "Small screen detected")
+            Configuration.SCREENLAYOUT_SIZE_NORMAL -> Log.d("ScreenSize", "Normal screen detected")
+            Configuration.SCREENLAYOUT_SIZE_LARGE -> Log.d("ScreenSize", "Large screen detected")
+            Configuration.SCREENLAYOUT_SIZE_XLARGE -> Log.d("ScreenSize", "XLarge screen detected")
+            else -> Log.d("ScreenSize", "Unknown screen size")
+        }
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

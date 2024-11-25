@@ -25,7 +25,7 @@ class AdapterCommunityCard(val context: Context, private val list_community_card
 
     //Exibe
     override fun onBindViewHolder(holder: CommunityCardViewHolder, position: Int) {
-        holder.community_name.text = list_community_cardModel[position].teste
+       // holder.community_name.text = list_community_cardModel[position].teste
     }
     inner class CommunityCardViewHolder(binding : CommunityCardBinding) : RecyclerView.ViewHolder(binding.root){
         val community_name = binding.tvCommunityName

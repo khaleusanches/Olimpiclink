@@ -11,4 +11,5 @@
     <declare-styleable name="CommunityCard"></declare-styleable>
     <declare-styleable name="MyProfileMainBinding"></declare-styleable>
     <declare-styleable name="FriendsFollowsFollowersBinding"></declare-styleable>
+    <declare-styleable name="ComunityComponent"></declare-styleable>
 </resources>
