@@ -11,10 +11,51 @@ namespace olimpiclink.database.Controllers
     {
         ConnectionContext context = new ConnectionContext(); //cria conexão
         [HttpPost]
-        public async void postComunity(ComunityModel new_comunity)
+        public async void postComunity(AddComunityModel new_comunity)
         {
-            await context.comunities.AddAsync(new_comunity);
+            var img_icon = Convert.FromBase64String(new_comunity.icon_comunity.Trim().Replace(" ", "").Replace("\n", ""));
+            var img_banner = Convert.FromBase64String(new_comunity.banner_comunity.Trim().Replace(" ", "").Replace("\n", ""));
+            var new_comu = new ComunityModel(
+                new_comunity.name_comunity,
+                new_comunity.description_comunity,
+                new_comunity.category_id,
+                new_comunity.regras_comunity,
+                img_icon, img_banner);
+            var id = context.comunities.ToListAsync().Result.Count() + 1;
+            new_comu.url_icon_comunity = "http://192.168.0.158:5000/api/comunities/icon/" + id;
+            new_comu.url_banner_comunity = "http://192.168.0.158:5000/api/comunities/banner/" + id;
+            await context.comunities.AddAsync(new_comu);
             await context.SaveChangesAsync();
+            await context.leaders.AddAsync(new LeaderModel(new_comunity.id_user));
+            await context.SaveChangesAsync();
+            var id_leader = context.leaders.ToListAsync().Result.Count();
+            await context.comunity_has_leader.AddAsync(new ComunityHasLeader(id, id_leader));
+            await context.SaveChangesAsync();
+            await context.participation_comunity.AddAsync(new ParticipationComunity(new_comunity.id_user, id));
+            await context.SaveChangesAsync();
+            await context.follow_comunity.AddAsync(new FollowComunity(new_comunity.id_user, id));
+            await context.SaveChangesAsync();
+        }
+
+        [HttpGet("icon/{id}")]
+        public async Task<IActionResult> getIconComunity(int id)
+        {
+            byte[]? publicationImage = (await context.comunities.FindAsync(id)).icon_comunity;
+            if (publicationImage == null)
+            {
+                return BadRequest();
+            }
+            return File(publicationImage, "image/jpeg");
+        }
+        [HttpGet("banner/{id}")]
+        public async Task<IActionResult> getBannerComunitu(int id)
+        {
+            byte[]? publicationImage = (await context.comunities.FindAsync(id)).banner_comunity;
+            if (publicationImage == null)
+            {
+                return BadRequest();
+            }
+            return File(publicationImage, "image/jpeg");
         }
 
         [HttpGet]
@@ -39,11 +80,40 @@ namespace olimpiclink.database.Controllers
                     category_icon = (from category in context.categories
                                      where category.id_category == comunities.category_id
                                      select category.url_icon_category).SingleOrDefault(),
-
                 }).ToListAsync();
             return Ok(comunity);
         }
 
+        [HttpGet("user/{id_user}")]
+        public async Task<IActionResult> getAllComunityUser(int id_user)
+        {
+            var comunity = await
+                (
+                from comunities in context.comunities
+                join follows_comunities in context.follow_comunity
+                on comunities.id_comunity equals follows_comunities.comunity_id
+                join user in context.users
+                on follows_comunities.user_id equals user.id_user
+                where user.id_user == id_user
+                select new
+                {
+                    comunities.id_comunity,
+                    comunities.name_comunity,
+                    comunities.description_comunity,
+                    comunities.url_icon_comunity,
+                    comunities.regras_comunity,
+                    n_seguidores = (from follows_comunities in context.follow_comunity
+                                    where follows_comunities.comunity_id == comunities.id_comunity
+                                    select new { comunities.id_comunity }).Count(),
+                    n_participantes = (from participations_comunities in context.participation_comunity
+                                       where participations_comunities.comunity_id == comunities.id_comunity
+                                       select new { comunities.id_comunity }).Count(),
+                    category_icon = (from category in context.categories
+                                     where category.id_category == comunities.category_id
+                                     select category.url_icon_category).SingleOrDefault(),
+                }).ToListAsync();
+            return Ok(comunity);
+        }
         [HttpGet("{id}")]
         public async Task<IActionResult> getComunityID(int id)
         {
@@ -57,6 +127,7 @@ namespace olimpiclink.database.Controllers
                     comunities.name_comunity,
                     comunities.description_comunity,
                     comunities.url_icon_comunity,
+                    comunities.url_banner_comunity,
                     comunities.regras_comunity,
                     n_seguidores = (from follows_comunities in context.follow_comunity
                                     where follows_comunities.comunity_id == comunities.id_comunity

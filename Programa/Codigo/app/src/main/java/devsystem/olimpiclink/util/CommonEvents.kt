@@ -3,6 +3,9 @@ package devsystem.olimpiclink.util
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.util.Base64
 import android.view.MotionEvent.ACTION_CANCEL
 import android.view.MotionEvent.ACTION_DOWN
 import android.view.MotionEvent.ACTION_UP
@@ -17,6 +20,7 @@ import devsystem.olimpiclink.ui.pages.ListCommunitiesActivity
 import devsystem.olimpiclink.ui.pages.MainActivity
 import devsystem.olimpiclink.ui.pages.MyProfileActivity
 import devsystem.olimpiclink.ui.pages.UnpublishedPublicationActivity
+import java.io.ByteArrayOutputStream
 
 class CommonEvents {
     @SuppressLint("ClickableViewAccessibility")
@@ -82,9 +86,24 @@ class CommonEvents {
             main_activity.putExtra("user", user)
             main_activity.putExtra("comunity_id", 2)
             context.startActivity(main_activity)
-            context.finish()
         }
     }
 
+    fun byteArrayToBase64(byteArray: ByteArray?): String? {
+        return if (byteArray != null) {
+            Base64.encodeToString(byteArray, 1)
+        } else {
+            null
+        }
+    }
+    fun imageToByte(image : ImageView?) : ByteArray?{
+        if(image?.drawable == null){
+            return null
+        }
+        var bitmap = (image.drawable as BitmapDrawable).bitmap
+        var stream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.PNG, 10, stream)
+        return stream.toByteArray()
+    }
 
 }
