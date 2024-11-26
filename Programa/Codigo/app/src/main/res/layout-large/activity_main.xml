@@ -41,10 +41,10 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:src="@drawable/filter"
                     android:id="@+id/btn_filter"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="28dp"
+                    android:src="@drawable/filter"
+                    android:layout_height="28dp"
                     android:layout_gravity="center"
                     android:layout_marginStart="16dp"
                     android:background="@drawable/button_border_red"
@@ -58,13 +58,13 @@
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_inicio"
                     android:layout_width="72dp"
-                    android:layout_height="32dp"
+                    android:layout_height="28dp"
                     android:layout_gravity="center"
                     android:background="@drawable/button_border_red_selected"
                     android:onClick="inicioClick"
                     android:text="Início"
                     android:textColor="@color/white"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/btn_seguindo"
                     app:layout_constraintHorizontal_bias="0.883"
@@ -74,26 +74,27 @@
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_seguindo"
                     android:layout_width="wrap_content"
-                    android:layout_height="32dp"
+                    android:layout_height="28dp"
                     android:layout_gravity="center"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginEnd="16dp"
                     android:background="@drawable/button_border_red"
                     android:onClick="seguindoClick"
-                    android:paddingLeft="12dp"
-                    android:paddingRight="12dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
                     android:text="Seguindo"
                     android:textColor="@color/red"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/btn_pinto"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <ImageView
-                    android:src="@drawable/bell"
                     android:id="@+id/btn_pinto"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_gravity="center"
+                    android:src="@drawable/bell"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/button_border_red"
                     android:text="x"
@@ -104,14 +105,14 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:src="@drawable/chat"
                     android:id="@+id/btn_conversas"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_gravity="center"
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/button_border_red"
                     android:text="x"
+                    android:src="@drawable/chat"
                     android:textColor="@color/red"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -120,7 +121,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
             <View
                 android:id="@+id/divider"
-                android:layout_width="409dp"
+                android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="8dp"
                 android:background="@color/laranja_splash"
@@ -168,16 +169,16 @@
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_vermais"
                     android:layout_width="wrap_content"
-                    android:layout_height="32dp"
+                    android:layout_height="28dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="8dp"
                     android:background="@drawable/button_publication"
                     android:onClick="moreNow"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
+                    android:paddingLeft="18dp"
+                    android:paddingRight="18dp"
                     android:text="Ver mais"
                     android:textColor="@color/white"
-                    android:textSize="14sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
