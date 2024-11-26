@@ -1,0 +1,5 @@
+Conclusão
+
+O desenvolvimento de um aplicativo, que funciona como uma rede social para melhorar a divulgação de locais esportivos, se revelou uma solução inovadora para a dificuldade de acesso da população à prática de esportes, seja pela falta de pessoas para praticar ou pela escassez de espaços adequados. Este projeto demonstrou como a tecnologia pode ser uma ferramenta eficaz na resolução de problemas sociais, oferecendo uma solução prática e realista para o cenário atual.
+
+Além disso, o aplicativo apresenta um grande potencial de expansão, uma vez que, ao facilitar o acesso a locais e promover a interação entre os usuários, ele pode incentivar a prática de esportes e contribuir para a adoção de um estilo de vida mais saudável. Com isso, o projeto não só oferece uma resposta às necessidades imediatas da população, mas também cria oportunidades para um impacto positivo e duradouro na saúde e bem-estar da sociedade.
