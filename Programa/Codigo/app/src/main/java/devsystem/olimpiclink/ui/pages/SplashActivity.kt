@@ -1,5 +1,6 @@
 package devsystem.olimpiclink.ui.pages
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -9,8 +10,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import devsystem.olimpiclink.R
 
+@SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
-    private var TIME_OUT = 4000
+    private var TIME_OUT = 1000
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -26,7 +28,7 @@ class SplashActivity : AppCompatActivity() {
 
     private fun timeIsUp() {
         Handler().postDelayed({
-            val telaLogin = Intent(this, InitialActivity::class.java)
+            val telaLogin = Intent(this, ParaTestesActivity::class.java)
             startActivity(telaLogin)
             finish()
         }, TIME_OUT.toLong())

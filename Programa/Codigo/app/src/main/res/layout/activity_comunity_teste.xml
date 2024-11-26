@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <devsystem.olimpiclink.ui.ToolbarCustom
+        android:id="@+id/toolbarCustom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        app:layout_constraintBottom_toTopOf="@+id/bottomAppbarCustom"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarCustom"
+        android:layout_width="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="80dp"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <!-- Banner -->
+            <ImageView
+                android:id="@+id/img_banner"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintDimensionRatio="3:1"
+                app:layout_constraintEnd_toEndOf="@+id/GL_2"
+                app:layout_constraintStart_toStartOf="@+id/GL_1"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/GL_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.05" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/GL_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.95" />
+            <!-- Banner -->
+
+            <ImageView
+                android:id="@+id/img_comunity_icon"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="12dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="@id/GL_4"
+                app:layout_constraintStart_toStartOf="@+id/GL_1"
+                app:layout_constraintTop_toTopOf="@+id/GL_3"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/GL_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.46" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/GL_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.28" />
+
+            <TextView
+                android:id="@+id/tv_comunity_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
+                android:text="#nomedacomunidade"
+                android:textColor="@color/laranja_splash"
+                android:textSize="@dimen/medium_text"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/tv_participantes"
+                app:layout_constraintStart_toEndOf="@+id/img_comunity_icon"
+                app:layout_constraintTop_toBottomOf="@+id/img_banner" />
+
+            <TextView
+                android:id="@+id/tv_participantes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:text="23 amigos"
+                android:textColor="@color/laranja_splash"
+                android:textSize="@dimen/small_small_text"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/GL_2"
+                app:layout_constraintStart_toEndOf="@+id/tv_comunity_name"
+                app:layout_constraintTop_toBottomOf="@+id/img_banner" />
+
+            <TextView
+                android:id="@+id/tv_follows"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="8dp"
+                android:text="23 seguindo"
+                android:textColor="@color/laranja_splash"
+                android:textSize="@dimen/small_small_text"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/GL_2"
+                app:layout_constraintStart_toEndOf="@+id/tv_comunity_name"
+                app:layout_constraintTop_toBottomOf="@+id/tv_participantes" />
+
+            <TextView
+                android:id="@+id/tv_bio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="bio bio bio bio bio bio biooooooooooooooooooooooooooooooooooooooooooooooo"
+                android:textSize="11sp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/GL_5"
+                app:layout_constraintStart_toStartOf="@id/GL_1"
+                app:layout_constraintTop_toBottomOf="@+id/img_comunity_icon" />
+
+            <ImageView
+                android:id="@+id/btn_category"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/button_border_red"
+                android:textColor="@color/red"
+                android:layout_marginTop="8dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="@id/GL_2"
+                app:layout_constraintStart_toEndOf="@+id/GL_5"
+                app:layout_constraintTop_toBottomOf="@+id/tv_follows" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/GL_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.85" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <devsystem.olimpiclink.ui.BottomAppbarCustom
+        android:id="@+id/bottomAppbarCustom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
