@@ -11,8 +11,19 @@ interface EndpointEvent {
 
     @GET("/api/Event/mini")
     suspend fun eventMiniGet() : List<EventMiniModelGet>
-    @GET("api/Event/mini/{id}")
+
+    @GET("/api/mini/comunity/{id}")
+    suspend fun eventMiniGetComunity(
+        @Path("id") id : Int
+    ) : List<EventMiniModelGet>
+
+    @GET("/api/Event/mini/{id}")
     suspend fun eventMiniGetSeguindo(
+        @Path("id") id : Int
+    ) : List<EventMiniModelGet>
+
+    @GET("/api/Event/comunity/{id}")
+    suspend fun eventGetComunity(
         @Path("id") id : Int
     ) : List<EventMiniModelGet>
 }

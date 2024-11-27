@@ -201,7 +201,7 @@ class ComunityActivity : AppCompatActivity() {
         binding.btnEvents.setBackgroundResource(R.drawable.button_border_red_selected)
         lifecycleScope.launch {
             try {
-                var list_events = api_events.eventMiniGet()
+                var list_events = api_events.eventMiniGetComunity(comunity_id)
                 val adapter = AdapterEvent(this@ComunityActivity, user, list_events)
                 val rc = binding.rcEvents
                 rc.layoutManager = LinearLayoutManager(this@ComunityActivity)

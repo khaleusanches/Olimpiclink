@@ -99,6 +99,48 @@ namespace olimpiclink.database.Controllers
             return Ok(ev);
         }
 
+        [HttpGet("comunity/{id}")]
+        public async Task<IActionResult> getEventsComunity(int id)
+        {
+            var list = await (
+                from events in context.events
+
+                join place in context.places
+                on events.place_id equals place.id_place
+
+                join comunity in context.comunities
+                on events.comunity_id equals comunity.id_comunity
+                where events.activated_event == true && events.comunity_id == id
+                orderby events.idEvent descending
+                select new
+                {
+                    idEvent = events.idEvent,
+                    place_id = events.place_id,
+                    place_name = place.name_place,
+                    comunity_id = events.comunity_id,
+                    comunity_name = comunity.name_comunity,
+                    comunity_picture = comunity.url_icon_comunity,
+                    nameEvent = events.nameEvent,
+                    descriptionEvent = events.descriptionEvent,
+                    dateTimeEvent = events.dateTimeEvent,
+                    closingDateTimeEvent = events.closingDateTimeEvent,
+                    url_picture_event = (from picture in context.pictures_events
+                                         where picture.event_id == events.idEvent
+                                         select (picture == null ? null : "http://192.168.0.158:5000/api/PictureEvent/" + picture.id_picture_event)
+                                         ).ToList(),
+                    marked_presences = (from marked_presences in context.marked_presences
+                                        where marked_presences.event_id == events.idEvent
+                                        select marked_presences).Count()
+                }
+            ).ToListAsync();
+
+            if (list == null)
+            {
+                return BadRequest();
+            }
+            return Ok(list);
+        }
+
         // POST api/<EventController>
         [HttpPost]
         public async Task<IActionResult> Post(PostEventModel post_new_event)
@@ -191,6 +233,45 @@ namespace olimpiclink.database.Controllers
                 on comunity.id_comunity equals user_comunity.comunity_id
 
                 where events.activated_event == true && user_comunity.user_id == id
+                orderby events.created_at_event descending
+                select new
+                {
+                    idEvent = events.idEvent,
+                    comunity_id = events.comunity_id,
+                    comunity_name = comunity.name_comunity,
+                    comunity_picture = "http://192.168.0.158:5000/api/comunities/images/" + comunity.id_comunity,
+                    nameEvent = events.nameEvent,
+                    descriptionEvent = events.descriptionEvent,
+                    data = events.created_at_event,
+                    url_picture_event = (from picture in context.pictures_events
+                                         where picture.event_id == events.idEvent
+                                         select (picture == null ? null : "http://192.168.0.158:5000/api/PictureEvent/" + picture.id_picture_event)
+                                         ).Take(1).ToList(),
+                }
+            ).ToListAsync();
+
+            if (list == null)
+            {
+                return BadRequest();
+            }
+            return Ok(list);
+        }
+
+        [HttpGet("mini/comunity/{id}")]
+        public async Task<IActionResult> getEventMiniComunity(int id)
+        {
+            var list = await (
+                from events in context.events
+                join place in context.places
+                on events.place_id equals place.id_place
+
+                join comunity in context.comunities
+                on events.comunity_id equals comunity.id_comunity
+
+                join user_comunity in context.user_comunity
+                on comunity.id_comunity equals user_comunity.comunity_id
+
+                where events.activated_event == true && comunity.id_comunity == id
                 orderby events.created_at_event descending
                 select new
                 {

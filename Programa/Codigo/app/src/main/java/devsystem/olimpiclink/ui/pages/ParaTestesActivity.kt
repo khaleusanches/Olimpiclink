@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.applandeo.materialcalendarview.CalendarDay
 import com.applandeo.materialcalendarview.CalendarView
 import com.applandeo.materialcalendarview.EventDay
@@ -16,6 +17,8 @@ import com.applandeo.materialcalendarview.listeners.OnCalendarPageChangeListener
 import com.bumptech.glide.Glide
 import devsystem.olimpiclink.R
 import devsystem.olimpiclink.databinding.ActivityParaTestesBinding
+import devsystem.olimpiclink.model.EventModelGet
+import devsystem.olimpiclink.util.AdapterEventCalendar
 
 class ParaTestesActivity : AppCompatActivity() {
     private lateinit var binding : ActivityParaTestesBinding
@@ -58,6 +61,7 @@ class ParaTestesActivity : AppCompatActivity() {
         Glide.with(this).load("https://proece.ufms.br/files/2021/05/Qdd_Geral-1024x1024.jpg").circleCrop().into(binding.imgComunityIcon)
 
         calendarview = binding.calendarViewteste
+
         val calendars : ArrayList<CalendarDay> = ArrayList()
         val calendar = java.util.Calendar.getInstance()
         calendar.set(2024,7,30)
@@ -66,7 +70,18 @@ class ParaTestesActivity : AppCompatActivity() {
         calendarDay.imageResource = R.drawable.calred
         calendars.add(calendarDay)
         events["20-07-2024"] = "BurguerDay"
+
+        var datas : List<Int> = listOf(28, 27, 16, 11)
+        datas.forEach {
+            val cal = java.util.Calendar.getInstance()
+            cal.set(2024, 10, it)
+            val calDay = CalendarDay(cal)
+            calDay.labelColor = R.color.red
+            calDay.imageResource = R.drawable.calred
+            calendars.add(calDay)
+        }
         calendarview.setCalendarDays(calendars)
+
         calendarview.setOnCalendarDayClickListener(object : OnCalendarDayClickListener {
             override fun onClick(calendarDay: CalendarDay) {
                 val day = String.format("%02d", calendarDay.calendar.get(Calendar.DAY_OF_MONTH))
@@ -91,5 +106,26 @@ class ParaTestesActivity : AppCompatActivity() {
                 Log.d("voltei", "pintao")
             }
         })
+
+        teste()
+    }
+
+    private fun teste() {
+        var rc = binding.rcCalendarEvents
+        var event = EventModelGet(
+            1, 1, "poli", 1, "comunidade teste", "nao",
+            "Evento de teste", "Descrição do evento de teste", "2024-12-11T22:10:10",
+            "teste", listOf("https://img.freepik.com/fotos-premium/fundo-preto-da-parede-de-concreto-aspero-com-luzes-de-neon-e-luzes-brilhantes-efeito-de-luz-rosa-roxo-e-azul-na-parede-de-cimento-vazia_35257-949.jpg"), 1
+        )
+        var event2 = EventModelGet(
+            1, 1, "poli", 1, "comunidade teste", "nao",
+            "Evento de teste", "Descrição do evento de teste", "2024-12-11T22:10:10",
+            "teste", listOf("https://img.freepik.com/fotos-premium/fundo-preto-da-parede-de-concreto-aspero-com-luzes-de-neon-e-luzes-brilhantes-efeito-de-luz-rosa-roxo-e-azul-na-parede-de-cimento-vazia_35257-949.jpg"), 1
+        )
+        var lista = listOf(event, event2)
+        var adapter = AdapterEventCalendar(this, lista)
+        rc?.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        rc?.setHasFixedSize(true)
+        rc?.adapter = adapter
     }
 }
