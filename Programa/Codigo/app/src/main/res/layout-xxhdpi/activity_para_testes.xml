@@ -75,7 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.15" />
+                app:layout_constraintGuide_percent="0.188" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/GL_4"
@@ -464,10 +464,9 @@
                 app:layout_constraintEnd_toEndOf="@id/GL_2"
                 app:layout_constraintStart_toStartOf="@id/GL_1"
                 app:layout_constraintTop_toBottomOf="@+id/divider" />
-
             <com.applandeo.materialcalendarview.CalendarView
                 android:id="@+id/calendarViewteste"
-                android:layout_height="500dp"
+                android:layout_height="0dp"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="@id/GL_2"
                 app:layout_constraintStart_toStartOf="@id/GL_1"

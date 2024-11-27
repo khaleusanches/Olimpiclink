@@ -230,19 +230,32 @@ class ComunityActivity : AppCompatActivity() {
             catch (e: Exception) { }
         }
     }
+
+    fun seeCalendar(view: View) {
+        closeAll()
+
+        binding.btnCalendar.setImageResource(R.drawable.calon)
+        binding.btnCalendar.setBackgroundResource(R.drawable.button_border_red_selected)
+
+    }
     fun closeAll(){
         binding.btnPublications.setImageResource(R.drawable.postred)
         binding.btnAll.setImageResource(R.drawable.comred)
         binding.btnEvents.setImageResource(R.drawable.eventored)
-        binding.btnAll.setBackgroundResource(R.drawable.com)
         binding.btnGalery.setImageResource(R.drawable.galeriared)
+        binding.btnCalendar.setImageResource(R.drawable.calred)
+        binding.btnCalendar.setBackgroundResource(R.color.transparentMesm)
         binding.btnPublications.setBackgroundResource(R.color.transparentMesm)
+        binding.btnAll.setBackgroundResource(R.drawable.com)
         binding.btnEvents.setBackgroundResource(R.color.transparentMesm)
         binding.btnGalery.setBackgroundResource(R.color.transparentMesm)
         binding.boxRegras.visibility = View.GONE
         binding.rcFeed.visibility = View.GONE
         binding.rcEvents.visibility = View.GONE
+
     }
+
+
 
 
 }
