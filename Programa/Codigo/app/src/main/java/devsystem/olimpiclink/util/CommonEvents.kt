@@ -19,6 +19,7 @@ import devsystem.olimpiclink.ui.pages.ComunityActivity
 import devsystem.olimpiclink.ui.pages.ListCommunitiesActivity
 import devsystem.olimpiclink.ui.pages.MainActivity
 import devsystem.olimpiclink.ui.pages.MyProfileActivity
+import devsystem.olimpiclink.ui.pages.SearchActivity
 import devsystem.olimpiclink.ui.pages.UnpublishedPublicationActivity
 import java.io.ByteArrayOutputStream
 
@@ -85,6 +86,14 @@ class CommonEvents {
             view.setBackgroundResource(R.drawable.edit_text_selected)
             main_activity.putExtra("user", user)
             main_activity.putExtra("comunity_id", 2)
+            context.startActivity(main_activity)
+        }
+    }
+    fun goPageSearch(user : User, context: Activity, view : View){
+        view.setOnClickListener{
+            var main_activity = Intent(context, SearchActivity::class.java)
+            view.setBackgroundResource(R.drawable.edit_text_selected)
+            main_activity.putExtra("user", user)
             context.startActivity(main_activity)
         }
     }

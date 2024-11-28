@@ -97,6 +97,7 @@ class UnpublishedPublicationActivity : AppCompatActivity() {
         commonEvents.goPageMain(user, this, binding.bottomMenu.binding.btnPgInitial)
         commonEvents.goPageMyProfile(user, this, binding.bottomMenu.binding.btnPgProfile)
         commonEvents.goPageComunity(user, this, binding.bottomMenu.binding.btnPgCommunities)
+        commonEvents.goPageSearch(user, this, binding.bottomMenu.binding.btnPgSearch)
 
         binding.bottomMenu.binding.btnPgCreatePublication.setImageResource(R.drawable.publication_on)
     }

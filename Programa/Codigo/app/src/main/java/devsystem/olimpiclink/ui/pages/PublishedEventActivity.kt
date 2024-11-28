@@ -54,7 +54,7 @@ class PublishedEventActivity : AppCompatActivity() {
         commonEvents.goPageMain(user, this, binding.bottomMenu.binding.btnPgInitial)
         commonEvents.goPageMyProfile(user, this, binding.bottomMenu.binding.btnPgProfile)
         commonEvents.goPageComunity(user, this, binding.bottomMenu.binding.btnPgCommunities)
-
+        commonEvents.goPageSearch(user, this, binding.bottomMenu.binding.btnPgSearch)
         loadEvent()
     }
 
@@ -70,7 +70,7 @@ class PublishedEventActivity : AppCompatActivity() {
             }else{
                 binding.imgEventCape.visibility = View.GONE
             }
-            binding.tvDate.text = "De " + formatDateTime(event.dateTimeEvent) + " até " + formatDateTime(event.closingDateTimeEvent)
+            binding.tvDate.text = "De " + formatDateTime(event.dateTimeEvent) + " até " + formatDateTime(event.closingDateTimeEvent) + "no endereço: " + event.endereco
         }
     }
 

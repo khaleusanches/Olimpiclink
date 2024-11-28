@@ -75,6 +75,7 @@ class MyProfileActivity : AppCompatActivity() {
         commonEvents.goPageMain(user, this, binding.bottomAppbarCustom.binding.btnPgInitial)
         commonEvents.goPageMyProfile(user, this, binding.bottomAppbarCustom.binding.btnPgProfile)
         commonEvents.goPageComunity(user, this, binding.bottomAppbarCustom.binding.btnPgCommunities)
+        commonEvents.goPageSearch(user, this, binding.bottomAppbarCustom.binding.btnPgSearch)
         binding.bottomAppbarCustom.binding.btnPgProfile.setImageResource(R.drawable.profile_on)
     }
 

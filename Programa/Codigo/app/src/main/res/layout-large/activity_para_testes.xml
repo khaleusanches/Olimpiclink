@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.pages.ParaTestesActivity">
+    <devsystem.olimpiclink.ui.ToolbarCustom
+        android:id="@+id/toolbarCustom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomAppbarCustom"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarCustom"
+        tools:layout_editor_absoluteX="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <!-- Banner -->
+            <ImageView
+                android:id="@+id/img_banner"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintDimensionRatio="2.5:1"
+                app:layout_constraintEnd_toEndOf="@+id/GL_2"
+                app:layout_constraintStart_toStartOf="@+id/GL_1"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/GL_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.02" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/GL_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.98" />
+            <!-- Banner -->
+
+            <ImageView
+                android:id="@+id/img_comunity_icon"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="12dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="@id/GL_4"
+                app:layout_constraintStart_toStartOf="@+id/GL_1"
+                app:layout_constraintTop_toTopOf="@+id/GL_3"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/GL_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.188" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/GL_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.23" />
+
+            <TextView
+                android:id="@+id/tv_comunity_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
+                android:text="#nomedacomunidade"
+                android:textColor="@color/laranja_splash"
+                android:textSize="@dimen/medium_text"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/tv_participantes"
+                app:layout_constraintStart_toEndOf="@+id/img_comunity_icon"
+                app:layout_constraintTop_toBottomOf="@+id/img_banner" />
+
+            <TextView
+                android:id="@+id/tv_participantes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:paddingLeft="16dp"
+                android:text="23 amigos"
+                android:textColor="@color/laranja_splash"
+                android:textSize="@dimen/small_small_text"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/GL_2"
+                app:layout_constraintStart_toEndOf="@+id/tv_comunity_name"
+                app:layout_constraintTop_toBottomOf="@+id/img_banner" />
+
+            <TextView
+                android:id="@+id/tv_follows"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="8dp"
+                android:text="23 seguidores"
+                android:textColor="@color/laranja_splash"
+                android:textSize="@dimen/small_small_text"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/GL_2"
+                app:layout_constraintStart_toEndOf="@+id/tv_comunity_name"
+                app:layout_constraintTop_toBottomOf="@+id/tv_participantes" />
+
+            <TextView
+                android:id="@+id/tv_bio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="bio bio bio bio bio bio biooooooooooooooooooooooooooooooooooooooooooooooo"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@+id/GL_5"
+                app:layout_constraintStart_toStartOf="@id/GL_1"
+                app:layout_constraintTop_toBottomOf="@+id/img_comunity_icon" />
+
+            <ImageView
+                android:id="@+id/btn_category"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/button_border_red"
+                android:textColor="@color/red"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="@id/GL_2"
+                app:layout_constraintStart_toEndOf="@+id/GL_5"
+                app:layout_constraintTop_toBottomOf="@+id/tv_follows" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/GL_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.87" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_seguir"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/button_border_red_selected"
+                android:onClick="seguirComunity"
+                android:text="Seguir"
+                android:textSize="11sp"
+                app:layout_constraintDimensionRatio="4:1"
+                app:layout_constraintEnd_toEndOf="@id/GL_6"
+                app:layout_constraintStart_toStartOf="@id/GL_1"
+                app:layout_constraintTop_toBottomOf="@id/tv_bio" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_participante"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/button_border_red"
+                android:onClick="requestParticipar"
+                android:text="Pedir para participar"
+                android:textSize="11sp"
+                app:layout_constraintDimensionRatio="5:1"
+                app:layout_constraintEnd_toEndOf="@id/GL_7"
+                app:layout_constraintStart_toStartOf="@id/GL_6"
+                app:layout_constraintTop_toBottomOf="@id/tv_bio" />
+
+            <ImageView
+                android:id="@+id/btn_compartilhar"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/button_border_red"
+                android:src="@drawable/sharered"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="@id/GL_8"
+                app:layout_constraintStart_toStartOf="@id/GL_7"
+                app:layout_constraintTop_toBottomOf="@id/tv_bio" />
+
+            <ImageView
+                android:id="@+id/btn_notificacoes"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/button_border_red"
+                android:src="@drawable/bell"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="@id/GL_2"
+                app:layout_constraintStart_toStartOf="@id/GL_8"
+                app:layout_constraintTop_toBottomOf="@id/tv_bio" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/GL_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.35" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/GL_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.78" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/GL_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.882" />
+
+            <LinearLayout
+                android:id="@+id/box_regras"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/logo_shape"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingHorizontal="10dp"
+                android:paddingBottom="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_participante">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:text="📌"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/logo_shape"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/tv_regra"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:text="Regras"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_regras"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="kaskdsakdskkadskasdkdsaksadkadsdadsadsskkadskadskadskadsdaskl"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/btn_all"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="4dp"
+                android:layout_marginVertical="8dp"
+                android:background="@drawable/button_border_red_selected"
+                android:backgroundTint="@color/red"
+                android:onClick="seeAll"
+                android:src="@drawable/comon"
+                android:text=""
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@+id/btn_publications"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@id/GL_1"
+                app:layout_constraintTop_toBottomOf="@+id/box_regras" />
+
+            <ImageView
+                android:id="@+id/btn_publications"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:background="@drawable/postred"
+                android:onClick="seePublication"
+                android:text=""
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                android:layout_marginHorizontal="4dp"
+                android:layout_marginVertical="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/btn_events"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btn_all"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintTop_toBottomOf="@+id/box_regras"
+                />
+
+            <ImageView
+                android:id="@+id/btn_events"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:onClick="showEvents"
+                android:scaleType="centerCrop"
+                android:src="@drawable/eventored"
+                android:text=""
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                android:layout_marginHorizontal="4dp"
+                android:layout_marginVertical="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/btn_galery"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toEndOf="@+id/btn_publications"
+                app:layout_constraintTop_toBottomOf="@+id/box_regras" />
+
+            <ImageView
+                android:id="@+id/btn_galery"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1:1"
+                android:layout_gravity="center"
+                android:onClick="seeGalery"
+                android:src="@drawable/galeriared"
+                android:text=""
+                android:textColor="@color/red"
+                android:layout_marginHorizontal="4dp"
+                android:layout_marginVertical="8dp"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/btn_marked"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btn_events"
+                app:layout_constraintTop_toBottomOf="@+id/box_regras" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_marked"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1:1"
+                android:layout_gravity="center"
+                android:background="@drawable/markred"
+                android:text=""
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                android:layout_marginHorizontal="4dp"
+                android:layout_marginVertical="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/btn_chat"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btn_galery"
+                app:layout_constraintTop_toBottomOf="@+id/box_regras" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_chat"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1:1"
+                android:layout_gravity="center"
+                android:background="@drawable/chat"
+                android:text=""
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/btn_calendar"
+                android:layout_marginHorizontal="4dp"
+                android:layout_marginVertical="8dp"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btn_marked"
+                app:layout_constraintTop_toBottomOf="@+id/box_regras" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_calendar"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1:1"
+                android:layout_gravity="center"
+                android:background="@drawable/calred"
+                android:onClick="seeCalendar"
+                android:text=""
+                android:textColor="@color/red"
+                android:layout_marginRight="8dp"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginHorizontal="4dp"
+                android:layout_marginVertical="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/GL_2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btn_chat"
+                app:layout_constraintTop_toBottomOf="@+id/box_regras" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/GL_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.83" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/GL_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.89" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="6dp"
+                android:background="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/btn_galery" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rc_feed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:nestedScrollingEnabled="false"
+                android:paddingBottom="200dp"
+                app:layout_constraintEnd_toEndOf="@id/GL_2"
+                app:layout_constraintStart_toStartOf="@id/GL_1"
+                app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rc_events"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:nestedScrollingEnabled="false"
+                android:paddingBottom="200dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/GL_2"
+                app:layout_constraintStart_toStartOf="@id/GL_1"
+                app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rc_calendar_events"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:nestedScrollingEnabled="false"
+                app:layout_constraintEnd_toEndOf="@id/GL_2"
+                app:layout_constraintStart_toStartOf="@id/GL_1"
+                app:layout_constraintTop_toBottomOf="@+id/calendarViewteste" />
+
+            <com.applandeo.materialcalendarview.CalendarView
+                android:id="@+id/calendarViewteste"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@id/GL_2"
+                app:layout_constraintStart_toStartOf="@id/GL_1"
+                android:layout_margin="16dp"
+                app:daysLabelsColor="@color/red"
+                app:abbreviationsLabelsSize="6sp"
+                app:abbreviationsLabelsColor="@color/red"
+                app:abbreviationsBarColor="@color/red_claro"
+                app:headerColor="@color/red"
+                app:anotherMonthsDaysLabelsColor="@color/transparentMesm"
+                app:todayLabelColor="@color/laranja_splash"
+                android:background="@drawable/button_border_red"
+                app:layout_constraintTop_toBottomOf="@+id/divider"
+                android:layout_width="0dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <devsystem.olimpiclink.ui.BottomAppbarCustom
+        android:id="@+id/bottomAppbarCustom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

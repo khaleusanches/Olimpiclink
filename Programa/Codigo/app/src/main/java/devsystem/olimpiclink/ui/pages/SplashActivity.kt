@@ -28,7 +28,7 @@ class SplashActivity : AppCompatActivity() {
 
     private fun timeIsUp() {
         Handler().postDelayed({
-            val telaLogin = Intent(this, ParaTestesActivity::class.java)
+            val telaLogin = Intent(this, InitialActivity::class.java)
             startActivity(telaLogin)
             finish()
         }, TIME_OUT.toLong())

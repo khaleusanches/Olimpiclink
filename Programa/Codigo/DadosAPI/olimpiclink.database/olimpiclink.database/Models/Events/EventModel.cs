@@ -10,6 +10,7 @@ namespace olimpiclink.database.Models.Events
         public int leader_id { get; set; }
         public int comunity_id { get; set; }
         public string nameEvent { get; set; }
+        public string? endereco { get; set; }
         public string descriptionEvent { get; set; }
         public DateTime dateTimeEvent { get; set; }
         public DateTime closingDateTimeEvent { get; set; }
@@ -24,7 +25,8 @@ namespace olimpiclink.database.Models.Events
             string nameEvent, 
             string descriptionEvent, 
             DateTime dateTimeEvent, 
-            DateTime closingDateTimeEvent
+            DateTime closingDateTimeEvent,
+            string endereco
             )
         {
             this.place_id = place_id;
@@ -34,6 +36,7 @@ namespace olimpiclink.database.Models.Events
             this.descriptionEvent = descriptionEvent;
             this.dateTimeEvent = dateTimeEvent;
             this.closingDateTimeEvent = closingDateTimeEvent;
+            this.endereco = endereco;
             var teste = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             created_at_event = DateTime.ParseExact(teste, "yyyy-MM-dd HH:mm:ss", null);
             updated_at_event = DateTime.ParseExact(teste, "yyyy-MM-dd HH:mm:ss", null);

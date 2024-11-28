@@ -27,6 +27,7 @@ class MoreSeeActivity : AppCompatActivity() {
     private lateinit var listEvents : List<EventMiniModelGet>
     private lateinit var user : User
     private var recomended = true
+    private var lista : List<Int> = listOf()
     var commonEvents = CommonEvents()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +43,7 @@ class MoreSeeActivity : AppCompatActivity() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.laranja_splash)
         user = intent.extras!!.getParcelable<User>("user")!!
         recomended = intent.extras?.getBoolean("recomended") ?: true
+        lista = intent.extras?.getIntegerArrayList("data")?: listOf()
         componentsInitialize()
 
     }
@@ -53,11 +55,18 @@ class MoreSeeActivity : AppCompatActivity() {
         commonEvents.goPageMain(user, this, binding.bottomMenu.binding.btnPgInitial)
         commonEvents.goPageMyProfile(user, this, binding.bottomMenu.binding.btnPgProfile)
         commonEvents.goPageComunity(user, this, binding.bottomMenu.binding.btnPgCommunities)
+        commonEvents.goPageSearch(user, this, binding.bottomMenu.binding.btnPgSearch)
         binding.bottomMenu.binding.btnPgInitial.setImageResource(R.drawable.home_on)
         lifecycleScope.launch {
             try{
                 if(recomended){
-                    listEvents = api_event.eventMiniGet()
+                    if(lista.isEmpty()){
+                        listEvents = api_event.eventMiniGet()
+                    }
+                    else{
+                        listEvents = api_event.eventMiniGetData(lista[0], lista[1], lista[2])
+                        binding.textView.text = "Eventos do  " + lista[1].toString()
+                    }
                 }
                 else{
                     listEvents = api_event.eventMiniGetSeguindo(user.id_user)

@@ -46,7 +46,7 @@ class ListCommunitiesActivity : AppCompatActivity() {
         lifecycleScope.launch {
             try {
                 var lista_comus = api_comunity.getComunityCardId(user.id_user)
-                var adapter = AdapterComunity(this@ListCommunitiesActivity, user, lista_comus)
+                var adapter = AdapterComunity(this@ListCommunitiesActivity, user, lista_comus, api_comunity)
                 binding.rcComus.layoutManager = LinearLayoutManager(this@ListCommunitiesActivity, LinearLayoutManager.VERTICAL, false)
                 binding.rcComus.setHasFixedSize(true)
                 binding.rcComus.adapter = adapter
@@ -57,6 +57,8 @@ class ListCommunitiesActivity : AppCompatActivity() {
         commonEvents.goPageMain(user, this, binding.bottomMenu.binding.btnPgInitial)
         commonEvents.goPageMyProfile(user, this, binding.bottomMenu.binding.btnPgProfile)
         commonEvents.goPageComunity(user, this, binding.bottomMenu.binding.btnPgCommunities)
+        commonEvents.goPageSearch(user, this, binding.bottomMenu.binding.btnPgSearch)
+
     }
 
     fun createComunity(view: View) {

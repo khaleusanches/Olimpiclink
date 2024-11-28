@@ -77,6 +77,7 @@ class MainActivity : AppCompatActivity() {
         commonEvents.goPageMain(user, this, binding.bottomMenu.binding.btnPgInitial)
         commonEvents.goPageMyProfile(user, this, binding.bottomMenu.binding.btnPgProfile)
         commonEvents.goPageComunity(user, this, binding.bottomMenu.binding.btnPgCommunities)
+        commonEvents.goPageSearch(user, this, binding.bottomMenu.binding.btnPgSearch)
 
         btn_seguindo = binding.btnSeguindo
         btn_initial = binding.btnInicio
@@ -111,7 +112,7 @@ class MainActivity : AppCompatActivity() {
             try {
                 Log.d("MainActivity", "launch1")
                 if(recomended){
-                    list_publication = api_publication.publicationsGet()
+                    list_publication = api_publication.publicationsGet(user.id_user)
                 }
                 else{
                     list_publication = api_publication.publicationsGetSeguindo(user.id_user)
