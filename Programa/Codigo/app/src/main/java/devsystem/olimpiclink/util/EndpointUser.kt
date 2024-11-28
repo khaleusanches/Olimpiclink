@@ -48,6 +48,10 @@ interface EndpointUser {
                 (@Path("id") id: Int,
                  @Path("login") login: String) : MutableList<FriendsFollowsFollowersScreenModel>
 
+    @GET("/api/users/search/{name}")
+    suspend fun getSearchName
+                (@Path("name") name: String) : MutableList<FriendsFollowsFollowersScreenModel>
+
     @DELETE("api/followers/{id_user}&&{id}")
     suspend fun deleteFollower
                 (@Path("id_user") id_user : Int,

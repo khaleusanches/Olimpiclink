@@ -67,6 +67,7 @@ CREATE TABLE `leaders` (
 CREATE TABLE `events` (
   `idEvent` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `place_id` int(10) unsigned NOT NULL,
+  `endereco` varchar(255) not null,
   `comunity_id` int(10) unsigned NOT NULL,
   `leader_id` int(10) NOT NULL,
   `nameEvent` varchar(255) DEFAULT NULL,

@@ -12,8 +12,8 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface EndpointPublication {
-    @GET("/api/publication")
-    suspend fun publicationsGet() : List<PublicationModelGet>
+    @GET("/api/publication/feed/{id}")
+    suspend fun publicationsGet(@Path("id") id : Int) : List<PublicationModelGet>
 
     @GET("/api/publication/user/{id}")
     suspend fun publicationsGetID(
@@ -27,6 +27,11 @@ interface EndpointPublication {
     @GET("/api/publication/seguindo/{id}")
     suspend fun publicationsGetSeguindo(
         @Path("id") id : Int
+    ) : List<PublicationModelGet>
+
+    @GET("/api/publication/search/{conteudo}")
+    suspend fun publicationsGetSearch(
+        @Path("conteudo") conteudo : String
     ) : List<PublicationModelGet>
 
     @GET("/api/publication/comunities/{id}")

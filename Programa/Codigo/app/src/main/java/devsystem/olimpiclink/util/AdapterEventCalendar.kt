@@ -24,7 +24,12 @@ class AdapterEventCalendar (
 
     override fun onBindViewHolder(holder: EventCalendarViewHolder, position: Int) {
         holder.tv_title.text = lista_events[position].nameEvent
-        Glide.with(context).load(lista_events[position].url_picture_event[0]).into(holder.img_event_cape)
+        if(lista_events[position].url_picture_event.isNotEmpty()){
+            Glide.with(context).load(lista_events[position].url_picture_event[0]).into(holder.img_event_cape)
+        }
+        else{
+            Glide.with(context).load("https://www.pontoxtecidos.com.br/static/567/sku/155904889535944.jpg").into(holder.img_event_cape)
+        }
         holder.tv_comunity_name.text = lista_events[position].comunity_name
         holder.description.text = lista_events[position].descriptionEvent
         holder.tv_number.text = getDayFromDate(lista_events[position].dateTimeEvent)

@@ -266,6 +266,27 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.ComunityController",
+    "Method": "getIsLeader",
+    "RelativePath": "api/comunities/isleader/{id_user}\u0026\u0026{id_comunity}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_user",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "id_comunity",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.ComunityController",
     "Method": "postRequestComunity",
     "RelativePath": "api/comunities/requestParticipation",
     "HttpMethod": "POST",
@@ -302,6 +323,22 @@
       {
         "Name": "id_comunity",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.ComunityController",
+    "Method": "getAllComunitySearch",
+    "RelativePath": "api/comunities/search/{name}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -389,6 +426,27 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.EventController",
+    "Method": "getEventsComunity",
+    "RelativePath": "api/Event/comunity/{id}/{month}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "month",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.EventController",
     "Method": "getEventMini",
     "RelativePath": "api/Event/mini",
     "HttpMethod": "GET",
@@ -408,6 +466,64 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.EventController",
+    "Method": "getEventMiniComunity",
+    "RelativePath": "api/Event/mini/comunity/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.EventController",
+    "Method": "getEventMiniData",
+    "RelativePath": "api/Event/mini/comunity/{id}/data/{day}/{month}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "day",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "month",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.EventController",
+    "Method": "getSearch",
+    "RelativePath": "api/Event/search/{title}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "title",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -794,16 +910,6 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.PublicationController",
-    "Method": "getPublication",
-    "RelativePath": "api/publication",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "olimpiclink.database.Controllers.PublicationController",
     "Method": "arquivar",
     "RelativePath": "api/publication/arquivar",
     "HttpMethod": "PUT",
@@ -836,6 +942,22 @@
   },
   {
     "ContainingType": "olimpiclink.database.Controllers.PublicationController",
+    "Method": "getPublication",
+    "RelativePath": "api/publication/feed/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.PublicationController",
     "Method": "getImagesPublication",
     "RelativePath": "api/publication/imagens/{id}/{img}",
     "HttpMethod": "GET",
@@ -850,6 +972,22 @@
       {
         "Name": "img",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.PublicationController",
+    "Method": "getPublicationsSeach",
+    "RelativePath": "api/publication/search/{conteudo}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "conteudo",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -1254,6 +1392,22 @@
       },
       {
         "Name": "password_user",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "olimpiclink.database.Controllers.UserController",
+    "Method": "getFriendsName",
+    "RelativePath": "api/users/search/{login}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "login",
         "Type": "System.String",
         "IsRequired": true
       }

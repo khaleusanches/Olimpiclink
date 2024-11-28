@@ -27,6 +27,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingBottom="200dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent">
@@ -75,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.15" />
+                app:layout_constraintGuide_begin="180dp" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/GL_4"
@@ -447,7 +448,6 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"
                 android:nestedScrollingEnabled="false"
-                android:paddingBottom="200dp"
                 app:layout_constraintEnd_toEndOf="@id/GL_2"
                 app:layout_constraintStart_toStartOf="@id/GL_1"
                 app:layout_constraintTop_toBottomOf="@+id/divider" />
@@ -459,13 +459,41 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"
                 android:nestedScrollingEnabled="false"
-                android:paddingBottom="200dp"
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="@id/GL_2"
                 app:layout_constraintStart_toStartOf="@id/GL_1"
                 app:layout_constraintTop_toBottomOf="@+id/divider" />
 
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rc_calendar_events"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1:1"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                android:nestedScrollingEnabled="false"
+                app:layout_constraintEnd_toEndOf="@id/GL_2"
+                app:layout_constraintStart_toStartOf="@id/GL_1"
+                app:layout_constraintTop_toBottomOf="@+id/calendarViewteste" />
+
+            <com.applandeo.materialcalendarview.CalendarView
+                android:id="@+id/calendarViewteste"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@id/GL_2"
+                app:layout_constraintStart_toStartOf="@id/GL_1"
+                android:layout_margin="16dp"
+                app:daysLabelsColor="@color/red"
+                app:abbreviationsLabelsSize="6sp"
+                app:abbreviationsLabelsColor="@color/red"
+                app:abbreviationsBarColor="@color/red_claro"
+                app:headerColor="@color/red"
+                android:visibility="gone"
+                app:anotherMonthsDaysLabelsColor="@color/transparentMesm"
+                app:todayLabelColor="@color/laranja_splash"
+                android:background="@drawable/button_border_red"
+                app:layout_constraintTop_toBottomOf="@+id/divider"
+                android:layout_width="0dp"/>
 
 
 

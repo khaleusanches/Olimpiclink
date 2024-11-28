@@ -72,31 +72,28 @@ namespace olimpiclink.database.Controllers
             return Ok();
         }
 
-        [HttpGet]
-        public async Task<IActionResult> getPublication()
+        [HttpGet("feed/{id}")]
+        public async Task<IActionResult> getPublication(int id)
         {
-            var teste = new PlaceController();
-            var publications = await context.publications.Where(publication => publication.activated_publication == true).OrderByDescending(publication => publication.date_publication).ToListAsync();
-            var lista = new List<GetPublicationModel>();
-            foreach (var publication in publications)
-            {
-                var getPublication = new GetPublicationModel
-                    (
-                        publication.id_publication,
-                        publication.user_id,
-                        publication.text_publication,
-                        publication.url_image_one_publication,
-                        publication.url_image_two_publication,
-                        publication.url_image_three_publication,
-                        publication.url_image_four_publication,
-                        publication.date_publication,
-                        publication.comunity_id,
-                        publication.place_id,
-                        publication.event_id
-                    );
-                lista.Add( getPublication );
-            }
-            return Ok(lista);
+            var getPublication = await (from publication in context.publications
+                                join uc1 in context.user_category on publication.user_id equals uc1.user_id
+                                join uc2 in context.user_category on uc1.category_id equals uc2.category_id
+                                where uc2.user_id == id
+                                select new
+                                {
+                                    publication.id_publication,
+                                    publication.user_id,
+                                    publication.text_publication,
+                                    publication.url_image_one_publication,
+                                    publication.url_image_two_publication,
+                                    publication.url_image_three_publication,
+                                    publication.url_image_four_publication,
+                                    publication.date_publication,
+                                    publication.comunity_id,
+                                    publication.place_id,
+                                    publication.event_id
+                                }).ToListAsync();
+            return Ok(getPublication);
         }
         [HttpGet("user/{user_id}")]
         public async Task<IActionResult> getUserPublications(int user_id)
@@ -272,7 +269,30 @@ namespace olimpiclink.database.Controllers
             ).ToListAsync();
             return Ok(publis);
         }
-
+        [HttpGet("search/{conteudo}")]
+        public async Task<IActionResult> getPublicationsSeach(string conteudo)
+        {
+            var publis = await (
+            from publication in context.publications
+            where publication.activated_publication == true && publication.text_publication.Contains(conteudo)
+            orderby publication.date_publication descending
+            select new
+            {
+                publication.id_publication,
+                publication.user_id,
+                publication.text_publication,
+                publication.url_image_one_publication,
+                publication.url_image_two_publication,
+                publication.url_image_three_publication,
+                publication.url_image_four_publication,
+                publication.date_publication,
+                publication.comunity_id,
+                publication.place_id,
+                publication.event_id
+            }
+            ).ToListAsync();
+            return Ok(publis);
+        }
         [HttpPost("testes")]
         public async Task<IActionResult> postImagePublication(
             [FromForm] int id, IFormFile image_one_publication = null, 

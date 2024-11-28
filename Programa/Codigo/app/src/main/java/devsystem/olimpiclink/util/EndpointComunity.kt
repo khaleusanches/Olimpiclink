@@ -21,6 +21,8 @@ interface EndpointComunity {
 
     @GET("/api/comunities/user/{id}")
     suspend fun getComunityCardId(@Path("id") id : Int) : List<ComunityModel>
+    @GET("/api/comunities/search/{name}")
+    suspend fun getComunitySearch(@Path("name") name : String) : List<ComunityModel>
 
     @POST("/api/comunities")
     suspend fun postComunity(@Body new_comunity : ComunityModelPost) : Response<Void>
@@ -39,4 +41,7 @@ interface EndpointComunity {
 
     @POST("/api/comunities/requestParticipation")
     suspend fun postRequestComunity(@Body new_participation : RequestParticipationComunityModel) : Response<Void>
+
+    @GET("/api/comunities/isleader/{id_user}&&{id_comunity}")
+    suspend fun isLeader(@Path("id_user") id : Int, @Path("id_comunity") id_comunity : Int) : List<String>
 }

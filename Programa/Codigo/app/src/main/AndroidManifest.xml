@@ -17,6 +17,15 @@
         android:theme="@style/Theme.Olimpiclink"
         tools:targetApi="31">
         <activity
+            android:name=".ui.pages.SearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.pages.UnpublishedEventActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.pages.ComunityLeader"
+            android:exported="false" />
+        <activity
             android:name=".ui.pages.ParaTestesActivity"
             android:exported="false" />
         <activity

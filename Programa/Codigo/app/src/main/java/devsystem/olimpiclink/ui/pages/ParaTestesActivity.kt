@@ -111,21 +111,6 @@ class ParaTestesActivity : AppCompatActivity() {
     }
 
     private fun teste() {
-        var rc = binding.rcCalendarEvents
-        var event = EventModelGet(
-            1, 1, "poli", 1, "comunidade teste", "nao",
-            "Evento de teste", "Descrição do evento de teste", "2024-12-11T22:10:10",
-            "teste", listOf("https://img.freepik.com/fotos-premium/fundo-preto-da-parede-de-concreto-aspero-com-luzes-de-neon-e-luzes-brilhantes-efeito-de-luz-rosa-roxo-e-azul-na-parede-de-cimento-vazia_35257-949.jpg"), 1
-        )
-        var event2 = EventModelGet(
-            1, 1, "poli", 1, "comunidade teste", "nao",
-            "Evento de teste", "Descrição do evento de teste", "2024-12-11T22:10:10",
-            "teste", listOf("https://img.freepik.com/fotos-premium/fundo-preto-da-parede-de-concreto-aspero-com-luzes-de-neon-e-luzes-brilhantes-efeito-de-luz-rosa-roxo-e-azul-na-parede-de-cimento-vazia_35257-949.jpg"), 1
-        )
-        var lista = listOf(event, event2)
-        var adapter = AdapterEventCalendar(this, lista)
-        rc?.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        rc?.setHasFixedSize(true)
-        rc?.adapter = adapter
+
     }
 }

@@ -20,6 +20,7 @@ retrofit-coroutines-adapter = "0.9.2"
 
 material-calendar-view = "1.9.2"
 glide-version = "4.16.0"
+uiTextAndroid = "1.7.5"
 
 [libraries]
 materialCalendarView = { module = "com.applandeo:material-calendar-view", version.ref = "material-calendar-view" }
@@ -45,6 +46,7 @@ glide-compiler = { module = "com.github.bumptech.glide:compiler", version = "4.1
 kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlin-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 retrofit-coroutines-adapter = { module = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter", version.ref = "retrofit-coroutines-adapter" }
+androidx-ui-text-android = { group = "androidx.compose.ui", name = "ui-text-android", version.ref = "uiTextAndroid" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

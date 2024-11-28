@@ -12,5 +12,6 @@ data class EventModelGet (
     val dateTimeEvent: String,
     val closingDateTimeEvent: String,
     val url_picture_event: List<String>,
-    val marked_presences: Int
+    val marked_presences: Int,
+    val endereco : String
 )

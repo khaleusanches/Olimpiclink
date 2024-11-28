@@ -7,9 +7,10 @@
             int leader_id,
             string nameEvent,
             string descriptionEvent,
-            DateTime dateTimeEvent,
-            DateTime closingDateTimeEvent,
-            string[]? pictures_event
+            string dateTimeEvent,
+            string closingDateTimeEvent,
+            string[]? pictures_event,
+            string endereco
         )
     {}
 }

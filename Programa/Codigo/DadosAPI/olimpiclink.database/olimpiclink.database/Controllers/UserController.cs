@@ -147,5 +147,19 @@ namespace olimpiclink.database.Controllers
                 ).ToListAsync();
             return Ok(urlCategorys);
         }
+        [HttpGet("search/{login}")]
+        public async Task<IActionResult> getFriendsName(string login)
+        {
+            var friends = await (
+                from user in context.users
+                where user.login_user.Contains(login)
+                select new
+                {
+                    img_profile = user.url_profile_picture_user,
+                    login_user = user.login_user,
+                    user_id = user.id_user
+                }).ToListAsync();
+            return Ok(friends);
+        }
     }
 }
