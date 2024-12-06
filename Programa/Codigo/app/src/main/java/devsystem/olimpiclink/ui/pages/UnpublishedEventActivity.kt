@@ -138,7 +138,7 @@ class UnpublishedEventActivity : AppCompatActivity() {
                 lifecycleScope.launch {
                     try {
                         var new_event = PostEventModel(
-                                    1, comunity_id, leader_id, binding.etTitle.text.toString(), binding.etDescription.text.toString(),
+                                    2, comunity_id, leader_id, binding.etTitle.text.toString(), binding.etDescription.text.toString(),
                                     binding.etInicio.text.toString(),
                                     binding.etFim.text.toString(),
                                     arrayOf(img_banner), binding.etLocal.text.toString()
@@ -146,6 +146,7 @@ class UnpublishedEventActivity : AppCompatActivity() {
                         Log.d("teste", new_event.dateTimeEvent)
                         Log.d("teste", img_banner)
                         api_event.postEvent(new_event)
+
                         var main_activity = Intent(this@UnpublishedEventActivity, MainActivity::class.java)
                         main_activity.putExtra("user", user)
                         startActivity(main_activity)

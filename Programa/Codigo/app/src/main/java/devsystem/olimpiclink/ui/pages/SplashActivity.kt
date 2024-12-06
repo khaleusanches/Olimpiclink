@@ -1,11 +1,15 @@
 package devsystem.olimpiclink.ui.pages
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Handler
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import devsystem.olimpiclink.R
@@ -23,6 +27,10 @@ class SplashActivity : AppCompatActivity() {
             insets
         }
         window.navigationBarColor = resources.getColor(R.color.laranja_splash)
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf({Manifest.permission.WRITE_EXTERNAL_STORAGE}.toString()), 1);
+        }
         timeIsUp()
     }
 

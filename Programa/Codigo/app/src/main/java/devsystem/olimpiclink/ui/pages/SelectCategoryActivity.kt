@@ -46,7 +46,7 @@ class SelectCategoryActivity : AppCompatActivity() {
             list_selected.remove("natacao")
             binding.imgNat.setBackgroundResource(R.color.transparentMesm)
         }
-        else{
+        else if (list_selected.size < 4){
             list_selected.add("natacao")
             binding.imgNat.setBackgroundResource(R.drawable.logo_shape)
         }
@@ -57,7 +57,7 @@ class SelectCategoryActivity : AppCompatActivity() {
             list_selected.remove("Box")
             binding.imgBox.setBackgroundResource(R.color.transparentMesm)
         }
-        else{
+        else if (list_selected.size < 4){
             list_selected.add("Box")
             binding.imgBox.setBackgroundResource(R.drawable.logo_shape)
         }
@@ -67,7 +67,7 @@ class SelectCategoryActivity : AppCompatActivity() {
             list_selected.remove("Xadrez")
             binding.imgXadrez.setBackgroundResource(R.color.transparentMesm)
         }
-        else{
+        else if (list_selected.size < 4){
             list_selected.add("Xadrez")
             binding.imgXadrez.setBackgroundResource(R.drawable.logo_shape)
         }
@@ -77,7 +77,7 @@ class SelectCategoryActivity : AppCompatActivity() {
             list_selected.remove("Volei")
             binding.imgVolei.setBackgroundResource(R.color.transparentMesm)
         }
-        else{
+        else if (list_selected.size < 4){
             list_selected.add("Volei")
             binding.imgVolei.setBackgroundResource(R.drawable.logo_shape)
         }
@@ -87,7 +87,7 @@ class SelectCategoryActivity : AppCompatActivity() {
             list_selected.remove("Basquete")
             binding.imgBasquete.setBackgroundResource(R.color.transparentMesm)
         }
-        else{
+        else if (list_selected.size < 4){
             list_selected.add("Basquete")
             binding.imgBasquete.setBackgroundResource(R.drawable.logo_shape)
         }
@@ -97,7 +97,7 @@ class SelectCategoryActivity : AppCompatActivity() {
             list_selected.remove("UsFoot")
             binding.imgUsfoot.setBackgroundResource(R.color.transparentMesm)
         }
-        else{
+        else if (list_selected.size < 4){
             list_selected.add("UsFoot")
             binding.imgUsfoot.setBackgroundResource(R.drawable.logo_shape)
         }
