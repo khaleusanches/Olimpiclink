@@ -1,0 +1,239 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{286B5AA5-7BFD-4F26-ADF1-545F255A27AF}|Olimpiclink.API\\Olimpiclink.API.csproj|C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\olimpiclink.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{286B5AA5-7BFD-4F26-ADF1-545F255A27AF}|Olimpiclink.API\\Olimpiclink.API.csproj|solutionrelative:olimpiclink.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{286B5AA5-7BFD-4F26-ADF1-545F255A27AF}|Olimpiclink.API\\Olimpiclink.API.csproj|c:\\users\\khaleu\\desktop\\projetos\\olimpiclink\\olimpiclink.api\\olimpiclink.api\\service\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{286B5AA5-7BFD-4F26-ADF1-545F255A27AF}|Olimpiclink.API\\Olimpiclink.API.csproj|solutionrelative:olimpiclink.api\\service\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{286B5AA5-7BFD-4F26-ADF1-545F255A27AF}|Olimpiclink.API\\Olimpiclink.API.csproj|C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\olimpiclink.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{286B5AA5-7BFD-4F26-ADF1-545F255A27AF}|Olimpiclink.API\\Olimpiclink.API.csproj|solutionrelative:olimpiclink.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{286B5AA5-7BFD-4F26-ADF1-545F255A27AF}|Olimpiclink.API\\Olimpiclink.API.csproj|c:\\users\\khaleu\\desktop\\projetos\\olimpiclink\\olimpiclink.api\\olimpiclink.api\\repository\\user\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{286B5AA5-7BFD-4F26-ADF1-545F255A27AF}|Olimpiclink.API\\Olimpiclink.API.csproj|solutionrelative:olimpiclink.api\\repository\\user\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{286B5AA5-7BFD-4F26-ADF1-545F255A27AF}|Olimpiclink.API\\Olimpiclink.API.csproj|c:\\users\\khaleu\\desktop\\projetos\\olimpiclink\\olimpiclink.api\\olimpiclink.api\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{286B5AA5-7BFD-4F26-ADF1-545F255A27AF}|Olimpiclink.API\\Olimpiclink.API.csproj|solutionrelative:olimpiclink.api\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{286B5AA5-7BFD-4F26-ADF1-545F255A27AF}|Olimpiclink.API\\Olimpiclink.API.csproj|C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\olimpiclink.api\\models\\responsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{286B5AA5-7BFD-4F26-ADF1-545F255A27AF}|Olimpiclink.API\\Olimpiclink.API.csproj|solutionrelative:olimpiclink.api\\models\\responsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{286B5AA5-7BFD-4F26-ADF1-545F255A27AF}|Olimpiclink.API\\Olimpiclink.API.csproj|C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\olimpiclink.api\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{286B5AA5-7BFD-4F26-ADF1-545F255A27AF}|Olimpiclink.API\\Olimpiclink.API.csproj|solutionrelative:olimpiclink.api\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{286B5AA5-7BFD-4F26-ADF1-545F255A27AF}|Olimpiclink.API\\Olimpiclink.API.csproj|C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\olimpiclink.api\\dto\\usercreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{286B5AA5-7BFD-4F26-ADF1-545F255A27AF}|Olimpiclink.API\\Olimpiclink.API.csproj|solutionrelative:olimpiclink.api\\dto\\usercreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{286B5AA5-7BFD-4F26-ADF1-545F255A27AF}|Olimpiclink.API\\Olimpiclink.API.csproj|C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\olimpiclink.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{286B5AA5-7BFD-4F26-ADF1-545F255A27AF}|Olimpiclink.API\\Olimpiclink.API.csproj|solutionrelative:olimpiclink.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{286B5AA5-7BFD-4F26-ADF1-545F255A27AF}|Olimpiclink.API\\Olimpiclink.API.csproj|C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\olimpiclink.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{286B5AA5-7BFD-4F26-ADF1-545F255A27AF}|Olimpiclink.API\\Olimpiclink.API.csproj|solutionrelative:olimpiclink.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{286B5AA5-7BFD-4F26-ADF1-545F255A27AF}|Olimpiclink.API\\Olimpiclink.API.csproj|C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\olimpiclink.api\\repository\\user\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{286B5AA5-7BFD-4F26-ADF1-545F255A27AF}|Olimpiclink.API\\Olimpiclink.API.csproj|solutionrelative:olimpiclink.api\\repository\\user\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 1086,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TokenService.cs",
+              "DocumentMoniker": "C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\Olimpiclink.API\\Service\\TokenService.cs",
+              "RelativeDocumentMoniker": "Olimpiclink.API\\Service\\TokenService.cs",
+              "ToolTip": "C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\Olimpiclink.API\\Service\\TokenService.cs",
+              "RelativeToolTip": "Olimpiclink.API\\Service\\TokenService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T21:24:25.77Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Settings.cs",
+              "DocumentMoniker": "C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\Olimpiclink.API\\Settings.cs",
+              "RelativeDocumentMoniker": "Olimpiclink.API\\Settings.cs",
+              "ToolTip": "C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\Olimpiclink.API\\Settings.cs",
+              "RelativeToolTip": "Olimpiclink.API\\Settings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T21:23:02.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\Olimpiclink.API\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Olimpiclink.API\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\Olimpiclink.API\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Olimpiclink.API\\Controllers\\UserController.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAAACEAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T17:42:13.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserCreateDto.cs",
+              "DocumentMoniker": "C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\Olimpiclink.API\\Dto\\UserCreateDto.cs",
+              "RelativeDocumentMoniker": "Olimpiclink.API\\Dto\\UserCreateDto.cs",
+              "ToolTip": "C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\Olimpiclink.API\\Dto\\UserCreateDto.cs",
+              "RelativeToolTip": "Olimpiclink.API\\Dto\\UserCreateDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T17:25:20.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\Olimpiclink.API\\Repository\\User\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Olimpiclink.API\\Repository\\User\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\Olimpiclink.API\\Repository\\User\\UserRepository.cs",
+              "RelativeToolTip": "Olimpiclink.API\\Repository\\User\\UserRepository.cs",
+              "ViewState": "AQIAAFAAAAAAAAAAAAAAAFIAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T17:24:36.818Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ResponseModel.cs",
+              "DocumentMoniker": "C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\Olimpiclink.API\\Models\\ResponseModel.cs",
+              "RelativeDocumentMoniker": "Olimpiclink.API\\Models\\ResponseModel.cs",
+              "ToolTip": "C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\Olimpiclink.API\\Models\\ResponseModel.cs",
+              "RelativeToolTip": "Olimpiclink.API\\Models\\ResponseModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T17:21:34.18Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\Olimpiclink.API\\Repository\\User\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "Olimpiclink.API\\Repository\\User\\IUserRepository.cs",
+              "ToolTip": "C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\Olimpiclink.API\\Repository\\User\\IUserRepository.cs",
+              "RelativeToolTip": "Olimpiclink.API\\Repository\\User\\IUserRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T17:21:15.124Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserModel.cs",
+              "DocumentMoniker": "C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\Olimpiclink.API\\Models\\UserModel.cs",
+              "RelativeDocumentMoniker": "Olimpiclink.API\\Models\\UserModel.cs",
+              "ToolTip": "C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\Olimpiclink.API\\Models\\UserModel.cs",
+              "RelativeToolTip": "Olimpiclink.API\\Models\\UserModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T17:10:29.563Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\Olimpiclink.API\\Program.cs",
+              "RelativeDocumentMoniker": "Olimpiclink.API\\Program.cs",
+              "ToolTip": "C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\Olimpiclink.API\\Program.cs",
+              "RelativeToolTip": "Olimpiclink.API\\Program.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAACsAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T17:05:31.866Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\Olimpiclink.API\\appsettings.json",
+              "RelativeDocumentMoniker": "Olimpiclink.API\\appsettings.json",
+              "ToolTip": "C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\Olimpiclink.API\\appsettings.json",
+              "RelativeToolTip": "Olimpiclink.API\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-09T17:03:51.077Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\Olimpiclink.API\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Olimpiclink.API\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\khaleu\\Desktop\\Projetos\\Olimpiclink\\Olimpiclink.API\\Olimpiclink.API\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Olimpiclink.API\\Data\\AppDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T16:59:04.798Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1349,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1349,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
