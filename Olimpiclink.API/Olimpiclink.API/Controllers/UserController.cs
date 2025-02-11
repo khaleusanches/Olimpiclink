@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Olimpiclink.API.Dto;
 using Olimpiclink.API.Models;
 using Olimpiclink.API.Repository.User;
+using Olimpiclink.API.Service;
 
 namespace Olimpiclink.API.Controllers
 {
@@ -23,17 +24,22 @@ namespace Olimpiclink.API.Controllers
             return Ok(create);
         }
         [HttpGet]
-        [Authorize]
         public async Task<ActionResult<ResponseModel<List<UserModel>>>> ListUsers()
         {
             var list = await _repository.ListUsers();
             return Ok(list);
         }
-        [HttpGet("Authentication")]
-        public async Task<ActionResult<ResponseModel<UserModel>>> LoginUser(string username, string password)
+        [HttpPost("Authentication")]
+        public async Task<ActionResult<ResponseModel<UserModel>>> LoginUser(UserLoginDto loginInfo)
         {
-            var loguei = await _repository.LoginUser(username, password);
+            var loguei = await _repository.LoginUser(loginInfo);
             return Ok(loguei);
+        }
+        [HttpPost("ValidarEmail")]
+        public async Task<ActionResult<ResponseModel<UserModel>>> ValidarEmail(ValidateEmailDto validateEmail)
+        {
+            var validei = await _repository.ValidarEmail(validateEmail);
+            return Ok(validei);
         }
     }
 }

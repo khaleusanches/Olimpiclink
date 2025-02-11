@@ -49,19 +49,40 @@
     "ContainingType": "Olimpiclink.API.Controllers.UserController",
     "Method": "LoginUser",
     "RelativePath": "api/User/Authentication",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginInfo",
+        "Type": "Olimpiclink.API.Dto.UserLoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Olimpiclink.API.Models.ResponseModel\u00601[[Olimpiclink.API.Models.UserModel, Olimpiclink.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Olimpiclink.API.Controllers.UserController",
+    "Method": "ValidarEmail",
+    "RelativePath": "api/User/ValidarEmail",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "username",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "password",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "validateEmail",
+        "Type": "Olimpiclink.API.Dto.ValidateEmailDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": [

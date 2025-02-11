@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Olimpiclink.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c99736588d74df882676c9773a21b6539fb9d52b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6af64d7cf66e11c455ff2c7ed30bd28a015592f5")]
 [assembly: System.Reflection.AssemblyProductAttribute("Olimpiclink.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Olimpiclink.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

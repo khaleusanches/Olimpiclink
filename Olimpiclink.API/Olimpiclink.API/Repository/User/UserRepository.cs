@@ -17,6 +17,7 @@ namespace Olimpiclink.API.Repository.User
         public async Task<ResponseModel<UserModel>> CreateUser(UserCreateDto user)
         {
             ResponseModel<UserModel> response = new ResponseModel<UserModel>();
+            Random number = new Random();
             var existingEmail =  await _context.Users.FirstOrDefaultAsync(u => u.Email == user.Email);
             var existingUsername = await _context.Users.FirstOrDefaultAsync(u => u.UserName == user.UserName);
             if(existingEmail != null)
@@ -39,11 +40,15 @@ namespace Olimpiclink.API.Repository.User
                     Email = user.Email,
                     Password = user.Password,
                     UserName = user.UserName,
+                    number = number.Next(1000, 9999).ToString()
                 };
+
                 await _context.Users.AddAsync(newUser);
                 await _context.SaveChangesAsync();
                 response.Value = newUser;
                 response.Message = "Sucesso";
+                MailService teste = new MailService();
+                teste.SendEmail(newUser.Email, "Olimpiclink - Verificação de Email", "Código de verificação: " + newUser.number);
             }
             catch (Exception ex)
             {
@@ -79,12 +84,12 @@ namespace Olimpiclink.API.Repository.User
             return response;
         }
 
-        public async Task<ResponseModel<UserModel>> LoginUser(string username, string password)
+        public async Task<ResponseModel<UserModel>> LoginUser(UserLoginDto loginInfo)
         {
             ResponseModel<UserModel> response = new ResponseModel<UserModel>();
             try
             {
-                var user = await _context.Users.FirstOrDefaultAsync(user => user.UserName == username && user.Password == password);
+                var user = await _context.Users.FirstOrDefaultAsync(user => user.UserName == loginInfo.Email && user.Password == loginInfo.Password);
                 if(user == null)
                 {
                     response.Message = "Usuário ou senha inválidos";
@@ -106,6 +111,37 @@ namespace Olimpiclink.API.Repository.User
         public Task<ResponseModel<UserModel>> UpdateUser(UserModel user)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<ResponseModel<UserModel>> ValidarEmail(ValidateEmailDto validateEmail)
+        {
+            ResponseModel<UserModel> response = new ResponseModel<UserModel>();
+            try
+            {
+                var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == validateEmail.Email);
+                if(user == null )
+                {
+                    response.Message = "Usuário não encontrado";
+                    return response;
+                }
+                if(user.number == validateEmail.Number)
+                {
+                    response.Message = "Sucesso";
+                    response.Status = true;
+                    user.Verificado_Email = true;
+                    await _context.SaveChangesAsync();
+                }
+                else
+                {
+                    response.Message = "Código inválido";
+                    response.Status = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Message=ex.Message;
+            }
+            return response;
         }
     }
 }
